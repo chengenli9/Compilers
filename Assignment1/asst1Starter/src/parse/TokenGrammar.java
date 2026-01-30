@@ -533,7 +533,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // whitespace
     //: white ::= {" " 9 12} // space or tab or form feed
     //: white ::= eol
-    //: white :: comment
+    //: white ::= comment
 
     // to handle the common end-of-line sequences on different types
     // of systems, we treat the sequence CR+LF as an end of line.
@@ -559,7 +559,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: stringPrintable ::= {"#".."["} => pass
     //: stringPrintable ::= {"]".."~"} => pass
 
-    // char printables are every character except ' 
+    // char printables are every character except ' and \
     //: charPrintable ::= {" ".."&"} => pass
     //: charPrintable ::= {"(".."["} => pass
     //: charPrintable ::= {"]".."~"} => pass
@@ -577,15 +577,21 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     ////////////////////////////////////////////////////////////////
     
     // ============ Comment Handling =============
-    //: oneLineComment ::= "//" printable** eol 
-    //: oneLineComment ::= "/*" printable** "*/" eol 
-
-    //: invalidCommentContent ::= "/*" => void
-    //: invalidcommentContent ::= "*/" => void
 
     //: comment ::= oneLineComment
+    //: comment ::= blockComment
 
-    
+    //: oneLineComment ::= doubleSlash printable* eol 
+    //: blockComment ::= slashStar blockCommentContent* starSlash 
+
+    //: blockCommentContent ::= {9 32..41 43..126}
+    //: blockCommentContent ::= "*" !"/"
+    //: blockCommentContent ::= eol
+
+    //: slashStar ::= "/*" => pass
+    //: starSlash ::= "*/" => pass
+    //: doubleSlash ::= "//" => pass
+
 
 
     //: `! ::= "!" !"=" white*
@@ -612,7 +618,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `; ::= ";" white* 
     //: `++ ::= "++" white* 
     //: `-- ::= "--" white* 
-    //: `/ ::= !"*" "/" !{"*" "/"} white* 
+    //: `/ ::= !doubleSlash !slashStar "/" !{"/" "*"} white* 
 
     //: `boolean ::= "boolean" !idChar white* 
     //: reserved ::= `boolean
@@ -642,7 +648,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: reserved ::= `null
     //: `return ::= "return" !idChar white*
     //: reserved ::= `return
-    //: `instanceof ::=  "instanceof" !idChar White*
+    //: `instanceof ::=  "instanceof" !idChar white*
     //: reserved ::= `instanceof
     //: `new ::= "new" !idChar white*
     //: reserved ::= `new
@@ -683,7 +689,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `import ::= "import" !idChar white*
     //: reserved ::= `import
     //: `interface ::= "interface" !idChar white*
-    //: reserved ::= `interafce
+    //: reserved ::= `interface
     //: `long ::= "long" !idChar white*
     //: reserved ::= `long
     //: `native ::= "native" !idChar white*
@@ -717,12 +723,11 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `volatile ::= "volatile" !idChar white*
     //: reserved ::= `volatile
 
-    //: ID ::= !rerserved letter++ idChar** white* => text
+    //: ID ::= !reserved letter++ idChar** white* => text
 
-    //: STRING_LITERAL ::= '"' stringPrintable** '"' white* => text
+    //: STRING_LITERAL ::= '"' stringPrintable* '"' white* => text
 
-    //: CHARACTER_LITERAL ::= "'" charPrintable** "'" => int return0(char)
-    
+    //: CHAR_LITERAL ::= "'" charPrintable "'" white* => 
     public int return0(char c1, char c2, char c3) { 
         return (int) c2; 
     }

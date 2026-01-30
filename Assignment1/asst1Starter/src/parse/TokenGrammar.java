@@ -533,6 +533,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // whitespace
     //: white ::= {" " 9 12} // space or tab or form feed
     //: white ::= eol
+    //: white :: comment
 
     // to handle the common end-of-line sequences on different types
     // of systems, we treat the sequence CR+LF as an end of line.
@@ -552,6 +553,18 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // Potentially useful definitions
     // printable is any character than shows up when you type
     //: printable ::= {" ".."~"} => pass
+    
+    // string printables are every character except " and \
+    //: stringPrintable ::= {" ".."!"} => pass
+    //: stringPrintable ::= {"#".."["} => pass
+    //: stringPrintable ::= {"]".."~"} => pass
+
+    // char printables are every character except ' 
+    //: charPrintable ::= {" ".."&"} => pass
+    //: charPrintable ::= {"(".."["} => pass
+    //: charPrintable ::= {"]".."~"} => pass
+
+
 
     // The end of file is when we don't match any character.
     // eof is the end of file.  It does not match any character.
@@ -564,14 +577,13 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     ////////////////////////////////////////////////////////////////
     
     // ============ Comment Handling =============
-    //: oneLineComment :: "//" printable** eol
+    //: oneLineComment ::= "//" printable** eol 
+    //: oneLineComment ::= "/*" printable** "*/" eol 
 
-    //: blockCommentStart ::= "/*"
-    //: blockCommentEnd ::= "*/"
+    //: invalidCommentContent ::= "/*" => void
+    //: invalidcommentContent ::= "*/" => void
 
-    //: invalidCommentContent ::= blockCommentStart
-    //: invalidcommentContent ::= blockCommentEnd
-
+    //: comment ::= oneLineComment
 
     
 
@@ -602,113 +614,117 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `-- ::= "--" white* 
     //: `/ ::= !"*" "/" !{"*" "/"} white* 
 
-    //: `boolean ::= "boolean" !idChar white* => void
+    //: `boolean ::= "boolean" !idChar white* 
     //: reserved ::= `boolean
-    //: `extends ::= "extends" !idChar white* => void
+    //: `extends ::= "extends" !idChar white* 
     //: reserved ::= `extends
-    //: `void ::= "void" !idChar white* => void
+    //: `void ::= "void" !idChar white* 
     //: reserved ::= `void
-    //: `int ::= "int" !idChar white* => void
+    //: `int ::= "int" !idChar white* 
     //: reserved ::= `int
-    //: `while ::= "while" !idChar white* => void
+    //: `while ::= "while" !idChar white* 
     //: reserved ::= `while
-    //: `if ::= "if" !idChar white* => void
+    //: `if ::= "if" !idChar white* 
     //: reserved ::= `if
-    //: `for ::= "for" !idChar white* => void
+    //: `for ::= "for" !idChar white* 
     //: reserved ::= `for
-    //: `break ::= "break" !idChar white* => void
+    //: `break ::= "break" !idChar white* 
     //: reserved ::= `break
-    //: `this ::= "this" !idChar white* => void
+    //: `this ::= "this" !idChar white* 
     //: reserved ::= `this
-    //: `false ::= "false" !idChar white* => void
+    //: `false ::= "false" !idChar white* 
     //: reserved ::= `false
-    //: `true ::= "true" !idChar white* => void
+    //: `true ::= "true" !idChar white* 
     //: reserved ::= `true
-    //: `super ::= "super" !idChar white* => void
+    //: `super ::= "super" !idChar white* 
     //: reserved ::= `super
-    //: `null ::= "null" !idChar white* => void
+    //: `null ::= "null" !idChar white* 
     //: reserved ::= `null
-    //: `return ::= "return" !idChar white* => void
+    //: `return ::= "return" !idChar white*
     //: reserved ::= `return
-    //: `instanceof ::=  "instanceof" !idChar White* => void
+    //: `instanceof ::=  "instanceof" !idChar White*
     //: reserved ::= `instanceof
-    //: `new ::= "new" !idChar white* => void
+    //: `new ::= "new" !idChar white*
     //: reserved ::= `new
-    //: `abstract ::= "abstract" !idChar white* => void
+    //: `abstract ::= "abstract" !idChar white*
     //: reserved ::= `abstract
-    //: `assert ::= "assert" !idChar white* => void
+    //: `assert ::= "assert" !idChar white*
     //: reserved ::= `assert
-    //: `byte ::= "byte" !idChar white* => void
+    //: `byte ::= "byte" !idChar white*
     //: reserved ::= `byte
-    //: `case ::= "case" !idChar white* => void
+    //: `case ::= "case" !idChar white*
     //: reserved ::= `case
-    //: `catch ::= "catch" !idChar white* => void
+    //: `catch ::= "catch" !idChar white*
     //: reserved ::= `catch
-    //: `char ::= "char" !idChar white* => void
+    //: `char ::= "char" !idChar white*
     //: reserved ::= `char
-    //: `const ::= "const" !idChar white* => void
+    //: `const ::= "const" !idChar white*
     //: reserved ::= `const
-    //: `continue ::= "continue" !idChar white* => void
+    //: `continue ::= "continue" !idChar white*
     //: reserved ::= `continue
-    //: `default ::= "default" !idChar white* => void
+    //: `default ::= "default" !idChar white*
     //: reserved ::= `default
-    //: `do ::= "do" !idChar white* => void
+    //: `do ::= "do" !idChar white*
     //: reserved ::= `do
-    //: `double ::= "double" !idChar white* => void
+    //: `double ::= "double" !idChar white*
     //: reserved ::= `double
-    //: `enum ::= "enum" !idChar white* => void
+    //: `enum ::= "enum" !idChar white*
     //: reserved ::= `enum
-    //: `final ::= "final" !idChar white* => void
+    //: `final ::= "final" !idChar white*
     //: reserved ::= `final
-    //: `finally ::= "finally" !idChar white* => void
+    //: `finally ::= "finally" !idChar white*
     //: reserved ::= `finally
-    //: `float ::= "float" !idChar white* => void
+    //: `float ::= "float" !idChar white*
     //: reserved ::= `float
-    //: `goto ::= "goto" !idChar white* => void
+    //: `goto ::= "goto" !idChar white*
     //: reserved ::= `goto
-    //: `implements ::= "implements" !idChar white* => void
+    //: `implements ::= "implements" !idChar white*
     //: reserved ::= `implements
-    //: `import ::= "import" !idChar white* => void
+    //: `import ::= "import" !idChar white*
     //: reserved ::= `import
-    //: `interface ::= "interface" !idChar white* => void
+    //: `interface ::= "interface" !idChar white*
     //: reserved ::= `interafce
-    //: `long ::= "long" !idChar white* => void
+    //: `long ::= "long" !idChar white*
     //: reserved ::= `long
-    //: `native ::= "native" !idChar white* => void
+    //: `native ::= "native" !idChar white*
     //: reserved ::= `native
-    //: `package ::= "package" !idChar white* => void
+    //: `package ::= "package" !idChar white*
     //: reserved ::= `package
-    //: `private ::= "private" !idChar white* => void
+    //: `private ::= "private" !idChar white*
     //: reserved ::= `private
-    //: `protected ::= "protected" !idChar white* => void
+    //: `protected ::= "protected" !idChar white*
     //: reserved ::= `protected
-    //: `public ::= "public" !idChar white* => void
+    //: `public ::= "public" !idChar white*
     //: reserved ::= `public
-    //: `short ::= "short" !idChar white* => void
+    //: `short ::= "short" !idChar white*
     //: reserved ::= `short
-    //: `static ::= "static" !idChar white* => void
+    //: `static ::= "static" !idChar white*
     //: reserved ::= `static
-    //: `strictfp ::= "strictfp" !idChar white* => void
+    //: `strictfp ::= "strictfp" !idChar white*
     //: reserved ::= `strictfp
-    //: `switch ::= "switch" !idChar white* => void
+    //: `switch ::= "switch" !idChar white*
     //: reserved ::= `switch
-    //: `synchronized ::= "synchronized" !idChar white* => void
+    //: `synchronized ::= "synchronized" !idChar white*
     //: reserved ::= `synchronized
-    //: `throw ::= "throw" !idChar white* => void
+    //: `throw ::= "throw" !idChar white*
     //: reserved ::= `throw
-    //: `throws ::= "throws" !idChar white* => void
+    //: `throws ::= "throws" !idChar white*
     //: reserved ::= `throws
-    //: `transient ::= "transient" !idChar white* => void
+    //: `transient ::= "transient" !idChar white*
     //: reserved ::= `transient
-    //: `try ::= "try" !idChar white* => void
+    //: `try ::= "try" !idChar white*
     //: reserved ::= `try
-    //: `volatile ::= "volatile" !idChar white* => void
+    //: `volatile ::= "volatile" !idChar white*
     //: reserved ::= `volatile
 
-    //: ID ::= !rerserved letter++ idChar* white* => text
-    //: STRING_LITERAL ::= !{255} {255} => text
-    //: CHARACTER_LITERAL ::= !{255} {255} => int return0(char)
+    //: ID ::= !rerserved letter++ idChar** white* => text
+
+    //: STRING_LITERAL ::= '"' stringPrintable** '"' white* => text
+
+    //: CHARACTER_LITERAL ::= "'" charPrintable** "'" => int return0(char)
     
-    public int return0(char dummy) { return 0; }
+    public int return0(char c1, char c2, char c3) { 
+        return (int) c2; 
+    }
 
 }

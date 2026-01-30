@@ -563,50 +563,50 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // dummy definition.
     ////////////////////////////////////////////////////////////////
     
-    //: `! ::= !{255} {255} => void
-    //: `% ::= !{255} {255} => void
-    //: `&& ::= !{255} {255} => void
-    //: `* ::= !{255} {255} => void
-    //: `( ::= !{255} {255} => void
-    //: `) ::= !{255} {255} => void
-    //: `{ ::= !{255} {255} => void
-    //: `} ::= !{255} {255} => void
-    //: `- ::= !{255} {255} => void
-    //: `= ::= !{255} {255} => void
-    //: `== ::= !{255} {255} => void
-    //: `[ ::= !{255} {255} => void
-    //: `] ::= !{255} {255} => void
-    //: `|| ::= !{255} {255} => void
-    //: `< ::= !{255} {255} => void
-    //: `<= ::= !{255} {255} => void
-    //: `, ::= !{255} {255} => void
-    //: `> ::= !{255} {255} => void
-    //: `>= ::= !{255} {255} => void
-    //: `: ::= !{255} {255} => void
-    //: `. ::= !{255} {255} => void
-    //: `; ::= !{255} {255} => void
-    //: `++ ::= !{255} {255} => void
-    //: `-- ::= !{255} {255} => void
-    //: `/ ::= !{255} {255} => void
-    //: `boolean ::= !{255} {255} => void
-    //: `extends ::= !{255} {255} => void
-    //: `void ::= !{255} {255} => void
-    //: `int ::= !{255} {255} => void
-    //: `while ::= !{255} {255} => void
-    //: `if ::= !{255} {255} => void
-    //: `for ::= !{255} {255} => void
-    //: `break ::= !{255} {255} => void
-    //: `this ::= !{255} {255} => void
-    //: `false ::= !{255} {255} => void
-    //: `true ::= !{255} {255} => void
-    //: `super ::= !{255} {255} => void
-    //: `null ::= !{255} {255} => void
-    //: `return ::= !{255} {255} => void
-    //: `instanceof ::= !{255} {255} => void
-    //: `new ::= !{255} {255} => void
-    //: `abstract ::= !{255} {255} => void
-    //: `assert ::= !{255} {255} => void
-    //: `byte ::= !{255} {255} => void
+    //: `! ::= "!" !"=" white* => void
+    //: `% ::= "%" white* => void
+    //: `&& ::= "&&" white* => void
+    //: `* ::= "*" white* => void
+    //: `( ::= "(" white* => void
+    //: `) ::= ")" white* => void
+    //: `{ ::= "{" white* => void
+    //: `} ::= "}" white* => void
+    //: `- ::= "-" white* => void
+    //: `= ::= "=" white* => void
+    //: `== ::= "==" white* => void
+    //: `[ ::= "[" white* => void
+    //: `] ::= "]" white* => void
+    //: `|| ::= "||" white* => void
+    //: `< ::= "<" !"=" white* => void
+    //: `<= ::= "<=" white* => void
+    //: `, ::= "," white* => void
+    //: `> ::= ">" !"=" white* => void
+    //: `>= ::= ">=" white* => void
+    //: `: ::= ":" white* => void
+    //: `. ::= "." white* => void
+    //: `; ::= ";" white* => void
+    //: `++ ::= "@+" white* => void
+    //: `-- ::= "@-" white* => void
+    //: `/ ::= "/" white* => void
+    //: `boolean ::= "boolean" !idChar white* => void
+    //: `extends ::= "extends" !idChar white* => void
+    //: `void ::= "void" !idChar white* => void
+    //: `int ::= "int" !idChar white* => void
+    //: `while ::= "while" !idChar white* => void
+    //: `if ::= "if" !idChar white* => void
+    //: `for ::= "for" !idChar white* => void
+    //: `break ::= "break" !idChar white* => void
+    //: `this ::= "this" !idChar white* => void
+    //: `false ::= "false" !idChar white* => void
+    //: `true ::= "true" !idChar white* => void
+    //: `super ::= "super" !idChar white* => void
+    //: `null ::= "null" !idChar white* => void
+    //: `return ::= "return" !idChar white* => void
+    //: `instanceof ::=  "instanceof" !idChar White* => void
+    //: `new ::= "new" !idChar white* => void
+    //: `abstract ::= "abstract" !idChar white* => void
+    //: `assert ::= "assert" !idChar white* => void
+    //: `byte ::= "byte" !idChar white* => void
     //: `case ::= !{255} {255} => void
     //: `catch ::= !{255} {255} => void
     //: `char ::= !{255} {255} => void

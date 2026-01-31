@@ -497,7 +497,6 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `!= ::= "!=" white*
     //: `+ ::= "+" !"+" white*
 
-
     // a numeric literal
     //: INT_LITERAL ::= # digit++ white* =>
     public int convertToInt(int pos, List<Character> s)
@@ -508,7 +507,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
         }
         catch (NumberFormatException nfx)
         {
-            error(pos, CompError.OutOfRange(s.toString())); 
+            error(pos, CompError.OutOfRange(s.toString()));
             return 0;
         }
     }
@@ -535,6 +534,23 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: white ::= eol
     //: white ::= comment
 
+    // ============ Comment Handling =============
+
+    //: comment ::= oneLineComment
+    //: comment ::= blockComment
+
+    //: oneLineComment ::= doubleSlash printable** eol 
+    //: blockComment ::= slashStar blockCommentContent* starSlash 
+
+    //: blockCommentContent ::= {9 32..41 43..126}
+    //: blockCommentContent ::= "*" !"/"
+    //: blockCommentContent ::= eol
+
+    //: slashStar ::= "/*" => pass
+    //: starSlash ::= "*/" => pass
+    //: doubleSlash ::= "//" => pass
+
+
     // to handle the common end-of-line sequences on different types
     // of systems, we treat the sequence CR+LF as an end of line.
     // Otherwise, we treat CR or LF appearing separately each as an
@@ -553,17 +569,17 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // Potentially useful definitions
     // printable is any character than shows up when you type
     //: printable ::= {" ".."~"} => pass
-    
+
     // string printables are every character except " and \
     //: stringPrintable ::= {" ".."!"} => pass
     //: stringPrintable ::= {"#".."["} => pass
     //: stringPrintable ::= {"]".."~"} => pass
+     
 
     // char printables are every character except ' and \
     //: charPrintable ::= {" ".."&"} => pass
     //: charPrintable ::= {"(".."["} => pass
     //: charPrintable ::= {"]".."~"} => pass
-
 
 
     // The end of file is when we don't match any character.
@@ -576,34 +592,16 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // dummy definition.
     ////////////////////////////////////////////////////////////////
     
-    // ============ Comment Handling =============
-
-    //: comment ::= oneLineComment
-    //: comment ::= blockComment
-
-    //: oneLineComment ::= doubleSlash printable* eol 
-    //: blockComment ::= slashStar blockCommentContent* starSlash 
-
-    //: blockCommentContent ::= {9 32..41 43..126}
-    //: blockCommentContent ::= "*" !"/"
-    //: blockCommentContent ::= eol
-
-    //: slashStar ::= "/*" => pass
-    //: starSlash ::= "*/" => pass
-    //: doubleSlash ::= "//" => pass
-
-
-
     //: `! ::= "!" !"=" white*
-    //: `% ::= "%" white* 
-    //: `&& ::= "&&" white* 
-    //: `* ::= "*" white* 
-    //: `( ::= "(" white* 
-    //: `) ::= ")" white* 
+    //: `% ::= "%" white*
+    //: `&& ::= "&&" white*
+    //: `* ::= "*" white*
+    //: `( ::= "(" white*
+    //: `) ::= ")" white*
     //: `{ ::= "{" white* 
     //: `} ::= "}" white* 
     //: `- ::= "-" !"-" white* 
-    //: `= ::= "=" white* 
+    //: `= ::= "=" !"=" white* 
     //: `== ::= "==" white* 
     //: `[ ::= "[" white* 
     //: `] ::= "]" white* 
@@ -614,12 +612,12 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `> ::= ">" !"=" white* 
     //: `>= ::= ">=" white* 
     //: `: ::= ":" white* 
-    //: `. ::= "." white* 
-    //: `; ::= ";" white* 
-    //: `++ ::= "++" white* 
-    //: `-- ::= "--" white* 
+    //: `. ::= "." white*
+    //: `; ::= ";" white*
+    //: `++ ::= "++" white*
+    //: `-- ::= "--" white*
     //: `/ ::= !doubleSlash !slashStar "/" !{"/" "*"} white* 
-
+    
     //: `boolean ::= "boolean" !idChar white* 
     //: reserved ::= `boolean
     //: `extends ::= "extends" !idChar white* 
@@ -727,9 +725,9 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
 
     //: STRING_LITERAL ::= '"' stringPrintable* '"' white* => text
 
-    //: CHAR_LITERAL ::= "'" charPrintable "'" white* => 
-    public int return0(char c1, char c2, char c3) { 
-        return (int) c2; 
-    }
+    //: CHAR_LITERAL ::= # "'" charPrintable "'" white* =>
+    
+    public int return0(int pos, char c1, char c2, char c3) { return (int) c2; }
 
+    
 }

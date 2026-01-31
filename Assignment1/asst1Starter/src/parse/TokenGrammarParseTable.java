@@ -14,8 +14,8 @@ errorMsg
 *
 ;
 public class TokenGrammarParseTable implements wrangLR.runtime.ParseTable {
-public int getEofSym() { return 177; }
-public int getNttSym() { return 178; }
+public int getEofSym() { return 178; }
+public int getNttSym() { return 179; }
 private String[] symNameTable = {
 "$$start",
 "start",
@@ -148,9 +148,15 @@ private String[] symNameTable = {
 "9",
 "eol",
 "comment",
-"10",
-"13",
+"oneLineComment",
+"blockComment",
+"doubleSlash",
+"printable**",
 "printable",
+"slashStar",
+"blockCommentContent*",
+"starSlash",
+"blockCommentContent",
 "\"[\"",
 "\"-\"",
 "\"<\"",
@@ -175,22 +181,17 @@ private String[] symNameTable = {
 "\"\'\"",
 "\'\"\'",
 "\"*\"",
+"10",
+"13",
 "stringPrintable",
 "charPrintable",
-"oneLineComment",
-"blockComment",
-"doubleSlash",
-"printable*",
-"slashStar",
-"blockCommentContent*",
-"starSlash",
-"blockCommentContent",
 "letter++",
 "idChar**",
 "$$1",
 "stringPrintable*",
 "$$2",
 "token*",
+"printable*",
 "digit+",
 "idChar*",
 "letter+",
@@ -202,8 +203,8 @@ public String symName(int n) {
 }
 private TokenGrammar actionObject;
 public int[][] getParseTable() { return parseTable; }
-public int numSymbols() { return 179;}
-private static final int MIN_REDUCTION = 2026;
+public int numSymbols() { return 180;}
+private static final int MIN_REDUCTION = 2045;
 public int minReduction() { return MIN_REDUCTION;}
 private static final int MAX_ACCEPT_REDUCTION = MIN_REDUCTION+1;
 public int maxAcceptReduction() { return MAX_ACCEPT_REDUCTION; }
@@ -235,32 +236,32 @@ public int doInit(int startIdx) {
 }
 private final int[][] myParseTable = {
 { // state 0
-0x80000000|785, // match move
-0x80000000|1172, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|801, // match move
+0x80000000|1188, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 1
   }
 ,
 { // state 2
-114,1766, // "u"
+114,1780, // "u"
   }
 ,
 { // state 3
-114,747, // "u"
+114,763, // "u"
   }
 ,
 { // state 4
-0x80000000|1632, // match move
-0x80000000|301, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|1646, // match move
+0x80000000|305, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 5
 0x80000000|1, // match move
-0x80000000|933, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|953, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 6
@@ -268,479 +269,489 @@ MIN_REDUCTION+2, // (default reduction)
   }
 ,
 { // state 7
-0x80000000|1432, // match move
-0x80000000|756, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|1592, // match move
+0x80000000|846, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 8
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+274, // (default reduction)
+0x80000000|1444, // match move
+0x80000000|772, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 9
-92,1336, // "s"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+274, // (default reduction)
   }
 ,
 { // state 10
-178,MIN_REDUCTION+309, // $NT
+92,1352, // "s"
   }
 ,
 { // state 11
-110,823, // "i"
+179,MIN_REDUCTION+309, // $NT
   }
 ,
 { // state 12
-0x80000000|1709, // match move
-0x80000000|1742, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+110,840, // "i"
   }
 ,
 { // state 13
-113,617, // "r"
+0x80000000|1722, // match move
+0x80000000|1756, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 14
-121,1757, // "t"
+113,628, // "r"
   }
 ,
 { // state 15
-2,1722, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+260, // (default reduction)
+121,1771, // "t"
   }
 ,
 { // state 16
-0x80000000|1, // match move
-0x80000000|394, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+2,1736, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+260, // (default reduction)
   }
 ,
 { // state 17
-0x80000000|635, // match move
-0x80000000|26, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|1, // match move
+0x80000000|405, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 18
-0x80000000|372, // match move
-0x80000000|450, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|644, // match move
+0x80000000|27, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 19
-MIN_REDUCTION+214, // (default reduction)
+0x80000000|382, // match move
+0x80000000|461, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 20
-2,1270, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+182, // (default reduction)
+MIN_REDUCTION+214, // (default reduction)
   }
 ,
 { // state 21
-2,310, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+269, // (default reduction)
+2,1287, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+182, // (default reduction)
   }
 ,
 { // state 22
-2,1910, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+146, // (default reduction)
+2,318, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+269, // (default reduction)
   }
 ,
 { // state 23
-0x80000000|1578, // match move
-0x80000000|235, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+2,1925, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+146, // (default reduction)
   }
 ,
 { // state 24
-114,1665, // "u"
+0x80000000|1590, // match move
+0x80000000|238, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 25
-MIN_REDUCTION+322, // (default reduction)
+114,1678, // "u"
   }
 ,
 { // state 26
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+241, // (default reduction)
+MIN_REDUCTION+322, // (default reduction)
   }
 ,
 { // state 27
-0x80000000|871, // match move
-0x80000000|1988, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+241, // (default reduction)
   }
 ,
 { // state 28
-2,1620, // white*
-170,1827, // $$1
-MIN_REDUCTION+335, // (default reduction)
+0x80000000|891, // match move
+0x80000000|2006, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 29
-0x80000000|210, // match move
-0x80000000|794, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+2,1634, // white*
+170,1842, // $$1
+MIN_REDUCTION+335, // (default reduction)
   }
 ,
 { // state 30
-0x80000000|1, // match move
-0x80000000|327, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|214, // match move
+0x80000000|810, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 31
-MIN_REDUCTION+79, // (default reduction)
+97,270, // "="
   }
 ,
 { // state 32
-91,1601, // "a"
+0x80000000|1, // match move
+0x80000000|336, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 33
-0x80000000|429, // match move
-0x80000000|1073, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+MIN_REDUCTION+79, // (default reduction)
   }
 ,
 { // state 34
-178,MIN_REDUCTION+207, // $NT
+91,1614, // "a"
   }
 ,
 { // state 35
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+151, // (default reduction)
+0x80000000|439, // match move
+0x80000000|1087, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 36
-0x80000000|1, // match move
-0x80000000|1153, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+179,MIN_REDUCTION+207, // $NT
   }
 ,
 { // state 37
-178,MIN_REDUCTION+128, // $NT
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+151, // (default reduction)
   }
 ,
 { // state 38
-0x80000000|1146, // match move
-0x80000000|72, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+0x80000000|1, // match move
+0x80000000|1168, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 39
-0x80000000|574, // match move
-0x80000000|808, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+179,MIN_REDUCTION+118, // $NT
   }
 ,
 { // state 40
-0x80000000|1032, // match move
-0x80000000|1286, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|1161, // match move
+0x80000000|74, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 41
-MIN_REDUCTION+47, // (default reduction)
+0x80000000|583, // match move
+0x80000000|825, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 42
-121,771, // "t"
+0x80000000|1047, // match move
+0x80000000|1303, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 43
-2,799, // white*
-MIN_REDUCTION+160, // (default reduction)
+MIN_REDUCTION+47, // (default reduction)
   }
 ,
 { // state 44
-178,MIN_REDUCTION+204, // $NT
+121,787, // "t"
   }
 ,
 { // state 45
-0x80000000|784, // match move
-0x80000000|1738, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+2,816, // white*
+MIN_REDUCTION+160, // (default reduction)
   }
 ,
 { // state 46
-0x80000000|405, // match move
-0x80000000|347, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+179,MIN_REDUCTION+204, // $NT
   }
 ,
 { // state 47
-0x80000000|746, // match move
-0x80000000|1832, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|800, // match move
+0x80000000|1753, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 48
-MIN_REDUCTION+120, // (default reduction)
+0x80000000|416, // match move
+0x80000000|356, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 49
-0x80000000|1882, // match move
-0x80000000|349, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|762, // match move
+0x80000000|1847, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 50
-105,705, // "m"
-109,1552, // "f"
-120,247, // "n"
+MIN_REDUCTION+110, // (default reduction)
   }
 ,
 { // state 51
-120,970, // "n"
+0x80000000|1898, // match move
+0x80000000|358, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 52
-103,297, // "d"
+105,719, // "m"
+109,1564, // "f"
+120,249, // "n"
   }
 ,
 { // state 53
-178,MIN_REDUCTION+291, // $NT
+120,987, // "n"
   }
 ,
 { // state 54
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+223, // (default reduction)
+103,301, // "d"
   }
 ,
 { // state 55
-95,647, // "e"
+179,MIN_REDUCTION+291, // $NT
   }
 ,
 { // state 56
-114,1360, // "u"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+223, // (default reduction)
   }
 ,
 { // state 57
-0x80000000|420, // match move
-0x80000000|1565, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+95,657, // "e"
   }
 ,
 { // state 58
-0x80000000|56, // match move
-0x80000000|1747, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+114,1375, // "u"
   }
 ,
 { // state 59
-0x80000000|24, // match move
-0x80000000|229, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|431, // match move
+0x80000000|1578, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 60
-2,593, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+215, // (default reduction)
+0x80000000|58, // match move
+0x80000000|1761, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 61
-2,23, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+311, // (default reduction)
+0x80000000|25, // match move
+0x80000000|233, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 62
-0x80000000|78, // match move
-0x80000000|1726, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+2,603, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+215, // (default reduction)
   }
 ,
 { // state 63
-143,1416, // "/"
+2,24, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+311, // (default reduction)
   }
 ,
 { // state 64
-89,891, // "c"
-90,891, // "l"
-91,891, // "a"
-92,891, // "s"
-95,891, // "e"
-100,1979, // letter
-101,350, // digit
-102,240, // "_"
-103,891, // "d"
-104,891, // "g"
-105,891, // "m"
-106,891, // "p"
-107,891, // "v"
-108,891, // "y"
-109,891, // "f"
-110,891, // "i"
-111,891, // {"A".."Z"}
-112,891, // "o"
-113,891, // "r"
-114,891, // "u"
-115,891, // "x"
-116,891, // {"j" "q"}
-117,891, // "b"
-118,891, // "h"
-119,891, // "k"
-120,891, // "n"
-121,891, // "t"
-122,891, // "w"
-123,891, // "z"
-124,365, // {"0".."9"}
+0x80000000|80, // match move
+0x80000000|1740, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 65
-0x80000000|1005, // match move
-0x80000000|840, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+149,1429, // "/"
   }
 ,
 { // state 66
-113,30, // "r"
+0x80000000|1805, // match move
+0x80000000|584, // no-match move
+0x80000000|1101, // NT-test-match state for printable
   }
 ,
 { // state 67
-0x80000000|623, // match move
-0x80000000|954, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+89,911, // "c"
+90,911, // "l"
+91,911, // "a"
+92,911, // "s"
+95,911, // "e"
+100,1997, // letter
+101,359, // digit
+102,243, // "_"
+103,911, // "d"
+104,911, // "g"
+105,911, // "m"
+106,911, // "p"
+107,911, // "v"
+108,911, // "y"
+109,911, // "f"
+110,911, // "i"
+111,911, // {"A".."Z"}
+112,911, // "o"
+113,911, // "r"
+114,911, // "u"
+115,911, // "x"
+116,911, // {"j" "q"}
+117,911, // "b"
+118,911, // "h"
+119,911, // "k"
+120,911, // "n"
+121,911, // "t"
+122,911, // "w"
+123,911, // "z"
+124,374, // {"0".."9"}
   }
 ,
 { // state 68
-2,259, // white*
-MIN_REDUCTION+132, // (default reduction)
+0x80000000|1021, // match move
+0x80000000|857, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 69
-2,856, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+176, // (default reduction)
+113,32, // "r"
   }
 ,
 { // state 70
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+211, // (default reduction)
+2,262, // white*
+MIN_REDUCTION+132, // (default reduction)
   }
 ,
 { // state 71
-MIN_REDUCTION+109, // (default reduction)
+2,876, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+176, // (default reduction)
   }
 ,
 { // state 72
-0x80000000|1104, // match move
-0x80000000|1670, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+211, // (default reduction)
   }
 ,
 { // state 73
-178,MIN_REDUCTION+201, // $NT
+MIN_REDUCTION+121, // (default reduction)
   }
 ,
 { // state 74
-0x80000000|419, // match move
-0x80000000|1405, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+0x80000000|1119, // match move
+0x80000000|1683, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 75
+179,MIN_REDUCTION+201, // $NT
+  }
+,
+{ // state 76
+0x80000000|430, // match move
+0x80000000|1418, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 77
 -1, // $$start
 -1, // start
 -1, // white*
 6, // $$0
-1056, // token
+1070, // token
 -1, // `boolean
 -1, // `class
 -1, // `extends
@@ -794,2547 +805,2404 @@ MIN_REDUCTION+109, // (default reduction)
 -1, // `transient
 -1, // `try
 -1, // `volatile
-1508, // `!
-1692, // `!=
-882, // `%
-685, // `&&
-657, // `*
-1835, // `(
-1936, // `)
-1023, // `{
-1027, // `}
-1043, // `-
-809, // `+
-625, // `=
-1179, // `==
-439, // `[
-1452, // `]
-396, // `||
-2021, // `<
-602, // `<=
-175, // `,
-298, // `>
-778, // `>=
-31, // `.
-968, // `;
-938, // `++
-417, // `--
-1825, // `/
-738, // `:
-1607, // ID
-793, // INT_LITERAL
-136, // STRING_LITERAL
-1729, // CHAR_LITERAL
-653, // "c"
-653, // "l"
-653, // "a"
-653, // "s"
+1519, // `!
+1705, // `!=
+902, // `%
+697, // `&&
+668, // `*
+1850, // `(
+1951, // `)
+1039, // `{
+1042, // `}
+1057, // `-
+827, // `+
+634, // `=
+1195, // `==
+450, // `[
+1462, // `]
+407, // `||
+2039, // `<
+614, // `<=
+179, // `,
+302, // `>
+794, // `>=
+33, // `.
+985, // `;
+958, // `++
+428, // `--
+1840, // `/
+754, // `:
+1621, // ID
+809, // INT_LITERAL
+140, // STRING_LITERAL
+1743, // CHAR_LITERAL
+663, // "c"
+663, // "l"
+663, // "a"
+663, // "s"
 -1, // idChar
 -1, // reserved
-653, // "e"
-1108, // "!"
-1889, // "="
-404, // "+"
-795, // digit++
-1688, // letter
-1240, // digit
+663, // "e"
+1123, // "!"
+1508, // "="
+414, // "+"
+811, // digit++
+1701, // letter
+1258, // digit
 -1, // "_"
-653, // "d"
-653, // "g"
-653, // "m"
-653, // "p"
-653, // "v"
-653, // "y"
-653, // "f"
-653, // "i"
-653, // {"A".."Z"}
-653, // "o"
-653, // "r"
-653, // "u"
-653, // "x"
-653, // {"j" "q"}
-653, // "b"
-653, // "h"
-653, // "k"
-653, // "n"
-653, // "t"
-653, // "w"
-653, // "z"
-392, // {"0".."9"}
-712, // white
-1479, // {12}
-1479, // " "
-1479, // {9}
-1786, // eol
-1375, // comment
-71, // {10}
-1509, // {13}
--1, // printable
-1009, // "["
-999, // "-"
-1173, // "<"
-447, // "|"
--1, // {"?".."@"}
-2015, // "&"
-395, // ")"
-1948, // ","
-173, // "]"
-1229, // "/"
--1, // {"#".."$"}
-1310, // ";"
-552, // ">"
-1278, // "{"
-1011, // "%"
-458, // "("
--1, // "\"
-1391, // "."
-1654, // ":"
-1823, // "}"
--1, // {"^" "`" "~"}
-991, // "'"
-661, // '"'
-253, // "*"
--1, // stringPrintable
--1, // charPrintable
+663, // "d"
+663, // "g"
+663, // "m"
+663, // "p"
+663, // "v"
+663, // "y"
+663, // "f"
+663, // "i"
+663, // {"A".."Z"}
+663, // "o"
+663, // "r"
+663, // "u"
+663, // "x"
+663, // {"j" "q"}
+663, // "b"
+663, // "h"
+663, // "k"
+663, // "n"
+663, // "t"
+663, // "w"
+663, // "z"
+403, // {"0".."9"}
+726, // white
+1489, // {12}
+1489, // " "
+1489, // {9}
+1800, // eol
+1390, // comment
 -1, // oneLineComment
 -1, // blockComment
 -1, // doubleSlash
--1, // printable*
+-1, // printable**
+-1, // printable
 -1, // slashStar
 -1, // blockCommentContent*
 -1, // starSlash
 -1, // blockCommentContent
-1557, // letter++
+1025, // "["
+1015, // "-"
+1189, // "<"
+458, // "|"
+-1, // {"?".."@"}
+2034, // "&"
+406, // ")"
+1964, // ","
+177, // "]"
+1247, // "/"
+-1, // {"#".."$"}
+1328, // ";"
+562, // ">"
+1295, // "{"
+1027, // "%"
+469, // "("
+-1, // "\"
+1406, // "."
+1667, // ":"
+1838, // "}"
+-1, // {"^" "`" "~"}
+2025, // "'"
+673, // '"'
+255, // "*"
+73, // {10}
+1520, // {13}
+-1, // stringPrintable
+-1, // charPrintable
+1569, // letter++
 -1, // idChar**
 -1, // $$1
 -1, // stringPrintable*
 -1, // $$2
-1599, // token*
-594, // digit+
+1612, // token*
+-1, // printable*
+604, // digit+
 -1, // idChar*
-1151, // letter+
+1166, // letter+
 MIN_REDUCTION+3, // $
 -1, // $NT
   }
 ,
-{ // state 76
-0x80000000|1650, // match move
-0x80000000|1107, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 77
-2,1119, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+254, // (default reduction)
-  }
-,
 { // state 78
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+177, // (default reduction)
+0x80000000|1664, // match move
+0x80000000|1122, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 79
-178,MIN_REDUCTION+183, // $NT
+2,1135, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+254, // (default reduction)
   }
 ,
 { // state 80
-110,862, // "i"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+177, // (default reduction)
   }
 ,
 { // state 81
-2,960, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+248, // $NT
+179,MIN_REDUCTION+183, // $NT
   }
 ,
 { // state 82
-113,355, // "r"
+0x80000000|1922, // match move
+0x80000000|2042, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 83
-110,1809, // "i"
-  }
-,
-{ // state 84
-0x80000000|1296, // match move
-0x80000000|299, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 85
-89,1873, // "c"
-90,1873, // "l"
-91,1873, // "a"
-92,1873, // "s"
-93,102, // idChar
-95,1873, // "e"
-100,1269, // letter
-101,399, // digit
-102,1307, // "_"
-103,1873, // "d"
-104,1873, // "g"
-105,1873, // "m"
-106,1873, // "p"
-107,1873, // "v"
-108,1873, // "y"
-109,1873, // "f"
-110,1873, // "i"
-111,1873, // {"A".."Z"}
-112,1873, // "o"
-113,1873, // "r"
-114,1873, // "u"
-115,1873, // "x"
-116,1873, // {"j" "q"}
-117,1873, // "b"
-118,1873, // "h"
-119,1873, // "k"
-120,1873, // "n"
-121,1873, // "t"
-122,1873, // "w"
-123,1873, // "z"
-124,1130, // {"0".."9"}
-  }
-,
-{ // state 86
-0x80000000|1792, // match move
-0x80000000|904, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 87
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+214, // (default reduction)
-  }
-,
-{ // state 88
-0x80000000|1, // match move
-0x80000000|1052, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 89
-124,365, // {"0".."9"}
-  }
-,
-{ // state 90
-122,511, // "w"
-  }
-,
-{ // state 91
-2,1462, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+281, // $NT
-  }
-,
-{ // state 92
-0x80000000|1797, // match move
-0x80000000|575, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 93
-91,560, // "a"
-  }
-,
-{ // state 94
-92,514, // "s"
-  }
-,
-{ // state 95
-178,MIN_REDUCTION+303, // $NT
-  }
-,
-{ // state 96
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+325, // (default reduction)
-  }
-,
-{ // state 97
-95,520, // "e"
-  }
-,
-{ // state 98
-89,305, // "c"
-  }
-,
-{ // state 99
-0x80000000|353, // match move
-0x80000000|559, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 100
-120,944, // "n"
-  }
-,
-{ // state 101
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+173, // (default reduction)
-  }
-,
-{ // state 102
-0x80000000|900, // match move
-0x80000000|1300, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 103
-2,1620, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-169,1730, // idChar**
-170,1438, // $$1
-175,1467, // idChar*
-MIN_REDUCTION+337, // (default reduction)
-  }
-,
-{ // state 104
-155,1231, // "'"
-  }
-,
-{ // state 105
-MIN_REDUCTION+307, // (default reduction)
-  }
-,
-{ // state 106
-109,641, // "f"
-  }
-,
-{ // state 107
-97,945, // "="
-  }
-,
-{ // state 108
-2,201, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+156, // (default reduction)
-  }
-,
-{ // state 109
-MIN_REDUCTION+39, // (default reduction)
-  }
-,
-{ // state 110
-121,16, // "t"
-  }
-,
-{ // state 111
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+235, // (default reduction)
-  }
-,
-{ // state 112
-2,338, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+200, // $NT
-  }
-,
-{ // state 113
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+241, // (default reduction)
-  }
-,
-{ // state 114
-2,212, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+188, // (default reduction)
-  }
-,
-{ // state 115
-0x80000000|742, // match move
-0x80000000|1519, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 116
-0x80000000|1, // match move
-0x80000000|853, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 117
-95,1796, // "e"
-  }
-,
-{ // state 118
-2,912, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+364, // (default reduction)
-  }
-,
-{ // state 119
-0x80000000|939, // match move
-0x80000000|1243, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 120
-0x80000000|1924, // match move
-0x80000000|1952, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 121
-95,407, // "e"
-  }
-,
-{ // state 122
-0x80000000|1314, // match move
-0x80000000|728, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 123
-MIN_REDUCTION+110, // (default reduction)
-  }
-,
-{ // state 124
-MIN_REDUCTION+217, // (default reduction)
-  }
-,
-{ // state 125
-120,637, // "n"
-  }
-,
-{ // state 126
-0x80000000|1, // match move
-0x80000000|886, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 127
-MIN_REDUCTION+19, // (default reduction)
-  }
-,
-{ // state 128
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+151, // (default reduction)
-  }
-,
-{ // state 129
-2,1015, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+191, // $NT
-  }
-,
-{ // state 130
-2,47, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+233, // (default reduction)
-  }
-,
-{ // state 131
-0x80000000|1199, // match move
-0x80000000|1805, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 132
-MIN_REDUCTION+167, // (default reduction)
-  }
-,
-{ // state 133
-MIN_REDUCTION+29, // (default reduction)
-  }
-,
-{ // state 134
-89,724, // "c"
-90,724, // "l"
-91,724, // "a"
-92,724, // "s"
-95,724, // "e"
-96,724, // "!"
-97,724, // "="
-98,724, // "+"
-102,724, // "_"
-103,724, // "d"
-104,724, // "g"
-105,724, // "m"
-106,724, // "p"
-107,724, // "v"
-108,724, // "y"
-109,724, // "f"
-110,724, // "i"
-111,724, // {"A".."Z"}
-112,724, // "o"
-113,724, // "r"
-114,724, // "u"
-115,724, // "x"
-116,724, // {"j" "q"}
-117,724, // "b"
-118,724, // "h"
-119,724, // "k"
-120,724, // "n"
-121,724, // "t"
-122,724, // "w"
-123,724, // "z"
-124,724, // {"0".."9"}
-127,724, // " "
-128,724, // {9}
-129,1228, // eol
-131,343, // {10}
-132,367, // {13}
-134,724, // "["
-135,724, // "-"
-136,724, // "<"
-137,724, // "|"
-138,724, // {"?".."@"}
-139,724, // "&"
-140,724, // ")"
-141,724, // ","
-142,724, // "]"
-143,724, // "/"
-144,724, // {"#".."$"}
-145,724, // ";"
-146,724, // ">"
-147,724, // "{"
-148,724, // "%"
-149,724, // "("
-150,724, // "\"
-151,724, // "."
-152,724, // ":"
-153,724, // "}"
-154,724, // {"^" "`" "~"}
-155,724, // "'"
-156,724, // '"'
-157,847, // "*"
-166,1890, // starSlash
-167,442, // blockCommentContent
-  }
-,
-{ // state 135
-178,MIN_REDUCTION+252, // $NT
-  }
-,
-{ // state 136
-MIN_REDUCTION+87, // (default reduction)
-  }
-,
-{ // state 137
-0x80000000|1681, // match move
-0x80000000|1352, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 138
-95,749, // "e"
-  }
-,
-{ // state 139
-2,659, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+332, // $NT
-  }
-,
-{ // state 140
-95,292, // "e"
-  }
-,
-{ // state 141
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+217, // (default reduction)
-  }
-,
-{ // state 142
-0x80000000|1608, // match move
-0x80000000|75, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 143
-2,1535, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+227, // (default reduction)
-  }
-,
-{ // state 144
-2,1523, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+266, // (default reduction)
-  }
-,
-{ // state 145
-121,601, // "t"
-  }
-,
-{ // state 146
-0x80000000|1457, // match move
-0x80000000|40, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 147
-0x80000000|905, // match move
-0x80000000|1019, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 148
-121,861, // "t"
-  }
-,
-{ // state 149
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+253, // $NT
-  }
-,
-{ // state 150
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+149, // (default reduction)
-  }
-,
-{ // state 151
-2,1752, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+140, // (default reduction)
-  }
-,
-{ // state 152
-0x80000000|1378, // match move
-0x80000000|695, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 153
-178,MIN_REDUCTION+261, // $NT
-  }
-,
-{ // state 154
-2,1507, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+287, // $NT
-  }
-,
-{ // state 155
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+139, // (default reduction)
-  }
-,
-{ // state 156
-95,1597, // "e"
-  }
-,
-{ // state 157
-0x80000000|1, // match move
-0x80000000|806, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 158
-2,201, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+156, // (default reduction)
-  }
-,
-{ // state 159
-178,MIN_REDUCTION+91, // $NT
-  }
-,
-{ // state 160
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+141, // (default reduction)
-  }
-,
-{ // state 161
-0x80000000|1651, // match move
-0x80000000|463, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 162
-2,1097, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+281, // (default reduction)
-  }
-,
-{ // state 163
-110,457, // "i"
-  }
-,
-{ // state 164
-0x80000000|130, // match move
-0x80000000|348, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 165
-90,620, // "l"
-  }
-,
-{ // state 166
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+265, // (default reduction)
-  }
-,
-{ // state 167
-110,1743, // "i"
-  }
-,
-{ // state 168
-2,708, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+326, // $NT
-  }
-,
-{ // state 169
-2,1625, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+212, // (default reduction)
-  }
-,
-{ // state 170
-MIN_REDUCTION+208, // (default reduction)
-  }
-,
-{ // state 171
-0x80000000|1347, // match move
-0x80000000|1111, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 172
-MIN_REDUCTION+137, // (default reduction)
-  }
-,
-{ // state 173
-0x80000000|108, // match move
-0x80000000|287, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 174
-2,479, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+275, // $NT
-  }
-,
-{ // state 175
-MIN_REDUCTION+76, // (default reduction)
-  }
-,
-{ // state 176
-MIN_REDUCTION+35, // (default reduction)
-  }
-,
-{ // state 177
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+232, // (default reduction)
-  }
-,
-{ // state 178
-92,591, // "s"
-  }
-,
-{ // state 179
-92,1762, // "s"
-  }
-,
-{ // state 180
-MIN_REDUCTION+259, // (default reduction)
-  }
-,
-{ // state 181
--1, // $$start
--1, // start
-1311, // white*
--1, // $$0
-MIN_REDUCTION+150, // token
--1, // `boolean
--1, // `class
--1, // `extends
--1, // `void
--1, // `int
--1, // `while
--1, // `if
--1, // `else
--1, // `for
--1, // `break
--1, // `this
--1, // `false
--1, // `true
--1, // `super
--1, // `null
--1, // `return
--1, // `instanceof
--1, // `new
--1, // `abstract
--1, // `assert
--1, // `byte
--1, // `case
--1, // `catch
--1, // `char
--1, // `const
--1, // `continue
--1, // `default
--1, // `do
--1, // `double
--1, // `enum
--1, // `final
--1, // `finally
--1, // `float
--1, // `goto
--1, // `implements
--1, // `import
--1, // `interface
--1, // `long
--1, // `native
--1, // `package
--1, // `private
--1, // `protected
--1, // `public
--1, // `short
--1, // `static
--1, // `strictfp
--1, // `switch
--1, // `synchronized
--1, // `throw
--1, // `throws
--1, // `transient
--1, // `try
--1, // `volatile
-1508, // `!
-1692, // `!=
-882, // `%
-685, // `&&
-657, // `*
-1835, // `(
-1936, // `)
-1023, // `{
-1027, // `}
-1043, // `-
-809, // `+
-625, // `=
-1179, // `==
-439, // `[
-1452, // `]
-396, // `||
-2021, // `<
-602, // `<=
-175, // `,
-298, // `>
-778, // `>=
-31, // `.
-968, // `;
-938, // `++
-417, // `--
-1825, // `/
-738, // `:
-1607, // ID
-793, // INT_LITERAL
-136, // STRING_LITERAL
-1729, // CHAR_LITERAL
-653, // "c"
-653, // "l"
-653, // "a"
-653, // "s"
--1, // idChar
--1, // reserved
-653, // "e"
-1108, // "!"
-596, // "="
-404, // "+"
-795, // digit++
-1688, // letter
-1240, // digit
--1, // "_"
-653, // "d"
-653, // "g"
-653, // "m"
-653, // "p"
-653, // "v"
-653, // "y"
-653, // "f"
-653, // "i"
-653, // {"A".."Z"}
-653, // "o"
-653, // "r"
-653, // "u"
-653, // "x"
-653, // {"j" "q"}
-653, // "b"
-653, // "h"
-653, // "k"
-653, // "n"
-653, // "t"
-653, // "w"
-653, // "z"
-392, // {"0".."9"}
-702, // white
-1975, // {12}
-1975, // " "
-1975, // {9}
-482, // eol
-1769, // comment
-1062, // {10}
-1577, // {13}
--1, // printable
-1009, // "["
-999, // "-"
-1173, // "<"
-447, // "|"
--1, // {"?".."@"}
-2015, // "&"
-395, // ")"
-1948, // ","
-173, // "]"
-1229, // "/"
--1, // {"#".."$"}
-1310, // ";"
-552, // ">"
-1278, // "{"
-1011, // "%"
-458, // "("
--1, // "\"
-1391, // "."
-1654, // ":"
-1823, // "}"
--1, // {"^" "`" "~"}
-991, // "'"
-661, // '"'
-253, // "*"
--1, // stringPrintable
--1, // charPrintable
--1, // oneLineComment
--1, // blockComment
--1, // doubleSlash
--1, // printable*
--1, // slashStar
--1, // blockCommentContent*
--1, // starSlash
--1, // blockCommentContent
-1557, // letter++
--1, // idChar**
--1, // $$1
--1, // stringPrintable*
--1, // $$2
--1, // token*
-594, // digit+
--1, // idChar*
-1151, // letter+
-MIN_REDUCTION+150, // $
--1, // $NT
-  }
-,
-{ // state 182
-95,936, // "e"
-  }
-,
-{ // state 183
-0x80000000|1567, // match move
-0x80000000|171, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 184
-0x80000000|1974, // match move
-0x80000000|1934, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 185
-0x80000000|1, // match move
-0x80000000|290, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 186
-0x80000000|921, // match move
-0x80000000|335, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 187
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+322, // $NT
-  }
-,
-{ // state 188
-2,1450, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+134, // (default reduction)
-  }
-,
-{ // state 189
-2,697, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+206, // (default reduction)
-  }
-,
-{ // state 190
-0x80000000|888, // match move
-0x80000000|1898, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 191
-MIN_REDUCTION+135, // (default reduction)
-  }
-,
-{ // state 192
-MIN_REDUCTION+25, // (default reduction)
-  }
-,
-{ // state 193
-0x80000000|1, // match move
-0x80000000|275, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 194
-121,906, // "t"
-  }
-,
-{ // state 195
-MIN_REDUCTION+104, // (default reduction)
-  }
-,
-{ // state 196
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+145, // (default reduction)
-  }
-,
-{ // state 197
-91,1524, // "a"
-108,1866, // "y"
-114,1481, // "u"
-  }
-,
-{ // state 198
-178,MIN_REDUCTION+297, // $NT
-  }
-,
-{ // state 199
-3,6, // $$0
-4,1056, // token
-5,432, // `boolean
-6,735, // `class
-7,679, // `extends
-8,231, // `void
-9,1102, // `int
-10,324, // `while
-11,351, // `if
-12,748, // `else
-13,1134, // `for
-14,1984, // `break
-15,316, // `this
-16,380, // `false
-17,276, // `true
-18,908, // `super
-19,127, // `null
-20,699, // `return
-21,1345, // `instanceof
-22,2014, // `new
-23,1124, // `abstract
-24,469, // `assert
-25,192, // `byte
-26,535, // `case
-27,1558, // `catch
-28,974, // `char
-29,133, // `const
-30,315, // `continue
-31,1947, // `default
-32,1381, // `do
-33,1997, // `double
-34,650, // `enum
-35,176, // `final
-36,279, // `finally
-37,674, // `float
-38,1740, // `goto
-39,109, // `implements
-40,239, // `import
-41,849, // `interface
-42,1268, // `long
-43,540, // `native
-44,1099, // `package
-45,1389, // `private
-46,667, // `protected
-47,41, // `public
-48,1425, // `short
-49,1176, // `static
-50,331, // `strictfp
-51,544, // `switch
-52,759, // `synchronized
-53,811, // `throw
-54,369, // `throws
-55,1046, // `transient
-56,271, // `try
-57,426, // `volatile
-89,345, // "c"
-90,1774, // "l"
-91,1047, // "a"
-92,1749, // "s"
-95,631, // "e"
-103,220, // "d"
-104,1703, // "g"
-106,1675, // "p"
-107,1125, // "v"
-109,304, // "f"
-110,50, // "i"
-113,270, // "r"
-117,986, // "b"
-120,471, // "n"
-121,876, // "t"
-122,1379, // "w"
-173,1599, // token*
-MIN_REDUCTION+3, // (default reduction)
-  }
-,
-{ // state 200
-0x80000000|1684, // match move
-0x80000000|1076, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 201
-0x80000000|1836, // match move
-0x80000000|122, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 202
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+133, // (default reduction)
-  }
-,
-{ // state 203
-2,379, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+100, // (default reduction)
-  }
-,
-{ // state 204
-121,1794, // "t"
-  }
-,
-{ // state 205
-0x80000000|531, // match move
-0x80000000|208, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 206
-0x80000000|491, // match move
-0x80000000|233, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 207
-0x80000000|1077, // match move
-0x80000000|27, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 208
-2,99, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+332, // (default reduction)
-  }
-,
-{ // state 209
-91,1397, // "a"
-  }
-,
-{ // state 210
-2,1182, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+221, // (default reduction)
-  }
-,
-{ // state 211
-0x80000000|1219, // match move
-0x80000000|1470, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 212
-0x80000000|1288, // match move
-0x80000000|1443, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 213
-0x80000000|1, // match move
-0x80000000|222, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 214
-1,570, // start
-2,1643, // white*
-3,1862, // $$0
-4,1056, // token
-125,1568, // white
-126,1479, // {12}
-127,1479, // " "
-128,1479, // {9}
-130,1375, // comment
-143,1309, // "/"
-161,1106, // blockComment
-164,1520, // slashStar
-173,1599, // token*
-177,MIN_REDUCTION+1, // $
-  }
-,
-{ // state 215
-0x80000000|926, // match move
-0x80000000|1804, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 216
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+247, // (default reduction)
-  }
-,
-{ // state 217
-2,1871, // white*
-MIN_REDUCTION+142, // (default reduction)
-  }
-,
-{ // state 218
-92,1456, // "s"
-  }
-,
-{ // state 219
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+89, // $NT
-  }
-,
-{ // state 220
-95,1454, // "e"
-112,58, // "o"
-  }
-,
-{ // state 221
-MIN_REDUCTION+104, // (default reduction)
-  }
-,
-{ // state 222
-0x80000000|114, // match move
-0x80000000|881, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 223
-MIN_REDUCTION+199, // (default reduction)
-  }
-,
-{ // state 224
-0x80000000|1, // match move
-0x80000000|791, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 225
-0x80000000|1276, // match move
-0x80000000|1606, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 226
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+193, // (default reduction)
-  }
-,
-{ // state 227
-2,1325, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+197, // (default reduction)
-  }
-,
-{ // state 228
-2,212, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+188, // (default reduction)
-  }
-,
-{ // state 229
-2,1838, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+257, // $NT
-  }
-,
-{ // state 230
-2,962, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+341, // (default reduction)
-  }
-,
-{ // state 231
-MIN_REDUCTION+8, // (default reduction)
-  }
-,
-{ // state 232
-2,1241, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+293, // (default reduction)
-  }
-,
-{ // state 233
-0x80000000|1647, // match move
-0x80000000|340, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 234
-MIN_REDUCTION+171, // (default reduction)
-  }
-,
-{ // state 235
-0x80000000|1908, // match move
-0x80000000|1925, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 236
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+181, // (default reduction)
-  }
-,
-{ // state 237
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+304, // $NT
-  }
-,
-{ // state 238
-103,1961, // "d"
-  }
-,
-{ // state 239
-MIN_REDUCTION+40, // (default reduction)
-  }
-,
-{ // state 240
-178,MIN_REDUCTION+103, // $NT
-  }
-,
-{ // state 241
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+202, // $NT
-  }
-,
-{ // state 242
 MIN_REDUCTION+124, // (default reduction)
   }
 ,
-{ // state 243
-0x80000000|1671, // match move
-0x80000000|1686, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+{ // state 84
+110,882, // "i"
   }
 ,
-{ // state 244
-95,995, // "e"
+{ // state 85
+2,978, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+248, // $NT
   }
 ,
-{ // state 245
-2,962, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+341, // (default reduction)
+{ // state 86
+113,364, // "r"
   }
 ,
-{ // state 246
-89,116, // "c"
+{ // state 87
+110,1824, // "i"
   }
 ,
-{ // state 247
-92,1951, // "s"
-121,39, // "t"
+{ // state 88
+0x80000000|665, // match move
+0x80000000|1172, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 248
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+310, // (default reduction)
+{ // state 89
+0x80000000|1312, // match move
+0x80000000|303, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 249
-92,1617, // "s"
+{ // state 90
+89,1889, // "c"
+90,1889, // "l"
+91,1889, // "a"
+92,1889, // "s"
+93,107, // idChar
+95,1889, // "e"
+100,1286, // letter
+101,410, // digit
+102,1324, // "_"
+103,1889, // "d"
+104,1889, // "g"
+105,1889, // "m"
+106,1889, // "p"
+107,1889, // "v"
+108,1889, // "y"
+109,1889, // "f"
+110,1889, // "i"
+111,1889, // {"A".."Z"}
+112,1889, // "o"
+113,1889, // "r"
+114,1889, // "u"
+115,1889, // "x"
+116,1889, // {"j" "q"}
+117,1889, // "b"
+118,1889, // "h"
+119,1889, // "k"
+120,1889, // "n"
+121,1889, // "t"
+122,1889, // "w"
+123,1889, // "z"
+124,1146, // {"0".."9"}
   }
 ,
-{ // state 250
-2,379, // white*
-MIN_REDUCTION+100, // (default reduction)
+{ // state 91
+0x80000000|1807, // match move
+0x80000000|924, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 251
-0x80000000|733, // match move
-0x80000000|1082, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+{ // state 92
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+214, // (default reduction)
   }
 ,
-{ // state 252
-89,595, // "c"
-  }
-,
-{ // state 253
-0x80000000|1338, // match move
-0x80000000|969, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 254
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+147, // (default reduction)
-  }
-,
-{ // state 255
-2,390, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+194, // (default reduction)
-  }
-,
-{ // state 256
-2,310, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+269, // (default reduction)
-  }
-,
-{ // state 257
+{ // state 93
 0x80000000|1, // match move
-0x80000000|1372, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|1066, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 258
-MIN_REDUCTION+129, // (default reduction)
+{ // state 94
+124,374, // {"0".."9"}
   }
 ,
-{ // state 259
-0x80000000|1478, // match move
-0x80000000|361, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 95
+122,522, // "w"
   }
 ,
-{ // state 260
-121,981, // "t"
+{ // state 96
+2,1472, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+281, // $NT
   }
 ,
-{ // state 261
-110,489, // "i"
+{ // state 97
+0x80000000|1812, // match move
+0x80000000|585, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 262
-0x80000000|530, // match move
-0x80000000|1014, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+{ // state 98
+91,570, // "a"
   }
 ,
-{ // state 263
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+97, // (default reduction)
+{ // state 99
+92,525, // "s"
   }
 ,
-{ // state 264
-89,MIN_REDUCTION+357, // "c"
-90,MIN_REDUCTION+357, // "l"
-91,MIN_REDUCTION+357, // "a"
-92,MIN_REDUCTION+357, // "s"
-95,MIN_REDUCTION+357, // "e"
-102,MIN_REDUCTION+357, // "_"
-103,MIN_REDUCTION+357, // "d"
-104,MIN_REDUCTION+357, // "g"
-105,MIN_REDUCTION+357, // "m"
-106,MIN_REDUCTION+357, // "p"
-107,MIN_REDUCTION+357, // "v"
-108,MIN_REDUCTION+357, // "y"
-109,MIN_REDUCTION+357, // "f"
-110,MIN_REDUCTION+357, // "i"
-111,MIN_REDUCTION+357, // {"A".."Z"}
-112,MIN_REDUCTION+357, // "o"
-113,MIN_REDUCTION+357, // "r"
-114,MIN_REDUCTION+357, // "u"
-115,MIN_REDUCTION+357, // "x"
-116,MIN_REDUCTION+357, // {"j" "q"}
-117,MIN_REDUCTION+357, // "b"
-118,MIN_REDUCTION+357, // "h"
-119,MIN_REDUCTION+357, // "k"
-120,MIN_REDUCTION+357, // "n"
-121,MIN_REDUCTION+357, // "t"
-122,MIN_REDUCTION+357, // "w"
-123,MIN_REDUCTION+357, // "z"
-124,MIN_REDUCTION+357, // {"0".."9"}
-169,MIN_REDUCTION+357, // idChar**
-MIN_REDUCTION+357, // (default reduction)
+{ // state 100
+179,MIN_REDUCTION+303, // $NT
   }
 ,
-{ // state 265
-2,912, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+364, // (default reduction)
+{ // state 101
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+325, // (default reduction)
   }
 ,
-{ // state 266
-90,678, // "l"
+{ // state 102
+95,531, // "e"
   }
 ,
-{ // state 267
-0x80000000|513, // match move
-0x80000000|1864, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 103
+89,309, // "c"
   }
 ,
-{ // state 268
-91,883, // "a"
+{ // state 104
+0x80000000|362, // match move
+0x80000000|568, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
-{ // state 269
-2,593, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+215, // (default reduction)
+{ // state 105
+120,964, // "n"
   }
 ,
-{ // state 270
-95,1897, // "e"
+{ // state 106
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+173, // (default reduction)
   }
 ,
-{ // state 271
-MIN_REDUCTION+56, // (default reduction)
+{ // state 107
+0x80000000|920, // match move
+0x80000000|1316, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 272
-0x80000000|783, // match move
-0x80000000|160, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 108
+2,1634, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+169,1744, // idChar**
+170,1450, // $$1
+176,1477, // idChar*
+MIN_REDUCTION+337, // (default reduction)
   }
 ,
-{ // state 273
-91,51, // "a"
+{ // state 109
+MIN_REDUCTION+307, // (default reduction)
   }
 ,
-{ // state 274
+{ // state 110
+109,651, // "f"
+  }
+,
+{ // state 111
+97,965, // "="
+  }
+,
+{ // state 112
+2,205, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+156, // (default reduction)
+  }
+,
+{ // state 113
+MIN_REDUCTION+39, // (default reduction)
+  }
+,
+{ // state 114
+121,17, // "t"
+  }
+,
+{ // state 115
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+235, // (default reduction)
+  }
+,
+{ // state 116
+2,347, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+200, // $NT
+  }
+,
+{ // state 117
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+241, // (default reduction)
+  }
+,
+{ // state 118
+2,216, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+188, // (default reduction)
+  }
+,
+{ // state 119
+0x80000000|758, // match move
+0x80000000|1531, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 120
 0x80000000|1, // match move
-0x80000000|1374, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|873, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 275
-0x80000000|682, // match move
-0x80000000|1451, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 121
+95,1811, // "e"
   }
 ,
-{ // state 276
-MIN_REDUCTION+17, // (default reduction)
+{ // state 122
+2,932, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+365, // (default reduction)
   }
 ,
-{ // state 277
-89,1234, // "c"
+{ // state 123
+0x80000000|959, // match move
+0x80000000|1261, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 278
-MIN_REDUCTION+211, // (default reduction)
+{ // state 124
+0x80000000|1939, // match move
+0x80000000|1968, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 279
-MIN_REDUCTION+36, // (default reduction)
+{ // state 125
+95,418, // "e"
   }
 ,
-{ // state 280
-0x80000000|816, // match move
-0x80000000|410, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 126
+0x80000000|1331, // match move
+0x80000000|743, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 281
-2,692, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+302, // (default reduction)
+{ // state 127
+MIN_REDUCTION+122, // (default reduction)
   }
 ,
-{ // state 282
-0x80000000|333, // match move
-0x80000000|137, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 128
+MIN_REDUCTION+217, // (default reduction)
   }
 ,
-{ // state 283
-114,1717, // "u"
+{ // state 129
+120,646, // "n"
   }
 ,
-{ // state 284
-106,716, // "p"
-  }
-,
-{ // state 285
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+301, // (default reduction)
-  }
-,
-{ // state 286
-0x80000000|43, // match move
-0x80000000|867, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 287
-0x80000000|1049, // match move
-0x80000000|2023, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 288
-106,1273, // "p"
-  }
-,
-{ // state 289
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+159, // (default reduction)
-  }
-,
-{ // state 290
-0x80000000|622, // match move
-0x80000000|119, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 291
-0x80000000|636, // match move
-0x80000000|1059, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 292
+{ // state 130
 0x80000000|1, // match move
-0x80000000|722, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|906, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 293
-157,37, // "*"
+{ // state 131
+MIN_REDUCTION+19, // (default reduction)
   }
 ,
-{ // state 294
-2,697, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+206, // (default reduction)
+{ // state 132
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+151, // (default reduction)
   }
 ,
-{ // state 295
-2,47, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
+{ // state 133
+2,1031, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+191, // $NT
+  }
+,
+{ // state 134
+2,49, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
 MIN_REDUCTION+233, // (default reduction)
   }
 ,
-{ // state 296
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+328, // $NT
+{ // state 135
+0x80000000|1215, // match move
+0x80000000|1820, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
-{ // state 297
-0x80000000|1, // match move
-0x80000000|206, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+{ // state 136
+MIN_REDUCTION+167, // (default reduction)
   }
 ,
-{ // state 298
-MIN_REDUCTION+77, // (default reduction)
+{ // state 137
+MIN_REDUCTION+29, // (default reduction)
   }
 ,
-{ // state 299
-0x80000000|1115, // match move
-0x80000000|354, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 138
+89,738, // "c"
+90,738, // "l"
+91,738, // "a"
+92,738, // "s"
+95,738, // "e"
+96,738, // "!"
+97,738, // "="
+98,738, // "+"
+102,738, // "_"
+103,738, // "d"
+104,738, // "g"
+105,738, // "m"
+106,738, // "p"
+107,738, // "v"
+108,738, // "y"
+109,738, // "f"
+110,738, // "i"
+111,738, // {"A".."Z"}
+112,738, // "o"
+113,738, // "r"
+114,738, // "u"
+115,738, // "x"
+116,738, // {"j" "q"}
+117,738, // "b"
+118,738, // "h"
+119,738, // "k"
+120,738, // "n"
+121,738, // "t"
+122,738, // "w"
+123,738, // "z"
+124,738, // {"0".."9"}
+127,738, // " "
+128,738, // {9}
+129,1246, // eol
+138,1905, // starSlash
+139,453, // blockCommentContent
+140,738, // "["
+141,738, // "-"
+142,738, // "<"
+143,738, // "|"
+144,738, // {"?".."@"}
+145,738, // "&"
+146,738, // ")"
+147,738, // ","
+148,738, // "]"
+149,738, // "/"
+150,738, // {"#".."$"}
+151,738, // ";"
+152,738, // ">"
+153,738, // "{"
+154,738, // "%"
+155,738, // "("
+156,738, // "\"
+157,738, // "."
+158,738, // ":"
+159,738, // "}"
+160,738, // {"^" "`" "~"}
+161,738, // "'"
+162,738, // '"'
+163,865, // "*"
+164,352, // {10}
+165,376, // {13}
   }
 ,
-{ // state 300
-0x80000000|824, // match move
-0x80000000|1563, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 139
+179,MIN_REDUCTION+252, // $NT
   }
 ,
-{ // state 301
-0x80000000|670, // match move
-0x80000000|573, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+{ // state 140
+MIN_REDUCTION+87, // (default reduction)
   }
 ,
-{ // state 302
-0x80000000|295, // match move
-0x80000000|164, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 141
+0x80000000|1694, // match move
+0x80000000|1367, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 303
-0x80000000|1, // match move
-0x80000000|676, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+{ // state 142
+95,765, // "e"
   }
 ,
-{ // state 304
-90,1994, // "l"
-91,266, // "a"
-110,626, // "i"
-112,66, // "o"
+{ // state 143
+2,671, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+332, // $NT
   }
 ,
-{ // state 305
-118,505, // "h"
+{ // state 144
+149,448, // "/"
+163,1869, // "*"
   }
 ,
-{ // state 306
-2,1535, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
+{ // state 145
+95,296, // "e"
+  }
+,
+{ // state 146
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+217, // (default reduction)
+  }
+,
+{ // state 147
+0x80000000|1622, // match move
+0x80000000|77, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 148
+2,1547, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
 MIN_REDUCTION+227, // (default reduction)
   }
 ,
-{ // state 307
-2,1752, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
+{ // state 149
+2,1535, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+266, // (default reduction)
+  }
+,
+{ // state 150
+121,612, // "t"
+  }
+,
+{ // state 151
+0x80000000|1467, // match move
+0x80000000|42, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 152
+0x80000000|926, // match move
+0x80000000|1035, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 153
+121,881, // "t"
+  }
+,
+{ // state 154
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+253, // $NT
+  }
+,
+{ // state 155
+2,1766, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
 MIN_REDUCTION+140, // (default reduction)
   }
 ,
-{ // state 308
-91,14, // "a"
+{ // state 156
+0x80000000|1393, // match move
+0x80000000|707, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 309
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+307, // $NT
+{ // state 157
+179,MIN_REDUCTION+261, // $NT
   }
 ,
-{ // state 310
-0x80000000|710, // match move
-0x80000000|84, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 158
+2,1518, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+287, // $NT
   }
 ,
-{ // state 311
-2,215, // white*
-MIN_REDUCTION+172, // (default reduction)
+{ // state 159
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+139, // (default reduction)
   }
 ,
-{ // state 312
-2,1466, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+311, // $NT
+{ // state 160
+95,1610, // "e"
   }
 ,
-{ // state 313
-0x80000000|1033, // match move
-0x80000000|1937, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 314
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+328, // (default reduction)
-  }
-,
-{ // state 315
-MIN_REDUCTION+30, // (default reduction)
-  }
-,
-{ // state 316
-MIN_REDUCTION+15, // (default reduction)
-  }
-,
-{ // state 317
-1,570, // start
-2,1643, // white*
-3,1862, // $$0
-4,1056, // token
-5,432, // `boolean
-6,735, // `class
-7,679, // `extends
-8,231, // `void
-9,1102, // `int
-10,324, // `while
-11,351, // `if
-12,748, // `else
-13,1134, // `for
-14,1984, // `break
-15,316, // `this
-16,380, // `false
-17,276, // `true
-18,908, // `super
-19,127, // `null
-20,699, // `return
-21,1345, // `instanceof
-22,2014, // `new
-23,1124, // `abstract
-24,469, // `assert
-25,192, // `byte
-26,535, // `case
-27,1558, // `catch
-28,974, // `char
-29,133, // `const
-30,315, // `continue
-31,1947, // `default
-32,1381, // `do
-33,1997, // `double
-34,650, // `enum
-35,176, // `final
-36,279, // `finally
-37,674, // `float
-38,1740, // `goto
-39,109, // `implements
-40,239, // `import
-41,849, // `interface
-42,1268, // `long
-43,540, // `native
-44,1099, // `package
-45,1389, // `private
-46,667, // `protected
-47,41, // `public
-48,1425, // `short
-49,1176, // `static
-50,331, // `strictfp
-51,544, // `switch
-52,759, // `synchronized
-53,811, // `throw
-54,369, // `throws
-55,1046, // `transient
-56,271, // `try
-57,426, // `volatile
-89,345, // "c"
-90,1774, // "l"
-91,1047, // "a"
-92,1749, // "s"
-95,631, // "e"
-103,220, // "d"
-104,1703, // "g"
-106,1675, // "p"
-107,1125, // "v"
-109,304, // "f"
-110,50, // "i"
-113,270, // "r"
-117,986, // "b"
-120,471, // "n"
-121,876, // "t"
-122,1379, // "w"
-173,1599, // token*
-177,MIN_REDUCTION+1, // $
-  }
-,
-{ // state 318
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+298, // (default reduction)
-  }
-,
-{ // state 319
-2,1995, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+284, // (default reduction)
-  }
-,
-{ // state 320
-90,1957, // "l"
-  }
-,
-{ // state 321
-121,106, // "t"
-  }
-,
-{ // state 322
-109,671, // "f"
-  }
-,
-{ // state 323
+{ // state 161
 0x80000000|1, // match move
-0x80000000|1446, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|823, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 324
-MIN_REDUCTION+10, // (default reduction)
+{ // state 162
+2,205, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+156, // (default reduction)
   }
 ,
-{ // state 325
-MIN_REDUCTION+253, // (default reduction)
+{ // state 163
+179,MIN_REDUCTION+91, // $NT
   }
 ,
-{ // state 326
-2,310, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
+{ // state 164
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+141, // (default reduction)
+  }
+,
+{ // state 165
+2,569, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+341, // (default reduction)
+  }
+,
+{ // state 166
+2,1112, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+281, // (default reduction)
+  }
+,
+{ // state 167
+110,468, // "i"
+  }
+,
+{ // state 168
+0x80000000|134, // match move
+0x80000000|357, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 169
+90,631, // "l"
+  }
+,
+{ // state 170
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+265, // (default reduction)
+  }
+,
+{ // state 171
+110,1757, // "i"
+  }
+,
+{ // state 172
+2,722, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+326, // $NT
+  }
+,
+{ // state 173
+2,1639, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+212, // (default reduction)
+  }
+,
+{ // state 174
+MIN_REDUCTION+208, // (default reduction)
+  }
+,
+{ // state 175
+0x80000000|1361, // match move
+0x80000000|1126, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 176
+MIN_REDUCTION+137, // (default reduction)
+  }
+,
+{ // state 177
+0x80000000|112, // match move
+0x80000000|291, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 178
+2,490, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+275, // $NT
+  }
+,
+{ // state 179
+MIN_REDUCTION+76, // (default reduction)
+  }
+,
+{ // state 180
+MIN_REDUCTION+35, // (default reduction)
+  }
+,
+{ // state 181
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+232, // (default reduction)
+  }
+,
+{ // state 182
+92,601, // "s"
+  }
+,
+{ // state 183
+92,1775, // "s"
+  }
+,
+{ // state 184
+MIN_REDUCTION+259, // (default reduction)
+  }
+,
+{ // state 185
+95,956, // "e"
+  }
+,
+{ // state 186
+0x80000000|1577, // match move
+0x80000000|175, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 187
+0x80000000|1991, // match move
+0x80000000|1949, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 188
+0x80000000|1, // match move
+0x80000000|294, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 189
+0x80000000|941, // match move
+0x80000000|344, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 190
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+322, // $NT
+  }
+,
+{ // state 191
+2,1460, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+134, // (default reduction)
+  }
+,
+{ // state 192
+2,709, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+206, // (default reduction)
+  }
+,
+{ // state 193
+0x80000000|908, // match move
+0x80000000|1914, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 194
+MIN_REDUCTION+135, // (default reduction)
+  }
+,
+{ // state 195
+MIN_REDUCTION+25, // (default reduction)
+  }
+,
+{ // state 196
+0x80000000|1, // match move
+0x80000000|279, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 197
+121,927, // "t"
+  }
+,
+{ // state 198
+MIN_REDUCTION+104, // (default reduction)
+  }
+,
+{ // state 199
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+145, // (default reduction)
+  }
+,
+{ // state 200
+91,1536, // "a"
+108,1882, // "y"
+114,1491, // "u"
+  }
+,
+{ // state 201
+179,MIN_REDUCTION+297, // $NT
+  }
+,
+{ // state 202
+3,6, // $$0
+4,1070, // token
+5,442, // `boolean
+6,750, // `class
+7,691, // `extends
+8,234, // `void
+9,1117, // `int
+10,333, // `while
+11,360, // `if
+12,764, // `else
+13,1150, // `for
+14,2002, // `break
+15,324, // `this
+16,391, // `false
+17,280, // `true
+18,929, // `super
+19,131, // `null
+20,711, // `return
+21,1359, // `instanceof
+22,2033, // `new
+23,1140, // `abstract
+24,480, // `assert
+25,195, // `byte
+26,545, // `case
+27,1570, // `catch
+28,991, // `char
+29,137, // `const
+30,323, // `continue
+31,1962, // `default
+32,1396, // `do
+33,2015, // `double
+34,660, // `enum
+35,180, // `final
+36,283, // `finally
+37,686, // `float
+38,1755, // `goto
+39,113, // `implements
+40,242, // `import
+41,869, // `interface
+42,1285, // `long
+43,550, // `native
+44,1114, // `package
+45,1404, // `private
+46,679, // `protected
+47,43, // `public
+48,1437, // `short
+49,1192, // `static
+50,340, // `strictfp
+51,554, // `switch
+52,774, // `synchronized
+53,828, // `throw
+54,378, // `throws
+55,1060, // `transient
+56,275, // `try
+57,436, // `volatile
+89,354, // "c"
+90,1788, // "l"
+91,1061, // "a"
+92,1763, // "s"
+95,640, // "e"
+103,224, // "d"
+104,1716, // "g"
+106,1688, // "p"
+107,1141, // "v"
+109,308, // "f"
+110,52, // "i"
+113,274, // "r"
+117,1003, // "b"
+120,482, // "n"
+121,896, // "t"
+122,1394, // "w"
+173,1612, // token*
+MIN_REDUCTION+3, // (default reduction)
+  }
+,
+{ // state 203
+0x80000000|867, // match move
+0x80000000|1910, // no-match move
+0x80000000|1101, // NT-test-match state for printable
+  }
+,
+{ // state 204
+0x80000000|1697, // match move
+0x80000000|1090, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 205
+0x80000000|1851, // match move
+0x80000000|126, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 206
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+133, // (default reduction)
+  }
+,
+{ // state 207
+2,390, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+100, // (default reduction)
+  }
+,
+{ // state 208
+121,1809, // "t"
+  }
+,
+{ // state 209
+0x80000000|542, // match move
+0x80000000|212, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 210
+0x80000000|501, // match move
+0x80000000|236, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 211
+0x80000000|1092, // match move
+0x80000000|28, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 212
+2,104, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+332, // (default reduction)
+  }
+,
+{ // state 213
+91,1411, // "a"
+  }
+,
+{ // state 214
+2,1198, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+221, // (default reduction)
+  }
+,
+{ // state 215
+0x80000000|1237, // match move
+0x80000000|1480, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 216
+0x80000000|1305, // match move
+0x80000000|1454, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 217
+0x80000000|1, // match move
+0x80000000|226, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 218
+1,579, // start
+2,1659, // white*
+3,1878, // $$0
+4,1070, // token
+125,1580, // white
+126,1489, // {12}
+127,1489, // " "
+128,1489, // {9}
+130,1390, // comment
+132,1121, // blockComment
+136,1532, // slashStar
+149,1327, // "/"
+173,1612, // token*
+178,MIN_REDUCTION+1, // $
+  }
+,
+{ // state 219
+0x80000000|946, // match move
+0x80000000|1819, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 220
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+247, // (default reduction)
+  }
+,
+{ // state 221
+2,1887, // white*
+MIN_REDUCTION+142, // (default reduction)
+  }
+,
+{ // state 222
+92,1466, // "s"
+  }
+,
+{ // state 223
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+89, // $NT
+  }
+,
+{ // state 224
+95,1464, // "e"
+112,60, // "o"
+  }
+,
+{ // state 225
+MIN_REDUCTION+104, // (default reduction)
+  }
+,
+{ // state 226
+0x80000000|118, // match move
+0x80000000|901, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 227
+MIN_REDUCTION+199, // (default reduction)
+  }
+,
+{ // state 228
+0x80000000|1, // match move
+0x80000000|807, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 229
+0x80000000|1293, // match move
+0x80000000|1620, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 230
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+193, // (default reduction)
+  }
+,
+{ // state 231
+2,1342, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+197, // (default reduction)
+  }
+,
+{ // state 232
+2,216, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+188, // (default reduction)
+  }
+,
+{ // state 233
+2,1853, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+257, // $NT
+  }
+,
+{ // state 234
+MIN_REDUCTION+8, // (default reduction)
+  }
+,
+{ // state 235
+2,1259, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+293, // (default reduction)
+  }
+,
+{ // state 236
+0x80000000|1661, // match move
+0x80000000|349, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 237
+MIN_REDUCTION+171, // (default reduction)
+  }
+,
+{ // state 238
+0x80000000|1923, // match move
+0x80000000|1940, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 239
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+181, // (default reduction)
+  }
+,
+{ // state 240
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+304, // $NT
+  }
+,
+{ // state 241
+103,1977, // "d"
+  }
+,
+{ // state 242
+MIN_REDUCTION+40, // (default reduction)
+  }
+,
+{ // state 243
+179,MIN_REDUCTION+103, // $NT
+  }
+,
+{ // state 244
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+202, // $NT
+  }
+,
+{ // state 245
+MIN_REDUCTION+114, // (default reduction)
+  }
+,
+{ // state 246
+0x80000000|1684, // match move
+0x80000000|1699, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 247
+95,1011, // "e"
+  }
+,
+{ // state 248
+89,120, // "c"
+  }
+,
+{ // state 249
+92,1967, // "s"
+121,41, // "t"
+  }
+,
+{ // state 250
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+310, // (default reduction)
+  }
+,
+{ // state 251
+92,1631, // "s"
+  }
+,
+{ // state 252
+2,390, // white*
+MIN_REDUCTION+100, // (default reduction)
+  }
+,
+{ // state 253
+0x80000000|748, // match move
+0x80000000|1097, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 254
+89,605, // "c"
+  }
+,
+{ // state 255
+0x80000000|1354, // match move
+0x80000000|986, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 256
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+147, // (default reduction)
+  }
+,
+{ // state 257
+2,401, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+194, // (default reduction)
+  }
+,
+{ // state 258
+129,MIN_REDUCTION+120, // eol
+164,MIN_REDUCTION+120, // {10}
+165,MIN_REDUCTION+120, // {13}
+MIN_REDUCTION+120, // (default reduction)
+  }
+,
+{ // state 259
+2,318, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
 MIN_REDUCTION+269, // (default reduction)
   }
 ,
+{ // state 260
+0x80000000|1, // match move
+0x80000000|1387, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 261
+MIN_REDUCTION+119, // (default reduction)
+  }
+,
+{ // state 262
+0x80000000|1488, // match move
+0x80000000|370, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 263
+121,998, // "t"
+  }
+,
+{ // state 264
+110,499, // "i"
+  }
+,
+{ // state 265
+0x80000000|541, // match move
+0x80000000|1030, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 266
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+97, // (default reduction)
+  }
+,
+{ // state 267
+89,MIN_REDUCTION+356, // "c"
+90,MIN_REDUCTION+356, // "l"
+91,MIN_REDUCTION+356, // "a"
+92,MIN_REDUCTION+356, // "s"
+95,MIN_REDUCTION+356, // "e"
+102,MIN_REDUCTION+356, // "_"
+103,MIN_REDUCTION+356, // "d"
+104,MIN_REDUCTION+356, // "g"
+105,MIN_REDUCTION+356, // "m"
+106,MIN_REDUCTION+356, // "p"
+107,MIN_REDUCTION+356, // "v"
+108,MIN_REDUCTION+356, // "y"
+109,MIN_REDUCTION+356, // "f"
+110,MIN_REDUCTION+356, // "i"
+111,MIN_REDUCTION+356, // {"A".."Z"}
+112,MIN_REDUCTION+356, // "o"
+113,MIN_REDUCTION+356, // "r"
+114,MIN_REDUCTION+356, // "u"
+115,MIN_REDUCTION+356, // "x"
+116,MIN_REDUCTION+356, // {"j" "q"}
+117,MIN_REDUCTION+356, // "b"
+118,MIN_REDUCTION+356, // "h"
+119,MIN_REDUCTION+356, // "k"
+120,MIN_REDUCTION+356, // "n"
+121,MIN_REDUCTION+356, // "t"
+122,MIN_REDUCTION+356, // "w"
+123,MIN_REDUCTION+356, // "z"
+124,MIN_REDUCTION+356, // {"0".."9"}
+169,MIN_REDUCTION+356, // idChar**
+MIN_REDUCTION+356, // (default reduction)
+  }
+,
+{ // state 268
+2,932, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+365, // (default reduction)
+  }
+,
+{ // state 269
+90,690, // "l"
+  }
+,
+{ // state 270
+0x80000000|524, // match move
+0x80000000|1880, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 271
+91,903, // "a"
+  }
+,
+{ // state 272
+2,603, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+215, // (default reduction)
+  }
+,
+{ // state 273
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+340, // (default reduction)
+  }
+,
+{ // state 274
+95,1913, // "e"
+  }
+,
+{ // state 275
+MIN_REDUCTION+56, // (default reduction)
+  }
+,
+{ // state 276
+0x80000000|799, // match move
+0x80000000|164, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 277
+91,53, // "a"
+  }
+,
+{ // state 278
+0x80000000|1, // match move
+0x80000000|1389, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 279
+0x80000000|694, // match move
+0x80000000|1461, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 280
+MIN_REDUCTION+17, // (default reduction)
+  }
+,
+{ // state 281
+89,1252, // "c"
+  }
+,
+{ // state 282
+MIN_REDUCTION+211, // (default reduction)
+  }
+,
+{ // state 283
+MIN_REDUCTION+36, // (default reduction)
+  }
+,
+{ // state 284
+0x80000000|833, // match move
+0x80000000|421, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 285
+2,704, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+302, // (default reduction)
+  }
+,
+{ // state 286
+0x80000000|342, // match move
+0x80000000|141, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 287
+114,1731, // "u"
+  }
+,
+{ // state 288
+106,730, // "p"
+  }
+,
+{ // state 289
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+301, // (default reduction)
+  }
+,
+{ // state 290
+0x80000000|45, // match move
+0x80000000|887, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 291
+0x80000000|1064, // match move
+0x80000000|2041, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 292
+106,1290, // "p"
+  }
+,
+{ // state 293
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+159, // (default reduction)
+  }
+,
+{ // state 294
+0x80000000|632, // match move
+0x80000000|123, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 295
+0x80000000|645, // match move
+0x80000000|1073, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 296
+0x80000000|1, // match move
+0x80000000|736, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 297
+163,39, // "*"
+  }
+,
+{ // state 298
+2,709, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+206, // (default reduction)
+  }
+,
+{ // state 299
+2,49, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+233, // (default reduction)
+  }
+,
+{ // state 300
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+328, // $NT
+  }
+,
+{ // state 301
+0x80000000|1, // match move
+0x80000000|210, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 302
+MIN_REDUCTION+77, // (default reduction)
+  }
+,
+{ // state 303
+0x80000000|1130, // match move
+0x80000000|363, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 304
+0x80000000|841, // match move
+0x80000000|1575, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 305
+0x80000000|682, // match move
+0x80000000|582, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 306
+0x80000000|299, // match move
+0x80000000|168, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 307
+0x80000000|1, // match move
+0x80000000|688, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 308
+90,2012, // "l"
+91,269, // "a"
+110,635, // "i"
+112,69, // "o"
+  }
+,
+{ // state 309
+118,515, // "h"
+  }
+,
+{ // state 310
+2,569, // white*
+MIN_REDUCTION+341, // (default reduction)
+  }
+,
+{ // state 311
+MIN_REDUCTION+120, // (default reduction)
+  }
+,
+{ // state 312
+2,1547, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+227, // (default reduction)
+  }
+,
+{ // state 313
+0x80000000|741, // match move
+0x80000000|1745, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 314
+2,1766, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+140, // (default reduction)
+  }
+,
+{ // state 315
+91,15, // "a"
+  }
+,
+{ // state 316
+0x80000000|380, // match move
+0x80000000|925, // no-match move
+0x80000000|1101, // NT-test-match state for printable
+  }
+,
+{ // state 317
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+307, // $NT
+  }
+,
+{ // state 318
+0x80000000|724, // match move
+0x80000000|89, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 319
+2,219, // white*
+MIN_REDUCTION+172, // (default reduction)
+  }
+,
+{ // state 320
+2,1476, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+311, // $NT
+  }
+,
+{ // state 321
+0x80000000|1048, // match move
+0x80000000|1952, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 322
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+328, // (default reduction)
+  }
+,
+{ // state 323
+MIN_REDUCTION+30, // (default reduction)
+  }
+,
+{ // state 324
+MIN_REDUCTION+15, // (default reduction)
+  }
+,
+{ // state 325
+1,579, // start
+2,1659, // white*
+3,1878, // $$0
+4,1070, // token
+5,442, // `boolean
+6,750, // `class
+7,691, // `extends
+8,234, // `void
+9,1117, // `int
+10,333, // `while
+11,360, // `if
+12,764, // `else
+13,1150, // `for
+14,2002, // `break
+15,324, // `this
+16,391, // `false
+17,280, // `true
+18,929, // `super
+19,131, // `null
+20,711, // `return
+21,1359, // `instanceof
+22,2033, // `new
+23,1140, // `abstract
+24,480, // `assert
+25,195, // `byte
+26,545, // `case
+27,1570, // `catch
+28,991, // `char
+29,137, // `const
+30,323, // `continue
+31,1962, // `default
+32,1396, // `do
+33,2015, // `double
+34,660, // `enum
+35,180, // `final
+36,283, // `finally
+37,686, // `float
+38,1755, // `goto
+39,113, // `implements
+40,242, // `import
+41,869, // `interface
+42,1285, // `long
+43,550, // `native
+44,1114, // `package
+45,1404, // `private
+46,679, // `protected
+47,43, // `public
+48,1437, // `short
+49,1192, // `static
+50,340, // `strictfp
+51,554, // `switch
+52,774, // `synchronized
+53,828, // `throw
+54,378, // `throws
+55,1060, // `transient
+56,275, // `try
+57,436, // `volatile
+89,354, // "c"
+90,1788, // "l"
+91,1061, // "a"
+92,1763, // "s"
+95,640, // "e"
+103,224, // "d"
+104,1716, // "g"
+106,1688, // "p"
+107,1141, // "v"
+109,308, // "f"
+110,52, // "i"
+113,274, // "r"
+117,1003, // "b"
+120,482, // "n"
+121,896, // "t"
+122,1394, // "w"
+173,1612, // token*
+178,MIN_REDUCTION+1, // $
+  }
+,
+{ // state 326
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+298, // (default reduction)
+  }
+,
 { // state 327
-0x80000000|922, // match move
-0x80000000|1247, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+2,2013, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+284, // (default reduction)
   }
 ,
 { // state 328
-178,MIN_REDUCTION+327, // $NT
+90,1973, // "l"
   }
 ,
 { // state 329
-121,11, // "t"
+121,110, // "t"
   }
 ,
 { // state 330
-2,1283, // white*
-MIN_REDUCTION+168, // (default reduction)
+129,1724, // eol
+164,73, // {10}
+165,1520, // {13}
   }
 ,
 { // state 331
-MIN_REDUCTION+50, // (default reduction)
+109,683, // "f"
   }
 ,
 { // state 332
-107,121, // "v"
+0x80000000|1, // match move
+0x80000000|1457, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 333
-2,946, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+317, // (default reduction)
+MIN_REDUCTION+10, // (default reduction)
   }
 ,
 { // state 334
+MIN_REDUCTION+253, // (default reduction)
+  }
+,
+{ // state 335
+2,318, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+269, // (default reduction)
+  }
+,
+{ // state 336
+0x80000000|942, // match move
+0x80000000|1265, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 337
+179,MIN_REDUCTION+327, // $NT
+  }
+,
+{ // state 338
+121,12, // "t"
+  }
+,
+{ // state 339
+2,1300, // white*
+MIN_REDUCTION+168, // (default reduction)
+  }
+,
+{ // state 340
+MIN_REDUCTION+50, // (default reduction)
+  }
+,
+{ // state 341
+107,125, // "v"
+  }
+,
+{ // state 342
+2,966, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+317, // (default reduction)
+  }
+,
+{ // state 343
 -1, // $$start
-570, // start
-1643, // white*
-1862, // $$0
-1056, // token
+579, // start
+1659, // white*
+1878, // $$0
+1070, // token
 -1, // `boolean
 -1, // `class
 -1, // `extends
@@ -3388,1408 +3256,1527 @@ MIN_REDUCTION+317, // (default reduction)
 -1, // `transient
 -1, // `try
 -1, // `volatile
-1508, // `!
-1692, // `!=
-882, // `%
-685, // `&&
-657, // `*
-1835, // `(
-1936, // `)
-1023, // `{
-1027, // `}
-1043, // `-
-809, // `+
-625, // `=
-1179, // `==
-439, // `[
-1452, // `]
-396, // `||
-2021, // `<
-602, // `<=
-175, // `,
-298, // `>
-778, // `>=
-31, // `.
-968, // `;
-938, // `++
-417, // `--
-1825, // `/
-738, // `:
-1607, // ID
-793, // INT_LITERAL
-136, // STRING_LITERAL
-1729, // CHAR_LITERAL
-653, // "c"
-653, // "l"
-653, // "a"
-653, // "s"
+1519, // `!
+1705, // `!=
+902, // `%
+697, // `&&
+668, // `*
+1850, // `(
+1951, // `)
+1039, // `{
+1042, // `}
+1057, // `-
+827, // `+
+634, // `=
+1195, // `==
+450, // `[
+1462, // `]
+407, // `||
+2039, // `<
+614, // `<=
+179, // `,
+302, // `>
+794, // `>=
+33, // `.
+985, // `;
+958, // `++
+428, // `--
+1840, // `/
+754, // `:
+1621, // ID
+809, // INT_LITERAL
+140, // STRING_LITERAL
+1743, // CHAR_LITERAL
+663, // "c"
+663, // "l"
+663, // "a"
+663, // "s"
 -1, // idChar
 -1, // reserved
-653, // "e"
-1108, // "!"
-1889, // "="
-404, // "+"
-795, // digit++
-1688, // letter
-1240, // digit
+663, // "e"
+1123, // "!"
+1508, // "="
+414, // "+"
+811, // digit++
+1701, // letter
+1258, // digit
 -1, // "_"
-653, // "d"
-653, // "g"
-653, // "m"
-653, // "p"
-653, // "v"
-653, // "y"
-653, // "f"
-653, // "i"
-653, // {"A".."Z"}
-653, // "o"
-653, // "r"
-653, // "u"
-653, // "x"
-653, // {"j" "q"}
-653, // "b"
-653, // "h"
-653, // "k"
-653, // "n"
-653, // "t"
-653, // "w"
-653, // "z"
-392, // {"0".."9"}
-1568, // white
-1479, // {12}
-1479, // " "
-1479, // {9}
-1786, // eol
-1375, // comment
-71, // {10}
-1509, // {13}
--1, // printable
-1009, // "["
-999, // "-"
-1173, // "<"
-447, // "|"
--1, // {"?".."@"}
-2015, // "&"
-395, // ")"
-1948, // ","
-173, // "]"
-1229, // "/"
--1, // {"#".."$"}
-1310, // ";"
-552, // ">"
-1278, // "{"
-1011, // "%"
-458, // "("
--1, // "\"
-1391, // "."
-1654, // ":"
-1823, // "}"
--1, // {"^" "`" "~"}
-991, // "'"
-661, // '"'
-253, // "*"
--1, // stringPrintable
--1, // charPrintable
+663, // "d"
+663, // "g"
+663, // "m"
+663, // "p"
+663, // "v"
+663, // "y"
+663, // "f"
+663, // "i"
+663, // {"A".."Z"}
+663, // "o"
+663, // "r"
+663, // "u"
+663, // "x"
+663, // {"j" "q"}
+663, // "b"
+663, // "h"
+663, // "k"
+663, // "n"
+663, // "t"
+663, // "w"
+663, // "z"
+403, // {"0".."9"}
+1580, // white
+1489, // {12}
+1489, // " "
+1489, // {9}
+1800, // eol
+1390, // comment
 -1, // oneLineComment
 -1, // blockComment
 -1, // doubleSlash
--1, // printable*
+-1, // printable**
+-1, // printable
 -1, // slashStar
 -1, // blockCommentContent*
 -1, // starSlash
 -1, // blockCommentContent
-1557, // letter++
+1025, // "["
+1015, // "-"
+1189, // "<"
+458, // "|"
+-1, // {"?".."@"}
+2034, // "&"
+406, // ")"
+1964, // ","
+177, // "]"
+1247, // "/"
+-1, // {"#".."$"}
+1328, // ";"
+562, // ">"
+1295, // "{"
+1027, // "%"
+469, // "("
+-1, // "\"
+1406, // "."
+1667, // ":"
+1838, // "}"
+-1, // {"^" "`" "~"}
+2025, // "'"
+673, // '"'
+255, // "*"
+73, // {10}
+1520, // {13}
+-1, // stringPrintable
+-1, // charPrintable
+1569, // letter++
 -1, // idChar**
 -1, // $$1
 -1, // stringPrintable*
 -1, // $$2
-1599, // token*
-594, // digit+
+1612, // token*
+-1, // printable*
+604, // digit+
 -1, // idChar*
-1151, // letter+
+1166, // letter+
 MIN_REDUCTION+1, // $
 -1, // $NT
   }
 ,
-{ // state 335
-0x80000000|68, // match move
-0x80000000|300, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 336
-120,691, // "n"
-  }
-,
-{ // state 337
-0x80000000|1242, // match move
-0x80000000|1616, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 338
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+199, // $NT
-  }
-,
-{ // state 339
-0x80000000|598, // match move
-0x80000000|455, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 340
-2,1633, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+299, // (default reduction)
-  }
-,
-{ // state 341
-0x80000000|465, // match move
-0x80000000|1561, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 342
-0x80000000|1114, // match move
-0x80000000|18, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 343
-MIN_REDUCTION+109, // (default reduction)
-  }
-,
 { // state 344
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+187, // (default reduction)
+0x80000000|70, // match move
+0x80000000|304, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 345
-90,32, // "l"
-91,985, // "a"
-112,1613, // "o"
-118,209, // "h"
+120,703, // "n"
   }
 ,
 { // state 346
-108,1884, // "y"
+0x80000000|1260, // match move
+0x80000000|1630, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 347
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+238, // (default reduction)
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+199, // $NT
   }
 ,
 { // state 348
-2,47, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+233, // (default reduction)
+0x80000000|607, // match move
+0x80000000|466, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 349
-2,548, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+162, // (default reduction)
+2,1647, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+299, // (default reduction)
   }
 ,
 { // state 350
-178,MIN_REDUCTION+102, // $NT
+0x80000000|476, // match move
+0x80000000|1573, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 351
-MIN_REDUCTION+11, // (default reduction)
+0x80000000|1129, // match move
+0x80000000|19, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 352
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+286, // (default reduction)
+MIN_REDUCTION+121, // (default reduction)
   }
 ,
 { // state 353
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+331, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+187, // (default reduction)
   }
 ,
 { // state 354
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+268, // (default reduction)
+90,34, // "l"
+91,1002, // "a"
+112,1627, // "o"
+118,213, // "h"
   }
 ,
 { // state 355
-121,1116, // "t"
+108,1900, // "y"
   }
 ,
 { // state 356
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+155, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+238, // (default reduction)
   }
 ,
 { // state 357
-2,237, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+305, // $NT
+2,49, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+233, // (default reduction)
   }
 ,
 { // state 358
-113,1834, // "r"
+2,558, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+162, // (default reduction)
   }
 ,
 { // state 359
-118,1999, // "h"
+179,MIN_REDUCTION+102, // $NT
   }
 ,
 { // state 360
-0x80000000|451, // match move
-0x80000000|1576, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+MIN_REDUCTION+11, // (default reduction)
   }
 ,
 { // state 361
-0x80000000|684, // match move
-0x80000000|896, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+286, // (default reduction)
   }
 ,
 { // state 362
-0x80000000|306, // match move
-0x80000000|980, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+331, // (default reduction)
   }
 ,
 { // state 363
-122,1798, // "w"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+268, // (default reduction)
   }
 ,
 { // state 364
-90,1163, // "l"
-115,434, // "x"
-120,3, // "n"
+121,1131, // "t"
   }
 ,
 { // state 365
-178,MIN_REDUCTION+105, // $NT
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+155, // (default reduction)
   }
 ,
 { // state 366
-178,MIN_REDUCTION+333, // $NT
+2,240, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+305, // $NT
   }
 ,
 { // state 367
-0x80000000|1706, // match move
-0x80000000|1204, // no-match move
-// T-test match for 10:
-131,
+113,1849, // "r"
   }
 ,
 { // state 368
-2,740, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+233, // $NT
+118,2017, // "h"
   }
 ,
 { // state 369
-MIN_REDUCTION+54, // (default reduction)
+0x80000000|462, // match move
+0x80000000|1588, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 370
-MIN_REDUCTION+181, // (default reduction)
+0x80000000|696, // match move
+0x80000000|916, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 371
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+235, // $NT
+0x80000000|312, // match move
+0x80000000|997, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 372
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+280, // (default reduction)
+122,1813, // "w"
   }
 ,
 { // state 373
-0x80000000|1, // match move
-0x80000000|1396, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+90,1179, // "l"
+115,444, // "x"
+120,3, // "n"
   }
 ,
 { // state 374
-0x80000000|978, // match move
-0x80000000|1879, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+179,MIN_REDUCTION+105, // $NT
   }
 ,
 { // state 375
-0x80000000|1, // match move
-0x80000000|302, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+179,MIN_REDUCTION+333, // $NT
   }
 ,
 { // state 376
-0x80000000|1071, // match move
-0x80000000|739, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|1719, // match move
+0x80000000|1221, // no-match move
+// T-test match for 10:
+164,
   }
 ,
 { // state 377
-91,1735, // "a"
-108,1004, // "y"
-114,140, // "u"
+2,756, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+233, // $NT
   }
 ,
 { // state 378
-0x80000000|1885, // match move
-0x80000000|607, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+MIN_REDUCTION+54, // (default reduction)
   }
 ,
 { // state 379
-0x80000000|1156, // match move
-0x80000000|666, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+MIN_REDUCTION+181, // (default reduction)
   }
 ,
 { // state 380
-MIN_REDUCTION+16, // (default reduction)
+89,1091, // "c"
+90,1091, // "l"
+91,1091, // "a"
+92,1091, // "s"
+95,1091, // "e"
+96,1091, // "!"
+97,1091, // "="
+98,1091, // "+"
+102,1091, // "_"
+103,1091, // "d"
+104,1091, // "g"
+105,1091, // "m"
+106,1091, // "p"
+107,1091, // "v"
+108,1091, // "y"
+109,1091, // "f"
+110,1091, // "i"
+111,1091, // {"A".."Z"}
+112,1091, // "o"
+113,1091, // "r"
+114,1091, // "u"
+115,1091, // "x"
+116,1091, // {"j" "q"}
+117,1091, // "b"
+118,1091, // "h"
+119,1091, // "k"
+120,1091, // "n"
+121,1091, // "t"
+122,1091, // "w"
+123,1091, // "z"
+124,1091, // {"0".."9"}
+127,1091, // " "
+135,669, // printable
+140,1091, // "["
+141,1091, // "-"
+142,1091, // "<"
+143,1091, // "|"
+144,1091, // {"?".."@"}
+145,1091, // "&"
+146,1091, // ")"
+147,1091, // ","
+148,1091, // "]"
+149,1091, // "/"
+150,1091, // {"#".."$"}
+151,1091, // ";"
+152,1091, // ">"
+153,1091, // "{"
+154,1091, // "%"
+155,1091, // "("
+156,1091, // "\"
+157,1091, // "."
+158,1091, // ":"
+159,1091, // "}"
+160,1091, // {"^" "`" "~"}
+161,1091, // "'"
+162,1091, // '"'
+163,1091, // "*"
   }
 ,
 { // state 381
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+277, // (default reduction)
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+235, // $NT
   }
 ,
 { // state 382
-MIN_REDUCTION+105, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+280, // (default reduction)
   }
 ,
 { // state 383
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+190, // (default reduction)
+0x80000000|1, // match move
+0x80000000|1410, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 384
-90,1384, // "l"
-91,509, // "a"
-110,336, // "i"
-112,1055, // "o"
+0x80000000|995, // match move
+0x80000000|1895, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 385
-0x80000000|35, // match move
-0x80000000|1415, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+161,753, // "'"
   }
 ,
 { // state 386
-0x80000000|1585, // match move
-0x80000000|1600, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+0x80000000|1, // match move
+0x80000000|306, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 387
-122,696, // "w"
+0x80000000|1085, // match move
+0x80000000|755, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 388
-0x80000000|1, // match move
-0x80000000|1619, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+91,1750, // "a"
+108,1020, // "y"
+114,145, // "u"
   }
 ,
 { // state 389
-0x80000000|77, // match move
-0x80000000|903, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|1901, // match move
+0x80000000|618, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 390
-0x80000000|1602, // match move
-0x80000000|74, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|1171, // match move
+0x80000000|678, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 391
-120,1707, // "n"
+MIN_REDUCTION+16, // (default reduction)
   }
 ,
 { // state 392
-0x80000000|1208, // match move
-0x80000000|1174, // no-match move
-0x80000000|89, // NT-test-match state for digit
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+277, // (default reduction)
   }
 ,
 { // state 393
-90,563, // "l"
+MIN_REDUCTION+105, // (default reduction)
   }
 ,
 { // state 394
-0x80000000|525, // match move
-0x80000000|211, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+190, // (default reduction)
   }
 ,
 { // state 395
-0x80000000|1634, // match move
-0x80000000|865, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+90,1399, // "l"
+91,519, // "a"
+110,345, // "i"
+112,1069, // "o"
   }
 ,
 { // state 396
-MIN_REDUCTION+73, // (default reduction)
+0x80000000|37, // match move
+0x80000000|1428, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 397
-0x80000000|19, // match move
-0x80000000|1088, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+0x80000000|1598, // match move
+0x80000000|1613, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 398
-121,1395, // "t"
+122,708, // "w"
   }
 ,
 { // state 399
-0x80000000|1148, // match move
-0x80000000|1660, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|1, // match move
+0x80000000|1633, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 400
-109,1689, // "f"
+0x80000000|79, // match move
+0x80000000|923, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 401
-2,99, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+332, // (default reduction)
+0x80000000|1615, // match move
+0x80000000|76, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 402
-89,1161, // "c"
+120,1720, // "n"
   }
 ,
 { // state 403
-97,1157, // "="
+0x80000000|1225, // match move
+0x80000000|1190, // no-match move
+0x80000000|94, // NT-test-match state for digit
   }
 ,
 { // state 404
-0x80000000|534, // match move
-0x80000000|1012, // no-match move
+90,573, // "l"
+  }
+,
+{ // state 405
+0x80000000|536, // match move
+0x80000000|215, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 406
+0x80000000|1648, // match move
+0x80000000|885, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 407
+MIN_REDUCTION+73, // (default reduction)
+  }
+,
+{ // state 408
+0x80000000|20, // match move
+0x80000000|1104, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 409
+121,1409, // "t"
+  }
+,
+{ // state 410
+0x80000000|1163, // match move
+0x80000000|1673, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 411
+109,1702, // "f"
+  }
+,
+{ // state 412
+2,104, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+332, // (default reduction)
+  }
+,
+{ // state 413
+89,1177, // "c"
+  }
+,
+{ // state 414
+0x80000000|544, // match move
+0x80000000|1028, // no-match move
 // T-test match for "+":
 98,
   }
 ,
-{ // state 405
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+238, // (default reduction)
-  }
-,
-{ // state 406
-90,393, // "l"
-  }
-,
-{ // state 407
-0x80000000|1, // match move
-0x80000000|1641, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 408
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+157, // (default reduction)
-  }
-,
-{ // state 409
-0x80000000|1521, // match move
-0x80000000|1383, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 410
-0x80000000|103, // match move
-0x80000000|526, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 411
-2,1938, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+164, // (default reduction)
-  }
-,
-{ // state 412
-0x80000000|177, // match move
-0x80000000|766, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 413
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+202, // (default reduction)
-  }
-,
-{ // state 414
-2,374, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+320, // (default reduction)
-  }
-,
 { // state 415
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+95, // (default reduction)
+97,1173, // "="
   }
 ,
 { // state 416
-2,1625, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+212, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+238, // (default reduction)
   }
 ,
 { // state 417
-MIN_REDUCTION+82, // (default reduction)
+90,404, // "l"
   }
 ,
 { // state 418
-0x80000000|519, // match move
-0x80000000|1186, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|1, // match move
+0x80000000|1655, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 419
-MIN_REDUCTION+193, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+157, // (default reduction)
   }
 ,
 { // state 420
-2,1283, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+168, // (default reduction)
+0x80000000|1533, // match move
+0x80000000|1398, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 421
-95,2006, // "e"
+0x80000000|108, // match move
+0x80000000|538, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 422
-MIN_REDUCTION+362, // (default reduction)
+2,1953, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+164, // (default reduction)
   }
 ,
 { // state 423
-2,799, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+160, // (default reduction)
+0x80000000|181, // match move
+0x80000000|782, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 424
-0x80000000|1761, // match move
-0x80000000|819, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+202, // (default reduction)
   }
 ,
 { // state 425
-2,962, // white*
-MIN_REDUCTION+341, // (default reduction)
+2,384, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+320, // (default reduction)
   }
 ,
 { // state 426
-MIN_REDUCTION+57, // (default reduction)
-  }
-,
-{ // state 427
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+280, // (default reduction)
-  }
-,
-{ // state 428
-2,1267, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+206, // $NT
-  }
-,
-{ // state 429
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+133, // (default reduction)
-  }
-,
-{ // state 430
-2,1450, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+134, // (default reduction)
-  }
-,
-{ // state 431
-MIN_REDUCTION+301, // (default reduction)
-  }
-,
-{ // state 432
-MIN_REDUCTION+5, // (default reduction)
-  }
-,
-{ // state 433
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+184, // (default reduction)
-  }
-,
-{ // state 434
-121,244, // "t"
-  }
-,
-{ // state 435
-90,1057, // "l"
-91,1198, // "a"
-112,477, // "o"
-118,1941, // "h"
-  }
-,
-{ // state 436
-0x80000000|2022, // match move
-0x80000000|86, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 437
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+173, // (default reduction)
-  }
-,
-{ // state 438
-92,148, // "s"
-  }
-,
-{ // state 439
-MIN_REDUCTION+71, // (default reduction)
-  }
-,
-{ // state 440
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+190, // (default reduction)
-  }
-,
-{ // state 441
-0x80000000|1, // match move
-0x80000000|1458, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 442
-MIN_REDUCTION+350, // (default reduction)
-  }
-,
-{ // state 443
-0x80000000|1028, // match move
-0x80000000|1788, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 444
-89,724, // "c"
-90,724, // "l"
-91,724, // "a"
-92,724, // "s"
-95,724, // "e"
-96,724, // "!"
-97,724, // "="
-98,724, // "+"
-102,724, // "_"
-103,724, // "d"
-104,724, // "g"
-105,724, // "m"
-106,724, // "p"
-107,724, // "v"
-108,724, // "y"
-109,724, // "f"
-110,724, // "i"
-111,724, // {"A".."Z"}
-112,724, // "o"
-113,724, // "r"
-114,724, // "u"
-115,724, // "x"
-116,724, // {"j" "q"}
-117,724, // "b"
-118,724, // "h"
-119,724, // "k"
-120,724, // "n"
-121,724, // "t"
-122,724, // "w"
-123,724, // "z"
-124,724, // {"0".."9"}
-127,724, // " "
-128,724, // {9}
-129,1228, // eol
-131,343, // {10}
-132,367, // {13}
-134,724, // "["
-135,724, // "-"
-136,724, // "<"
-137,724, // "|"
-138,724, // {"?".."@"}
-139,724, // "&"
-140,724, // ")"
-141,724, // ","
-142,724, // "]"
-143,724, // "/"
-144,724, // {"#".."$"}
-145,724, // ";"
-146,724, // ">"
-147,724, // "{"
-148,724, // "%"
-149,724, // "("
-150,724, // "\"
-151,724, // "."
-152,724, // ":"
-153,724, // "}"
-154,724, // {"^" "`" "~"}
-155,724, // "'"
-156,724, // '"'
-157,1623, // "*"
-166,851, // starSlash
-167,442, // blockCommentContent
-  }
-,
-{ // state 445
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+171, // (default reduction)
-  }
-,
-{ // state 446
-95,238, // "e"
-  }
-,
-{ // state 447
-137,1693, // "|"
-  }
-,
-{ // state 448
-0x80000000|1525, // match move
-0x80000000|1265, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 449
-0x80000000|1, // match move
-0x80000000|1527, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 450
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+280, // (default reduction)
-  }
-,
-{ // state 451
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
 MIN_REDUCTION+95, // (default reduction)
   }
 ,
+{ // state 427
+2,1639, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+212, // (default reduction)
+  }
+,
+{ // state 428
+MIN_REDUCTION+82, // (default reduction)
+  }
+,
+{ // state 429
+0x80000000|530, // match move
+0x80000000|1202, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 430
+MIN_REDUCTION+193, // (default reduction)
+  }
+,
+{ // state 431
+2,1300, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+168, // (default reduction)
+  }
+,
+{ // state 432
+95,2024, // "e"
+  }
+,
+{ // state 433
+2,816, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+160, // (default reduction)
+  }
+,
+{ // state 434
+MIN_REDUCTION+363, // (default reduction)
+  }
+,
+{ // state 435
+0x80000000|1774, // match move
+0x80000000|836, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 436
+MIN_REDUCTION+57, // (default reduction)
+  }
+,
+{ // state 437
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+280, // (default reduction)
+  }
+,
+{ // state 438
+2,1284, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+206, // $NT
+  }
+,
+{ // state 439
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+133, // (default reduction)
+  }
+,
+{ // state 440
+2,1460, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+134, // (default reduction)
+  }
+,
+{ // state 441
+MIN_REDUCTION+301, // (default reduction)
+  }
+,
+{ // state 442
+MIN_REDUCTION+5, // (default reduction)
+  }
+,
+{ // state 443
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+184, // (default reduction)
+  }
+,
+{ // state 444
+121,247, // "t"
+  }
+,
+{ // state 445
+90,1071, // "l"
+91,1214, // "a"
+112,488, // "o"
+118,1956, // "h"
+  }
+,
+{ // state 446
+0x80000000|2040, // match move
+0x80000000|91, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 447
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+173, // (default reduction)
+  }
+,
+{ // state 448
+0x80000000|311, // match move
+0x80000000|258, // no-match move
+0x80000000|1101, // NT-test-match state for printable
+  }
+,
+{ // state 449
+92,153, // "s"
+  }
+,
+{ // state 450
+MIN_REDUCTION+71, // (default reduction)
+  }
+,
+{ // state 451
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+190, // (default reduction)
+  }
+,
 { // state 452
-109,790, // "f"
+0x80000000|1, // match move
+0x80000000|1468, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 453
-2,527, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+166, // (default reduction)
+MIN_REDUCTION+349, // (default reduction)
   }
 ,
 { // state 454
-2,1637, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+178, // (default reduction)
+0x80000000|1043, // match move
+0x80000000|1802, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 455
-0x80000000|101, // match move
-0x80000000|1833, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+89,738, // "c"
+90,738, // "l"
+91,738, // "a"
+92,738, // "s"
+95,738, // "e"
+96,738, // "!"
+97,738, // "="
+98,738, // "+"
+102,738, // "_"
+103,738, // "d"
+104,738, // "g"
+105,738, // "m"
+106,738, // "p"
+107,738, // "v"
+108,738, // "y"
+109,738, // "f"
+110,738, // "i"
+111,738, // {"A".."Z"}
+112,738, // "o"
+113,738, // "r"
+114,738, // "u"
+115,738, // "x"
+116,738, // {"j" "q"}
+117,738, // "b"
+118,738, // "h"
+119,738, // "k"
+120,738, // "n"
+121,738, // "t"
+122,738, // "w"
+123,738, // "z"
+124,738, // {"0".."9"}
+127,738, // " "
+128,738, // {9}
+129,1246, // eol
+138,871, // starSlash
+139,453, // blockCommentContent
+140,738, // "["
+141,738, // "-"
+142,738, // "<"
+143,738, // "|"
+144,738, // {"?".."@"}
+145,738, // "&"
+146,738, // ")"
+147,738, // ","
+148,738, // "]"
+149,738, // "/"
+150,738, // {"#".."$"}
+151,738, // ";"
+152,738, // ">"
+153,738, // "{"
+154,738, // "%"
+155,738, // "("
+156,738, // "\"
+157,738, // "."
+158,738, // ":"
+159,738, // "}"
+160,738, // {"^" "`" "~"}
+161,738, // "'"
+162,738, // '"'
+163,1637, // "*"
+164,352, // {10}
+165,376, // {13}
   }
 ,
 { // state 456
-MIN_REDUCTION+187, // (default reduction)
-  }
-,
-{ // state 457
-120,529, // "n"
-  }
-,
-{ // state 458
-0x80000000|476, // match move
-0x80000000|672, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 459
-178,MIN_REDUCTION+315, // $NT
-  }
-,
-{ // state 460
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+92, // (default reduction)
-  }
-,
-{ // state 461
-0x80000000|1502, // match move
-0x80000000|1856, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 462
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+253, // (default reduction)
-  }
-,
-{ // state 463
-0x80000000|533, // match move
-0x80000000|150, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 464
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+165, // (default reduction)
-  }
-,
-{ // state 465
-MIN_REDUCTION+247, // (default reduction)
-  }
-,
-{ // state 466
-2,1301, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+197, // $NT
-  }
-,
-{ // state 467
-0x80000000|1225, // match move
-0x80000000|1473, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 468
-178,MIN_REDUCTION+294, // $NT
-  }
-,
-{ // state 469
-MIN_REDUCTION+24, // (default reduction)
-  }
-,
-{ // state 470
-2,201, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+156, // (default reduction)
-  }
-,
-{ // state 471
-91,204, // "a"
-95,90, // "e"
-114,1859, // "u"
-  }
-,
-{ // state 472
-0x80000000|1697, // match move
-0x80000000|1131, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 473
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+253, // (default reduction)
-  }
-,
-{ // state 474
-118,761, // "h"
-  }
-,
-{ // state 475
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
 MIN_REDUCTION+171, // (default reduction)
   }
 ,
+{ // state 457
+95,241, // "e"
+  }
+,
+{ // state 458
+143,1706, // "|"
+  }
+,
+{ // state 459
+0x80000000|1537, // match move
+0x80000000|1282, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 460
+0x80000000|1, // match move
+0x80000000|1539, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 461
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+280, // (default reduction)
+  }
+,
+{ // state 462
+MIN_REDUCTION+95, // (default reduction)
+  }
+,
+{ // state 463
+109,806, // "f"
+  }
+,
+{ // state 464
+2,1651, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+178, // (default reduction)
+  }
+,
+{ // state 465
+2,539, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+166, // (default reduction)
+  }
+,
+{ // state 466
+0x80000000|106, // match move
+0x80000000|1848, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 467
+MIN_REDUCTION+187, // (default reduction)
+  }
+,
+{ // state 468
+120,540, // "n"
+  }
+,
+{ // state 469
+0x80000000|487, // match move
+0x80000000|684, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 470
+179,MIN_REDUCTION+315, // $NT
+  }
+,
+{ // state 471
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+92, // (default reduction)
+  }
+,
+{ // state 472
+0x80000000|1513, // match move
+0x80000000|1872, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 473
+0x80000000|310, // match move
+0x80000000|88, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 474
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+253, // (default reduction)
+  }
+,
+{ // state 475
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+165, // (default reduction)
+  }
+,
 { // state 476
-2,1752, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+140, // (default reduction)
+MIN_REDUCTION+247, // (default reduction)
   }
 ,
 { // state 477
-120,1847, // "n"
+2,1317, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+197, // $NT
   }
 ,
 { // state 478
-2,1241, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+293, // (default reduction)
+0x80000000|1243, // match move
+0x80000000|1483, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 479
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+274, // $NT
+179,MIN_REDUCTION+294, // $NT
   }
 ,
 { // state 480
-MIN_REDUCTION+123, // (default reduction)
+MIN_REDUCTION+24, // (default reduction)
   }
 ,
 { // state 481
-0x80000000|1187, // match move
-0x80000000|1503, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+2,205, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+156, // (default reduction)
   }
 ,
 { // state 482
-MIN_REDUCTION+107, // (default reduction)
+91,208, // "a"
+95,95, // "e"
+114,1875, // "u"
   }
 ,
 { // state 483
-2,962, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+341, // (default reduction)
+0x80000000|1710, // match move
+0x80000000|1147, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 484
-2,1779, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+224, // $NT
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+253, // (default reduction)
   }
 ,
 { // state 485
-90,1128, // "l"
+118,776, // "h"
   }
 ,
 { // state 486
-MIN_REDUCTION+298, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+171, // (default reduction)
   }
 ,
 { // state 487
-0x80000000|798, // match move
-0x80000000|1084, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+2,1766, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+140, // (default reduction)
   }
 ,
 { // state 488
-MIN_REDUCTION+292, // (default reduction)
+120,1862, // "n"
   }
 ,
 { // state 489
-89,36, // "c"
+2,1259, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+293, // (default reduction)
   }
 ,
 { // state 490
-103,1018, // "d"
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+274, // $NT
   }
 ,
 { // state 491
-2,1633, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
+MIN_REDUCTION+113, // (default reduction)
+  }
+,
+{ // state 492
+0x80000000|1203, // match move
+0x80000000|1514, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 493
+MIN_REDUCTION+107, // (default reduction)
+  }
+,
+{ // state 494
+2,1793, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+224, // $NT
+  }
+,
+{ // state 495
+90,1144, // "l"
+  }
+,
+{ // state 496
+MIN_REDUCTION+298, // (default reduction)
+  }
+,
+{ // state 497
+0x80000000|814, // match move
+0x80000000|1099, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 498
+MIN_REDUCTION+292, // (default reduction)
+  }
+,
+{ // state 499
+89,38, // "c"
+  }
+,
+{ // state 500
+103,1034, // "d"
+  }
+,
+{ // state 501
+2,1647, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
 MIN_REDUCTION+299, // (default reduction)
+  }
+,
+{ // state 502
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+202, // (default reduction)
+  }
+,
+{ // state 503
+89,1644, // "c"
+  }
+,
+{ // state 504
+0x80000000|1909, // match move
+0x80000000|572, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 505
+0x80000000|335, // match move
+0x80000000|22, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 506
+0x80000000|1, // match move
+0x80000000|1552, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 507
+2,1689, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+230, // (default reduction)
+  }
+,
+{ // state 508
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+214, // $NT
   }
 };
 }
@@ -4801,4326 +4788,4461 @@ public int doInit(int startIdx) {
   return myParseTable.length;
 }
 private final int[][] myParseTable = {
-{ // state 492
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+202, // (default reduction)
-  }
-,
-{ // state 493
-89,1630, // "c"
-  }
-,
-{ // state 494
-0x80000000|1894, // match move
-0x80000000|562, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 495
-0x80000000|326, // match move
-0x80000000|21, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 496
-0x80000000|1, // match move
-0x80000000|1540, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 497
-2,1676, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+230, // (default reduction)
-  }
-,
-{ // state 498
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+214, // $NT
-  }
-,
-{ // state 499
-90,1121, // "l"
-  }
-,
-{ // state 500
-2,131, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+209, // (default reduction)
-  }
-,
-{ // state 501
-0x80000000|1026, // match move
-0x80000000|227, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 502
-0x80000000|1468, // match move
-0x80000000|120, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 503
-2,309, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+308, // $NT
-  }
-,
-{ // state 504
-0x80000000|1, // match move
-0x80000000|376, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 505
-113,1331, // "r"
-  }
-,
-{ // state 506
-110,583, // "i"
-  }
-,
-{ // state 507
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+250, // $NT
-  }
-,
-{ // state 508
-95,1066, // "e"
-  }
-,
 { // state 509
-90,178, // "l"
+90,1137, // "l"
   }
 ,
 { // state 510
-0x80000000|1447, // match move
-0x80000000|677, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+2,135, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+209, // (default reduction)
   }
 ,
 { // state 511
-0x80000000|1, // match move
-0x80000000|362, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|1041, // match move
+0x80000000|231, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 512
-112,1991, // "o"
+0x80000000|1478, // match move
+0x80000000|124, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 513
-2,385, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+152, // (default reduction)
+2,317, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+308, // $NT
   }
 ,
 { // state 514
-95,1537, // "e"
+0x80000000|1, // match move
+0x80000000|387, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 515
-0x80000000|1530, // match move
-0x80000000|2012, // no-match move
-0x80000000|521, // NT-test-match state for letter
+113,1348, // "r"
   }
 ,
 { // state 516
-90,421, // "l"
+110,593, // "i"
   }
 ,
 { // state 517
-89,359, // "c"
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+250, // $NT
   }
 ,
 { // state 518
-178,MIN_REDUCTION+306, // $NT
+95,1080, // "e"
   }
 ,
 { // state 519
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+262, // (default reduction)
+90,182, // "l"
   }
 ,
 { // state 520
-120,1526, // "n"
+MIN_REDUCTION+359, // (default reduction)
   }
 ,
 { // state 521
-89,891, // "c"
-90,891, // "l"
-91,891, // "a"
-92,891, // "s"
-95,891, // "e"
-103,891, // "d"
-104,891, // "g"
-105,891, // "m"
-106,891, // "p"
-107,891, // "v"
-108,891, // "y"
-109,891, // "f"
-110,891, // "i"
-111,891, // {"A".."Z"}
-112,891, // "o"
-113,891, // "r"
-114,891, // "u"
-115,891, // "x"
-116,891, // {"j" "q"}
-117,891, // "b"
-118,891, // "h"
-119,891, // "k"
-120,891, // "n"
-121,891, // "t"
-122,891, // "w"
-123,891, // "z"
+0x80000000|1458, // match move
+0x80000000|689, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 522
-2,577, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+290, // (default reduction)
+0x80000000|1, // match move
+0x80000000|371, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 523
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+163, // (default reduction)
+112,2009, // "o"
   }
 ,
 { // state 524
-2,1119, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+254, // (default reduction)
+2,396, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+152, // (default reduction)
   }
 ,
 { // state 525
-2,1778, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+248, // (default reduction)
+95,1549, // "e"
   }
 ,
 { // state 526
-2,1620, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-169,1730, // idChar**
-170,1438, // $$1
-175,1467, // idChar*
-MIN_REDUCTION+337, // (default reduction)
+0x80000000|1541, // match move
+0x80000000|2031, // no-match move
+0x80000000|532, // NT-test-match state for letter
   }
 ,
 { // state 527
-0x80000000|1865, // match move
-0x80000000|1118, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+90,432, // "l"
   }
 ,
 { // state 528
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+157, // (default reduction)
+89,368, // "c"
   }
 ,
 { // state 529
-114,804, // "u"
+179,MIN_REDUCTION+306, // $NT
   }
 ,
 { // state 530
-MIN_REDUCTION+190, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+262, // (default reduction)
   }
 ,
 { // state 531
-2,99, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+332, // (default reduction)
+120,1538, // "n"
   }
 ,
 { // state 532
-2,1700, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+314, // (default reduction)
+89,911, // "c"
+90,911, // "l"
+91,911, // "a"
+92,911, // "s"
+95,911, // "e"
+103,911, // "d"
+104,911, // "g"
+105,911, // "m"
+106,911, // "p"
+107,911, // "v"
+108,911, // "y"
+109,911, // "f"
+110,911, // "i"
+111,911, // {"A".."Z"}
+112,911, // "o"
+113,911, // "r"
+114,911, // "u"
+115,911, // "x"
+116,911, // {"j" "q"}
+117,911, // "b"
+118,911, // "h"
+119,911, // "k"
+120,911, // "n"
+121,911, // "t"
+122,911, // "w"
+123,911, // "z"
   }
 ,
 { // state 533
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+149, // (default reduction)
+2,587, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+290, // (default reduction)
   }
 ,
 { // state 534
-98,378, // "+"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+163, // (default reduction)
   }
 ,
 { // state 535
-MIN_REDUCTION+26, // (default reduction)
+2,1135, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+254, // (default reduction)
   }
 ,
 { // state 536
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+289, // (default reduction)
+2,1792, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+248, // (default reduction)
   }
 ,
 { // state 537
-0x80000000|1830, // match move
-0x80000000|1899, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+157, // (default reduction)
   }
 ,
 { // state 538
-2,1423, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+203, // (default reduction)
+2,1634, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+169,1744, // idChar**
+170,1450, // $$1
+176,1477, // idChar*
+MIN_REDUCTION+337, // (default reduction)
   }
 ,
 { // state 539
-2,1485, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+278, // (default reduction)
+0x80000000|1881, // match move
+0x80000000|1134, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 540
-MIN_REDUCTION+43, // (default reduction)
+114,821, // "u"
   }
 ,
 { // state 541
-0x80000000|1554, // match move
-0x80000000|381, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+MIN_REDUCTION+190, // (default reduction)
   }
 ,
 { // state 542
-2,498, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+215, // $NT
+2,104, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+332, // (default reduction)
   }
 ,
 { // state 543
-2,1910, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+146, // (default reduction)
+2,1713, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+314, // (default reduction)
   }
 ,
 { // state 544
-MIN_REDUCTION+51, // (default reduction)
+98,389, // "+"
   }
 ,
 { // state 545
-2,1097, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+281, // (default reduction)
+MIN_REDUCTION+26, // (default reduction)
   }
 ,
 { // state 546
-121,775, // "t"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+289, // (default reduction)
   }
 ,
 { // state 547
-178,MIN_REDUCTION+279, // $NT
+0x80000000|1845, // match move
+0x80000000|1915, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 548
-0x80000000|1483, // match move
-0x80000000|436, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+2,1435, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+203, // (default reduction)
   }
 ,
 { // state 549
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+310, // (default reduction)
+2,1495, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+278, // (default reduction)
   }
 ,
 { // state 550
-2,1441, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+200, // (default reduction)
+MIN_REDUCTION+43, // (default reduction)
   }
 ,
 { // state 551
-0x80000000|1, // match move
-0x80000000|640, // no-match move
-0x80000000|521, // NT-test-match state for letter
+0x80000000|1566, // match move
+0x80000000|392, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 552
-0x80000000|403, // match move
-0x80000000|1664, // no-match move
+2,508, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+215, // $NT
+  }
+,
+{ // state 553
+2,1925, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+146, // (default reduction)
+  }
+,
+{ // state 554
+MIN_REDUCTION+51, // (default reduction)
+  }
+,
+{ // state 555
+2,1112, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+281, // (default reduction)
+  }
+,
+{ // state 556
+121,791, // "t"
+  }
+,
+{ // state 557
+179,MIN_REDUCTION+279, // $NT
+  }
+,
+{ // state 558
+0x80000000|1493, // match move
+0x80000000|446, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 559
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+310, // (default reduction)
+  }
+,
+{ // state 560
+2,1453, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+200, // (default reduction)
+  }
+,
+{ // state 561
+0x80000000|1, // match move
+0x80000000|650, // no-match move
+0x80000000|532, // NT-test-match state for letter
+  }
+,
+{ // state 562
+0x80000000|415, // match move
+0x80000000|1677, // no-match move
 // T-test match for "=":
 97,
   }
 ,
-{ // state 553
-2,1211, // white*
+{ // state 563
+2,1229, // white*
 MIN_REDUCTION+174, // (default reduction)
   }
 ,
-{ // state 554
-91,764, // "a"
-  }
-,
-{ // state 555
-103,1411, // "d"
-  }
-,
-{ // state 556
-MIN_REDUCTION+360, // (default reduction)
-  }
-,
-{ // state 557
-120,1534, // "n"
-  }
-,
-{ // state 558
-MIN_REDUCTION+347, // (default reduction)
-  }
-,
-{ // state 559
-0x80000000|1433, // match move
-0x80000000|443, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 560
-121,815, // "t"
-  }
-,
-{ // state 561
-2,805, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+272, // $NT
-  }
-,
-{ // state 562
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+226, // (default reduction)
-  }
-,
-{ // state 563
-0x80000000|1, // match move
-0x80000000|1945, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
 { // state 564
-131,1541, // {10}
+0x80000000|1176, // match move
+0x80000000|715, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 565
-0x80000000|1785, // match move
-0x80000000|1801, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+91,779, // "a"
   }
 ,
 { // state 566
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+202, // (default reduction)
+103,1424, // "d"
   }
 ,
 { // state 567
-0x80000000|1050, // match move
-0x80000000|1387, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+120,1546, // "n"
   }
 ,
 { // state 568
-2,1311, // white*
-97,267, // "="
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+150, // (default reduction)
+0x80000000|1445, // match move
+0x80000000|454, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 569
-0x80000000|769, // match move
-0x80000000|500, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|781, // match move
+0x80000000|82, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 570
-177,MIN_REDUCTION+0, // $
+121,832, // "t"
   }
 ,
 { // state 571
-MIN_REDUCTION+104, // (default reduction)
+2,822, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+272, // $NT
   }
 ,
 { // state 572
-110,1272, // "i"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+226, // (default reduction)
   }
 ,
 { // state 573
-0x80000000|983, // match move
-0x80000000|1972, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|1, // match move
+0x80000000|1960, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 574
-95,763, // "e"
+164,1553, // {10}
   }
 ,
 { // state 575
-2,692, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+302, // (default reduction)
+0x80000000|1799, // match move
+0x80000000|1816, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 576
-2,1620, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-170,1827, // $$1
-MIN_REDUCTION+335, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+202, // (default reduction)
   }
 ,
 { // state 577
-0x80000000|2004, // match move
-0x80000000|966, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|1063, // match move
+0x80000000|1402, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 578
-0x80000000|543, // match move
-0x80000000|1333, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|785, // match move
+0x80000000|510, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 579
-MIN_REDUCTION+165, // (default reduction)
+178,MIN_REDUCTION+0, // $
   }
 ,
 { // state 580
-2,928, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+308, // (default reduction)
+MIN_REDUCTION+104, // (default reduction)
   }
 ,
 { // state 581
-0x80000000|1, // match move
-0x80000000|698, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+110,1289, // "i"
   }
 ,
 { // state 582
-0x80000000|1101, // match move
-0x80000000|1357, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|1000, // match move
+0x80000000|1988, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 583
-89,193, // "c"
+95,778, // "e"
   }
 ,
 { // state 584
-121,274, // "t"
+129,866, // eol
+134,1864, // printable**
+164,1076, // {10}
+165,1589, // {13}
+174,316, // printable*
   }
 ,
 { // state 585
-2,1523, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+266, // (default reduction)
+2,704, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+302, // (default reduction)
   }
 ,
 { // state 586
-MIN_REDUCTION+277, // (default reduction)
+2,1634, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+170,1842, // $$1
+MIN_REDUCTION+335, // (default reduction)
   }
 ,
 { // state 587
-0x80000000|1048, // match move
-0x80000000|33, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+0x80000000|2022, // match move
+0x80000000|983, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 588
-178,MIN_REDUCTION+234, // $NT
+0x80000000|553, // match move
+0x80000000|1349, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 589
-MIN_REDUCTION+126, // (default reduction)
+MIN_REDUCTION+165, // (default reduction)
   }
 ,
 { // state 590
-95,1030, // "e"
+2,948, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+308, // (default reduction)
   }
 ,
 { // state 591
-95,1765, // "e"
+0x80000000|1, // match move
+0x80000000|710, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 592
-112,1221, // "o"
+0x80000000|1116, // match move
+0x80000000|1372, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 593
-0x80000000|1344, // match move
-0x80000000|397, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+89,196, // "c"
   }
 ,
 { // state 594
-0x80000000|1501, // match move
-0x80000000|1510, // no-match move
-0x80000000|89, // NT-test-match state for digit
+121,278, // "t"
   }
 ,
 { // state 595
-118,1196, // "h"
+2,1535, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+266, // (default reduction)
   }
 ,
 { // state 596
-2,1040, // white*
-97,267, // "="
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+152, // (default reduction)
+MIN_REDUCTION+277, // (default reduction)
   }
 ,
 { // state 597
-0x80000000|1445, // match move
-0x80000000|1303, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|1062, // match move
+0x80000000|35, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 598
-MIN_REDUCTION+173, // (default reduction)
+179,MIN_REDUCTION+234, // $NT
   }
 ,
 { // state 599
-0x80000000|673, // match move
-0x80000000|1436, // no-match move
-0x80000000|521, // NT-test-match state for letter
+MIN_REDUCTION+116, // (default reduction)
   }
 ,
 { // state 600
-0x80000000|1168, // match move
-0x80000000|965, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+95,1045, // "e"
   }
 ,
 { // state 601
-95,1811, // "e"
+95,1778, // "e"
   }
 ,
 { // state 602
-MIN_REDUCTION+75, // (default reduction)
+112,1239, // "o"
   }
 ,
 { // state 603
-MIN_REDUCTION+356, // (default reduction)
+0x80000000|1358, // match move
+0x80000000|408, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 604
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+211, // (default reduction)
+0x80000000|1512, // match move
+0x80000000|1521, // no-match move
+0x80000000|94, // NT-test-match state for digit
   }
 ,
 { // state 605
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+223, // (default reduction)
+118,1212, // "h"
   }
 ,
 { // state 606
-178,MIN_REDUCTION+213, // $NT
+0x80000000|520, // match move
+0x80000000|1618, // no-match move
+0x80000000|1101, // NT-test-match state for printable
   }
 ,
 { // state 607
-0x80000000|1213, // match move
-0x80000000|822, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+MIN_REDUCTION+173, // (default reduction)
   }
 ,
 { // state 608
-MIN_REDUCTION+352, // (default reduction)
+0x80000000|1456, // match move
+0x80000000|1319, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 609
-0x80000000|1418, // match move
-0x80000000|701, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|685, // match move
+0x80000000|1448, // no-match move
+0x80000000|532, // NT-test-match state for letter
   }
 ,
 { // state 610
-2,1570, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+305, // (default reduction)
+MIN_REDUCTION+124, // (default reduction)
   }
 ,
 { // state 611
-0x80000000|1, // match move
-0x80000000|797, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|1184, // match move
+0x80000000|982, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 612
-2,527, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+166, // (default reduction)
+95,1826, // "e"
   }
 ,
 { // state 613
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+247, // (default reduction)
+MIN_REDUCTION+355, // (default reduction)
   }
 ,
 { // state 614
-178,MIN_REDUCTION+130, // $NT
+MIN_REDUCTION+75, // (default reduction)
   }
 ,
 { // state 615
-178,MIN_REDUCTION+219, // $NT
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+211, // (default reduction)
   }
 ,
 { // state 616
-107,308, // "v"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+223, // (default reduction)
   }
 ,
 { // state 617
-120,1992, // "n"
+179,MIN_REDUCTION+213, // $NT
   }
 ,
 { // state 618
-178,MIN_REDUCTION+255, // $NT
+0x80000000|1230, // match move
+0x80000000|839, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 619
-121,182, // "t"
+MIN_REDUCTION+351, // (default reduction)
   }
 ,
 { // state 620
-95,1248, // "e"
+0x80000000|1431, // match move
+0x80000000|713, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 621
-MIN_REDUCTION+360, // (default reduction)
+2,1582, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+305, // (default reduction)
   }
 ,
 { // state 622
-2,4, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+245, // (default reduction)
+0x80000000|1, // match move
+0x80000000|813, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 623
-MIN_REDUCTION+340, // (default reduction)
+2,539, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+166, // (default reduction)
   }
 ,
 { // state 624
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+99, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+247, // (default reduction)
   }
 ,
 { // state 625
-MIN_REDUCTION+69, // (default reduction)
+179,MIN_REDUCTION+120, // $NT
   }
 ,
 { // state 626
-120,1820, // "n"
+179,MIN_REDUCTION+219, // $NT
   }
 ,
 { // state 627
-119,1417, // "k"
+107,315, // "v"
   }
 ,
 { // state 628
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+295, // (default reduction)
+120,2010, // "n"
   }
 ,
 { // state 629
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+235, // (default reduction)
+179,MIN_REDUCTION+255, // $NT
   }
 ,
 { // state 630
-2,1995, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+284, // (default reduction)
+121,185, // "t"
   }
 ,
 { // state 631
-90,94, // "l"
-115,1313, // "x"
-120,2, // "n"
+95,1266, // "e"
   }
 ,
 { // state 632
-0x80000000|1, // match move
-0x80000000|609, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+2,4, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+245, // (default reduction)
   }
 ,
 { // state 633
-0x80000000|1, // match move
-0x80000000|1728, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+99, // (default reduction)
   }
 ,
 { // state 634
-0x80000000|1, // match move
-0x80000000|796, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+MIN_REDUCTION+69, // (default reduction)
   }
 ,
 { // state 635
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+241, // (default reduction)
+120,1835, // "n"
   }
 ,
 { // state 636
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+220, // (default reduction)
+119,1430, // "k"
   }
 ,
 { // state 637
-89,1346, // "c"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+295, // (default reduction)
   }
 ,
 { // state 638
-2,781, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+218, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+235, // (default reduction)
   }
 ,
 { // state 639
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+211, // $NT
+2,2013, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+284, // (default reduction)
   }
 ,
 { // state 640
+90,99, // "l"
+115,1330, // "x"
+120,2, // "n"
+  }
+,
+{ // state 641
+0x80000000|1, // match move
+0x80000000|620, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 642
+0x80000000|1, // match move
+0x80000000|1742, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 643
+0x80000000|1, // match move
+0x80000000|812, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 644
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+241, // (default reduction)
+  }
+,
+{ // state 645
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+220, // (default reduction)
+  }
+,
+{ // state 646
+89,1360, // "c"
+  }
+,
+{ // state 647
+2,797, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+218, // (default reduction)
+  }
+,
+{ // state 648
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+211, // $NT
+  }
+,
+{ // state 649
+MIN_REDUCTION+111, // (default reduction)
+  }
+,
+{ // state 650
 102,MIN_REDUCTION+104, // "_"
 169,MIN_REDUCTION+104, // idChar**
 MIN_REDUCTION+104, // (default reduction)
   }
 ,
-{ // state 641
-106,1189, // "p"
-  }
-,
-{ // state 642
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+292, // (default reduction)
-  }
-,
-{ // state 643
-0x80000000|1, // match move
-0x80000000|282, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 644
-0x80000000|1, // match move
-0x80000000|1334, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 645
-MIN_REDUCTION+114, // (default reduction)
-  }
-,
-{ // state 646
-110,616, // "i"
-112,619, // "o"
-  }
-,
-{ // state 647
-0x80000000|1, // match move
-0x80000000|1720, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 648
-0x80000000|1551, // match move
-0x80000000|1421, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 649
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+217, // (default reduction)
-  }
-,
-{ // state 650
-MIN_REDUCTION+34, // (default reduction)
-  }
-,
 { // state 651
-2,1921, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+272, // (default reduction)
+106,1205, // "p"
   }
 ,
 { // state 652
-0x80000000|586, // match move
-0x80000000|541, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+292, // (default reduction)
   }
 ,
 { // state 653
-0x80000000|1195, // match move
-0x80000000|551, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|1, // match move
+0x80000000|286, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 654
-2,873, // white*
-MIN_REDUCTION+96, // (default reduction)
+0x80000000|1, // match move
+0x80000000|1350, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 655
-2,697, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+206, // (default reduction)
+MIN_REDUCTION+126, // (default reduction)
   }
 ,
 { // state 656
-MIN_REDUCTION+223, // (default reduction)
+110,627, // "i"
+112,630, // "o"
   }
 ,
 { // state 657
-MIN_REDUCTION+62, // (default reduction)
+0x80000000|1, // match move
+0x80000000|1734, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 658
-95,1505, // "e"
+0x80000000|1563, // match move
+0x80000000|1434, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 659
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+331, // $NT
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+217, // (default reduction)
   }
 ,
 { // state 660
-2,548, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+162, // (default reduction)
+MIN_REDUCTION+34, // (default reduction)
   }
 ,
 { // state 661
-89,1655, // "c"
-90,1655, // "l"
-91,1655, // "a"
-92,1655, // "s"
-95,1655, // "e"
-96,1668, // "!"
-97,645, // "="
-98,645, // "+"
-102,1655, // "_"
-103,1655, // "d"
-104,1655, // "g"
-105,1655, // "m"
-106,1655, // "p"
-107,1655, // "v"
-108,1655, // "y"
-109,1655, // "f"
-110,1655, // "i"
-111,645, // {"A".."Z"}
-112,1655, // "o"
-113,1655, // "r"
-114,1655, // "u"
-115,1655, // "x"
-116,1655, // {"j" "q"}
-117,1655, // "b"
-118,1655, // "h"
-119,1655, // "k"
-120,1655, // "n"
-121,1655, // "t"
-122,1655, // "w"
-123,1655, // "z"
-124,645, // {"0".."9"}
-127,1668, // " "
-134,645, // "["
-135,645, // "-"
-136,645, // "<"
-137,1655, // "|"
-138,645, // {"?".."@"}
-139,645, // "&"
-140,645, // ")"
-141,645, // ","
-142,1655, // "]"
-143,645, // "/"
-144,645, // {"#".."$"}
-145,645, // ";"
-146,645, // ">"
-147,1655, // "{"
-148,645, // "%"
-149,645, // "("
-151,645, // "."
-152,645, // ":"
-153,1655, // "}"
-154,1655, // {"^" "`" "~"}
-155,645, // "'"
-156,1777, // '"'
-157,645, // "*"
-158,736, // stringPrintable
-171,1362, // stringPrintable*
-172,1677, // $$2
+2,1936, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+272, // (default reduction)
   }
 ,
 { // state 662
-2,873, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+96, // (default reduction)
+0x80000000|596, // match move
+0x80000000|551, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 663
-2,1880, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+191, // (default reduction)
+0x80000000|1211, // match move
+0x80000000|561, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 664
-2,1120, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+287, // (default reduction)
+2,893, // white*
+MIN_REDUCTION+96, // (default reduction)
   }
 ,
 { // state 665
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+181, // (default reduction)
+2,569, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+341, // (default reduction)
   }
 ,
 { // state 666
-0x80000000|925, // match move
-0x80000000|993, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+2,709, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+206, // (default reduction)
   }
 ,
 { // state 667
-MIN_REDUCTION+46, // (default reduction)
-  }
-,
-{ // state 668
-0x80000000|1732, // match move
-0x80000000|1863, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 669
-2,296, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+329, // $NT
-  }
-,
-{ // state 670
-MIN_REDUCTION+244, // (default reduction)
-  }
-,
-{ // state 671
-91,907, // "a"
-  }
-,
-{ // state 672
-0x80000000|1215, // match move
-0x80000000|1850, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 673
-MIN_REDUCTION+357, // (default reduction)
-  }
-,
-{ // state 674
-MIN_REDUCTION+37, // (default reduction)
-  }
-,
-{ // state 675
-2,1938, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+164, // (default reduction)
-  }
-,
-{ // state 676
-0x80000000|1373, // match move
-0x80000000|1171, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 677
-0x80000000|1471, // match move
-0x80000000|96, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 678
-92,1158, // "s"
-  }
-,
-{ // state 679
-MIN_REDUCTION+7, // (default reduction)
-  }
-,
-{ // state 680
-0x80000000|180, // match move
-0x80000000|1257, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 681
-178,MIN_REDUCTION+288, // $NT
-  }
-,
-{ // state 682
-2,928, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+308, // (default reduction)
-  }
-,
-{ // state 683
-0x80000000|1340, // match move
-0x80000000|1566, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 684
-MIN_REDUCTION+131, // (default reduction)
-  }
-,
-{ // state 685
-MIN_REDUCTION+61, // (default reduction)
-  }
-,
-{ // state 686
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+247, // (default reduction)
-  }
-,
-{ // state 687
-95,1435, // "e"
-  }
-,
-{ // state 688
-2,1874, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+296, // $NT
-  }
-,
-{ // state 689
-92,80, // "s"
-  }
-,
-{ // state 690
-112,363, // "o"
-  }
-,
-{ // state 691
-91,1232, // "a"
-  }
-,
-{ // state 692
-0x80000000|1429, // match move
-0x80000000|1298, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 693
-109,1149, // "f"
-  }
-,
-{ // state 694
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+151, // (default reduction)
-  }
-,
-{ // state 695
-0x80000000|289, // match move
-0x80000000|1683, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 696
-0x80000000|1274, // match move
-0x80000000|1409, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 697
-0x80000000|1669, // match move
-0x80000000|38, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 698
-0x80000000|1533, // match move
-0x80000000|1739, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 699
-MIN_REDUCTION+20, // (default reduction)
-  }
-,
-{ // state 700
-MIN_REDUCTION+151, // (default reduction)
-  }
-,
-{ // state 701
-0x80000000|1546, // match move
-0x80000000|255, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 702
-MIN_REDUCTION+349, // (default reduction)
-  }
-,
-{ // state 703
-95,358, // "e"
-  }
-,
-{ // state 704
-0x80000000|1455, // match move
-0x80000000|1694, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 705
-106,1818, // "p"
-  }
-,
-{ // state 706
-2,1746, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+257, // (default reduction)
-  }
-,
-{ // state 707
-112,893, // "o"
-  }
-,
-{ // state 708
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+325, // $NT
-  }
-,
-{ // state 709
-113,398, // "r"
-  }
-,
-{ // state 710
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+268, // (default reduction)
-  }
-,
-{ // state 711
-0x80000000|433, // match move
-0x80000000|1162, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 712
-MIN_REDUCTION+348, // (default reduction)
-  }
-,
-{ // state 713
-0x80000000|539, // match move
-0x80000000|1959, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 714
-2,1086, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+182, // $NT
-  }
-,
-{ // state 715
-MIN_REDUCTION+119, // (default reduction)
-  }
-,
-{ // state 716
-95,943, // "e"
-  }
-,
-{ // state 717
-178,MIN_REDUCTION+222, // $NT
-  }
-,
-{ // state 718
-0x80000000|128, // match move
-0x80000000|694, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 719
-MIN_REDUCTION+356, // (default reduction)
-  }
-,
-{ // state 720
-0x80000000|1555, // match move
-0x80000000|1549, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 721
-121,934, // "t"
-  }
-,
-{ // state 722
-0x80000000|1940, // match move
-0x80000000|828, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 723
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+92, // (default reduction)
-  }
-,
-{ // state 724
-MIN_REDUCTION+125, // (default reduction)
-  }
-,
-{ // state 725
-2,418, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+263, // (default reduction)
-  }
-,
-{ // state 726
-0x80000000|1591, // match move
-0x80000000|817, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 727
-2,385, // white*
-MIN_REDUCTION+152, // (default reduction)
-  }
-,
-{ // state 728
-0x80000000|356, // match move
-0x80000000|1090, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 729
-2,1938, // white*
-MIN_REDUCTION+164, // (default reduction)
-  }
-,
-{ // state 730
-2,1676, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+230, // (default reduction)
-  }
-,
-{ // state 731
-2,1716, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+194, // $NT
-  }
-,
-{ // state 732
-89,1393, // "c"
-90,1393, // "l"
-91,1393, // "a"
-92,1393, // "s"
-95,1393, // "e"
-96,1393, // "!"
-97,1393, // "="
-98,1393, // "+"
-102,1393, // "_"
-103,1393, // "d"
-104,1393, // "g"
-105,1393, // "m"
-106,1393, // "p"
-107,1393, // "v"
-108,1393, // "y"
-109,1393, // "f"
-110,1393, // "i"
-111,1393, // {"A".."Z"}
-112,1393, // "o"
-113,1393, // "r"
-114,1393, // "u"
-115,1393, // "x"
-116,1393, // {"j" "q"}
-117,1393, // "b"
-118,1393, // "h"
-119,1393, // "k"
-120,1393, // "n"
-121,1393, // "t"
-122,1393, // "w"
-123,1393, // "z"
-124,1393, // {"0".."9"}
-127,1393, // " "
-129,950, // eol
-131,1062, // {10}
-132,1577, // {13}
-133,558, // printable
-134,1393, // "["
-135,1393, // "-"
-136,1393, // "<"
-137,1393, // "|"
-138,1393, // {"?".."@"}
-139,1393, // "&"
-140,1393, // ")"
-141,1393, // ","
-142,1393, // "]"
-143,1393, // "/"
-144,1393, // {"#".."$"}
-145,1393, // ";"
-146,1393, // ">"
-147,1393, // "{"
-148,1393, // "%"
-149,1393, // "("
-150,1393, // "\"
-151,1393, // "."
-152,1393, // ":"
-153,1393, // "}"
-154,1393, // {"^" "`" "~"}
-155,1393, // "'"
-156,1393, // '"'
-157,1393, // "*"
-163,1902, // printable*
-  }
-,
-{ // state 733
-2,1528, // white*
-MIN_REDUCTION+98, // (default reduction)
-  }
-,
-{ // state 734
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+214, // (default reduction)
-  }
-,
-{ // state 735
-MIN_REDUCTION+6, // (default reduction)
-  }
-,
-{ // state 736
-MIN_REDUCTION+353, // (default reduction)
-  }
-,
-{ // state 737
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
 MIN_REDUCTION+223, // (default reduction)
   }
 ,
-{ // state 738
-MIN_REDUCTION+84, // (default reduction)
+{ // state 668
+MIN_REDUCTION+62, // (default reduction)
   }
 ,
-{ // state 739
-0x80000000|232, // match move
-0x80000000|478, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 669
+0x80000000|1133, // match move
+0x80000000|815, // no-match move
+0x80000000|1101, // NT-test-match state for printable
   }
 ,
-{ // state 740
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+232, // $NT
+{ // state 670
+95,1516, // "e"
   }
 ,
-{ // state 741
-0x80000000|311, // match move
-0x80000000|45, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+{ // state 671
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+331, // $NT
   }
 ,
-{ // state 742
-2,1570, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+305, // (default reduction)
+{ // state 672
+2,558, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+162, // (default reduction)
   }
 ,
-{ // state 743
-2,1532, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+209, // $NT
+{ // state 673
+89,1668, // "c"
+90,1668, // "l"
+91,1668, // "a"
+92,1668, // "s"
+95,1668, // "e"
+96,1681, // "!"
+97,655, // "="
+98,655, // "+"
+102,1668, // "_"
+103,1668, // "d"
+104,1668, // "g"
+105,1668, // "m"
+106,1668, // "p"
+107,1668, // "v"
+108,1668, // "y"
+109,1668, // "f"
+110,1668, // "i"
+111,655, // {"A".."Z"}
+112,1668, // "o"
+113,1668, // "r"
+114,1668, // "u"
+115,1668, // "x"
+116,1668, // {"j" "q"}
+117,1668, // "b"
+118,1668, // "h"
+119,1668, // "k"
+120,1668, // "n"
+121,1668, // "t"
+122,1668, // "w"
+123,1668, // "z"
+124,655, // {"0".."9"}
+127,1681, // " "
+140,655, // "["
+141,655, // "-"
+142,655, // "<"
+143,1668, // "|"
+144,655, // {"?".."@"}
+145,655, // "&"
+146,655, // ")"
+147,655, // ","
+148,1668, // "]"
+149,655, // "/"
+150,655, // {"#".."$"}
+151,655, // ";"
+152,655, // ">"
+153,1668, // "{"
+154,655, // "%"
+155,655, // "("
+157,655, // "."
+158,655, // ":"
+159,1668, // "}"
+160,1668, // {"^" "`" "~"}
+161,655, // "'"
+162,1791, // '"'
+163,655, // "*"
+166,751, // stringPrintable
+171,1377, // stringPrintable*
+172,1690, // $$2
   }
 ,
-{ // state 744
-2,1210, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+278, // $NT
+{ // state 674
+2,893, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+96, // (default reduction)
   }
 ,
-{ // state 745
-MIN_REDUCTION+184, // (default reduction)
+{ // state 675
+2,1896, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+191, // (default reduction)
   }
 ,
-{ // state 746
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+232, // (default reduction)
+{ // state 676
+2,1136, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+287, // (default reduction)
   }
 ,
-{ // state 747
-105,224, // "m"
+{ // state 677
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+181, // (default reduction)
   }
 ,
-{ // state 748
-MIN_REDUCTION+12, // (default reduction)
+{ // state 678
+0x80000000|945, // match move
+0x80000000|1009, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 749
-103,643, // "d"
+{ // state 679
+MIN_REDUCTION+46, // (default reduction)
   }
 ,
-{ // state 750
-2,866, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+242, // (default reduction)
+{ // state 680
+0x80000000|1747, // match move
+0x80000000|1879, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 751
-2,1164, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+170, // (default reduction)
+{ // state 681
+2,300, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+329, // $NT
   }
 ,
-{ // state 752
-121,1359, // "t"
+{ // state 682
+MIN_REDUCTION+244, // (default reduction)
   }
 ,
-{ // state 753
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+199, // (default reduction)
+{ // state 683
+91,928, // "a"
   }
 ,
-{ // state 754
-120,1150, // "n"
+{ // state 684
+0x80000000|1233, // match move
+0x80000000|1866, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 755
-0x80000000|1, // match move
-0x80000000|1251, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+{ // state 685
+MIN_REDUCTION+356, // (default reduction)
   }
 ,
-{ // state 756
-2,1826, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+224, // (default reduction)
+{ // state 686
+MIN_REDUCTION+37, // (default reduction)
   }
 ,
-{ // state 757
-2,472, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+323, // (default reduction)
+{ // state 687
+2,1953, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+164, // (default reduction)
   }
 ,
-{ // state 758
-89,1393, // "c"
-90,1393, // "l"
-91,1393, // "a"
-92,1393, // "s"
-95,1393, // "e"
-96,1393, // "!"
-97,1393, // "="
-98,1393, // "+"
-102,1393, // "_"
-103,1393, // "d"
-104,1393, // "g"
-105,1393, // "m"
-106,1393, // "p"
-107,1393, // "v"
-108,1393, // "y"
-109,1393, // "f"
-110,1393, // "i"
-111,1393, // {"A".."Z"}
-112,1393, // "o"
-113,1393, // "r"
-114,1393, // "u"
-115,1393, // "x"
-116,1393, // {"j" "q"}
-117,1393, // "b"
-118,1393, // "h"
-119,1393, // "k"
-120,1393, // "n"
-121,1393, // "t"
-122,1393, // "w"
-123,1393, // "z"
-124,1393, // {"0".."9"}
-127,1393, // " "
-129,831, // eol
-131,71, // {10}
-132,1509, // {13}
-133,1255, // printable
-134,1393, // "["
-135,1393, // "-"
-136,1393, // "<"
-137,1393, // "|"
-138,1393, // {"?".."@"}
-139,1393, // "&"
-140,1393, // ")"
-141,1393, // ","
-142,1393, // "]"
-143,1393, // "/"
-144,1393, // {"#".."$"}
-145,1393, // ";"
-146,1393, // ">"
-147,1393, // "{"
-148,1393, // "%"
-149,1393, // "("
-150,1393, // "\"
-151,1393, // "."
-152,1393, // ":"
-153,1393, // "}"
-154,1393, // {"^" "`" "~"}
-155,1393, // "'"
-156,1393, // '"'
-157,1393, // "*"
+{ // state 688
+0x80000000|1388, // match move
+0x80000000|1187, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
-{ // state 759
-MIN_REDUCTION+52, // (default reduction)
+{ // state 689
+0x80000000|1481, // match move
+0x80000000|101, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 760
-110,320, // "i"
+{ // state 690
+92,1174, // "s"
   }
 ,
-{ // state 761
-0x80000000|1, // match move
-0x80000000|704, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+{ // state 691
+MIN_REDUCTION+7, // (default reduction)
   }
 ,
-{ // state 762
-2,1325, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+197, // (default reduction)
+{ // state 692
+0x80000000|184, // match move
+0x80000000|1274, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 763
-113,1320, // "r"
+{ // state 693
+179,MIN_REDUCTION+288, // $NT
   }
 ,
-{ // state 764
-89,1083, // "c"
+{ // state 694
+2,948, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+308, // (default reduction)
   }
 ,
-{ // state 765
-0x80000000|1964, // match move
-0x80000000|833, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 695
+0x80000000|1355, // match move
+0x80000000|1579, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 766
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+232, // (default reduction)
+{ // state 696
+MIN_REDUCTION+131, // (default reduction)
   }
 ,
-{ // state 767
-0x80000000|250, // match move
-0x80000000|1529, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+{ // state 697
+MIN_REDUCTION+61, // (default reduction)
   }
 ,
-{ // state 768
-0x80000000|60, // match move
-0x80000000|269, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 698
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+247, // (default reduction)
   }
 ,
-{ // state 769
-2,131, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+209, // (default reduction)
+{ // state 699
+95,1447, // "e"
   }
 ,
-{ // state 770
-0x80000000|1, // match move
-0x80000000|1236, // no-match move
-0x80000000|521, // NT-test-match state for letter
+{ // state 700
+2,1890, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+296, // $NT
   }
 ,
-{ // state 771
-95,644, // "e"
+{ // state 701
+92,84, // "s"
   }
 ,
-{ // state 772
-178,MIN_REDUCTION+321, // $NT
+{ // state 702
+112,372, // "o"
   }
 ,
-{ // state 773
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+145, // (default reduction)
+{ // state 703
+91,1250, // "a"
   }
 ,
-{ // state 774
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+304, // (default reduction)
+{ // state 704
+0x80000000|1441, // match move
+0x80000000|1314, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
-{ // state 775
-112,1200, // "o"
+{ // state 705
+109,1164, // "f"
   }
 ,
-{ // state 776
-120,493, // "n"
+{ // state 706
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+151, // (default reduction)
   }
 ,
-{ // state 777
-0x80000000|1542, // match move
-0x80000000|638, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 707
+0x80000000|293, // match move
+0x80000000|1696, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 778
-MIN_REDUCTION+78, // (default reduction)
+{ // state 708
+0x80000000|1291, // match move
+0x80000000|1422, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 779
-0x80000000|1691, // match move
-0x80000000|453, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 709
+0x80000000|1682, // match move
+0x80000000|40, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
-{ // state 780
-2,1781, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+138, // (default reduction)
+{ // state 710
+0x80000000|1545, // match move
+0x80000000|1754, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
-{ // state 781
-0x80000000|141, // match move
-0x80000000|1291, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 711
+MIN_REDUCTION+20, // (default reduction)
   }
 ,
-{ // state 782
-89,724, // "c"
-90,724, // "l"
-91,724, // "a"
-92,724, // "s"
-95,724, // "e"
-96,724, // "!"
-97,724, // "="
-98,724, // "+"
-102,724, // "_"
-103,724, // "d"
-104,724, // "g"
-105,724, // "m"
-106,724, // "p"
-107,724, // "v"
-108,724, // "y"
-109,724, // "f"
-110,724, // "i"
-111,724, // {"A".."Z"}
-112,724, // "o"
-113,724, // "r"
-114,724, // "u"
-115,724, // "x"
-116,724, // {"j" "q"}
-117,724, // "b"
-118,724, // "h"
-119,724, // "k"
-120,724, // "n"
-121,724, // "t"
-122,724, // "w"
-123,724, // "z"
-124,724, // {"0".."9"}
-127,724, // " "
-128,724, // {9}
-129,1228, // eol
-131,343, // {10}
-132,367, // {13}
-134,724, // "["
-135,724, // "-"
-136,724, // "<"
-137,724, // "|"
-138,724, // {"?".."@"}
-139,724, // "&"
-140,724, // ")"
-141,724, // ","
-142,724, // "]"
-143,724, // "/"
-144,724, // {"#".."$"}
-145,724, // ";"
-146,724, // ">"
-147,724, // "{"
-148,724, // "%"
-149,724, // "("
-150,724, // "\"
-151,724, // "."
-152,724, // ":"
-153,724, // "}"
-154,724, // {"^" "`" "~"}
-155,724, // "'"
-156,724, // '"'
-157,847, // "*"
-165,134, // blockCommentContent*
-166,1931, // starSlash
-167,1201, // blockCommentContent
+{ // state 712
+MIN_REDUCTION+151, // (default reduction)
   }
 ,
-{ // state 783
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+141, // (default reduction)
+{ // state 713
+0x80000000|1558, // match move
+0x80000000|257, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 784
-2,215, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+172, // (default reduction)
-  }
-,
-{ // state 785
-1,570, // start
-2,1643, // white*
-3,1862, // $$0
-4,1056, // token
-125,1568, // white
-126,1479, // {12}
-127,1479, // " "
-128,1479, // {9}
-130,1375, // comment
-143,1422, // "/"
-160,1629, // oneLineComment
-161,1106, // blockComment
-162,2020, // doubleSlash
-164,1520, // slashStar
-173,1599, // token*
-177,MIN_REDUCTION+1, // $
-  }
-,
-{ // state 786
-0x80000000|105, // match move
-0x80000000|1113, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 787
-0x80000000|630, // match move
-0x80000000|319, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 788
-0x80000000|497, // match move
-0x80000000|1763, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 789
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+143, // (default reduction)
-  }
-,
-{ // state 790
-106,303, // "p"
-  }
-,
-{ // state 791
-2,1388, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+263, // $NT
-  }
-,
-{ // state 792
-178,MIN_REDUCTION+348, // $NT
+{ // state 714
 MIN_REDUCTION+348, // (default reduction)
   }
 ,
-{ // state 793
-MIN_REDUCTION+86, // (default reduction)
+{ // state 715
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+149, // (default reduction)
   }
 ,
-{ // state 794
-0x80000000|1126, // match move
-0x80000000|1410, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 716
+95,367, // "e"
   }
 ,
-{ // state 795
-0x80000000|1960, // match move
-0x80000000|767, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 717
+MIN_REDUCTION+149, // (default reduction)
   }
 ,
-{ // state 796
-0x80000000|1070, // match move
-0x80000000|1854, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 718
+0x80000000|1465, // match move
+0x80000000|1707, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
-{ // state 797
-0x80000000|401, // match move
-0x80000000|205, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 719
+106,1833, // "p"
   }
 ,
-{ // state 798
-2,424, // white*
-MIN_REDUCTION+154, // (default reduction)
-  }
-,
-{ // state 799
-0x80000000|1803, // match move
-0x80000000|152, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 800
-112,709, // "o"
-  }
-,
-{ // state 801
-178,MIN_REDUCTION+225, // $NT
-  }
-,
-{ // state 802
-121,517, // "t"
-  }
-,
-{ // state 803
-2,1370, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+90, // (default reduction)
-  }
-,
-{ // state 804
-95,157, // "e"
-  }
-,
-{ // state 805
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+271, // $NT
-  }
-,
-{ // state 806
-2,507, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+251, // $NT
-  }
-,
-{ // state 807
-MIN_REDUCTION+129, // (default reduction)
-  }
-,
-{ // state 808
-0x80000000|663, // match move
-0x80000000|1983, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 809
-MIN_REDUCTION+68, // (default reduction)
-  }
-,
-{ // state 810
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+147, // (default reduction)
-  }
-,
-{ // state 811
-MIN_REDUCTION+53, // (default reduction)
-  }
-,
-{ // state 812
-0x80000000|1, // match move
-0x80000000|1133, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 813
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+265, // (default reduction)
-  }
-,
-{ // state 814
-0x80000000|1, // match move
-0x80000000|713, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 815
-0x80000000|1, // match move
-0x80000000|1122, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 816
-2,1620, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-169,1730, // idChar**
-170,1438, // $$1
-175,1467, // idChar*
-MIN_REDUCTION+337, // (default reduction)
-  }
-,
-{ // state 817
-0x80000000|1504, // match move
-0x80000000|750, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 818
-0x80000000|1036, // match move
-0x80000000|837, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 819
-0x80000000|1715, // match move
-0x80000000|1734, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 820
-2,1826, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+224, // (default reduction)
-  }
-,
-{ // state 821
-178,MIN_REDUCTION+120, // $NT
-MIN_REDUCTION+120, // (default reduction)
-  }
-,
-{ // state 822
-0x80000000|1831, // match move
-0x80000000|69, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 823
-89,1536, // "c"
-  }
-,
-{ // state 824
-2,259, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+132, // (default reduction)
-  }
-,
-{ // state 825
-2,1662, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+148, // (default reduction)
-  }
-,
-{ // state 826
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+286, // (default reduction)
-  }
-,
-{ // state 827
-178,MIN_REDUCTION+195, // $NT
-  }
-,
-{ // state 828
-0x80000000|169, // match move
-0x80000000|416, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 829
-2,1746, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
+{ // state 720
+2,1760, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
 MIN_REDUCTION+257, // (default reduction)
   }
 ,
+{ // state 721
+112,913, // "o"
+  }
+,
+{ // state 722
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+325, // $NT
+  }
+,
+{ // state 723
+113,409, // "r"
+  }
+,
+{ // state 724
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+268, // (default reduction)
+  }
+,
+{ // state 725
+0x80000000|443, // match move
+0x80000000|1178, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 726
+MIN_REDUCTION+347, // (default reduction)
+  }
+,
+{ // state 727
+0x80000000|549, // match move
+0x80000000|1975, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 728
+2,1102, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+182, // $NT
+  }
+,
+{ // state 729
+MIN_REDUCTION+109, // (default reduction)
+  }
+,
+{ // state 730
+95,963, // "e"
+  }
+,
+{ // state 731
+179,MIN_REDUCTION+222, // $NT
+  }
+,
+{ // state 732
+0x80000000|132, // match move
+0x80000000|706, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 733
+MIN_REDUCTION+355, // (default reduction)
+  }
+,
+{ // state 734
+0x80000000|1567, // match move
+0x80000000|1561, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 735
+121,954, // "t"
+  }
+,
+{ // state 736
+0x80000000|1955, // match move
+0x80000000|845, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 737
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+92, // (default reduction)
+  }
+,
+{ // state 738
+MIN_REDUCTION+115, // (default reduction)
+  }
+,
+{ // state 739
+2,429, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+263, // (default reduction)
+  }
+,
+{ // state 740
+0x80000000|1604, // match move
+0x80000000|834, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 741
+MIN_REDUCTION+361, // (default reduction)
+  }
+,
+{ // state 742
+2,396, // white*
+MIN_REDUCTION+152, // (default reduction)
+  }
+,
+{ // state 743
+0x80000000|365, // match move
+0x80000000|1106, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 744
+2,1953, // white*
+MIN_REDUCTION+164, // (default reduction)
+  }
+,
+{ // state 745
+89,1091, // "c"
+90,1091, // "l"
+91,1091, // "a"
+92,1091, // "s"
+95,1091, // "e"
+96,1091, // "!"
+97,1091, // "="
+98,1091, // "+"
+102,1091, // "_"
+103,1091, // "d"
+104,1091, // "g"
+105,1091, // "m"
+106,1091, // "p"
+107,1091, // "v"
+108,1091, // "y"
+109,1091, // "f"
+110,1091, // "i"
+111,1091, // {"A".."Z"}
+112,1091, // "o"
+113,1091, // "r"
+114,1091, // "u"
+115,1091, // "x"
+116,1091, // {"j" "q"}
+117,1091, // "b"
+118,1091, // "h"
+119,1091, // "k"
+120,1091, // "n"
+121,1091, // "t"
+122,1091, // "w"
+123,1091, // "z"
+124,1091, // {"0".."9"}
+127,1091, // " "
+134,1325, // printable**
+135,606, // printable
+140,1091, // "["
+141,1091, // "-"
+142,1091, // "<"
+143,1091, // "|"
+144,1091, // {"?".."@"}
+145,1091, // "&"
+146,1091, // ")"
+147,1091, // ","
+148,1091, // "]"
+149,1091, // "/"
+150,1091, // {"#".."$"}
+151,1091, // ";"
+152,1091, // ">"
+153,1091, // "{"
+154,1091, // "%"
+155,1091, // "("
+156,1091, // "\"
+157,1091, // "."
+158,1091, // ":"
+159,1091, // "}"
+160,1091, // {"^" "`" "~"}
+161,1091, // "'"
+162,1091, // '"'
+163,1091, // "*"
+174,316, // printable*
+  }
+,
+{ // state 746
+2,1689, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+230, // (default reduction)
+  }
+,
+{ // state 747
+2,1730, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+194, // $NT
+  }
+,
+{ // state 748
+2,1540, // white*
+MIN_REDUCTION+98, // (default reduction)
+  }
+,
+{ // state 749
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+214, // (default reduction)
+  }
+,
+{ // state 750
+MIN_REDUCTION+6, // (default reduction)
+  }
+,
+{ // state 751
+MIN_REDUCTION+352, // (default reduction)
+  }
+,
+{ // state 752
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+223, // (default reduction)
+  }
+,
+{ // state 753
+0x80000000|165, // match move
+0x80000000|473, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 754
+MIN_REDUCTION+84, // (default reduction)
+  }
+,
+{ // state 755
+0x80000000|235, // match move
+0x80000000|489, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 756
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+232, // $NT
+  }
+,
+{ // state 757
+0x80000000|319, // match move
+0x80000000|47, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 758
+2,1582, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+305, // (default reduction)
+  }
+,
+{ // state 759
+2,1544, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+209, // $NT
+  }
+,
+{ // state 760
+2,1228, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+278, // $NT
+  }
+,
+{ // state 761
+MIN_REDUCTION+184, // (default reduction)
+  }
+,
+{ // state 762
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+232, // (default reduction)
+  }
+,
+{ // state 763
+105,228, // "m"
+  }
+,
+{ // state 764
+MIN_REDUCTION+12, // (default reduction)
+  }
+,
+{ // state 765
+103,653, // "d"
+  }
+,
+{ // state 766
+2,886, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+242, // (default reduction)
+  }
+,
+{ // state 767
+2,1180, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+170, // (default reduction)
+  }
+,
+{ // state 768
+121,1374, // "t"
+  }
+,
+{ // state 769
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+199, // (default reduction)
+  }
+,
+{ // state 770
+120,1165, // "n"
+  }
+,
+{ // state 771
+0x80000000|1, // match move
+0x80000000|1269, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 772
+2,1841, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+224, // (default reduction)
+  }
+,
+{ // state 773
+2,483, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+323, // (default reduction)
+  }
+,
+{ // state 774
+MIN_REDUCTION+52, // (default reduction)
+  }
+,
+{ // state 775
+110,328, // "i"
+  }
+,
+{ // state 776
+0x80000000|1, // match move
+0x80000000|718, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 777
+2,1342, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+197, // (default reduction)
+  }
+,
+{ // state 778
+113,1337, // "r"
+  }
+,
+{ // state 779
+89,1098, // "c"
+  }
+,
+{ // state 780
+0x80000000|1980, // match move
+0x80000000|850, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 781
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+340, // (default reduction)
+  }
+,
+{ // state 782
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+232, // (default reduction)
+  }
+,
+{ // state 783
+0x80000000|252, // match move
+0x80000000|1542, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 784
+0x80000000|62, // match move
+0x80000000|272, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 785
+2,135, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+209, // (default reduction)
+  }
+,
+{ // state 786
+0x80000000|1, // match move
+0x80000000|1254, // no-match move
+0x80000000|532, // NT-test-match state for letter
+  }
+,
+{ // state 787
+95,654, // "e"
+  }
+,
+{ // state 788
+179,MIN_REDUCTION+321, // $NT
+  }
+,
+{ // state 789
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+145, // (default reduction)
+  }
+,
+{ // state 790
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+304, // (default reduction)
+  }
+,
+{ // state 791
+112,1217, // "o"
+  }
+,
+{ // state 792
+120,503, // "n"
+  }
+,
+{ // state 793
+0x80000000|1554, // match move
+0x80000000|647, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 794
+MIN_REDUCTION+78, // (default reduction)
+  }
+,
+{ // state 795
+0x80000000|1704, // match move
+0x80000000|465, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 796
+2,1795, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+138, // (default reduction)
+  }
+,
+{ // state 797
+0x80000000|146, // match move
+0x80000000|1308, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 798
+89,738, // "c"
+90,738, // "l"
+91,738, // "a"
+92,738, // "s"
+95,738, // "e"
+96,738, // "!"
+97,738, // "="
+98,738, // "+"
+102,738, // "_"
+103,738, // "d"
+104,738, // "g"
+105,738, // "m"
+106,738, // "p"
+107,738, // "v"
+108,738, // "y"
+109,738, // "f"
+110,738, // "i"
+111,738, // {"A".."Z"}
+112,738, // "o"
+113,738, // "r"
+114,738, // "u"
+115,738, // "x"
+116,738, // {"j" "q"}
+117,738, // "b"
+118,738, // "h"
+119,738, // "k"
+120,738, // "n"
+121,738, // "t"
+122,738, // "w"
+123,738, // "z"
+124,738, // {"0".."9"}
+127,738, // " "
+128,738, // {9}
+129,1246, // eol
+137,138, // blockCommentContent*
+138,1946, // starSlash
+139,1218, // blockCommentContent
+140,738, // "["
+141,738, // "-"
+142,738, // "<"
+143,738, // "|"
+144,738, // {"?".."@"}
+145,738, // "&"
+146,738, // ")"
+147,738, // ","
+148,738, // "]"
+149,738, // "/"
+150,738, // {"#".."$"}
+151,738, // ";"
+152,738, // ">"
+153,738, // "{"
+154,738, // "%"
+155,738, // "("
+156,738, // "\"
+157,738, // "."
+158,738, // ":"
+159,738, // "}"
+160,738, // {"^" "`" "~"}
+161,738, // "'"
+162,738, // '"'
+163,865, // "*"
+164,352, // {10}
+165,376, // {13}
+  }
+,
+{ // state 799
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+141, // (default reduction)
+  }
+,
+{ // state 800
+2,219, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+172, // (default reduction)
+  }
+,
+{ // state 801
+1,579, // start
+2,1659, // white*
+3,1878, // $$0
+4,1070, // token
+125,1580, // white
+126,1489, // {12}
+127,1489, // " "
+128,1489, // {9}
+130,1390, // comment
+131,1643, // oneLineComment
+132,1121, // blockComment
+133,203, // doubleSlash
+136,1532, // slashStar
+149,144, // "/"
+173,1612, // token*
+178,MIN_REDUCTION+1, // $
+  }
+,
+{ // state 802
+0x80000000|109, // match move
+0x80000000|1128, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 803
+0x80000000|639, // match move
+0x80000000|327, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 804
+0x80000000|507, // match move
+0x80000000|1776, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 805
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+143, // (default reduction)
+  }
+,
+{ // state 806
+106,307, // "p"
+  }
+,
+{ // state 807
+2,1403, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+263, // $NT
+  }
+,
+{ // state 808
+179,MIN_REDUCTION+347, // $NT
+MIN_REDUCTION+347, // (default reduction)
+  }
+,
+{ // state 809
+MIN_REDUCTION+86, // (default reduction)
+  }
+,
+{ // state 810
+0x80000000|1142, // match move
+0x80000000|1423, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 811
+0x80000000|1976, // match move
+0x80000000|783, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 812
+0x80000000|1084, // match move
+0x80000000|1870, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 813
+0x80000000|412, // match move
+0x80000000|209, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 814
+2,435, // white*
+MIN_REDUCTION+154, // (default reduction)
+  }
+,
+{ // state 815
+MIN_REDUCTION+358, // (default reduction)
+  }
+,
+{ // state 816
+0x80000000|1818, // match move
+0x80000000|156, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 817
+112,723, // "o"
+  }
+,
+{ // state 818
+179,MIN_REDUCTION+225, // $NT
+  }
+,
+{ // state 819
+121,528, // "t"
+  }
+,
+{ // state 820
+2,1385, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+90, // (default reduction)
+  }
+,
+{ // state 821
+95,161, // "e"
+  }
+,
+{ // state 822
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+271, // $NT
+  }
+,
+{ // state 823
+2,517, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+251, // $NT
+  }
+,
+{ // state 824
+MIN_REDUCTION+119, // (default reduction)
+  }
+,
+{ // state 825
+0x80000000|675, // match move
+0x80000000|2001, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 826
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+147, // (default reduction)
+  }
+,
+{ // state 827
+MIN_REDUCTION+68, // (default reduction)
+  }
+,
+{ // state 828
+MIN_REDUCTION+53, // (default reduction)
+  }
+,
+{ // state 829
+0x80000000|1, // match move
+0x80000000|1149, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
 { // state 830
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+196, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+265, // (default reduction)
   }
 ,
 { // state 831
-MIN_REDUCTION+121, // (default reduction)
+0x80000000|1, // match move
+0x80000000|727, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 832
 0x80000000|1, // match move
-0x80000000|1220, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|1138, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 833
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+175, // (default reduction)
+2,1634, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+169,1744, // idChar**
+170,1450, // $$1
+176,1477, // idChar*
+MIN_REDUCTION+337, // (default reduction)
   }
 ,
 { // state 834
-MIN_REDUCTION+175, // (default reduction)
+0x80000000|1515, // match move
+0x80000000|766, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 835
-113,812, // "r"
+0x80000000|1050, // match move
+0x80000000|854, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 836
-178,MIN_REDUCTION+198, // $NT
+0x80000000|1729, // match move
+0x80000000|1749, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 837
-0x80000000|810, // match move
-0x80000000|1929, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+2,1841, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+224, // (default reduction)
   }
 ,
 { // state 838
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+181, // (default reduction)
+179,MIN_REDUCTION+110, // $NT
+MIN_REDUCTION+110, // (default reduction)
   }
 ,
 { // state 839
-2,1211, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+174, // (default reduction)
+0x80000000|1846, // match move
+0x80000000|71, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 840
-0x80000000|492, // match move
-0x80000000|413, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+89,1548, // "c"
   }
 ,
 { // state 841
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+363, // (default reduction)
-  }
-,
-{ // state 842
-MIN_REDUCTION+355, // (default reduction)
-  }
-,
-{ // state 843
-0x80000000|1327, // match move
-0x80000000|1963, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 844
-95,754, // "e"
-  }
-,
-{ // state 845
-89,627, // "c"
-  }
-,
-{ // state 846
-0x80000000|880, // match move
-0x80000000|1821, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 847
-0x80000000|878, // match move
-0x80000000|589, // no-match move
-// T-test match for "/":
-143,
-  }
-,
-{ // state 848
-2,799, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+160, // (default reduction)
-  }
-,
-{ // state 849
-MIN_REDUCTION+41, // (default reduction)
-  }
-,
-{ // state 850
-178,MIN_REDUCTION+318, // $NT
-  }
-,
-{ // state 851
-MIN_REDUCTION+123, // (default reduction)
-  }
-,
-{ // state 852
-2,1164, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+170, // (default reduction)
-  }
-,
-{ // state 853
-0x80000000|281, // match move
-0x80000000|92, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 854
-120,88, // "n"
-  }
-,
-{ // state 855
-0x80000000|1035, // match move
-0x80000000|1939, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 856
-0x80000000|947, // match move
-0x80000000|1904, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 857
-178,MIN_REDUCTION+106, // $NT
-MIN_REDUCTION+106, // (default reduction)
-  }
-,
-{ // state 858
-MIN_REDUCTION+92, // (default reduction)
-  }
-,
-{ // state 859
-178,MIN_REDUCTION+210, // $NT
-  }
-,
-{ // state 860
-2,1319, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+269, // $NT
-  }
-,
-{ // state 861
-113,554, // "r"
-  }
-,
-{ // state 862
-95,557, // "e"
-  }
-,
-{ // state 863
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+307, // (default reduction)
-  }
-,
-{ // state 864
-178,MIN_REDUCTION+330, // $NT
-  }
-,
-{ // state 865
-0x80000000|217, // match move
-0x80000000|913, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 866
-0x80000000|113, // match move
-0x80000000|1515, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 867
-0x80000000|848, // match move
-0x80000000|1192, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 868
-178,MIN_REDUCTION+237, // $NT
-  }
-,
-{ // state 869
-112,387, // "o"
-  }
-,
-{ // state 870
-0x80000000|1365, // match move
-0x80000000|196, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 871
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+256, // (default reduction)
-  }
-,
-{ // state 872
-0x80000000|111, // match move
-0x80000000|668, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 873
-0x80000000|415, // match move
-0x80000000|360, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 874
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+283, // (default reduction)
-  }
-,
-{ // state 875
-MIN_REDUCTION+358, // (default reduction)
-  }
-,
-{ // state 876
-113,377, // "r"
-118,1868, // "h"
-  }
-,
-{ // state 877
-104,1230, // "g"
-  }
-,
-{ // state 878
-143,1783, // "/"
-  }
-,
-{ // state 879
-2,1722, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+260, // (default reduction)
-  }
-,
-{ // state 880
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+229, // (default reduction)
-  }
-,
-{ // state 881
-0x80000000|228, // match move
-0x80000000|1013, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 882
-MIN_REDUCTION+60, // (default reduction)
-  }
-,
-{ // state 883
-104,1249, // "g"
-  }
-,
-{ // state 884
-0x80000000|1089, // match move
-0x80000000|1909, // no-match move
-// T-test match for 10:
-131,
-  }
-,
-{ // state 885
-91,283, // "a"
-  }
-,
-{ // state 886
-2,1733, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+185, // $NT
-  }
-,
-{ // state 887
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+259, // (default reduction)
-  }
-,
-{ // state 888
-2,873, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+96, // (default reduction)
-  }
-,
-{ // state 889
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+139, // (default reduction)
-  }
-,
-{ // state 890
-2,374, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+320, // (default reduction)
-  }
-,
-{ // state 891
-178,MIN_REDUCTION+104, // $NT
-  }
-,
-{ // state 892
-0x80000000|188, // match move
-0x80000000|430, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 893
-120,1328, // "n"
-  }
-,
-{ // state 894
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+177, // (default reduction)
-  }
-,
-{ // state 895
-MIN_REDUCTION+355, // (default reduction)
-  }
-,
-{ // state 896
-0x80000000|1819, // match move
-0x80000000|1016, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 897
-0x80000000|1289, // match move
-0x80000000|291, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 898
-0x80000000|1967, // match move
-0x80000000|565, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 899
-120,98, // "n"
-  }
-,
-{ // state 900
-MIN_REDUCTION+359, // (default reduction)
-  }
-,
-{ // state 901
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+143, // (default reduction)
-  }
-,
-{ // state 902
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+304, // (default reduction)
-  }
-,
-{ // state 903
-0x80000000|1828, // match move
-0x80000000|524, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 904
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+161, // (default reduction)
-  }
-,
-{ // state 905
-MIN_REDUCTION+271, // (default reduction)
-  }
-,
-{ // state 906
-0x80000000|1, // match move
-0x80000000|788, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 907
-114,1214, // "u"
-  }
-,
-{ // state 908
-MIN_REDUCTION+18, // (default reduction)
-  }
-,
-{ // state 909
-2,379, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+100, // (default reduction)
-  }
-,
-{ // state 910
-178,MIN_REDUCTION+192, // $NT
-  }
-,
-{ // state 911
-0x80000000|425, // match move
-0x80000000|1339, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 912
-0x80000000|1295, // match move
-0x80000000|1474, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 913
-0x80000000|1667, // match move
-0x80000000|1496, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 914
-2,1955, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+296, // (default reduction)
-  }
-,
-{ // state 915
-89,724, // "c"
-90,724, // "l"
-91,724, // "a"
-92,724, // "s"
-95,724, // "e"
-96,724, // "!"
-97,724, // "="
-98,724, // "+"
-102,724, // "_"
-103,724, // "d"
-104,724, // "g"
-105,724, // "m"
-106,724, // "p"
-107,724, // "v"
-108,724, // "y"
-109,724, // "f"
-110,724, // "i"
-111,724, // {"A".."Z"}
-112,724, // "o"
-113,724, // "r"
-114,724, // "u"
-115,724, // "x"
-116,724, // {"j" "q"}
-117,724, // "b"
-118,724, // "h"
-119,724, // "k"
-120,724, // "n"
-121,724, // "t"
-122,724, // "w"
-123,724, // "z"
-124,724, // {"0".."9"}
-127,724, // " "
-128,724, // {9}
-129,1228, // eol
-131,343, // {10}
-132,367, // {13}
-134,724, // "["
-135,724, // "-"
-136,724, // "<"
-137,724, // "|"
-138,724, // {"?".."@"}
-139,724, // "&"
-140,724, // ")"
-141,724, // ","
-142,724, // "]"
-143,724, // "/"
-144,724, // {"#".."$"}
-145,724, // ";"
-146,724, // ">"
-147,724, // "{"
-148,724, // "%"
-149,724, // "("
-150,724, // "\"
-151,724, // "."
-152,724, // ":"
-153,724, // "}"
-154,724, // {"^" "`" "~"}
-155,724, // "'"
-156,724, // '"'
-157,1428, // "*"
-166,480, // starSlash
-167,442, // blockCommentContent
-  }
-,
-{ // state 916
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+362, // (default reduction)
-  }
-,
-{ // state 917
-0x80000000|1449, // match move
-0x80000000|987, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 918
-90,146, // "l"
-  }
-,
-{ // state 919
-110,508, // "i"
-  }
-,
-{ // state 920
-0x80000000|486, // match move
-0x80000000|1363, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 921
-2,259, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
+2,262, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
 MIN_REDUCTION+132, // (default reduction)
   }
 ,
-{ // state 922
-2,1441, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+200, // (default reduction)
+{ // state 842
+2,1675, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+148, // (default reduction)
   }
 ,
-{ // state 923
-2,1283, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+168, // (default reduction)
+{ // state 843
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+286, // (default reduction)
   }
 ,
-{ // state 924
-178,MIN_REDUCTION+246, // $NT
+{ // state 844
+179,MIN_REDUCTION+195, // $NT
   }
 ,
-{ // state 925
-MIN_REDUCTION+99, // (default reduction)
+{ // state 845
+0x80000000|173, // match move
+0x80000000|427, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 926
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+171, // (default reduction)
+{ // state 846
+0x80000000|1227, // match move
+0x80000000|967, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 927
-2,1816, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+144, // (default reduction)
+{ // state 847
+2,1760, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+257, // (default reduction)
   }
 ,
-{ // state 928
-0x80000000|1913, // match move
-0x80000000|786, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 848
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+196, // (default reduction)
   }
 ,
-{ // state 929
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+89, // (default reduction)
-  }
-,
-{ // state 930
-2,1322, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+317, // $NT
-  }
-,
-{ // state 931
-2,1722, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+260, // (default reduction)
-  }
-,
-{ // state 932
+{ // state 849
 0x80000000|1, // match move
-0x80000000|1852, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|1238, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 933
-0x80000000|1640, // match move
-0x80000000|1318, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 934
-110,165, // "i"
-  }
-,
-{ // state 935
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+95, // (default reduction)
-  }
-,
-{ // state 936
-89,752, // "c"
-  }
-,
-{ // state 937
-MIN_REDUCTION+145, // (default reduction)
-  }
-,
-{ // state 938
-MIN_REDUCTION+81, // (default reduction)
-  }
-,
-{ // state 939
-2,4, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+245, // (default reduction)
-  }
-,
-{ // state 940
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+292, // $NT
-  }
-,
-{ // state 941
-121,1044, // "t"
-  }
-,
-{ // state 942
-0x80000000|729, // match move
-0x80000000|1795, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 943
-113,1958, // "r"
-  }
-,
-{ // state 944
-104,634, // "g"
-  }
-,
-{ // state 945
-0x80000000|660, // match move
-0x80000000|1966, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 946
-0x80000000|1402, // match move
-0x80000000|1572, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 947
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
+{ // state 850
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
 MIN_REDUCTION+175, // (default reduction)
   }
 ,
-{ // state 948
-110,499, // "i"
+{ // state 851
+MIN_REDUCTION+175, // (default reduction)
   }
 ,
-{ // state 949
-2,409, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+185, // (default reduction)
+{ // state 852
+113,829, // "r"
   }
 ,
-{ // state 950
-MIN_REDUCTION+122, // (default reduction)
+{ // state 853
+179,MIN_REDUCTION+198, // $NT
   }
 ,
-{ // state 951
-2,1528, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+98, // (default reduction)
+{ // state 854
+0x80000000|826, // match move
+0x80000000|1944, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 952
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+89, // (default reduction)
+{ // state 855
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+181, // (default reduction)
   }
 ,
-{ // state 953
-113,1480, // "r"
+{ // state 856
+2,1229, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+174, // (default reduction)
   }
 ,
-{ // state 954
-0x80000000|1741, // match move
-0x80000000|1332, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 857
+0x80000000|502, // match move
+0x80000000|424, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 955
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+259, // $NT
+{ // state 858
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+364, // (default reduction)
   }
 ,
-{ // state 956
-2,872, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+236, // (default reduction)
+{ // state 859
+2,937, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+150, // (default reduction)
   }
 ,
-{ // state 957
-89,1393, // "c"
-90,1393, // "l"
-91,1393, // "a"
-92,1393, // "s"
-95,1393, // "e"
-96,1393, // "!"
-97,1393, // "="
-98,1393, // "+"
-102,1393, // "_"
-103,1393, // "d"
-104,1393, // "g"
-105,1393, // "m"
-106,1393, // "p"
-107,1393, // "v"
-108,1393, // "y"
-109,1393, // "f"
-110,1393, // "i"
-111,1393, // {"A".."Z"}
-112,1393, // "o"
-113,1393, // "r"
-114,1393, // "u"
-115,1393, // "x"
-116,1393, // {"j" "q"}
-117,1393, // "b"
-118,1393, // "h"
-119,1393, // "k"
-120,1393, // "n"
-121,1393, // "t"
-122,1393, // "w"
-123,1393, // "z"
-124,1393, // {"0".."9"}
-127,1393, // " "
-129,1139, // eol
-131,1299, // {10}
-132,884, // {13}
-133,1255, // printable
-134,1393, // "["
-135,1393, // "-"
-136,1393, // "<"
-137,1393, // "|"
-138,1393, // {"?".."@"}
-139,1393, // "&"
-140,1393, // ")"
-141,1393, // ","
-142,1393, // "]"
-143,1393, // "/"
-144,1393, // {"#".."$"}
-145,1393, // ";"
-146,1393, // ">"
-147,1393, // "{"
-148,1393, // "%"
-149,1393, // "("
-150,1393, // "\"
-151,1393, // "."
-152,1393, // ":"
-153,1393, // "}"
-154,1393, // {"^" "`" "~"}
-155,1393, // "'"
-156,1393, // '"'
-157,1393, // "*"
+{ // state 860
+MIN_REDUCTION+354, // (default reduction)
   }
 ,
-{ // state 958
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+137, // (default reduction)
+{ // state 861
+0x80000000|1344, // match move
+0x80000000|1979, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
-{ // state 959
-2,1644, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+158, // (default reduction)
+{ // state 862
+95,770, // "e"
   }
 ,
-{ // state 960
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+247, // $NT
+{ // state 863
+89,636, // "c"
   }
 ,
-{ // state 961
-0x80000000|737, // match move
-0x80000000|54, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 864
+0x80000000|900, // match move
+0x80000000|1836, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 962
-0x80000000|1025, // match move
-0x80000000|67, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 865
+0x80000000|898, // match move
+0x80000000|599, // no-match move
+// T-test match for "/":
+149,
   }
 ,
-{ // state 963
-95,277, // "e"
+{ // state 866
+MIN_REDUCTION+112, // (default reduction)
   }
 ,
-{ // state 964
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
+{ // state 867
+89,1091, // "c"
+90,1091, // "l"
+91,1091, // "a"
+92,1091, // "s"
+95,1091, // "e"
+96,1091, // "!"
+97,1091, // "="
+98,1091, // "+"
+102,1091, // "_"
+103,1091, // "d"
+104,1091, // "g"
+105,1091, // "m"
+106,1091, // "p"
+107,1091, // "v"
+108,1091, // "y"
+109,1091, // "f"
+110,1091, // "i"
+111,1091, // {"A".."Z"}
+112,1091, // "o"
+113,1091, // "r"
+114,1091, // "u"
+115,1091, // "x"
+116,1091, // {"j" "q"}
+117,1091, // "b"
+118,1091, // "h"
+119,1091, // "k"
+120,1091, // "n"
+121,1091, // "t"
+122,1091, // "w"
+123,1091, // "z"
+124,1091, // {"0".."9"}
+127,1091, // " "
+134,330, // printable**
+135,606, // printable
+140,1091, // "["
+141,1091, // "-"
+142,1091, // "<"
+143,1091, // "|"
+144,1091, // {"?".."@"}
+145,1091, // "&"
+146,1091, // ")"
+147,1091, // ","
+148,1091, // "]"
+149,1091, // "/"
+150,1091, // {"#".."$"}
+151,1091, // ";"
+152,1091, // ">"
+153,1091, // "{"
+154,1091, // "%"
+155,1091, // "("
+156,1091, // "\"
+157,1091, // "."
+158,1091, // ":"
+159,1091, // "}"
+160,1091, // {"^" "`" "~"}
+161,1091, // "'"
+162,1091, // '"'
+163,1091, // "*"
+174,316, // printable*
+  }
+,
+{ // state 868
+2,816, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+160, // (default reduction)
+  }
+,
+{ // state 869
+MIN_REDUCTION+41, // (default reduction)
+  }
+,
+{ // state 870
+179,MIN_REDUCTION+318, // $NT
+  }
+,
+{ // state 871
+MIN_REDUCTION+113, // (default reduction)
+  }
+,
+{ // state 872
+2,1180, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+170, // (default reduction)
+  }
+,
+{ // state 873
+0x80000000|285, // match move
+0x80000000|97, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 874
+120,93, // "n"
+  }
+,
+{ // state 875
+0x80000000|1051, // match move
+0x80000000|1954, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 876
+0x80000000|968, // match move
+0x80000000|1919, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 877
+179,MIN_REDUCTION+106, // $NT
+MIN_REDUCTION+106, // (default reduction)
+  }
+,
+{ // state 878
+MIN_REDUCTION+92, // (default reduction)
+  }
+,
+{ // state 879
+179,MIN_REDUCTION+210, // $NT
+  }
+,
+{ // state 880
+2,1336, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+269, // $NT
+  }
+,
+{ // state 881
+113,565, // "r"
+  }
+,
+{ // state 882
+95,567, // "e"
+  }
+,
+{ // state 883
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+307, // (default reduction)
+  }
+,
+{ // state 884
+179,MIN_REDUCTION+330, // $NT
+  }
+,
+{ // state 885
+0x80000000|221, // match move
+0x80000000|933, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 886
+0x80000000|117, // match move
+0x80000000|1527, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 887
+0x80000000|868, // match move
+0x80000000|1208, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 888
+179,MIN_REDUCTION+237, // $NT
+  }
+,
+{ // state 889
+112,398, // "o"
+  }
+,
+{ // state 890
+0x80000000|1380, // match move
+0x80000000|199, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 891
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+256, // (default reduction)
+  }
+,
+{ // state 892
+0x80000000|115, // match move
+0x80000000|680, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 893
+0x80000000|426, // match move
+0x80000000|369, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 894
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+283, // (default reduction)
+  }
+,
+{ // state 895
+MIN_REDUCTION+357, // (default reduction)
+  }
+,
+{ // state 896
+113,388, // "r"
+118,1884, // "h"
+  }
+,
+{ // state 897
+104,1249, // "g"
+  }
+,
+{ // state 898
+149,1797, // "/"
+  }
+,
+{ // state 899
+2,1736, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+260, // (default reduction)
+  }
+,
+{ // state 900
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+229, // (default reduction)
+  }
+,
+{ // state 901
+0x80000000|232, // match move
+0x80000000|1029, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 902
+MIN_REDUCTION+60, // (default reduction)
+  }
+,
+{ // state 903
+104,1267, // "g"
+  }
+,
+{ // state 904
+0x80000000|1105, // match move
+0x80000000|1924, // no-match move
+// T-test match for 10:
+164,
+  }
+,
+{ // state 905
+91,287, // "a"
+  }
+,
+{ // state 906
+2,1748, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+185, // $NT
+  }
+,
+{ // state 907
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+259, // (default reduction)
+  }
+,
+{ // state 908
+2,893, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+96, // (default reduction)
+  }
+,
+{ // state 909
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+139, // (default reduction)
+  }
+,
+{ // state 910
+2,384, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+320, // (default reduction)
+  }
+,
+{ // state 911
+179,MIN_REDUCTION+104, // $NT
+  }
+,
+{ // state 912
+0x80000000|191, // match move
+0x80000000|440, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 913
+120,1345, // "n"
+  }
+,
+{ // state 914
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+177, // (default reduction)
+  }
+,
+{ // state 915
+MIN_REDUCTION+354, // (default reduction)
+  }
+,
+{ // state 916
+0x80000000|1834, // match move
+0x80000000|1032, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 917
+0x80000000|1306, // match move
+0x80000000|295, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 918
+0x80000000|1983, // match move
+0x80000000|575, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 919
+120,103, // "n"
+  }
+,
+{ // state 920
+MIN_REDUCTION+360, // (default reduction)
+  }
+,
+{ // state 921
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+143, // (default reduction)
+  }
+,
+{ // state 922
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+304, // (default reduction)
+  }
+,
+{ // state 923
+0x80000000|1843, // match move
+0x80000000|535, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 924
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+161, // (default reduction)
+  }
+,
+{ // state 925
+MIN_REDUCTION+344, // (default reduction)
+  }
+,
+{ // state 926
 MIN_REDUCTION+271, // (default reduction)
   }
 ,
-{ // state 965
-0x80000000|1933, // match move
-0x80000000|1054, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 966
-0x80000000|1614, // match move
-0x80000000|1559, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 967
+{ // state 927
 0x80000000|1, // match move
-0x80000000|988, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|804, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 968
-MIN_REDUCTION+80, // (default reduction)
+{ // state 928
+114,1232, // "u"
   }
 ,
-{ // state 969
-0x80000000|1238, // match move
-0x80000000|1548, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+{ // state 929
+MIN_REDUCTION+18, // (default reduction)
   }
 ,
-{ // state 970
-89,687, // "c"
+{ // state 930
+2,390, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+100, // (default reduction)
   }
 ,
-{ // state 971
-143,258, // "/"
+{ // state 931
+179,MIN_REDUCTION+192, // $NT
   }
 ,
-{ // state 972
-2,424, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+154, // (default reduction)
+{ // state 932
+0x80000000|1311, // match move
+0x80000000|1484, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
-{ // state 973
-2,1955, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
+{ // state 933
+0x80000000|1680, // match move
+0x80000000|1506, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 934
+2,1971, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
 MIN_REDUCTION+296, // (default reduction)
   }
 ,
+{ // state 935
+89,738, // "c"
+90,738, // "l"
+91,738, // "a"
+92,738, // "s"
+95,738, // "e"
+96,738, // "!"
+97,738, // "="
+98,738, // "+"
+102,738, // "_"
+103,738, // "d"
+104,738, // "g"
+105,738, // "m"
+106,738, // "p"
+107,738, // "v"
+108,738, // "y"
+109,738, // "f"
+110,738, // "i"
+111,738, // {"A".."Z"}
+112,738, // "o"
+113,738, // "r"
+114,738, // "u"
+115,738, // "x"
+116,738, // {"j" "q"}
+117,738, // "b"
+118,738, // "h"
+119,738, // "k"
+120,738, // "n"
+121,738, // "t"
+122,738, // "w"
+123,738, // "z"
+124,738, // {"0".."9"}
+127,738, // " "
+128,738, // {9}
+129,1246, // eol
+138,491, // starSlash
+139,453, // blockCommentContent
+140,738, // "["
+141,738, // "-"
+142,738, // "<"
+143,738, // "|"
+144,738, // {"?".."@"}
+145,738, // "&"
+146,738, // ")"
+147,738, // ","
+148,738, // "]"
+149,738, // "/"
+150,738, // {"#".."$"}
+151,738, // ";"
+152,738, // ">"
+153,738, // "{"
+154,738, // "%"
+155,738, // "("
+156,738, // "\"
+157,738, // "."
+158,738, // ":"
+159,738, // "}"
+160,738, // {"^" "`" "~"}
+161,738, // "'"
+162,738, // '"'
+163,1440, // "*"
+164,352, // {10}
+165,376, // {13}
+  }
+,
+{ // state 936
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+363, // (default reduction)
+  }
+,
+{ // state 937
+0x80000000|1996, // match move
+0x80000000|1008, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 938
+90,151, // "l"
+  }
+,
+{ // state 939
+110,518, // "i"
+  }
+,
+{ // state 940
+0x80000000|496, // match move
+0x80000000|1378, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 941
+2,262, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+132, // (default reduction)
+  }
+,
+{ // state 942
+2,1453, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+200, // (default reduction)
+  }
+,
+{ // state 943
+2,1300, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+168, // (default reduction)
+  }
+,
+{ // state 944
+179,MIN_REDUCTION+246, // $NT
+  }
+,
+{ // state 945
+MIN_REDUCTION+99, // (default reduction)
+  }
+,
+{ // state 946
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+171, // (default reduction)
+  }
+,
+{ // state 947
+2,1831, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+144, // (default reduction)
+  }
+,
+{ // state 948
+0x80000000|1928, // match move
+0x80000000|802, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 949
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+89, // (default reduction)
+  }
+,
+{ // state 950
+2,1339, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+317, // $NT
+  }
+,
+{ // state 951
+2,1736, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+260, // (default reduction)
+  }
+,
+{ // state 952
+0x80000000|1, // match move
+0x80000000|1868, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 953
+0x80000000|1654, // match move
+0x80000000|1335, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 954
+110,169, // "i"
+  }
+,
+{ // state 955
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+95, // (default reduction)
+  }
+,
+{ // state 956
+89,768, // "c"
+  }
+,
+{ // state 957
+MIN_REDUCTION+145, // (default reduction)
+  }
+,
+{ // state 958
+MIN_REDUCTION+81, // (default reduction)
+  }
+,
+{ // state 959
+2,4, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+245, // (default reduction)
+  }
+,
+{ // state 960
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+292, // $NT
+  }
+,
+{ // state 961
+121,1058, // "t"
+  }
+,
+{ // state 962
+0x80000000|744, // match move
+0x80000000|1810, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 963
+113,1974, // "r"
+  }
+,
+{ // state 964
+104,643, // "g"
+  }
+,
+{ // state 965
+0x80000000|672, // match move
+0x80000000|1982, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 966
+0x80000000|1415, // match move
+0x80000000|1584, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 967
+2,937, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+150, // (default reduction)
+  }
+,
+{ // state 968
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+175, // (default reduction)
+  }
+,
+{ // state 969
+110,509, // "i"
+  }
+,
+{ // state 970
+2,420, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+185, // (default reduction)
+  }
+,
+{ // state 971
+2,1540, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+98, // (default reduction)
+  }
+,
+{ // state 972
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+89, // (default reduction)
+  }
+,
+{ // state 973
+113,1490, // "r"
+  }
+,
 { // state 974
-MIN_REDUCTION+28, // (default reduction)
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+259, // $NT
   }
 ,
 { // state 975
-0x80000000|1, // match move
-0x80000000|2010, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+2,892, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+236, // (default reduction)
   }
 ,
 { // state 976
-0x80000000|1007, // match move
-0x80000000|1072, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+137, // (default reduction)
   }
 ,
 { // state 977
-178,MIN_REDUCTION+108, // $NT
-MIN_REDUCTION+108, // (default reduction)
+2,1657, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+158, // (default reduction)
   }
 ,
 { // state 978
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+319, // (default reduction)
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+247, // $NT
   }
 ,
 { // state 979
-0x80000000|460, // match move
-0x80000000|1477, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|752, // match move
+0x80000000|56, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 980
-0x80000000|143, // match move
-0x80000000|1968, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+95,281, // "e"
   }
 ,
 { // state 981
-113,1147, // "r"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+271, // (default reduction)
   }
 ,
 { // state 982
-178,MIN_REDUCTION+324, // $NT
+0x80000000|1948, // match move
+0x80000000|1068, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 983
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+244, // (default reduction)
+0x80000000|1628, // match move
+0x80000000|1571, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 984
-0x80000000|1053, // match move
-0x80000000|1408, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|1, // match move
+0x80000000|1004, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 985
-92,1648, // "s"
-121,252, // "t"
+MIN_REDUCTION+80, // (default reduction)
   }
 ,
 { // state 986
-108,145, // "y"
-112,1284, // "o"
-113,156, // "r"
+0x80000000|1256, // match move
+0x80000000|1560, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 987
-0x80000000|568, // match move
-0x80000000|181, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+89,699, // "c"
   }
 ,
 { // state 988
-0x80000000|949, // match move
-0x80000000|1713, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+149,261, // "/"
   }
 ,
 { // state 989
-0x80000000|199, // match move
-0x80000000|142, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+2,435, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+154, // (default reduction)
   }
 ,
 { // state 990
-113,693, // "r"
+2,1971, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+296, // (default reduction)
   }
 ,
 { // state 991
-89,1611, // "c"
-90,1611, // "l"
-91,1611, // "a"
-92,1611, // "s"
-95,1611, // "e"
-96,998, // "!"
-97,1944, // "="
-98,1944, // "+"
-102,1611, // "_"
-103,1611, // "d"
-104,1611, // "g"
-105,1611, // "m"
-106,1611, // "p"
-107,1611, // "v"
-108,1611, // "y"
-109,1611, // "f"
-110,1611, // "i"
-111,1944, // {"A".."Z"}
-112,1611, // "o"
-113,1611, // "r"
-114,1611, // "u"
-115,1611, // "x"
-116,1611, // {"j" "q"}
-117,1611, // "b"
-118,1611, // "h"
-119,1611, // "k"
-120,1611, // "n"
-121,1611, // "t"
-122,1611, // "w"
-123,1611, // "z"
-124,1944, // {"0".."9"}
-127,998, // " "
-134,1944, // "["
-135,1944, // "-"
-136,1944, // "<"
-137,1611, // "|"
-138,1944, // {"?".."@"}
-139,998, // "&"
-140,1944, // ")"
-141,1944, // ","
-142,1611, // "]"
-143,1944, // "/"
-144,998, // {"#".."$"}
-145,1944, // ";"
-146,1944, // ">"
-147,1611, // "{"
-148,998, // "%"
-149,1944, // "("
-151,1944, // "."
-152,1944, // ":"
-153,1611, // "}"
-154,1611, // {"^" "`" "~"}
-156,998, // '"'
-157,1944, // "*"
-159,104, // charPrintable
+MIN_REDUCTION+28, // (default reduction)
   }
 ,
 { // state 992
-110,9, // "i"
-113,869, // "r"
+0x80000000|1, // match move
+0x80000000|2029, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 993
+0x80000000|1023, // match move
+0x80000000|1086, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 994
+179,MIN_REDUCTION+108, // $NT
+MIN_REDUCTION+108, // (default reduction)
+  }
+,
+{ // state 995
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+319, // (default reduction)
+  }
+,
+{ // state 996
+0x80000000|471, // match move
+0x80000000|1487, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 997
+0x80000000|148, // match move
+0x80000000|1984, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 998
+113,1162, // "r"
+  }
+,
+{ // state 999
+179,MIN_REDUCTION+324, // $NT
+  }
+,
+{ // state 1000
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+244, // (default reduction)
+  }
+,
+{ // state 1001
+0x80000000|1067, // match move
+0x80000000|1421, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1002
+92,1662, // "s"
+121,254, // "t"
+  }
+,
+{ // state 1003
+108,150, // "y"
+112,1301, // "o"
+113,160, // "r"
+  }
+,
+{ // state 1004
+0x80000000|970, // match move
+0x80000000|1727, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1005
+0x80000000|202, // match move
+0x80000000|147, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1006
+113,705, // "r"
+  }
+,
+{ // state 1007
+110,10, // "i"
+113,889, // "r"
+  }
+,
+{ // state 1008
+0x80000000|717, // match move
+0x80000000|564, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1009
+0x80000000|633, // match move
+0x80000000|1075, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1010
+179,MIN_REDUCTION+276, // $NT
+  }
+,
+{ // state 1011
+120,566, // "n"
+  }
+,
+{ // state 1012
+0x80000000|1485, // match move
+0x80000000|1616, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1013
+2,918, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+275, // (default reduction)
+  }
+,
+{ // state 1014
+MIN_REDUCTION+128, // (default reduction)
+  }
+,
+{ // state 1015
+0x80000000|1474, // match move
+0x80000000|2036, // no-match move
+// T-test match for "-":
+141,
+  }
+,
+{ // state 1016
+0x80000000|475, // match move
+0x80000000|1175, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1017
+0x80000000|1083, // match move
+0x80000000|993, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1018
+117,1486, // "b"
+  }
+,
+{ // state 1019
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+137, // (default reduction)
+  }
+,
+{ // state 1020
+0x80000000|1, // match move
+0x80000000|1012, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1021
+MIN_REDUCTION+202, // (default reduction)
+  }
+,
+{ // state 1022
+MIN_REDUCTION+357, // (default reduction)
+  }
+,
+{ // state 1023
+2,658, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+251, // (default reduction)
+  }
+,
+{ // state 1024
+2,1159, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+314, // $NT
+  }
+,
+{ // state 1025
+0x80000000|1278, // match move
+0x80000000|497, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1026
+90,121, // "l"
+  }
+,
+{ // state 1027
+0x80000000|1244, // match move
+0x80000000|1356, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1028
+0x80000000|1504, // match move
+0x80000000|253, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1029
+2,216, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+188, // (default reduction)
+  }
+,
+{ // state 1030
+0x80000000|1145, // match move
+0x80000000|451, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1031
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+190, // $NT
+  }
+,
+{ // state 1032
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+131, // (default reduction)
+  }
+,
+{ // state 1033
+95,1911, // "e"
+  }
+,
+{ // state 1034
+0x80000000|1, // match move
+0x80000000|1078, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1035
+0x80000000|1917, // match move
+0x80000000|981, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1036
+0x80000000|1649, // match move
+0x80000000|1737, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1037
+0x80000000|1990, // match move
+0x80000000|773, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1038
+0x80000000|1865, // match move
+0x80000000|276, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1039
+MIN_REDUCTION+65, // (default reduction)
+  }
+,
+{ // state 1040
+2,1896, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+191, // (default reduction)
+  }
+,
+{ // state 1041
+2,1342, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+197, // (default reduction)
+  }
+,
+{ // state 1042
+MIN_REDUCTION+66, // (default reduction)
+  }
+,
+{ // state 1043
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+331, // (default reduction)
   }
 };
 }
@@ -9132,4381 +9254,4323 @@ public int doInit(int startIdx) {
   return myParseTable.length;
 }
 private final int[][] myParseTable = {
-{ // state 993
-0x80000000|624, // match move
-0x80000000|1060, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 994
-178,MIN_REDUCTION+276, // $NT
-  }
-,
-{ // state 995
-120,555, // "n"
-  }
-,
-{ // state 996
-0x80000000|1475, // match move
-0x80000000|1603, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 997
-2,898, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+275, // (default reduction)
-  }
-,
-{ // state 998
-MIN_REDUCTION+116, // (default reduction)
-  }
-,
-{ // state 999
-0x80000000|1464, // match move
-0x80000000|2017, // no-match move
-// T-test match for "-":
-135,
-  }
-,
-{ // state 1000
-0x80000000|464, // match move
-0x80000000|1159, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1001
-0x80000000|1069, // match move
-0x80000000|976, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1002
-117,1476, // "b"
-  }
-,
-{ // state 1003
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+137, // (default reduction)
-  }
-,
-{ // state 1004
-0x80000000|1, // match move
-0x80000000|996, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1005
-MIN_REDUCTION+202, // (default reduction)
-  }
-,
-{ // state 1006
-MIN_REDUCTION+358, // (default reduction)
-  }
-,
-{ // state 1007
-2,648, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+251, // (default reduction)
-  }
-,
-{ // state 1008
-2,1144, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+314, // $NT
-  }
-,
-{ // state 1009
-0x80000000|1261, // match move
-0x80000000|487, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1010
-90,117, // "l"
-  }
-,
-{ // state 1011
-0x80000000|1226, // match move
-0x80000000|1342, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1012
-0x80000000|1495, // match move
-0x80000000|251, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1013
-2,212, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+188, // (default reduction)
-  }
-,
-{ // state 1014
-0x80000000|1129, // match move
-0x80000000|440, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1015
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+190, // $NT
-  }
-,
-{ // state 1016
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+131, // (default reduction)
-  }
-,
-{ // state 1017
-95,1895, // "e"
-  }
-,
-{ // state 1018
-0x80000000|1, // match move
-0x80000000|1064, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1019
-0x80000000|1901, // match move
-0x80000000|964, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1020
-0x80000000|1635, // match move
-0x80000000|1723, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1021
-0x80000000|1973, // match move
-0x80000000|757, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1022
-0x80000000|1849, // match move
-0x80000000|272, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1023
-MIN_REDUCTION+65, // (default reduction)
-  }
-,
-{ // state 1024
-2,1880, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+191, // (default reduction)
-  }
-,
-{ // state 1025
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+340, // (default reduction)
-  }
-,
-{ // state 1026
-2,1325, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+197, // (default reduction)
-  }
-,
-{ // state 1027
-MIN_REDUCTION+66, // (default reduction)
-  }
-,
-{ // state 1028
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+331, // (default reduction)
-  }
-,
-{ // state 1029
-110,802, // "i"
-  }
-,
-{ // state 1030
-0x80000000|1, // match move
-0x80000000|1001, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1031
-2,241, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+203, // $NT
-  }
-,
-{ // state 1032
-2,1523, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+266, // (default reduction)
-  }
-,
-{ // state 1033
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+250, // (default reduction)
-  }
-,
-{ // state 1034
-2,1485, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+278, // (default reduction)
-  }
-,
-{ // state 1035
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+179, // (default reduction)
-  }
-,
-{ // state 1036
-MIN_REDUCTION+147, // (default reduction)
-  }
-,
-{ // state 1037
-MIN_REDUCTION+111, // (default reduction)
-  }
-,
-{ // state 1038
-2,639, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+212, // $NT
-  }
-,
-{ // state 1039
-0x80000000|1807, // match move
-0x80000000|578, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1040
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+151, // (default reduction)
-  }
-,
-{ // state 1041
-0x80000000|1, // match move
-0x80000000|2001, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1042
-MIN_REDUCTION+229, // (default reduction)
-  }
-,
-{ // state 1043
-MIN_REDUCTION+67, // (default reduction)
-  }
-,
 { // state 1044
-0x80000000|1, // match move
-0x80000000|91, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+110,819, // "i"
   }
 ,
 { // state 1045
-113,854, // "r"
+0x80000000|1, // match move
+0x80000000|1017, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 1046
-MIN_REDUCTION+55, // (default reduction)
+2,244, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+203, // $NT
   }
 ,
 { // state 1047
-92,1096, // "s"
-117,1872, // "b"
+2,1535, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+266, // (default reduction)
   }
 ,
 { // state 1048
-MIN_REDUCTION+133, // (default reduction)
-  }
-,
-{ // state 1049
-2,201, // white*
-MIN_REDUCTION+156, // (default reduction)
-  }
-,
-{ // state 1050
-2,1816, // white*
-MIN_REDUCTION+144, // (default reduction)
-  }
-,
-{ // state 1051
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+292, // (default reduction)
-  }
-,
-{ // state 1052
-2,1492, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+221, // $NT
-  }
-,
-{ // state 1053
-2,1270, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+182, // (default reduction)
-  }
-,
-{ // state 1054
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+169, // (default reduction)
-  }
-,
-{ // state 1055
-113,1078, // "r"
-  }
-,
-{ // state 1056
-MIN_REDUCTION+343, // (default reduction)
-  }
-,
-{ // state 1057
-91,1817, // "a"
-  }
-,
-{ // state 1058
-103,496, // "d"
-  }
-,
-{ // state 1059
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+220, // (default reduction)
-  }
-,
-{ // state 1060
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+99, // (default reduction)
-  }
-,
-{ // state 1061
-2,1211, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+174, // (default reduction)
-  }
-,
-{ // state 1062
-MIN_REDUCTION+109, // (default reduction)
-  }
-,
-{ // state 1063
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+313, // (default reduction)
-  }
-,
-{ // state 1064
-2,1737, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+188, // $NT
-  }
-,
-{ // state 1065
-MIN_REDUCTION+241, // (default reduction)
-  }
-,
-{ // state 1066
-120,1696, // "n"
-  }
-,
-{ // state 1067
-0x80000000|651, // match move
-0x80000000|1987, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1068
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+179, // (default reduction)
-  }
-,
-{ // state 1069
-2,648, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+251, // (default reduction)
-  }
-,
-{ // state 1070
-2,1120, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+287, // (default reduction)
-  }
-,
-{ // state 1071
-2,1241, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+293, // (default reduction)
-  }
-,
-{ // state 1072
-2,648, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+251, // (default reduction)
-  }
-,
-{ // state 1073
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+133, // (default reduction)
-  }
-,
-{ // state 1074
-2,424, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+154, // (default reduction)
-  }
-,
-{ // state 1075
-0x80000000|1, // match move
-0x80000000|81, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1076
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+163, // (default reduction)
-  }
-,
-{ // state 1077
-MIN_REDUCTION+256, // (default reduction)
-  }
-,
-{ // state 1078
-0x80000000|1, // match move
-0x80000000|112, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1079
-0x80000000|1356, // match move
-0x80000000|129, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1080
-2,912, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+364, // (default reduction)
-  }
-,
-{ // state 1081
-MIN_REDUCTION+163, // (default reduction)
-  }
-,
-{ // state 1082
-0x80000000|951, // match move
-0x80000000|1571, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1083
-121,832, // "t"
-  }
-,
-{ // state 1084
-0x80000000|1074, // match move
-0x80000000|972, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1085
-0x80000000|1177, // match move
-0x80000000|62, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1086
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+181, // $NT
-  }
-,
-{ // state 1087
-0x80000000|1297, // match move
-0x80000000|1484, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1088
-0x80000000|87, // match move
-0x80000000|734, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1089
-131,1491, // {10}
-  }
-,
-{ // state 1090
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+155, // (default reduction)
-  }
-,
-{ // state 1091
-120,877, // "n"
-  }
-,
-{ // state 1092
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+137, // (default reduction)
-  }
-,
-{ // state 1093
-91,1787, // "a"
-  }
-,
-{ // state 1094
-MIN_REDUCTION+130, // (default reduction)
-  }
-,
-{ // state 1095
-0x80000000|1594, // match move
-0x80000000|2009, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1096
-92,703, // "s"
-  }
-,
-{ // state 1097
-0x80000000|427, // match move
-0x80000000|342, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1098
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+167, // (default reduction)
-  }
-,
-{ // state 1099
-MIN_REDUCTION+44, // (default reduction)
-  }
-,
-{ // state 1100
-2,1781, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+138, // (default reduction)
-  }
-,
-{ // state 1101
-2,1750, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+326, // (default reduction)
-  }
-,
-{ // state 1102
-MIN_REDUCTION+9, // (default reduction)
-  }
-,
-{ // state 1103
-0x80000000|649, // match move
-0x80000000|1109, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1104
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+205, // (default reduction)
-  }
-,
-{ // state 1105
-113,707, // "r"
-  }
-,
-{ // state 1106
-MIN_REDUCTION+120, // (default reduction)
-  }
-,
-{ // state 1107
-2,1206, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+266, // $NT
-  }
-,
-{ // state 1108
-0x80000000|1437, // match move
-0x80000000|186, // no-match move
-// T-test match for "=":
-97,
-  }
-,
-{ // state 1109
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+217, // (default reduction)
-  }
-,
-{ // state 1110
-92,1604, // "s"
-121,1079, // "t"
-  }
-,
-{ // state 1111
-2,1637, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+178, // (default reduction)
-  }
-,
-{ // state 1112
-95,1793, // "e"
-  }
-,
-{ // state 1113
-0x80000000|863, // match move
-0x80000000|1197, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1114
-MIN_REDUCTION+280, // (default reduction)
-  }
-,
-{ // state 1115
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+268, // (default reduction)
-  }
-,
-{ // state 1116
-0x80000000|1, // match move
-0x80000000|368, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1117
-2,1662, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+148, // (default reduction)
-  }
-,
-{ // state 1118
-0x80000000|579, // match move
-0x80000000|1000, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1119
-0x80000000|1235, // match move
-0x80000000|1663, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1120
-0x80000000|352, // match move
-0x80000000|537, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1121
-95,632, // "e"
-  }
-,
-{ // state 1122
-0x80000000|1369, // match move
-0x80000000|1067, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1123
-113,941, // "r"
-  }
-,
-{ // state 1124
-MIN_REDUCTION+23, // (default reduction)
-  }
-,
-{ // state 1125
-112,1942, // "o"
-  }
-,
-{ // state 1126
-2,1182, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+221, // (default reduction)
-  }
-,
-{ // state 1127
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+208, // (default reduction)
-  }
-,
-{ // state 1128
-0x80000000|1, // match move
-0x80000000|1386, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1129
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+190, // (default reduction)
-  }
-,
-{ // state 1130
-0x80000000|1680, // match move
-0x80000000|382, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1131
-0x80000000|25, // match move
-0x80000000|1513, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1132
-0x80000000|370, // match move
-0x80000000|1305, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1133
-0x80000000|2005, // match move
-0x80000000|768, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1134
-MIN_REDUCTION+13, // (default reduction)
-  }
-,
-{ // state 1135
-0x80000000|522, // match move
-0x80000000|1878, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1136
-90,1361, // "l"
-110,490, // "i"
-  }
-,
-{ // state 1137
-120,1905, // "n"
-  }
-,
-{ // state 1138
-119,581, // "k"
-  }
-,
-{ // state 1139
-178,MIN_REDUCTION+121, // $NT
-MIN_REDUCTION+121, // (default reduction)
-  }
-,
-{ // state 1140
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+283, // (default reduction)
-  }
-,
-{ // state 1141
-121,1518, // "t"
-  }
-,
-{ // state 1142
-0x80000000|1482, // match move
-0x80000000|1493, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1143
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+141, // (default reduction)
-  }
-,
-{ // state 1144
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+313, // $NT
-  }
-,
-{ // state 1145
-MIN_REDUCTION+226, // (default reduction)
-  }
-,
-{ // state 1146
-MIN_REDUCTION+205, // (default reduction)
-  }
-,
-{ // state 1147
-91,1590, // "a"
-  }
-,
-{ // state 1148
-MIN_REDUCTION+102, // (default reduction)
-  }
-,
-{ // state 1149
-91,1390, // "a"
-  }
-,
-{ // state 1150
-103,1595, // "d"
-  }
-,
-{ // state 1151
-0x80000000|515, // match move
-0x80000000|1190, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1152
-0x80000000|414, // match move
-0x80000000|1580, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1153
-2,1252, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+302, // $NT
-  }
-,
-{ // state 1154
-2,898, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+275, // (default reduction)
-  }
-,
-{ // state 1155
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+362, // (default reduction)
-  }
-,
-{ // state 1156
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+99, // (default reduction)
-  }
-,
-{ // state 1157
-0x80000000|923, // match move
-0x80000000|1216, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1158
-95,1260, // "e"
-  }
-,
-{ // state 1159
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+165, // (default reduction)
-  }
-,
-{ // state 1160
-0x80000000|556, // match move
-0x80000000|621, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1161
-95,1759, // "e"
-  }
-,
-{ // state 1162
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+184, // (default reduction)
-  }
-,
-{ // state 1163
-92,1780, // "s"
-  }
-,
-{ // state 1164
-0x80000000|1444, // match move
-0x80000000|600, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1165
-2,577, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+290, // (default reduction)
-  }
-,
-{ // state 1166
-95,1392, // "e"
-  }
-,
-{ // state 1167
-0x80000000|858, // match move
-0x80000000|979, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1168
-MIN_REDUCTION+169, // (default reduction)
-  }
-,
-{ // state 1169
-178,MIN_REDUCTION+107, // $NT
-MIN_REDUCTION+107, // (default reduction)
-  }
-,
-{ // state 1170
-178,MIN_REDUCTION+282, // $NT
-  }
-,
-{ // state 1171
-0x80000000|61, // match move
-0x80000000|1845, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1172
-0x80000000|317, // match move
-0x80000000|1993, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1173
-0x80000000|107, // match move
-0x80000000|1773, // no-match move
-// T-test match for "=":
-97,
-  }
-,
-{ // state 1174
-MIN_REDUCTION+105, // (default reduction)
-  }
-,
-{ // state 1175
-0x80000000|1586, // match move
-0x80000000|1222, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1176
-MIN_REDUCTION+49, // (default reduction)
-  }
-,
-{ // state 1177
-MIN_REDUCTION+177, // (default reduction)
-  }
-,
-{ // state 1178
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+153, // (default reduction)
-  }
-,
-{ // state 1179
-MIN_REDUCTION+70, // (default reduction)
-  }
-,
-{ // state 1180
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+277, // (default reduction)
-  }
-,
-{ // state 1181
-89,474, // "c"
-  }
-,
-{ // state 1182
-0x80000000|1791, // match move
-0x80000000|897, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1183
-89,MIN_REDUCTION+354, // "c"
-90,MIN_REDUCTION+354, // "l"
-91,MIN_REDUCTION+354, // "a"
-92,MIN_REDUCTION+354, // "s"
-95,MIN_REDUCTION+354, // "e"
-102,MIN_REDUCTION+354, // "_"
-103,MIN_REDUCTION+354, // "d"
-104,MIN_REDUCTION+354, // "g"
-105,MIN_REDUCTION+354, // "m"
-106,MIN_REDUCTION+354, // "p"
-107,MIN_REDUCTION+354, // "v"
-108,MIN_REDUCTION+354, // "y"
-109,MIN_REDUCTION+354, // "f"
-110,MIN_REDUCTION+354, // "i"
-111,MIN_REDUCTION+354, // {"A".."Z"}
-112,MIN_REDUCTION+354, // "o"
-113,MIN_REDUCTION+354, // "r"
-114,MIN_REDUCTION+354, // "u"
-115,MIN_REDUCTION+354, // "x"
-116,MIN_REDUCTION+354, // {"j" "q"}
-117,MIN_REDUCTION+354, // "b"
-118,MIN_REDUCTION+354, // "h"
-119,MIN_REDUCTION+354, // "k"
-120,MIN_REDUCTION+354, // "n"
-121,MIN_REDUCTION+354, // "t"
-122,MIN_REDUCTION+354, // "w"
-123,MIN_REDUCTION+354, // "z"
-124,MIN_REDUCTION+354, // {"0".."9"}
-169,MIN_REDUCTION+354, // idChar**
-MIN_REDUCTION+354, // (default reduction)
-  }
-,
-{ // state 1184
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+259, // (default reduction)
-  }
-,
-{ // state 1185
-MIN_REDUCTION+124, // (default reduction)
-  }
-,
-{ // state 1186
-0x80000000|1919, // match move
-0x80000000|1928, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1187
-2,1644, // white*
-MIN_REDUCTION+158, // (default reduction)
-  }
-,
-{ // state 1188
-2,337, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+239, // (default reduction)
-  }
-,
-{ // state 1189
-0x80000000|1, // match move
-0x80000000|312, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1190
-0x80000000|1, // match move
-0x80000000|1183, // no-match move
-0x80000000|521, // NT-test-match state for letter
-  }
-,
-{ // state 1191
-95,835, // "e"
-  }
-,
-{ // state 1192
-2,799, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+160, // (default reduction)
-  }
-,
-{ // state 1193
-MIN_REDUCTION+101, // (default reduction)
-  }
-,
-{ // state 1194
-89,724, // "c"
-90,724, // "l"
-91,724, // "a"
-92,724, // "s"
-95,724, // "e"
-96,724, // "!"
-97,724, // "="
-98,724, // "+"
-102,724, // "_"
-103,724, // "d"
-104,724, // "g"
-105,724, // "m"
-106,724, // "p"
-107,724, // "v"
-108,724, // "y"
-109,724, // "f"
-110,724, // "i"
-111,724, // {"A".."Z"}
-112,724, // "o"
-113,724, // "r"
-114,724, // "u"
-115,724, // "x"
-116,724, // {"j" "q"}
-117,724, // "b"
-118,724, // "h"
-119,724, // "k"
-120,724, // "n"
-121,724, // "t"
-122,724, // "w"
-123,724, // "z"
-124,724, // {"0".."9"}
-127,724, // " "
-128,724, // {9}
-129,1228, // eol
-131,343, // {10}
-132,367, // {13}
-134,724, // "["
-135,724, // "-"
-136,724, // "<"
-137,724, // "|"
-138,724, // {"?".."@"}
-139,724, // "&"
-140,724, // ")"
-141,724, // ","
-142,724, // "]"
-143,724, // "/"
-144,724, // {"#".."$"}
-145,724, // ";"
-146,724, // ">"
-147,724, // "{"
-148,724, // "%"
-149,724, // "("
-150,724, // "\"
-151,724, // "."
-152,724, // ":"
-153,724, // "}"
-154,724, // {"^" "`" "~"}
-155,724, // "'"
-156,724, // '"'
-157,1428, // "*"
-165,915, // blockCommentContent*
-166,242, // starSlash
-167,1201, // blockCommentContent
-  }
-,
-{ // state 1195
-0x80000000|1460, // match move
-0x80000000|571, // no-match move
-0x80000000|521, // NT-test-match state for letter
-  }
-,
-{ // state 1196
-0x80000000|1, // match move
-0x80000000|726, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1197
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+307, // (default reduction)
-  }
-,
-{ // state 1198
-92,1812, // "s"
-121,1490, // "t"
-  }
-,
-{ // state 1199
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+208, // (default reduction)
-  }
-,
-{ // state 1200
-0x80000000|1, // match move
-0x80000000|174, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1201
-MIN_REDUCTION+351, // (default reduction)
-  }
-,
-{ // state 1202
-95,322, // "e"
-112,59, // "o"
-  }
-,
-{ // state 1203
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+226, // (default reduction)
-  }
-,
-{ // state 1204
-MIN_REDUCTION+111, // (default reduction)
-  }
-,
-{ // state 1205
-2,409, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+185, // (default reduction)
-  }
-,
-{ // state 1206
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+265, // $NT
-  }
-,
-{ // state 1207
-2,1750, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+326, // (default reduction)
-  }
-,
-{ // state 1208
-MIN_REDUCTION+105, // (default reduction)
-  }
-,
-{ // state 1209
-121,760, // "t"
-  }
-,
-{ // state 1210
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+277, // $NT
-  }
-,
-{ // state 1211
-0x80000000|437, // match move
-0x80000000|339, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1212
-0x80000000|445, // match move
-0x80000000|475, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1213
-2,856, // white*
-MIN_REDUCTION+176, // (default reduction)
-  }
-,
-{ // state 1214
-90,584, // "l"
-  }
-,
-{ // state 1215
-2,1752, // white*
-MIN_REDUCTION+140, // (default reduction)
-  }
-,
-{ // state 1216
-0x80000000|330, // match move
-0x80000000|57, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1217
-91,1285, // "a"
-95,1256, // "e"
-114,406, // "u"
-  }
-,
-{ // state 1218
-178,MIN_REDUCTION+119, // $NT
-MIN_REDUCTION+119, // (default reduction)
-  }
-,
-{ // state 1219
-2,1778, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+248, // (default reduction)
-  }
-,
-{ // state 1220
-2,1725, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+230, // $NT
-  }
-,
-{ // state 1221
-113,1755, // "r"
-  }
-,
-{ // state 1222
-0x80000000|1117, // match move
-0x80000000|825, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1223
-MIN_REDUCTION+319, // (default reduction)
-  }
-,
-{ // state 1224
-2,1950, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+93, // (default reduction)
-  }
-,
-{ // state 1225
-2,1620, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-170,1827, // $$1
-MIN_REDUCTION+335, // (default reduction)
-  }
-,
-{ // state 1226
-2,1450, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+134, // (default reduction)
-  }
-,
-{ // state 1227
-0x80000000|1092, // match move
-0x80000000|1003, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1228
-MIN_REDUCTION+127, // (default reduction)
-  }
-,
-{ // state 1229
-0x80000000|1, // match move
-0x80000000|1258, // no-match move
-// T-test match for {"*" "/"}:
-143,
-157,
-  }
-,
-{ // state 1230
-0x80000000|1, // match move
-0x80000000|154, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1231
-0x80000000|245, // match move
-0x80000000|911, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1232
-90,76, // "l"
-  }
-,
-{ // state 1233
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+135, // (default reduction)
-  }
-,
-{ // state 1234
-121,1698, // "t"
-  }
-,
-{ // state 1235
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+253, // (default reduction)
-  }
-,
-{ // state 1236
-102,MIN_REDUCTION+358, // "_"
-169,MIN_REDUCTION+358, // idChar**
-MIN_REDUCTION+358, // (default reduction)
-  }
-,
-{ // state 1237
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+328, // (default reduction)
-  }
-,
-{ // state 1238
-2,1781, // white*
-MIN_REDUCTION+138, // (default reduction)
-  }
-,
-{ // state 1239
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+235, // (default reduction)
-  }
-,
-{ // state 1240
-0x80000000|895, // match move
-0x80000000|842, // no-match move
-0x80000000|89, // NT-test-match state for digit
-  }
-,
-{ // state 1241
-0x80000000|1731, // match move
-0x80000000|1400, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1242
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+238, // (default reduction)
-  }
-,
-{ // state 1243
-2,4, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+245, // (default reduction)
-  }
-,
-{ // state 1244
-2,418, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+263, // (default reduction)
-  }
-,
-{ // state 1245
-0x80000000|1127, // match move
-0x80000000|1710, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1246
-121,512, // "t"
-  }
-,
-{ // state 1247
-0x80000000|1870, // match move
-0x80000000|550, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1248
-0x80000000|1, // match move
-0x80000000|139, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1249
-95,504, // "e"
-  }
-,
-{ // state 1250
-2,872, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+236, // (default reduction)
-  }
-,
-{ // state 1251
-2,1956, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+284, // $NT
-  }
-,
-{ // state 1252
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+301, // $NT
-  }
-,
-{ // state 1253
-104,2013, // "g"
-  }
-,
-{ // state 1254
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+97, // (default reduction)
-  }
-,
-{ // state 1255
-MIN_REDUCTION+346, // (default reduction)
-  }
-,
-{ // state 1256
-122,257, // "w"
-  }
-,
-{ // state 1257
-0x80000000|1977, // match move
-0x80000000|887, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1258
-2,1851, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+180, // (default reduction)
-  }
-,
-{ // state 1259
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+167, // (default reduction)
-  }
-,
-{ // state 1260
-0x80000000|1, // match move
-0x80000000|1279, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1261
-2,424, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+154, // (default reduction)
-  }
-,
-{ // state 1262
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+313, // (default reduction)
-  }
-,
-{ // state 1263
-MIN_REDUCTION+345, // (default reduction)
-  }
-,
-{ // state 1264
-MIN_REDUCTION+179, // (default reduction)
-  }
-,
-{ // state 1265
-0x80000000|1621, // match move
-0x80000000|1188, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1266
-MIN_REDUCTION+265, // (default reduction)
-  }
-,
-{ // state 1267
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+205, // $NT
-  }
-,
-{ // state 1268
-MIN_REDUCTION+42, // (default reduction)
-  }
-,
-{ // state 1269
-0x80000000|1775, // match move
-0x80000000|1193, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1270
-0x80000000|838, // match move
-0x80000000|1132, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1271
-110,1522, // "i"
-112,1516, // "o"
-  }
-,
-{ // state 1272
-89,1645, // "c"
-  }
-,
-{ // state 1273
-90,658, // "l"
-112,1123, // "o"
-  }
-,
-{ // state 1274
-92,441, // "s"
-  }
-,
-{ // state 1275
-178,MIN_REDUCTION+267, // $NT
-  }
-,
-{ // state 1276
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+319, // (default reduction)
-  }
-,
-{ // state 1277
-2,1950, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+93, // (default reduction)
-  }
-,
-{ // state 1278
-0x80000000|1321, // match move
-0x80000000|567, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1279
-0x80000000|1911, // match move
-0x80000000|569, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1280
-114,590, // "u"
-  }
-,
-{ // state 1281
-2,1485, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+278, // (default reduction)
-  }
-,
-{ // state 1282
-178,MIN_REDUCTION+270, // $NT
-  }
-,
-{ // state 1283
-0x80000000|1098, // match move
-0x80000000|1609, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1284
-112,516, // "o"
-  }
-,
-{ // state 1285
-121,1431, // "t"
-  }
-,
-{ // state 1286
-0x80000000|144, // match move
-0x80000000|585, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1287
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+319, // $NT
-  }
-,
-{ // state 1288
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+187, // (default reduction)
-  }
-,
-{ // state 1289
-MIN_REDUCTION+220, // (default reduction)
-  }
-,
-{ // state 1290
-178,MIN_REDUCTION+273, // $NT
-  }
-,
-{ // state 1291
-0x80000000|124, // match move
-0x80000000|1103, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1292
-0x80000000|1051, // match move
-0x80000000|642, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1293
-0x80000000|829, // match move
-0x80000000|1592, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1294
-2,1311, // white*
-97,267, // "="
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+150, // (default reduction)
-  }
-,
-{ // state 1295
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+363, // (default reduction)
-  }
-,
-{ // state 1296
-MIN_REDUCTION+268, // (default reduction)
-  }
-,
-{ // state 1297
-2,385, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+152, // (default reduction)
-  }
-,
-{ // state 1298
-0x80000000|431, // match move
-0x80000000|1412, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1299
-178,MIN_REDUCTION+109, // $NT
-MIN_REDUCTION+109, // (default reduction)
-  }
-,
-{ // state 1300
-MIN_REDUCTION+359, // (default reduction)
-  }
-,
-{ // state 1301
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+196, // $NT
-  }
-,
-{ // state 1302
-112,1091, // "o"
-  }
-,
-{ // state 1303
-0x80000000|191, // match move
-0x80000000|1406, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1304
-178,MIN_REDUCTION+240, // $NT
-  }
-,
-{ // state 1305
-0x80000000|665, // match move
-0x80000000|236, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1306
-120,1877, // "n"
-  }
-,
-{ // state 1307
-0x80000000|1844, // match move
-0x80000000|1846, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1308
-0x80000000|1, // match move
-0x80000000|466, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1309
-157,1853, // "*"
-  }
-,
-{ // state 1310
-0x80000000|839, // match move
-0x80000000|1593, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1311
-0x80000000|1399, // match move
-0x80000000|161, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1312
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+157, // (default reduction)
-  }
-,
-{ // state 1313
-121,844, // "t"
-  }
-,
-{ // state 1314
-MIN_REDUCTION+155, // (default reduction)
-  }
-,
-{ // state 1315
-2,1676, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+230, // (default reduction)
-  }
-,
-{ // state 1316
-2,928, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+308, // (default reduction)
-  }
-,
-{ // state 1317
-2,577, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+290, // (default reduction)
-  }
-,
-{ // state 1318
-0x80000000|162, // match move
-0x80000000|545, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1319
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+268, // $NT
-  }
-,
-{ // state 1320
-109,1841, // "f"
-  }
-,
-{ // state 1321
-2,1816, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+144, // (default reduction)
-  }
-,
-{ // state 1322
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+316, // $NT
-  }
-,
-{ // state 1323
-0x80000000|344, // match move
-0x80000000|1579, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1324
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+217, // $NT
-  }
-,
-{ // state 1325
-0x80000000|1935, // match move
-0x80000000|1020, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1326
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+262, // (default reduction)
-  }
-,
-{ // state 1327
-2,597, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+136, // (default reduction)
-  }
-,
-{ // state 1328
-110,1843, // "i"
-  }
-,
-{ // state 1329
-92,919, // "s"
-  }
-,
-{ // state 1330
-MIN_REDUCTION+342, // (default reduction)
-  }
-,
-{ // state 1331
-112,1137, // "o"
-  }
-,
-{ // state 1332
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+340, // (default reduction)
-  }
-,
-{ // state 1333
-2,1910, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+146, // (default reduction)
-  }
-,
-{ // state 1334
-0x80000000|973, // match move
-0x80000000|1771, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1335
-0x80000000|1, // match move
-0x80000000|168, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1336
-0x80000000|1, // match move
-0x80000000|428, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1337
-2,597, // white*
-MIN_REDUCTION+136, // (default reduction)
-  }
-,
-{ // state 1338
-2,1781, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+138, // (default reduction)
-  }
-,
-{ // state 1339
-0x80000000|483, // match move
-0x80000000|230, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1340
-2,597, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+136, // (default reduction)
-  }
-,
-{ // state 1341
-MIN_REDUCTION+121, // (default reduction)
-  }
-,
-{ // state 1342
-0x80000000|1642, // match move
-0x80000000|892, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1343
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+295, // (default reduction)
-  }
-,
-{ // state 1344
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+214, // (default reduction)
-  }
-,
-{ // state 1345
-MIN_REDUCTION+21, // (default reduction)
-  }
-,
-{ // state 1346
-95,1896, // "e"
-  }
-,
-{ // state 1347
-2,1637, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+178, // (default reduction)
-  }
-,
-{ // state 1348
-2,872, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+236, // (default reduction)
-  }
-,
-{ // state 1349
-0x80000000|1721, // match move
-0x80000000|1061, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1350
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+316, // (default reduction)
-  }
-,
-{ // state 1351
-95,633, // "e"
-  }
-,
-{ // state 1352
-2,946, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+317, // (default reduction)
-  }
-,
-{ // state 1353
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+271, // (default reduction)
-  }
-,
-{ // state 1354
-118,1041, // "h"
-  }
-,
-{ // state 1355
-MIN_REDUCTION+139, // (default reduction)
-  }
-,
-{ // state 1356
-95,990, // "e"
-  }
-,
-{ // state 1357
-2,1750, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+326, // (default reduction)
-  }
-,
-{ // state 1358
-0x80000000|1006, // match move
-0x80000000|875, // no-match move
-0x80000000|521, // NT-test-match state for letter
-  }
-,
-{ // state 1359
-95,1058, // "e"
-  }
-,
-{ // state 1360
-117,1010, // "b"
-  }
-,
-{ // state 1361
-91,721, // "a"
-  }
-,
-{ // state 1362
-89,1655, // "c"
-90,1655, // "l"
-91,1655, // "a"
-92,1655, // "s"
-95,1655, // "e"
-96,1668, // "!"
-97,645, // "="
-98,645, // "+"
-102,1655, // "_"
-103,1655, // "d"
-104,1655, // "g"
-105,1655, // "m"
-106,1655, // "p"
-107,1655, // "v"
-108,1655, // "y"
-109,1655, // "f"
-110,1655, // "i"
-111,645, // {"A".."Z"}
-112,1655, // "o"
-113,1655, // "r"
-114,1655, // "u"
-115,1655, // "x"
-116,1655, // {"j" "q"}
-117,1655, // "b"
-118,1655, // "h"
-119,1655, // "k"
-120,1655, // "n"
-121,1655, // "t"
-122,1655, // "w"
-123,1655, // "z"
-124,645, // {"0".."9"}
-127,1668, // " "
-134,645, // "["
-135,645, // "-"
-136,645, // "<"
-137,1655, // "|"
-138,645, // {"?".."@"}
-139,645, // "&"
-140,645, // ")"
-141,645, // ","
-142,1655, // "]"
-143,645, // "/"
-144,645, // {"#".."$"}
-145,645, // ";"
-146,645, // ">"
-147,1655, // "{"
-148,645, // "%"
-149,645, // "("
-151,645, // "."
-152,645, // ":"
-153,1655, // "}"
-154,1655, // {"^" "`" "~"}
-155,645, // "'"
-156,1777, // '"'
-157,645, // "*"
-158,608, // stringPrintable
-172,1605, // $$2
-  }
-,
-{ // state 1363
-0x80000000|1511, // match move
-0x80000000|318, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1364
-2,502, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+329, // (default reduction)
-  }
-,
-{ // state 1365
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+145, // (default reduction)
-  }
-,
-{ // state 1366
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+226, // $NT
-  }
-,
-{ // state 1367
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+316, // (default reduction)
-  }
-,
-{ // state 1368
-103,213, // "d"
-  }
-,
-{ // state 1369
-2,1921, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+272, // (default reduction)
-  }
-,
-{ // state 1370
-0x80000000|929, // match move
-0x80000000|1095, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1371
-109,1506, // "f"
-  }
-,
-{ // state 1372
-2,1366, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+227, // $NT
-  }
-,
-{ // state 1373
-2,23, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+311, // (default reduction)
-  }
-,
-{ // state 1374
-2,149, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+254, // $NT
-  }
-,
-{ // state 1375
-MIN_REDUCTION+108, // (default reduction)
-  }
-,
-{ // state 1376
-MIN_REDUCTION+111, // (default reduction)
-  }
-,
-{ // state 1377
-2,1370, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+90, // (default reduction)
-  }
-,
-{ // state 1378
-MIN_REDUCTION+159, // (default reduction)
-  }
-,
-{ // state 1379
-118,948, // "h"
-  }
-,
-{ // state 1380
-0x80000000|1754, // match move
-0x80000000|1021, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1381
-MIN_REDUCTION+32, // (default reduction)
-  }
-,
-{ // state 1382
-91,1618, // "a"
-113,572, // "r"
-  }
-,
-{ // state 1383
-0x80000000|745, // match move
-0x80000000|711, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1384
-112,1093, // "o"
-  }
-,
-{ // state 1385
-2,912, // white*
-MIN_REDUCTION+364, // (default reduction)
-  }
-,
-{ // state 1386
-0x80000000|1745, // match move
-0x80000000|777, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1387
-0x80000000|1705, // match move
-0x80000000|927, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1388
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+262, // $NT
-  }
-,
-{ // state 1389
-MIN_REDUCTION+45, // (default reduction)
-  }
-,
-{ // state 1390
-89,1583, // "c"
-  }
-,
-{ // state 1391
-0x80000000|1990, // match move
-0x80000000|741, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1392
-91,391, // "a"
-  }
-,
-{ // state 1393
-MIN_REDUCTION+112, // (default reduction)
-  }
-,
-{ // state 1394
-178,MIN_REDUCTION+258, // $NT
-  }
-,
-{ // state 1395
-0x80000000|1, // match move
-0x80000000|357, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1396
-2,1631, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+239, // $NT
-  }
-,
-{ // state 1397
-113,185, // "r"
-  }
-,
-{ // state 1398
-0x80000000|70, // match move
-0x80000000|1649, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1399
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+149, // (default reduction)
-  }
-,
-{ // state 1400
-0x80000000|488, // match move
-0x80000000|1292, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1401
-107,1017, // "v"
-  }
-,
-{ // state 1402
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+316, // (default reduction)
-  }
-,
-{ // state 1403
-0x80000000|655, // match move
-0x80000000|1453, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1404
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
 MIN_REDUCTION+250, // (default reduction)
   }
 ,
-{ // state 1405
-0x80000000|226, // match move
-0x80000000|1839, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 1049
+2,1495, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+278, // (default reduction)
   }
 ,
-{ // state 1406
-0x80000000|1233, // match move
-0x80000000|1719, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 1050
+MIN_REDUCTION+147, // (default reduction)
   }
 ,
-{ // state 1407
-178,MIN_REDUCTION+216, // $NT
+{ // state 1051
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+179, // (default reduction)
   }
 ,
-{ // state 1408
-2,1270, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+182, // (default reduction)
+{ // state 1052
+MIN_REDUCTION+123, // (default reduction)
   }
 ,
-{ // state 1409
-2,1287, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+320, // $NT
+{ // state 1053
+2,648, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+212, // $NT
   }
 ,
-{ // state 1410
-2,1182, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+221, // (default reduction)
+{ // state 1054
+0x80000000|1823, // match move
+0x80000000|588, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 1411
-92,126, // "s"
-  }
-,
-{ // state 1412
-0x80000000|285, // match move
-0x80000000|1426, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1413
-2,898, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+275, // (default reduction)
-  }
-,
-{ // state 1414
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+241, // $NT
-  }
-,
-{ // state 1415
-0x80000000|700, // match move
-0x80000000|718, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1416
-143,614, // "/"
-  }
-,
-{ // state 1417
-91,1253, // "a"
-  }
-,
-{ // state 1418
-2,390, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+194, // (default reduction)
-  }
-,
-{ // state 1419
-0x80000000|1784, // match move
-0x80000000|916, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1420
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+262, // (default reduction)
-  }
-,
-{ // state 1421
-0x80000000|1404, // match move
-0x80000000|313, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1422
-143,1094, // "/"
-157,1853, // "*"
-  }
-,
-{ // state 1423
-0x80000000|566, // match move
-0x80000000|65, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1424
-178,MIN_REDUCTION+186, // $NT
-  }
-,
-{ // state 1425
-MIN_REDUCTION+48, // (default reduction)
-  }
-,
-{ // state 1426
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+301, // (default reduction)
-  }
-,
-{ // state 1427
-113,197, // "r"
-118,992, // "h"
-  }
-,
-{ // state 1428
-0x80000000|971, // match move
-0x80000000|589, // no-match move
-// T-test match for "/":
-143,
-  }
-,
-{ // state 1429
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+301, // (default reduction)
-  }
-,
-{ // state 1430
-0x80000000|1224, // match move
-0x80000000|1916, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1431
-110,332, // "i"
-  }
-,
-{ // state 1432
-2,1826, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+224, // (default reduction)
-  }
-,
-{ // state 1433
-MIN_REDUCTION+331, // (default reduction)
-  }
-,
-{ // state 1434
-0x80000000|278, // match move
-0x80000000|1398, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1435
-112,1371, // "o"
-  }
-,
-{ // state 1436
-MIN_REDUCTION+357, // (default reduction)
-  }
-,
-{ // state 1437
-97,190, // "="
-  }
-,
-{ // state 1438
-MIN_REDUCTION+336, // (default reduction)
-  }
-,
-{ // state 1439
-MIN_REDUCTION+110, // (default reduction)
-  }
-,
-{ // state 1440
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+274, // (default reduction)
-  }
-,
-{ // state 1441
-0x80000000|753, // match move
-0x80000000|1848, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1442
-MIN_REDUCTION+122, // (default reduction)
-  }
-,
-{ // state 1443
-0x80000000|456, // match move
-0x80000000|1323, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1444
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+169, // (default reduction)
-  }
-,
-{ // state 1445
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+135, // (default reduction)
-  }
-,
-{ // state 1446
-2,219, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+90, // $NT
-  }
-,
-{ // state 1447
-MIN_REDUCTION+325, // (default reduction)
-  }
-,
-{ // state 1448
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+289, // $NT
-  }
-,
-{ // state 1449
-2,1311, // white*
-5,432, // `boolean
-6,735, // `class
-7,679, // `extends
-8,231, // `void
-9,1102, // `int
-10,324, // `while
-11,351, // `if
-12,748, // `else
-13,1134, // `for
-14,1984, // `break
-15,316, // `this
-16,380, // `false
-17,276, // `true
-18,908, // `super
-19,127, // `null
-20,699, // `return
-21,1345, // `instanceof
-22,2014, // `new
-23,1124, // `abstract
-24,469, // `assert
-25,192, // `byte
-26,535, // `case
-27,1558, // `catch
-28,974, // `char
-29,133, // `const
-30,315, // `continue
-31,1947, // `default
-32,1381, // `do
-33,1997, // `double
-34,650, // `enum
-35,176, // `final
-36,279, // `finally
-37,674, // `float
-38,1740, // `goto
-39,109, // `implements
-40,239, // `import
-41,849, // `interface
-42,1268, // `long
-43,540, // `native
-44,1099, // `package
-45,1389, // `private
-46,667, // `protected
-47,41, // `public
-48,1425, // `short
-49,1176, // `static
-50,331, // `strictfp
-51,544, // `switch
-52,759, // `synchronized
-53,811, // `throw
-54,369, // `throws
-55,1046, // `transient
-56,271, // `try
-57,426, // `volatile
-89,345, // "c"
-90,1774, // "l"
-91,1047, // "a"
-92,1749, // "s"
-95,631, // "e"
-97,267, // "="
-103,220, // "d"
-104,1703, // "g"
-106,1675, // "p"
-107,1125, // "v"
-109,304, // "f"
-110,50, // "i"
-113,270, // "r"
-117,986, // "b"
-120,471, // "n"
-121,876, // "t"
-122,1379, // "w"
-MIN_REDUCTION+150, // (default reduction)
-  }
-,
-{ // state 1450
-0x80000000|202, // match move
-0x80000000|587, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1451
-0x80000000|1316, // match move
-0x80000000|580, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1452
-MIN_REDUCTION+72, // (default reduction)
-  }
-,
-{ // state 1453
-0x80000000|294, // match move
-0x80000000|189, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1454
-109,885, // "f"
-  }
-,
-{ // state 1455
-2,1700, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+314, // (default reduction)
-  }
-,
-{ // state 1456
+{ // state 1055
 0x80000000|1, // match move
-0x80000000|1380, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|2019, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 1457
-90,2007, // "l"
-  }
-,
-{ // state 1458
-2,187, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+323, // $NT
-  }
-,
-{ // state 1459
-178,MIN_REDUCTION+249, // $NT
-  }
-,
-{ // state 1460
-MIN_REDUCTION+104, // (default reduction)
-  }
-,
-{ // state 1461
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
+{ // state 1056
 MIN_REDUCTION+229, // (default reduction)
   }
 ,
-{ // state 1462
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+280, // $NT
+{ // state 1057
+MIN_REDUCTION+67, // (default reduction)
   }
 ,
-{ // state 1463
+{ // state 1058
 0x80000000|1, // match move
-0x80000000|448, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|96, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 1464
-135,1858, // "-"
+{ // state 1059
+113,874, // "r"
   }
 ,
-{ // state 1465
-91,1209, // "a"
+{ // state 1060
+MIN_REDUCTION+55, // (default reduction)
   }
 ,
-{ // state 1466
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+310, // $NT
+{ // state 1061
+92,1111, // "s"
+117,1888, // "b"
   }
 ,
-{ // state 1467
-0x80000000|85, // match move
-0x80000000|1263, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+{ // state 1062
+MIN_REDUCTION+133, // (default reduction)
   }
 ,
-{ // state 1468
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+328, // (default reduction)
+{ // state 1063
+2,1831, // white*
+MIN_REDUCTION+144, // (default reduction)
   }
 ,
-{ // state 1469
-2,409, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+185, // (default reduction)
+{ // state 1064
+2,205, // white*
+MIN_REDUCTION+156, // (default reduction)
   }
 ,
-{ // state 1470
-2,1778, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+248, // (default reduction)
+{ // state 1065
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+292, // (default reduction)
   }
 ,
-{ // state 1471
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+325, // (default reduction)
+{ // state 1066
+2,1502, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+221, // $NT
   }
 ,
-{ // state 1472
-2,1164, // white*
-MIN_REDUCTION+170, // (default reduction)
+{ // state 1067
+2,1287, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+182, // (default reduction)
   }
 ,
-{ // state 1473
-2,1620, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-170,1827, // $$1
-MIN_REDUCTION+335, // (default reduction)
+{ // state 1068
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+169, // (default reduction)
   }
 ,
-{ // state 1474
-0x80000000|1886, // match move
-0x80000000|1971, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+{ // state 1069
+113,1093, // "r"
   }
 ,
-{ // state 1475
-2,502, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+329, // (default reduction)
+{ // state 1070
+MIN_REDUCTION+343, // (default reduction)
   }
 ,
-{ // state 1476
-90,1547, // "l"
+{ // state 1071
+91,1832, // "a"
   }
 ,
-{ // state 1477
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+92, // (default reduction)
+{ // state 1072
+103,506, // "d"
   }
 ,
-{ // state 1478
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+131, // (default reduction)
+{ // state 1073
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+220, // (default reduction)
   }
 ,
-{ // state 1479
-MIN_REDUCTION+106, // (default reduction)
+{ // state 1074
+2,1229, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+174, // (default reduction)
   }
 ,
-{ // state 1480
-121,5, // "t"
+{ // state 1075
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+99, // (default reduction)
   }
 ,
-{ // state 1481
-95,2008, // "e"
+{ // state 1076
+MIN_REDUCTION+121, // (default reduction)
   }
 ,
-{ // state 1482
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+199, // (default reduction)
+{ // state 1077
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+313, // (default reduction)
   }
 ,
-{ // state 1483
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+161, // (default reduction)
+{ // state 1078
+2,1752, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+188, // $NT
   }
 ,
-{ // state 1484
-2,385, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+152, // (default reduction)
+{ // state 1079
+MIN_REDUCTION+241, // (default reduction)
   }
 ,
-{ // state 1485
-0x80000000|1180, // match move
-0x80000000|652, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 1080
+120,1709, // "n"
   }
 ,
-{ // state 1486
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+322, // (default reduction)
+{ // state 1081
+0x80000000|661, // match move
+0x80000000|2005, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 1487
-0x80000000|1861, // match move
-0x80000000|662, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 1082
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+179, // (default reduction)
   }
 ,
-{ // state 1488
-91,845, // "a"
-113,646, // "r"
-114,1900, // "u"
+{ // state 1083
+2,658, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+251, // (default reduction)
   }
 ,
-{ // state 1489
-MIN_REDUCTION+232, // (default reduction)
+{ // state 1084
+2,1136, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+287, // (default reduction)
   }
 ,
-{ // state 1490
-89,1354, // "c"
+{ // state 1085
+2,1259, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+293, // (default reduction)
   }
 ,
-{ // state 1491
-178,MIN_REDUCTION+110, // $NT
+{ // state 1086
+2,658, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+251, // (default reduction)
+  }
+,
+{ // state 1087
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+133, // (default reduction)
+  }
+,
+{ // state 1088
+2,435, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+154, // (default reduction)
+  }
+,
+{ // state 1089
+0x80000000|1, // match move
+0x80000000|85, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1090
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+163, // (default reduction)
+  }
+,
+{ // state 1091
+0x80000000|610, // match move
+0x80000000|83, // no-match move
+0x80000000|1101, // NT-test-match state for printable
+  }
+,
+{ // state 1092
+MIN_REDUCTION+256, // (default reduction)
+  }
+,
+{ // state 1093
+0x80000000|1, // match move
+0x80000000|116, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1094
+0x80000000|1371, // match move
+0x80000000|133, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1095
+2,932, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+365, // (default reduction)
+  }
+,
+{ // state 1096
+MIN_REDUCTION+163, // (default reduction)
+  }
+,
+{ // state 1097
+0x80000000|971, // match move
+0x80000000|1583, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1098
+121,849, // "t"
+  }
+,
+{ // state 1099
+0x80000000|1088, // match move
+0x80000000|989, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1100
+0x80000000|1193, // match move
+0x80000000|64, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1101
+89,1323, // "c"
+90,1323, // "l"
+91,1323, // "a"
+92,1323, // "s"
+95,1323, // "e"
+96,1323, // "!"
+97,1323, // "="
+98,1323, // "+"
+102,1323, // "_"
+103,1323, // "d"
+104,1323, // "g"
+105,1323, // "m"
+106,1323, // "p"
+107,1323, // "v"
+108,1323, // "y"
+109,1323, // "f"
+110,1323, // "i"
+111,1323, // {"A".."Z"}
+112,1323, // "o"
+113,1323, // "r"
+114,1323, // "u"
+115,1323, // "x"
+116,1323, // {"j" "q"}
+117,1323, // "b"
+118,1323, // "h"
+119,1323, // "k"
+120,1323, // "n"
+121,1323, // "t"
+122,1323, // "w"
+123,1323, // "z"
+124,1323, // {"0".."9"}
+127,1323, // " "
+140,1323, // "["
+141,1323, // "-"
+142,1323, // "<"
+143,1323, // "|"
+144,1323, // {"?".."@"}
+145,1323, // "&"
+146,1323, // ")"
+147,1323, // ","
+148,1323, // "]"
+149,1323, // "/"
+150,1323, // {"#".."$"}
+151,1323, // ";"
+152,1323, // ">"
+153,1323, // "{"
+154,1323, // "%"
+155,1323, // "("
+156,1323, // "\"
+157,1323, // "."
+158,1323, // ":"
+159,1323, // "}"
+160,1323, // {"^" "`" "~"}
+161,1323, // "'"
+162,1323, // '"'
+163,1323, // "*"
+  }
+,
+{ // state 1102
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+181, // $NT
+  }
+,
+{ // state 1103
+0x80000000|1313, // match move
+0x80000000|1494, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1104
+0x80000000|92, // match move
+0x80000000|749, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1105
+164,1501, // {10}
+  }
+,
+{ // state 1106
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+155, // (default reduction)
+  }
+,
+{ // state 1107
+120,897, // "n"
+  }
+,
+{ // state 1108
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+137, // (default reduction)
+  }
+,
+{ // state 1109
+91,1801, // "a"
+  }
+,
+{ // state 1110
+0x80000000|1607, // match move
+0x80000000|2028, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1111
+92,716, // "s"
+  }
+,
+{ // state 1112
+0x80000000|437, // match move
+0x80000000|351, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1113
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+167, // (default reduction)
+  }
+,
+{ // state 1114
+MIN_REDUCTION+44, // (default reduction)
+  }
+,
+{ // state 1115
+2,1795, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+138, // (default reduction)
+  }
+,
+{ // state 1116
+2,1764, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+326, // (default reduction)
+  }
+,
+{ // state 1117
+MIN_REDUCTION+9, // (default reduction)
+  }
+,
+{ // state 1118
+0x80000000|659, // match move
+0x80000000|1124, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1119
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+205, // (default reduction)
+  }
+,
+{ // state 1120
+113,721, // "r"
+  }
+,
+{ // state 1121
 MIN_REDUCTION+110, // (default reduction)
   }
 ,
-{ // state 1492
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+220, // $NT
+{ // state 1122
+2,1223, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+266, // $NT
   }
 ,
-{ // state 1493
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
+{ // state 1123
+0x80000000|1449, // match move
+0x80000000|189, // no-match move
+// T-test match for "=":
+97,
+  }
+,
+{ // state 1124
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+217, // (default reduction)
+  }
+,
+{ // state 1125
+92,1617, // "s"
+121,1094, // "t"
+  }
+,
+{ // state 1126
+2,1651, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+178, // (default reduction)
+  }
+,
+{ // state 1127
+95,1808, // "e"
+  }
+,
+{ // state 1128
+0x80000000|883, // match move
+0x80000000|1213, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1129
+MIN_REDUCTION+280, // (default reduction)
+  }
+,
+{ // state 1130
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+268, // (default reduction)
+  }
+,
+{ // state 1131
+0x80000000|1, // match move
+0x80000000|377, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1132
+2,1675, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+148, // (default reduction)
+  }
+,
+{ // state 1133
+MIN_REDUCTION+358, // (default reduction)
+  }
+,
+{ // state 1134
+0x80000000|589, // match move
+0x80000000|1016, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1135
+0x80000000|1253, // match move
+0x80000000|1676, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1136
+0x80000000|361, // match move
+0x80000000|547, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1137
+95,641, // "e"
+  }
+,
+{ // state 1138
+0x80000000|1384, // match move
+0x80000000|1081, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1139
+113,961, // "r"
+  }
+,
+{ // state 1140
+MIN_REDUCTION+23, // (default reduction)
+  }
+,
+{ // state 1141
+112,1957, // "o"
+  }
+,
+{ // state 1142
+2,1198, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+221, // (default reduction)
+  }
+,
+{ // state 1143
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+208, // (default reduction)
+  }
+,
+{ // state 1144
+0x80000000|1, // match move
+0x80000000|1401, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1145
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+190, // (default reduction)
+  }
+,
+{ // state 1146
+0x80000000|1693, // match move
+0x80000000|393, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1147
+0x80000000|26, // match move
+0x80000000|1525, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1148
+0x80000000|379, // match move
+0x80000000|1321, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1149
+0x80000000|2023, // match move
+0x80000000|784, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1150
+MIN_REDUCTION+13, // (default reduction)
+  }
+,
+{ // state 1151
+0x80000000|533, // match move
+0x80000000|1894, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1152
+90,1376, // "l"
+110,500, // "i"
+  }
+,
+{ // state 1153
+120,1920, // "n"
+  }
+,
+{ // state 1154
+119,591, // "k"
+  }
+,
+{ // state 1155
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+283, // (default reduction)
+  }
+,
+{ // state 1156
+121,1530, // "t"
+  }
+,
+{ // state 1157
+0x80000000|1492, // match move
+0x80000000|1503, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1158
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+141, // (default reduction)
+  }
+,
+{ // state 1159
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+313, // $NT
+  }
+,
+{ // state 1160
+MIN_REDUCTION+226, // (default reduction)
+  }
+,
+{ // state 1161
+MIN_REDUCTION+205, // (default reduction)
+  }
+,
+{ // state 1162
+91,1603, // "a"
+  }
+,
+{ // state 1163
+MIN_REDUCTION+102, // (default reduction)
+  }
+,
+{ // state 1164
+91,1405, // "a"
+  }
+,
+{ // state 1165
+103,1608, // "d"
+  }
+,
+{ // state 1166
+0x80000000|526, // match move
+0x80000000|1206, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1167
+0x80000000|425, // match move
+0x80000000|1593, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1168
+2,1270, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+302, // $NT
+  }
+,
+{ // state 1169
+2,918, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+275, // (default reduction)
+  }
+,
+{ // state 1170
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+363, // (default reduction)
+  }
+,
+{ // state 1171
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+99, // (default reduction)
+  }
+,
+{ // state 1172
+2,569, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+341, // (default reduction)
+  }
+,
+{ // state 1173
+0x80000000|943, // match move
+0x80000000|1234, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1174
+95,1277, // "e"
+  }
+,
+{ // state 1175
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+165, // (default reduction)
+  }
+,
+{ // state 1176
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+149, // (default reduction)
+  }
+,
+{ // state 1177
+95,1773, // "e"
+  }
+,
+{ // state 1178
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+184, // (default reduction)
+  }
+,
+{ // state 1179
+92,1794, // "s"
+  }
+,
+{ // state 1180
+0x80000000|1455, // match move
+0x80000000|611, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1181
+2,587, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+290, // (default reduction)
+  }
+,
+{ // state 1182
+95,1407, // "e"
+  }
+,
+{ // state 1183
+0x80000000|878, // match move
+0x80000000|996, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1184
+MIN_REDUCTION+169, // (default reduction)
+  }
+,
+{ // state 1185
+179,MIN_REDUCTION+107, // $NT
+MIN_REDUCTION+107, // (default reduction)
+  }
+,
+{ // state 1186
+179,MIN_REDUCTION+282, // $NT
+  }
+,
+{ // state 1187
+0x80000000|63, // match move
+0x80000000|1860, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1188
+0x80000000|325, // match move
+0x80000000|2011, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1189
+0x80000000|111, // match move
+0x80000000|1787, // no-match move
+// T-test match for "=":
+97,
+  }
+,
+{ // state 1190
+MIN_REDUCTION+105, // (default reduction)
+  }
+,
+{ // state 1191
+0x80000000|1599, // match move
+0x80000000|1240, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1192
+MIN_REDUCTION+49, // (default reduction)
+  }
+,
+{ // state 1193
+MIN_REDUCTION+177, // (default reduction)
+  }
+,
+{ // state 1194
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+153, // (default reduction)
+  }
+,
+{ // state 1195
+MIN_REDUCTION+70, // (default reduction)
+  }
+,
+{ // state 1196
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+277, // (default reduction)
+  }
+,
+{ // state 1197
+89,485, // "c"
+  }
+,
+{ // state 1198
+0x80000000|1806, // match move
+0x80000000|917, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1199
+89,MIN_REDUCTION+353, // "c"
+90,MIN_REDUCTION+353, // "l"
+91,MIN_REDUCTION+353, // "a"
+92,MIN_REDUCTION+353, // "s"
+95,MIN_REDUCTION+353, // "e"
+102,MIN_REDUCTION+353, // "_"
+103,MIN_REDUCTION+353, // "d"
+104,MIN_REDUCTION+353, // "g"
+105,MIN_REDUCTION+353, // "m"
+106,MIN_REDUCTION+353, // "p"
+107,MIN_REDUCTION+353, // "v"
+108,MIN_REDUCTION+353, // "y"
+109,MIN_REDUCTION+353, // "f"
+110,MIN_REDUCTION+353, // "i"
+111,MIN_REDUCTION+353, // {"A".."Z"}
+112,MIN_REDUCTION+353, // "o"
+113,MIN_REDUCTION+353, // "r"
+114,MIN_REDUCTION+353, // "u"
+115,MIN_REDUCTION+353, // "x"
+116,MIN_REDUCTION+353, // {"j" "q"}
+117,MIN_REDUCTION+353, // "b"
+118,MIN_REDUCTION+353, // "h"
+119,MIN_REDUCTION+353, // "k"
+120,MIN_REDUCTION+353, // "n"
+121,MIN_REDUCTION+353, // "t"
+122,MIN_REDUCTION+353, // "w"
+123,MIN_REDUCTION+353, // "z"
+124,MIN_REDUCTION+353, // {"0".."9"}
+169,MIN_REDUCTION+353, // idChar**
+MIN_REDUCTION+353, // (default reduction)
+  }
+,
+{ // state 1200
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+259, // (default reduction)
+  }
+,
+{ // state 1201
+MIN_REDUCTION+114, // (default reduction)
+  }
+,
+{ // state 1202
+0x80000000|1934, // match move
+0x80000000|1943, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1203
+2,1657, // white*
+MIN_REDUCTION+158, // (default reduction)
+  }
+,
+{ // state 1204
+2,346, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+239, // (default reduction)
+  }
+,
+{ // state 1205
+0x80000000|1, // match move
+0x80000000|320, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1206
+0x80000000|1, // match move
+0x80000000|1199, // no-match move
+0x80000000|532, // NT-test-match state for letter
+  }
+,
+{ // state 1207
+95,852, // "e"
+  }
+,
+{ // state 1208
+2,816, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+160, // (default reduction)
+  }
+,
+{ // state 1209
+MIN_REDUCTION+101, // (default reduction)
+  }
+,
+{ // state 1210
+89,738, // "c"
+90,738, // "l"
+91,738, // "a"
+92,738, // "s"
+95,738, // "e"
+96,738, // "!"
+97,738, // "="
+98,738, // "+"
+102,738, // "_"
+103,738, // "d"
+104,738, // "g"
+105,738, // "m"
+106,738, // "p"
+107,738, // "v"
+108,738, // "y"
+109,738, // "f"
+110,738, // "i"
+111,738, // {"A".."Z"}
+112,738, // "o"
+113,738, // "r"
+114,738, // "u"
+115,738, // "x"
+116,738, // {"j" "q"}
+117,738, // "b"
+118,738, // "h"
+119,738, // "k"
+120,738, // "n"
+121,738, // "t"
+122,738, // "w"
+123,738, // "z"
+124,738, // {"0".."9"}
+127,738, // " "
+128,738, // {9}
+129,1246, // eol
+137,935, // blockCommentContent*
+138,245, // starSlash
+139,1218, // blockCommentContent
+140,738, // "["
+141,738, // "-"
+142,738, // "<"
+143,738, // "|"
+144,738, // {"?".."@"}
+145,738, // "&"
+146,738, // ")"
+147,738, // ","
+148,738, // "]"
+149,738, // "/"
+150,738, // {"#".."$"}
+151,738, // ";"
+152,738, // ">"
+153,738, // "{"
+154,738, // "%"
+155,738, // "("
+156,738, // "\"
+157,738, // "."
+158,738, // ":"
+159,738, // "}"
+160,738, // {"^" "`" "~"}
+161,738, // "'"
+162,738, // '"'
+163,1440, // "*"
+164,352, // {10}
+165,376, // {13}
+  }
+,
+{ // state 1211
+0x80000000|1470, // match move
+0x80000000|580, // no-match move
+0x80000000|532, // NT-test-match state for letter
+  }
+,
+{ // state 1212
+0x80000000|1, // match move
+0x80000000|740, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1213
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+307, // (default reduction)
+  }
+,
+{ // state 1214
+92,1827, // "s"
+121,1500, // "t"
+  }
+,
+{ // state 1215
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+208, // (default reduction)
+  }
+,
+{ // state 1216
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+340, // (default reduction)
+  }
+,
+{ // state 1217
+0x80000000|1, // match move
+0x80000000|178, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1218
+MIN_REDUCTION+350, // (default reduction)
+  }
+,
+{ // state 1219
+95,331, // "e"
+112,61, // "o"
+  }
+,
+{ // state 1220
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+226, // (default reduction)
+  }
+,
+{ // state 1221
+MIN_REDUCTION+123, // (default reduction)
+  }
+,
+{ // state 1222
+2,420, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+185, // (default reduction)
+  }
+,
+{ // state 1223
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+265, // $NT
+  }
+,
+{ // state 1224
+2,1764, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+326, // (default reduction)
+  }
+,
+{ // state 1225
+MIN_REDUCTION+105, // (default reduction)
+  }
+,
+{ // state 1226
+121,775, // "t"
+  }
+,
+{ // state 1227
+2,937, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+150, // (default reduction)
+  }
+,
+{ // state 1228
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+277, // $NT
+  }
+,
+{ // state 1229
+0x80000000|447, // match move
+0x80000000|348, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1230
+2,876, // white*
+MIN_REDUCTION+176, // (default reduction)
+  }
+,
+{ // state 1231
+0x80000000|456, // match move
+0x80000000|486, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1232
+90,594, // "l"
+  }
+,
+{ // state 1233
+2,1766, // white*
+MIN_REDUCTION+140, // (default reduction)
+  }
+,
+{ // state 1234
+0x80000000|339, // match move
+0x80000000|59, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1235
+91,1302, // "a"
+95,1273, // "e"
+114,417, // "u"
+  }
+,
+{ // state 1236
+179,MIN_REDUCTION+109, // $NT
+MIN_REDUCTION+109, // (default reduction)
+  }
+,
+{ // state 1237
+2,1792, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+248, // (default reduction)
+  }
+,
+{ // state 1238
+2,1739, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+230, // $NT
+  }
+,
+{ // state 1239
+113,1769, // "r"
+  }
+,
+{ // state 1240
+0x80000000|1132, // match move
+0x80000000|842, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1241
+MIN_REDUCTION+319, // (default reduction)
+  }
+,
+{ // state 1242
+2,1966, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+93, // (default reduction)
+  }
+,
+{ // state 1243
+2,1634, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+170,1842, // $$1
+MIN_REDUCTION+335, // (default reduction)
+  }
+,
+{ // state 1244
+2,1460, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+134, // (default reduction)
+  }
+,
+{ // state 1245
+0x80000000|1108, // match move
+0x80000000|1019, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1246
+MIN_REDUCTION+117, // (default reduction)
+  }
+,
+{ // state 1247
+0x80000000|1, // match move
+0x80000000|1275, // no-match move
+// T-test match for {"*" "/"}:
+149,
+163,
+  }
+,
+{ // state 1248
+0x80000000|745, // match move
+0x80000000|1364, // no-match move
+0x80000000|1101, // NT-test-match state for printable
+  }
+,
+{ // state 1249
+0x80000000|1, // match move
+0x80000000|158, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1250
+90,78, // "l"
+  }
+,
+{ // state 1251
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+135, // (default reduction)
+  }
+,
+{ // state 1252
+121,1711, // "t"
+  }
+,
+{ // state 1253
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+253, // (default reduction)
+  }
+,
+{ // state 1254
+102,MIN_REDUCTION+357, // "_"
+169,MIN_REDUCTION+357, // idChar**
+MIN_REDUCTION+357, // (default reduction)
+  }
+,
+{ // state 1255
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+328, // (default reduction)
+  }
+,
+{ // state 1256
+2,1795, // white*
+MIN_REDUCTION+138, // (default reduction)
+  }
+,
+{ // state 1257
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+235, // (default reduction)
+  }
+,
+{ // state 1258
+0x80000000|915, // match move
+0x80000000|860, // no-match move
+0x80000000|94, // NT-test-match state for digit
+  }
+,
+{ // state 1259
+0x80000000|1746, // match move
+0x80000000|1413, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1260
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+238, // (default reduction)
+  }
+,
+{ // state 1261
+2,4, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+245, // (default reduction)
+  }
+,
+{ // state 1262
+2,429, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+263, // (default reduction)
+  }
+,
+{ // state 1263
+0x80000000|1143, // match move
+0x80000000|1723, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1264
+121,523, // "t"
+  }
+,
+{ // state 1265
+0x80000000|1886, // match move
+0x80000000|560, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1266
+0x80000000|1, // match move
+0x80000000|143, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1267
+95,514, // "e"
+  }
+,
+{ // state 1268
+2,892, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+236, // (default reduction)
+  }
+,
+{ // state 1269
+2,1972, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+284, // $NT
+  }
+,
+{ // state 1270
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+301, // $NT
+  }
+,
+{ // state 1271
+104,2032, // "g"
+  }
+,
+{ // state 1272
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+97, // (default reduction)
+  }
+,
+{ // state 1273
+122,260, // "w"
+  }
+,
+{ // state 1274
+0x80000000|1994, // match move
+0x80000000|907, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1275
+2,1867, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+180, // (default reduction)
+  }
+,
+{ // state 1276
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+167, // (default reduction)
+  }
+,
+{ // state 1277
+0x80000000|1, // match move
+0x80000000|1296, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1278
+2,435, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+154, // (default reduction)
+  }
+,
+{ // state 1279
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+313, // (default reduction)
+  }
+,
+{ // state 1280
+MIN_REDUCTION+346, // (default reduction)
+  }
+,
+{ // state 1281
+MIN_REDUCTION+179, // (default reduction)
+  }
+,
+{ // state 1282
+0x80000000|1635, // match move
+0x80000000|1204, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1283
+MIN_REDUCTION+265, // (default reduction)
+  }
+,
+{ // state 1284
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+205, // $NT
+  }
+,
+{ // state 1285
+MIN_REDUCTION+42, // (default reduction)
+  }
+,
+{ // state 1286
+0x80000000|1790, // match move
+0x80000000|1209, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1287
+0x80000000|855, // match move
+0x80000000|1148, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1288
+110,1534, // "i"
+112,1528, // "o"
+  }
+,
+{ // state 1289
+89,1658, // "c"
+  }
+,
+{ // state 1290
+90,670, // "l"
+112,1139, // "o"
+  }
+,
+{ // state 1291
+92,452, // "s"
+  }
+,
+{ // state 1292
+179,MIN_REDUCTION+267, // $NT
+  }
+,
+{ // state 1293
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+319, // (default reduction)
+  }
+,
+{ // state 1294
+2,1966, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+93, // (default reduction)
+  }
+,
+{ // state 1295
+0x80000000|1338, // match move
+0x80000000|577, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1296
+0x80000000|1926, // match move
+0x80000000|578, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1297
+114,600, // "u"
+  }
+,
+{ // state 1298
+2,1495, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+278, // (default reduction)
+  }
+,
+{ // state 1299
+179,MIN_REDUCTION+270, // $NT
+  }
+,
+{ // state 1300
+0x80000000|1113, // match move
+0x80000000|1623, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1301
+112,527, // "o"
+  }
+,
+{ // state 1302
+121,1443, // "t"
+  }
+,
+{ // state 1303
+0x80000000|149, // match move
+0x80000000|595, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1304
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+319, // $NT
+  }
+,
+{ // state 1305
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+187, // (default reduction)
+  }
+,
+{ // state 1306
+MIN_REDUCTION+220, // (default reduction)
+  }
+,
+{ // state 1307
+179,MIN_REDUCTION+273, // $NT
+  }
+,
+{ // state 1308
+0x80000000|128, // match move
+0x80000000|1118, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1309
+0x80000000|1065, // match move
+0x80000000|652, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1310
+0x80000000|847, // match move
+0x80000000|1605, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1311
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+364, // (default reduction)
+  }
+,
+{ // state 1312
+MIN_REDUCTION+268, // (default reduction)
+  }
+,
+{ // state 1313
+2,396, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+152, // (default reduction)
+  }
+,
+{ // state 1314
+0x80000000|441, // match move
+0x80000000|1425, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1315
+179,MIN_REDUCTION+121, // $NT
+MIN_REDUCTION+121, // (default reduction)
+  }
+,
+{ // state 1316
+MIN_REDUCTION+360, // (default reduction)
+  }
+,
+{ // state 1317
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+196, // $NT
+  }
+,
+{ // state 1318
+112,1107, // "o"
+  }
+,
+{ // state 1319
+0x80000000|194, // match move
+0x80000000|1419, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1320
+179,MIN_REDUCTION+240, // $NT
+  }
+,
+{ // state 1321
+0x80000000|677, // match move
+0x80000000|239, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1322
+120,1893, // "n"
+  }
+,
+{ // state 1323
+179,MIN_REDUCTION+124, // $NT
+  }
+,
+{ // state 1324
+0x80000000|1859, // match move
+0x80000000|1861, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1325
+129,1963, // eol
+164,1315, // {10}
+165,904, // {13}
+  }
+,
+{ // state 1326
+0x80000000|1, // match move
+0x80000000|477, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1327
+163,1869, // "*"
+  }
+,
+{ // state 1328
+0x80000000|856, // match move
+0x80000000|1606, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1329
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+157, // (default reduction)
+  }
+,
+{ // state 1330
+121,862, // "t"
+  }
+,
+{ // state 1331
+MIN_REDUCTION+155, // (default reduction)
+  }
+,
+{ // state 1332
+2,1689, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+230, // (default reduction)
+  }
+,
+{ // state 1333
+2,948, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+308, // (default reduction)
+  }
+,
+{ // state 1334
+2,587, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+290, // (default reduction)
+  }
+,
+{ // state 1335
+0x80000000|166, // match move
+0x80000000|555, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1336
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+268, // $NT
+  }
+,
+{ // state 1337
+109,1856, // "f"
+  }
+,
+{ // state 1338
+2,1831, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+144, // (default reduction)
+  }
+,
+{ // state 1339
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+316, // $NT
+  }
+,
+{ // state 1340
+0x80000000|353, // match move
+0x80000000|1591, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1341
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+217, // $NT
+  }
+,
+{ // state 1342
+0x80000000|1950, // match move
+0x80000000|1036, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1343
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+262, // (default reduction)
+  }
+,
+{ // state 1344
+2,608, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+136, // (default reduction)
+  }
+,
+{ // state 1345
+110,1858, // "i"
+  }
+,
+{ // state 1346
+92,939, // "s"
+  }
+,
+{ // state 1347
+MIN_REDUCTION+342, // (default reduction)
+  }
+,
+{ // state 1348
+112,1153, // "o"
+  }
+,
+{ // state 1349
+2,1925, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+146, // (default reduction)
+  }
+,
+{ // state 1350
+0x80000000|990, // match move
+0x80000000|1785, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1351
+0x80000000|1, // match move
+0x80000000|172, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1352
+0x80000000|1, // match move
+0x80000000|438, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1353
+2,608, // white*
+MIN_REDUCTION+136, // (default reduction)
+  }
+,
+{ // state 1354
+2,1795, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+138, // (default reduction)
+  }
+,
+{ // state 1355
+2,608, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+136, // (default reduction)
+  }
+,
+{ // state 1356
+0x80000000|1656, // match move
+0x80000000|912, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1357
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+295, // (default reduction)
+  }
+,
+{ // state 1358
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+214, // (default reduction)
+  }
+,
+{ // state 1359
+MIN_REDUCTION+21, // (default reduction)
+  }
+,
+{ // state 1360
+95,1912, // "e"
+  }
+,
+{ // state 1361
+2,1651, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+178, // (default reduction)
+  }
+,
+{ // state 1362
+2,892, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+236, // (default reduction)
+  }
+,
+{ // state 1363
+0x80000000|1735, // match move
+0x80000000|1074, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1364
+129,1779, // eol
+134,1325, // printable**
+164,1315, // {10}
+165,904, // {13}
+174,316, // printable*
+  }
+,
+{ // state 1365
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+316, // (default reduction)
+  }
+,
+{ // state 1366
+95,642, // "e"
+  }
+,
+{ // state 1367
+2,966, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+317, // (default reduction)
+  }
+,
+{ // state 1368
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+271, // (default reduction)
+  }
+,
+{ // state 1369
+118,1055, // "h"
+  }
+,
+{ // state 1370
+MIN_REDUCTION+139, // (default reduction)
+  }
+,
+{ // state 1371
+95,1006, // "e"
+  }
+,
+{ // state 1372
+2,1764, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+326, // (default reduction)
+  }
+,
+{ // state 1373
+0x80000000|1022, // match move
+0x80000000|895, // no-match move
+0x80000000|532, // NT-test-match state for letter
+  }
+,
+{ // state 1374
+95,1072, // "e"
+  }
+,
+{ // state 1375
+117,1026, // "b"
+  }
+,
+{ // state 1376
+91,735, // "a"
+  }
+,
+{ // state 1377
+89,1668, // "c"
+90,1668, // "l"
+91,1668, // "a"
+92,1668, // "s"
+95,1668, // "e"
+96,1681, // "!"
+97,655, // "="
+98,655, // "+"
+102,1668, // "_"
+103,1668, // "d"
+104,1668, // "g"
+105,1668, // "m"
+106,1668, // "p"
+107,1668, // "v"
+108,1668, // "y"
+109,1668, // "f"
+110,1668, // "i"
+111,655, // {"A".."Z"}
+112,1668, // "o"
+113,1668, // "r"
+114,1668, // "u"
+115,1668, // "x"
+116,1668, // {"j" "q"}
+117,1668, // "b"
+118,1668, // "h"
+119,1668, // "k"
+120,1668, // "n"
+121,1668, // "t"
+122,1668, // "w"
+123,1668, // "z"
+124,655, // {"0".."9"}
+127,1681, // " "
+140,655, // "["
+141,655, // "-"
+142,655, // "<"
+143,1668, // "|"
+144,655, // {"?".."@"}
+145,655, // "&"
+146,655, // ")"
+147,655, // ","
+148,1668, // "]"
+149,655, // "/"
+150,655, // {"#".."$"}
+151,655, // ";"
+152,655, // ">"
+153,1668, // "{"
+154,655, // "%"
+155,655, // "("
+157,655, // "."
+158,655, // ":"
+159,1668, // "}"
+160,1668, // {"^" "`" "~"}
+161,655, // "'"
+162,1791, // '"'
+163,655, // "*"
+166,619, // stringPrintable
+172,1619, // $$2
+  }
+,
+{ // state 1378
+0x80000000|1522, // match move
+0x80000000|326, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1379
+2,512, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+329, // (default reduction)
+  }
+,
+{ // state 1380
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+145, // (default reduction)
+  }
+,
+{ // state 1381
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+226, // $NT
+  }
+,
+{ // state 1382
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+316, // (default reduction)
+  }
+,
+{ // state 1383
+103,217, // "d"
+  }
+,
+{ // state 1384
+2,1936, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+272, // (default reduction)
+  }
+,
+{ // state 1385
+0x80000000|949, // match move
+0x80000000|1110, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1386
+109,1517, // "f"
+  }
+,
+{ // state 1387
+2,1381, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+227, // $NT
+  }
+,
+{ // state 1388
+2,24, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+311, // (default reduction)
+  }
+,
+{ // state 1389
+2,154, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+254, // $NT
+  }
+,
+{ // state 1390
+MIN_REDUCTION+108, // (default reduction)
+  }
+,
+{ // state 1391
+MIN_REDUCTION+123, // (default reduction)
+  }
+,
+{ // state 1392
+2,1385, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+90, // (default reduction)
+  }
+,
+{ // state 1393
+MIN_REDUCTION+159, // (default reduction)
+  }
+,
+{ // state 1394
+118,969, // "h"
+  }
+,
+{ // state 1395
+0x80000000|1768, // match move
+0x80000000|1037, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1396
+MIN_REDUCTION+32, // (default reduction)
+  }
+,
+{ // state 1397
+91,1632, // "a"
+113,581, // "r"
+  }
+,
+{ // state 1398
+0x80000000|761, // match move
+0x80000000|725, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1399
+112,1109, // "o"
+  }
+,
+{ // state 1400
+2,932, // white*
+MIN_REDUCTION+365, // (default reduction)
+  }
+,
+{ // state 1401
+0x80000000|1759, // match move
+0x80000000|793, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1402
+0x80000000|1718, // match move
+0x80000000|947, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1403
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+262, // $NT
+  }
+,
+{ // state 1404
+MIN_REDUCTION+45, // (default reduction)
+  }
+,
+{ // state 1405
+89,1596, // "c"
+  }
+,
+{ // state 1406
+0x80000000|2008, // match move
+0x80000000|757, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1407
+91,402, // "a"
+  }
+,
+{ // state 1408
+179,MIN_REDUCTION+258, // $NT
+  }
+,
+{ // state 1409
+0x80000000|1, // match move
+0x80000000|366, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1410
+2,1645, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+239, // $NT
+  }
+,
+{ // state 1411
+113,188, // "r"
+  }
+,
+{ // state 1412
+0x80000000|72, // match move
+0x80000000|1663, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1413
+0x80000000|498, // match move
+0x80000000|1309, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1414
+107,1033, // "v"
+  }
+,
+{ // state 1415
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+316, // (default reduction)
+  }
+,
+{ // state 1416
+0x80000000|666, // match move
+0x80000000|1463, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1417
+MIN_REDUCTION+250, // (default reduction)
+  }
+,
+{ // state 1418
+0x80000000|230, // match move
+0x80000000|1854, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1419
+0x80000000|1251, // match move
+0x80000000|1733, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1420
+179,MIN_REDUCTION+216, // $NT
+  }
+,
+{ // state 1421
+2,1287, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+182, // (default reduction)
+  }
+,
+{ // state 1422
+2,1304, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+320, // $NT
+  }
+,
+{ // state 1423
+2,1198, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+221, // (default reduction)
+  }
+,
+{ // state 1424
+92,130, // "s"
+  }
+,
+{ // state 1425
+0x80000000|289, // match move
+0x80000000|1438, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1426
+2,918, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+275, // (default reduction)
+  }
+,
+{ // state 1427
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+241, // $NT
+  }
+,
+{ // state 1428
+0x80000000|712, // match move
+0x80000000|732, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1429
+149,625, // "/"
+  }
+,
+{ // state 1430
+91,1271, // "a"
+  }
+,
+{ // state 1431
+2,401, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+194, // (default reduction)
+  }
+,
+{ // state 1432
+0x80000000|1798, // match move
+0x80000000|936, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1433
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+262, // (default reduction)
+  }
+,
+{ // state 1434
+0x80000000|1417, // match move
+0x80000000|321, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1435
+0x80000000|576, // match move
+0x80000000|68, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1436
+179,MIN_REDUCTION+186, // $NT
+  }
+,
+{ // state 1437
+MIN_REDUCTION+48, // (default reduction)
+  }
+,
+{ // state 1438
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+301, // (default reduction)
+  }
+,
+{ // state 1439
+113,200, // "r"
+118,1007, // "h"
+  }
+,
+{ // state 1440
+0x80000000|988, // match move
+0x80000000|599, // no-match move
+// T-test match for "/":
+149,
+  }
+,
+{ // state 1441
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+301, // (default reduction)
+  }
+,
+{ // state 1442
+0x80000000|1242, // match move
+0x80000000|1931, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1443
+110,341, // "i"
+  }
+,
+{ // state 1444
+2,1841, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+224, // (default reduction)
+  }
+,
+{ // state 1445
+MIN_REDUCTION+331, // (default reduction)
+  }
+,
+{ // state 1446
+0x80000000|282, // match move
+0x80000000|1412, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1447
+112,1386, // "o"
+  }
+,
+{ // state 1448
+MIN_REDUCTION+356, // (default reduction)
+  }
+,
+{ // state 1449
+97,193, // "="
+  }
+,
+{ // state 1450
+MIN_REDUCTION+336, // (default reduction)
+  }
+,
+{ // state 1451
+MIN_REDUCTION+122, // (default reduction)
+  }
+,
+{ // state 1452
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+274, // (default reduction)
+  }
+,
+{ // state 1453
+0x80000000|769, // match move
+0x80000000|1863, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1454
+0x80000000|467, // match move
+0x80000000|1340, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1455
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+169, // (default reduction)
+  }
+,
+{ // state 1456
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+135, // (default reduction)
+  }
+,
+{ // state 1457
+2,223, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+90, // $NT
+  }
+,
+{ // state 1458
+MIN_REDUCTION+325, // (default reduction)
+  }
+,
+{ // state 1459
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+289, // $NT
+  }
+,
+{ // state 1460
+0x80000000|206, // match move
+0x80000000|597, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1461
+0x80000000|1333, // match move
+0x80000000|590, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1462
+MIN_REDUCTION+72, // (default reduction)
+  }
+,
+{ // state 1463
+0x80000000|298, // match move
+0x80000000|192, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1464
+109,905, // "f"
+  }
+,
+{ // state 1465
+2,1713, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+314, // (default reduction)
+  }
+,
+{ // state 1466
+0x80000000|1, // match move
+0x80000000|1395, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1467
+90,2026, // "l"
+  }
+,
+{ // state 1468
+2,190, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+323, // $NT
+  }
+,
+{ // state 1469
+179,MIN_REDUCTION+249, // $NT
+  }
+,
+{ // state 1470
+MIN_REDUCTION+104, // (default reduction)
+  }
+,
+{ // state 1471
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+229, // (default reduction)
+  }
+,
+{ // state 1472
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+280, // $NT
+  }
+,
+{ // state 1473
+0x80000000|1, // match move
+0x80000000|459, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1474
+141,1874, // "-"
+  }
+,
+{ // state 1475
+91,1226, // "a"
+  }
+,
+{ // state 1476
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+310, // $NT
+  }
+,
+{ // state 1477
+0x80000000|90, // match move
+0x80000000|1280, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1478
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+328, // (default reduction)
+  }
+,
+{ // state 1479
+2,420, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+185, // (default reduction)
+  }
+,
+{ // state 1480
+2,1792, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+248, // (default reduction)
+  }
+,
+{ // state 1481
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+325, // (default reduction)
+  }
+,
+{ // state 1482
+2,1180, // white*
+MIN_REDUCTION+170, // (default reduction)
+  }
+,
+{ // state 1483
+2,1634, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+170,1842, // $$1
+MIN_REDUCTION+335, // (default reduction)
+  }
+,
+{ // state 1484
+0x80000000|1902, // match move
+0x80000000|1987, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1485
+2,512, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+329, // (default reduction)
+  }
+,
+{ // state 1486
+90,1559, // "l"
+  }
+,
+{ // state 1487
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+92, // (default reduction)
+  }
+,
+{ // state 1488
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+131, // (default reduction)
+  }
+,
+{ // state 1489
+MIN_REDUCTION+106, // (default reduction)
+  }
+,
+{ // state 1490
+121,5, // "t"
+  }
+,
+{ // state 1491
+95,2027, // "e"
+  }
+,
+{ // state 1492
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
 MIN_REDUCTION+199, // (default reduction)
   }
 ,
+{ // state 1493
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+161, // (default reduction)
+  }
+,
 { // state 1494
-2,527, // white*
-MIN_REDUCTION+166, // (default reduction)
+2,396, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+152, // (default reduction)
   }
 ,
 { // state 1495
-2,1528, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+98, // (default reduction)
+0x80000000|1196, // match move
+0x80000000|662, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 1496
-2,1871, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+142, // (default reduction)
-  }
-,
-{ // state 1497
-178,MIN_REDUCTION+189, // $NT
-  }
-,
-{ // state 1498
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
 MIN_REDUCTION+322, // (default reduction)
   }
 ,
+{ // state 1497
+0x80000000|1877, // match move
+0x80000000|674, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1498
+91,863, // "a"
+113,656, // "r"
+114,1916, // "u"
+  }
+,
 { // state 1499
-178,MIN_REDUCTION+94, // $NT
+MIN_REDUCTION+232, // (default reduction)
   }
 ,
 { // state 1500
-0x80000000|1711, // match move
-0x80000000|1259, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+89,1369, // "c"
   }
 ,
 { // state 1501
-101,1612, // digit
-124,392, // {"0".."9"}
+179,MIN_REDUCTION+122, // $NT
+MIN_REDUCTION+122, // (default reduction)
   }
 ,
 { // state 1502
-4,1330, // token
-MIN_REDUCTION+361, // (default reduction)
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+220, // $NT
   }
 ,
 { // state 1503
-0x80000000|959, // match move
-0x80000000|1682, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+199, // (default reduction)
   }
 ,
 { // state 1504
-2,866, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+242, // (default reduction)
+2,1540, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+98, // (default reduction)
   }
 ,
 { // state 1505
-105,1112, // "m"
+2,539, // white*
+MIN_REDUCTION+166, // (default reduction)
   }
 ,
 { // state 1506
-0x80000000|1, // match move
-0x80000000|484, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+2,1887, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+142, // (default reduction)
   }
 ,
 { // state 1507
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+286, // $NT
+179,MIN_REDUCTION+189, // $NT
+  }
+,
+{ // state 1508
+0x80000000|31, // match move
+0x80000000|1989, // no-match move
+// T-test match for "=":
+97,
+  }
+,
+{ // state 1509
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+322, // (default reduction)
+  }
+,
+{ // state 1510
+179,MIN_REDUCTION+94, // $NT
+  }
+,
+{ // state 1511
+0x80000000|1725, // match move
+0x80000000|1276, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1512
+101,1626, // digit
+124,403, // {"0".."9"}
+  }
+,
+{ // state 1513
+4,1347, // token
+MIN_REDUCTION+362, // (default reduction)
+  }
+,
+{ // state 1514
+0x80000000|977, // match move
+0x80000000|1695, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1515
+2,886, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+242, // (default reduction)
+  }
+,
+{ // state 1516
+105,1127, // "m"
+  }
+,
+{ // state 1517
+0x80000000|1, // match move
+0x80000000|494, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1518
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+286, // $NT
+  }
+,
+{ // state 1519
+MIN_REDUCTION+58, // (default reduction)
+  }
+,
+{ // state 1520
+0x80000000|1587, // match move
+0x80000000|1052, // no-match move
+// T-test match for 10:
+164,
+  }
+,
+{ // state 1521
+MIN_REDUCTION+345, // (default reduction)
+  }
+,
+{ // state 1522
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+298, // (default reduction)
+  }
+,
+{ // state 1523
+MIN_REDUCTION+112, // (default reduction)
+  }
+,
+{ // state 1524
+92,114, // "s"
+121,1876, // "t"
+  }
+,
+{ // state 1525
+0x80000000|1496, // match move
+0x80000000|1509, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1526
+121,1366, // "t"
+  }
+,
+{ // state 1527
+0x80000000|1079, // match move
+0x80000000|18, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1528
+121,980, // "t"
+  }
+,
+{ // state 1529
+91,129, // "a"
+  }
+,
+{ // state 1530
+0x80000000|1, // match move
+0x80000000|400, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1531
+2,1582, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+305, // (default reduction)
+  }
+,
+{ // state 1532
+89,738, // "c"
+90,738, // "l"
+91,738, // "a"
+92,738, // "s"
+95,738, // "e"
+96,738, // "!"
+97,738, // "="
+98,738, // "+"
+102,738, // "_"
+103,738, // "d"
+104,738, // "g"
+105,738, // "m"
+106,738, // "p"
+107,738, // "v"
+108,738, // "y"
+109,738, // "f"
+110,738, // "i"
+111,738, // {"A".."Z"}
+112,738, // "o"
+113,738, // "r"
+114,738, // "u"
+115,738, // "x"
+116,738, // {"j" "q"}
+117,738, // "b"
+118,738, // "h"
+119,738, // "k"
+120,738, // "n"
+121,738, // "t"
+122,738, // "w"
+123,738, // "z"
+124,738, // {"0".."9"}
+127,738, // " "
+128,738, // {9}
+129,1246, // eol
+137,455, // blockCommentContent*
+138,1201, // starSlash
+139,1218, // blockCommentContent
+140,738, // "["
+141,738, // "-"
+142,738, // "<"
+143,738, // "|"
+144,738, // {"?".."@"}
+145,738, // "&"
+146,738, // ")"
+147,738, // ","
+148,738, // "]"
+149,738, // "/"
+150,738, // {"#".."$"}
+151,738, // ";"
+152,738, // ">"
+153,738, // "{"
+154,738, // "%"
+155,738, // "("
+156,738, // "\"
+157,738, // "."
+158,738, // ":"
+159,738, // "}"
+160,738, // {"^" "`" "~"}
+161,738, // "'"
+162,738, // '"'
+163,1637, // "*"
+164,352, // {10}
+165,376, // {13}
+  }
+,
+{ // state 1533
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+184, // (default reduction)
+  }
+,
+{ // state 1534
+107,1969, // "v"
+  }
+,
+{ // state 1535
+0x80000000|830, // match move
+0x80000000|1758, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1536
+120,701, // "n"
+  }
+,
+{ // state 1537
+2,346, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+239, // (default reduction)
+  }
+,
+{ // state 1538
+121,1908, // "t"
+  }
+,
+{ // state 1539
+0x80000000|259, // match move
+0x80000000|505, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1540
+0x80000000|1272, // match move
+0x80000000|1597, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1541
+89,663, // "c"
+90,663, // "l"
+91,663, // "a"
+92,663, // "s"
+95,663, // "e"
+100,1671, // letter
+103,663, // "d"
+104,663, // "g"
+105,663, // "m"
+106,663, // "p"
+107,663, // "v"
+108,663, // "y"
+109,663, // "f"
+110,663, // "i"
+111,663, // {"A".."Z"}
+112,663, // "o"
+113,663, // "r"
+114,663, // "u"
+115,663, // "x"
+116,663, // {"j" "q"}
+117,663, // "b"
+118,663, // "h"
+119,663, // "k"
+120,663, // "n"
+121,663, // "t"
+122,663, // "w"
+123,663, // "z"
+  }
+,
+{ // state 1542
+0x80000000|207, // match move
+0x80000000|930, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1543
+0x80000000|474, // match move
+0x80000000|484, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1544
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+208, // $NT
   }
 };
 }
@@ -13518,4401 +13582,4126 @@ public int doInit(int startIdx) {
   return myParseTable.length;
 }
 private final int[][] myParseTable = {
-{ // state 1508
-MIN_REDUCTION+58, // (default reduction)
-  }
-,
-{ // state 1509
-0x80000000|1575, // match move
-0x80000000|1037, // no-match move
-// T-test match for 10:
-131,
-  }
-,
-{ // state 1510
-MIN_REDUCTION+344, // (default reduction)
-  }
-,
-{ // state 1511
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+298, // (default reduction)
-  }
-,
-{ // state 1512
-92,110, // "s"
-121,1860, // "t"
-  }
-,
-{ // state 1513
-0x80000000|1486, // match move
-0x80000000|1498, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1514
-121,1351, // "t"
-  }
-,
-{ // state 1515
-0x80000000|1065, // match move
-0x80000000|17, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1516
-121,963, // "t"
-  }
-,
-{ // state 1517
-91,125, // "a"
-  }
-,
-{ // state 1518
-0x80000000|1, // match move
-0x80000000|389, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1519
-2,1570, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+305, // (default reduction)
-  }
-,
-{ // state 1520
-89,724, // "c"
-90,724, // "l"
-91,724, // "a"
-92,724, // "s"
-95,724, // "e"
-96,724, // "!"
-97,724, // "="
-98,724, // "+"
-102,724, // "_"
-103,724, // "d"
-104,724, // "g"
-105,724, // "m"
-106,724, // "p"
-107,724, // "v"
-108,724, // "y"
-109,724, // "f"
-110,724, // "i"
-111,724, // {"A".."Z"}
-112,724, // "o"
-113,724, // "r"
-114,724, // "u"
-115,724, // "x"
-116,724, // {"j" "q"}
-117,724, // "b"
-118,724, // "h"
-119,724, // "k"
-120,724, // "n"
-121,724, // "t"
-122,724, // "w"
-123,724, // "z"
-124,724, // {"0".."9"}
-127,724, // " "
-128,724, // {9}
-129,1228, // eol
-131,343, // {10}
-132,367, // {13}
-134,724, // "["
-135,724, // "-"
-136,724, // "<"
-137,724, // "|"
-138,724, // {"?".."@"}
-139,724, // "&"
-140,724, // ")"
-141,724, // ","
-142,724, // "]"
-143,724, // "/"
-144,724, // {"#".."$"}
-145,724, // ";"
-146,724, // ">"
-147,724, // "{"
-148,724, // "%"
-149,724, // "("
-150,724, // "\"
-151,724, // "."
-152,724, // ":"
-153,724, // "}"
-154,724, // {"^" "`" "~"}
-155,724, // "'"
-156,724, // '"'
-157,1623, // "*"
-165,444, // blockCommentContent*
-166,1185, // starSlash
-167,1201, // blockCommentContent
-  }
-,
-{ // state 1521
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+184, // (default reduction)
-  }
-,
-{ // state 1522
-107,1953, // "v"
-  }
-,
-{ // state 1523
-0x80000000|813, // match move
-0x80000000|1744, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1524
-120,689, // "n"
-  }
-,
-{ // state 1525
-2,337, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+239, // (default reduction)
-  }
-,
-{ // state 1526
-121,1893, // "t"
-  }
-,
-{ // state 1527
-0x80000000|256, // match move
-0x80000000|495, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1528
-0x80000000|1254, // match move
-0x80000000|1584, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1529
-0x80000000|203, // match move
-0x80000000|909, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1530
-89,653, // "c"
-90,653, // "l"
-91,653, // "a"
-92,653, // "s"
-95,653, // "e"
-100,1658, // letter
-103,653, // "d"
-104,653, // "g"
-105,653, // "m"
-106,653, // "p"
-107,653, // "v"
-108,653, // "y"
-109,653, // "f"
-110,653, // "i"
-111,653, // {"A".."Z"}
-112,653, // "o"
-113,653, // "r"
-114,653, // "u"
-115,653, // "x"
-116,653, // {"j" "q"}
-117,653, // "b"
-118,653, // "h"
-119,653, // "k"
-120,653, // "n"
-121,653, // "t"
-122,653, // "w"
-123,653, // "z"
-  }
-,
-{ // state 1531
-0x80000000|462, // match move
-0x80000000|473, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1532
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+208, // $NT
-  }
-,
-{ // state 1533
-2,1423, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
+{ // state 1545
+2,1435, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
 MIN_REDUCTION+203, // (default reduction)
   }
 ,
-{ // state 1534
-121,1335, // "t"
-  }
-,
-{ // state 1535
-0x80000000|1203, // match move
-0x80000000|1574, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1536
-0x80000000|1, // match move
-0x80000000|503, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1537
-0x80000000|1, // match move
-0x80000000|1430, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1538
-0x80000000|1626, // match move
-0x80000000|461, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1539
-105,288, // "m"
-109,1308, // "f"
-120,1110, // "n"
-  }
-,
-{ // state 1540
-2,1883, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+299, // $NT
-  }
-,
-{ // state 1541
-MIN_REDUCTION+110, // (default reduction)
-  }
-,
-{ // state 1542
-2,781, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+218, // (default reduction)
-  }
-,
-{ // state 1543
-114,1045, // "u"
-  }
-,
-{ // state 1544
-112,546, // "o"
-  }
-,
-{ // state 1545
-92,1550, // "s"
-117,438, // "b"
-  }
-,
 { // state 1546
-2,390, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+194, // (default reduction)
+121,1351, // "t"
   }
 ,
 { // state 1547
-110,246, // "i"
+0x80000000|1220, // match move
+0x80000000|1586, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 1548
-0x80000000|1100, // match move
-0x80000000|780, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|1, // match move
+0x80000000|513, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 1549
-0x80000000|1943, // match move
-0x80000000|874, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|1, // match move
+0x80000000|1442, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 1550
-92,1815, // "s"
+0x80000000|1640, // match move
+0x80000000|472, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 1551
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+250, // (default reduction)
+105,292, // "m"
+109,1326, // "f"
+120,1125, // "n"
   }
 ,
 { // state 1552
-0x80000000|1, // match move
-0x80000000|1753, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+2,1899, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+299, // $NT
   }
 ,
 { // state 1553
-2,502, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+329, // (default reduction)
-  }
-,
-{ // state 1554
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+277, // (default reduction)
-  }
-,
-{ // state 1555
-MIN_REDUCTION+283, // (default reduction)
-  }
-,
-{ // state 1556
-119,1998, // "k"
-  }
-,
-{ // state 1557
-0x80000000|1653, // match move
-0x80000000|280, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1558
-MIN_REDUCTION+27, // (default reduction)
-  }
-,
-{ // state 1559
-0x80000000|536, // match move
-0x80000000|1892, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1560
-0x80000000|1813, // match move
-0x80000000|725, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1561
-0x80000000|613, // match move
-0x80000000|216, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1562
-89,321, // "c"
-  }
-,
-{ // state 1563
-2,259, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+132, // (default reduction)
-  }
-,
-{ // state 1564
-2,1370, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+90, // (default reduction)
-  }
-,
-{ // state 1565
-2,1283, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+168, // (default reduction)
-  }
-,
-{ // state 1566
-2,597, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+136, // (default reduction)
-  }
-,
-{ // state 1567
-2,1637, // white*
-MIN_REDUCTION+178, // (default reduction)
-  }
-,
-{ // state 1568
-MIN_REDUCTION+349, // (default reduction)
-  }
-,
-{ // state 1569
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+139, // (default reduction)
-  }
-,
-{ // state 1570
-0x80000000|902, // match move
-0x80000000|12, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1571
-2,1528, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+98, // (default reduction)
-  }
-,
-{ // state 1572
-0x80000000|1982, // match move
-0x80000000|1981, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1573
-95,1814, // "e"
-  }
-,
-{ // state 1574
-0x80000000|1145, // match move
-0x80000000|494, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1575
-131,123, // {10}
-  }
-,
-{ // state 1576
-0x80000000|1996, // match move
-0x80000000|935, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1577
-0x80000000|564, // match move
-0x80000000|1376, // no-match move
-// T-test match for 10:
-131,
-  }
-,
-{ // state 1578
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+310, // (default reduction)
-  }
-,
-{ // state 1579
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+187, // (default reduction)
-  }
-,
-{ // state 1580
-2,374, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+320, // (default reduction)
-  }
-,
-{ // state 1581
-5,79, // `boolean
-6,159, // `class
-7,1424, // `extends
-8,1497, // `void
-9,910, // `int
-10,827, // `while
-11,836, // `if
-12,1499, // `else
-13,73, // `for
-14,44, // `break
-15,34, // `this
-16,859, // `false
-17,606, // `true
-18,1407, // `super
-19,615, // `null
-20,717, // `return
-21,801, // `instanceof
-22,2000, // `new
-23,1672, // `abstract
-24,588, // `assert
-25,868, // `byte
-26,1304, // `case
-27,1989, // `catch
-28,924, // `char
-29,1459, // `const
-30,135, // `continue
-31,618, // `default
-32,1394, // `do
-33,153, // `double
-34,1764, // `enum
-35,1275, // `final
-36,1282, // `finally
-37,1290, // `float
-38,994, // `goto
-39,547, // `implements
-40,1170, // `import
-41,1800, // `interface
-42,681, // `long
-43,53, // `native
-44,468, // `package
-45,198, // `private
-46,1840, // `protected
-47,95, // `public
-48,518, // `short
-49,10, // `static
-50,1666, // `strictfp
-51,459, // `switch
-52,850, // `synchronized
-53,772, // `throw
-54,982, // `throws
-55,328, // `transient
-56,864, // `try
-57,366, // `volatile
-89,435, // "c"
-90,1302, // "l"
-91,1545, // "a"
-92,1772, // "s"
-95,364, // "e"
-103,1202, // "d"
-104,1544, // "g"
-106,1488, // "p"
-107,1756, // "v"
-109,384, // "f"
-110,1539, // "i"
-113,1932, // "r"
-117,1587, // "b"
-120,1217, // "n"
-121,1427, // "t"
-122,1714, // "w"
-  }
-,
-{ // state 1582
-2,1938, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+164, // (default reduction)
-  }
-,
-{ // state 1583
-95,755, // "e"
-  }
-,
-{ // state 1584
-0x80000000|1789, // match move
-0x80000000|1881, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1585
-MIN_REDUCTION+313, // (default reduction)
-  }
-,
-{ // state 1586
-2,1662, // white*
-MIN_REDUCTION+148, // (default reduction)
-  }
-,
-{ // state 1587
-108,1514, // "y"
-112,1758, // "o"
-113,1965, // "r"
-  }
-,
-{ // state 1588
-2,1995, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+284, // (default reduction)
-  }
-,
-{ // state 1589
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+153, // (default reduction)
-  }
-,
-{ // state 1590
-89,194, // "c"
-  }
-,
-{ // state 1591
-2,866, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+242, // (default reduction)
-  }
-,
-{ // state 1592
-2,1746, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+257, // (default reduction)
-  }
-,
-{ // state 1593
-0x80000000|553, // match move
-0x80000000|1349, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1594
-MIN_REDUCTION+89, // (default reduction)
-  }
-,
-{ // state 1595
-92,967, // "s"
-  }
-,
-{ // state 1596
-90,261, // "l"
-  }
-,
-{ // state 1597
-91,1138, // "a"
-  }
-,
-{ // state 1598
-0x80000000|422, // match move
-0x80000000|1419, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1599
-0x80000000|1918, // match move
-0x80000000|1538, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1600
-0x80000000|1262, // match move
-0x80000000|1799, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1601
-92,1930, // "s"
-  }
-,
-{ // state 1602
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+193, // (default reduction)
-  }
-,
-{ // state 1603
-0x80000000|1364, // match move
-0x80000000|1553, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1604
-121,273, // "t"
-  }
-,
-{ // state 1605
-MIN_REDUCTION+338, // (default reduction)
-  }
-,
-{ // state 1606
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+319, // (default reduction)
-  }
-,
-{ // state 1607
-MIN_REDUCTION+85, // (default reduction)
-  }
-,
-{ // state 1608
-3,6, // $$0
-4,1056, // token
-125,712, // white
-126,1479, // {12}
-127,1479, // " "
-128,1479, // {9}
-130,1375, // comment
-143,1309, // "/"
-161,1106, // blockComment
-164,1520, // slashStar
-173,1599, // token*
-MIN_REDUCTION+3, // (default reduction)
-  }
-,
-{ // state 1609
-0x80000000|132, // match move
-0x80000000|1500, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1610
-0x80000000|820, // match move
-0x80000000|7, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1611
-MIN_REDUCTION+118, // (default reduction)
-  }
-,
-{ // state 1612
-0x80000000|719, // match move
-0x80000000|603, // no-match move
-0x80000000|89, // NT-test-match state for digit
-  }
-,
-{ // state 1613
-120,1512, // "n"
-  }
-,
-{ // state 1614
-MIN_REDUCTION+289, // (default reduction)
-  }
-,
-{ // state 1615
-0x80000000|1, // match move
-0x80000000|1824, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1616
-0x80000000|1962, // match move
-0x80000000|46, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1617
-0x80000000|1, // match move
-0x80000000|1403, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1618
-121,506, // "t"
-  }
-,
-{ // state 1619
-2,1822, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+93, // $NT
-  }
-,
-{ // state 1620
-0x80000000|1155, // match move
-0x80000000|1598, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1621
-2,337, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+239, // (default reduction)
-  }
-,
-{ // state 1622
-143,293, // "/"
-  }
-,
-{ // state 1623
-0x80000000|1659, // match move
-0x80000000|589, // no-match move
-// T-test match for "/":
-143,
-  }
-,
-{ // state 1624
-121,179, // "t"
-  }
-,
-{ // state 1625
-0x80000000|604, // match move
-0x80000000|1434, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1626
-4,1330, // token
-5,432, // `boolean
-6,735, // `class
-7,679, // `extends
-8,231, // `void
-9,1102, // `int
-10,324, // `while
-11,351, // `if
-12,748, // `else
-13,1134, // `for
-14,1984, // `break
-15,316, // `this
-16,380, // `false
-17,276, // `true
-18,908, // `super
-19,127, // `null
-20,699, // `return
-21,1345, // `instanceof
-22,2014, // `new
-23,1124, // `abstract
-24,469, // `assert
-25,192, // `byte
-26,535, // `case
-27,1558, // `catch
-28,974, // `char
-29,133, // `const
-30,315, // `continue
-31,1947, // `default
-32,1381, // `do
-33,1997, // `double
-34,650, // `enum
-35,176, // `final
-36,279, // `finally
-37,674, // `float
-38,1740, // `goto
-39,109, // `implements
-40,239, // `import
-41,849, // `interface
-42,1268, // `long
-43,540, // `native
-44,1099, // `package
-45,1389, // `private
-46,667, // `protected
-47,41, // `public
-48,1425, // `short
-49,1176, // `static
-50,331, // `strictfp
-51,544, // `switch
-52,759, // `synchronized
-53,811, // `throw
-54,369, // `throws
-55,1046, // `transient
-56,271, // `try
-57,426, // `volatile
-89,345, // "c"
-90,1774, // "l"
-91,1047, // "a"
-92,1749, // "s"
-95,631, // "e"
-103,220, // "d"
-104,1703, // "g"
-106,1675, // "p"
-107,1125, // "v"
-109,304, // "f"
-110,50, // "i"
-113,270, // "r"
-117,986, // "b"
-120,471, // "n"
-121,876, // "t"
-122,1379, // "w"
-MIN_REDUCTION+361, // (default reduction)
-  }
-,
-{ // state 1627
-MIN_REDUCTION+348, // (default reduction)
-  }
-,
-{ // state 1628
-0x80000000|1, // match move
-0x80000000|1790, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1629
-MIN_REDUCTION+119, // (default reduction)
-  }
-,
-{ // state 1630
-118,1105, // "h"
-  }
-,
-{ // state 1631
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+238, // $NT
-  }
-,
-{ // state 1632
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+244, // (default reduction)
-  }
-,
-{ // state 1633
-0x80000000|1891, // match move
-0x80000000|920, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1634
-2,1871, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+142, // (default reduction)
-  }
-,
-{ // state 1635
-MIN_REDUCTION+196, // (default reduction)
-  }
-,
-{ // state 1636
-0x80000000|1042, // match move
-0x80000000|846, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1637
-0x80000000|894, // match move
-0x80000000|1085, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1638
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+256, // (default reduction)
-  }
-,
-{ // state 1639
-0x80000000|879, // match move
-0x80000000|15, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1640
-2,1097, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+281, // (default reduction)
-  }
-,
-{ // state 1641
-2,1448, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+290, // $NT
-  }
-,
-{ // state 1642
-2,1450, // white*
-MIN_REDUCTION+134, // (default reduction)
-  }
-,
-{ // state 1643
-0x80000000|1887, // match move
-0x80000000|989, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1644
-0x80000000|528, // match move
-0x80000000|184, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1645
-121,452, // "t"
-  }
-,
-{ // state 1646
-89,1976, // "c"
-  }
-,
-{ // state 1647
-2,1633, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+299, // (default reduction)
-  }
-,
-{ // state 1648
-95,1463, // "e"
-  }
-,
-{ // state 1649
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+211, // (default reduction)
-  }
-,
-{ // state 1650
-90,346, // "l"
-  }
-,
-{ // state 1651
-MIN_REDUCTION+149, // (default reduction)
-  }
-,
-{ // state 1652
-106,1191, // "p"
-  }
-,
-{ // state 1653
-89,1873, // "c"
-90,1873, // "l"
-91,1873, // "a"
-92,1873, // "s"
-93,1160, // idChar
-95,1873, // "e"
-100,1269, // letter
-101,399, // digit
-102,1307, // "_"
-103,1873, // "d"
-104,1873, // "g"
-105,1873, // "m"
-106,1873, // "p"
-107,1873, // "v"
-108,1873, // "y"
-109,1873, // "f"
-110,1873, // "i"
-111,1873, // {"A".."Z"}
-112,1873, // "o"
-113,1873, // "r"
-114,1873, // "u"
-115,1873, // "x"
-116,1873, // {"j" "q"}
-117,1873, // "b"
-118,1873, // "h"
-119,1873, // "k"
-120,1873, // "n"
-121,1873, // "t"
-122,1873, // "w"
-123,1873, // "z"
-124,1130, // {"0".."9"}
-169,1730, // idChar**
-175,1467, // idChar*
-  }
-,
-{ // state 1654
-0x80000000|852, // match move
-0x80000000|1923, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1655
-MIN_REDUCTION+115, // (default reduction)
-  }
-,
-{ // state 1656
-0x80000000|265, // match move
-0x80000000|118, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1657
-92,323, // "s"
-  }
-,
-{ // state 1658
-0x80000000|1358, // match move
-0x80000000|770, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1659
-143,807, // "/"
-  }
-,
-{ // state 1660
-MIN_REDUCTION+102, // (default reduction)
-  }
-,
-{ // state 1661
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+265, // (default reduction)
-  }
-,
-{ // state 1662
-0x80000000|254, // match move
-0x80000000|818, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1663
-0x80000000|325, // match move
-0x80000000|1531, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1664
-0x80000000|612, // match move
-0x80000000|1888, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1665
-117,1867, // "b"
-  }
-,
-{ // state 1666
-178,MIN_REDUCTION+312, // $NT
-  }
-,
-{ // state 1667
-2,1871, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+142, // (default reduction)
-  }
-,
-{ // state 1668
-MIN_REDUCTION+113, // (default reduction)
-  }
-,
-{ // state 1669
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+205, // (default reduction)
-  }
-,
-{ // state 1670
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+205, // (default reduction)
-  }
-,
-{ // state 1671
-MIN_REDUCTION+295, // (default reduction)
-  }
-,
-{ // state 1672
-178,MIN_REDUCTION+231, // $NT
-  }
-,
-{ // state 1673
-0x80000000|1250, // match move
-0x80000000|1348, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1674
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+97, // (default reduction)
-  }
-,
-{ // state 1675
-91,1646, // "a"
-113,1271, // "r"
-114,1002, // "u"
-  }
-,
-{ // state 1676
-0x80000000|1461, // match move
-0x80000000|1636, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1677
-MIN_REDUCTION+339, // (default reduction)
-  }
-,
-{ // state 1678
-0x80000000|1922, // match move
-0x80000000|751, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1679
-113,975, // "r"
-  }
-,
-{ // state 1680
-MIN_REDUCTION+105, // (default reduction)
-  }
-,
-{ // state 1681
-2,946, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+317, // (default reduction)
-  }
-,
-{ // state 1682
-2,1644, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+158, // (default reduction)
-  }
-,
-{ // state 1683
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+159, // (default reduction)
-  }
-,
-{ // state 1684
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+163, // (default reduction)
-  }
-,
-{ // state 1685
-0x80000000|1, // match move
-0x80000000|264, // no-match move
-0x80000000|521, // NT-test-match state for letter
-  }
-,
-{ // state 1686
-0x80000000|628, // match move
-0x80000000|1343, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1687
-120,1280, // "n"
-  }
-,
-{ // state 1688
-0x80000000|599, // match move
-0x80000000|1685, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1689
-0x80000000|1, // match move
-0x80000000|1610, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1690
-0x80000000|1264, // match move
-0x80000000|855, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1691
-2,527, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+166, // (default reduction)
-  }
-,
-{ // state 1692
-MIN_REDUCTION+59, // (default reduction)
-  }
-,
-{ // state 1693
-0x80000000|1776, // match move
-0x80000000|481, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1694
-0x80000000|532, // match move
-0x80000000|1869, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1695
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+295, // (default reduction)
-  }
-,
-{ // state 1696
-121,1985, // "t"
-  }
-,
-{ // state 1697
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+322, // (default reduction)
-  }
-,
-{ // state 1698
-95,52, // "e"
-  }
-,
-{ // state 1699
-123,446, // "z"
-  }
-,
-{ // state 1700
-0x80000000|1063, // match move
-0x80000000|386, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1701
-0x80000000|1, // match move
-0x80000000|561, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1702
-0x80000000|956, // match move
-0x80000000|1673, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1703
-112,1246, // "o"
-  }
-,
-{ // state 1704
-121,1543, // "t"
-  }
-,
-{ // state 1705
-2,1816, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+144, // (default reduction)
-  }
-,
-{ // state 1706
-131,1439, // {10}
-  }
-,
-{ // state 1707
-0x80000000|1, // match move
-0x80000000|714, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1708
-114,13, // "u"
-  }
-,
-{ // state 1709
-MIN_REDUCTION+304, // (default reduction)
-  }
-,
-{ // state 1710
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+208, // (default reduction)
-  }
-,
-{ // state 1711
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+167, // (default reduction)
-  }
-,
-{ // state 1712
-0x80000000|931, // match move
-0x80000000|1639, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1713
-0x80000000|1205, // match move
-0x80000000|1469, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1714
-118,83, // "h"
-  }
-,
-{ // state 1715
-MIN_REDUCTION+153, // (default reduction)
-  }
-,
-{ // state 1716
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+193, // $NT
-  }
-,
-{ // state 1717
-90,1141, // "l"
-  }
-,
-{ // state 1718
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+363, // (default reduction)
-  }
-,
-{ // state 1719
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+135, // (default reduction)
-  }
-,
-{ // state 1720
-2,955, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+260, // $NT
-  }
-,
-{ // state 1721
-2,1211, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+174, // (default reduction)
-  }
-,
-{ // state 1722
-0x80000000|1184, // match move
-0x80000000|680, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1723
-0x80000000|1970, // match move
-0x80000000|830, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1724
-0x80000000|1, // match move
-0x80000000|1748, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1725
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+229, // $NT
-  }
-,
-{ // state 1726
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+177, // (default reduction)
-  }
-,
-{ // state 1727
-0x80000000|1, // match move
-0x80000000|688, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1728
-2,371, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+236, // $NT
-  }
-,
-{ // state 1729
-MIN_REDUCTION+88, // (default reduction)
-  }
-,
-{ // state 1730
-0x80000000|576, // match move
-0x80000000|1806, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1731
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+292, // (default reduction)
-  }
-,
-{ // state 1732
-MIN_REDUCTION+235, // (default reduction)
-  }
-,
-{ // state 1733
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+184, // $NT
-  }
-,
-{ // state 1734
-0x80000000|1178, // match move
-0x80000000|1589, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1735
-120,1329, // "n"
-  }
-,
-{ // state 1736
-2,1955, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+296, // (default reduction)
-  }
-,
-{ // state 1737
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+187, // $NT
-  }
-,
-{ // state 1738
-2,215, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+172, // (default reduction)
-  }
-,
-{ // state 1739
-0x80000000|1842, // match move
-0x80000000|538, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1740
-MIN_REDUCTION+38, // (default reduction)
-  }
-,
-{ // state 1741
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+340, // (default reduction)
-  }
-,
-{ // state 1742
-0x80000000|1917, // match move
-0x80000000|774, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1743
-121,1181, // "t"
-  }
-,
-{ // state 1744
-0x80000000|1266, // match move
-0x80000000|1857, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1745
-2,781, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+218, // (default reduction)
-  }
-,
-{ // state 1746
-0x80000000|1638, // match move
-0x80000000|207, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1747
-0x80000000|706, // match move
-0x80000000|1293, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1748
-0x80000000|1244, // match move
-0x80000000|1560, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1749
-108,776, // "y"
-114,1652, // "u"
-118,592, // "h"
-121,1382, // "t"
-122,167, // "w"
-  }
-,
-{ // state 1750
-0x80000000|1915, // match move
-0x80000000|510, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1751
-105,97, // "m"
-  }
-,
-{ // state 1752
-0x80000000|889, // match move
-0x80000000|1954, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1753
-0x80000000|762, // match move
-0x80000000|501, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1754
-2,472, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+323, // (default reduction)
-  }
-,
-{ // state 1755
-121,1615, // "t"
-  }
-,
-{ // state 1756
-112,1136, // "o"
-  }
-,
-{ // state 1757
-95,1727, // "e"
-  }
-,
-{ // state 1758
-112,1782, // "o"
-  }
-,
-{ // state 1759
-0x80000000|1, // match move
-0x80000000|1767, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1760
-178,MIN_REDUCTION+122, // $NT
 MIN_REDUCTION+122, // (default reduction)
   }
 ,
-{ // state 1761
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+153, // (default reduction)
+{ // state 1554
+2,797, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+218, // (default reduction)
   }
 ,
-{ // state 1762
+{ // state 1555
+114,1059, // "u"
+  }
+,
+{ // state 1556
+112,556, // "o"
+  }
+,
+{ // state 1557
+92,1562, // "s"
+117,449, // "b"
+  }
+,
+{ // state 1558
+2,401, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+194, // (default reduction)
+  }
+,
+{ // state 1559
+110,248, // "i"
+  }
+,
+{ // state 1560
+0x80000000|1115, // match move
+0x80000000|796, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1561
+0x80000000|1958, // match move
+0x80000000|894, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1562
+92,1830, // "s"
+  }
+,
+{ // state 1563
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+250, // (default reduction)
+  }
+,
+{ // state 1564
 0x80000000|1, // match move
-0x80000000|744, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|1767, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 1763
-0x80000000|730, // match move
-0x80000000|1315, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 1565
+2,512, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+329, // (default reduction)
   }
 ,
-{ // state 1764
-178,MIN_REDUCTION+264, // $NT
+{ // state 1566
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+277, // (default reduction)
   }
 ,
-{ // state 1765
-0x80000000|1, // match move
-0x80000000|743, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+{ // state 1567
+MIN_REDUCTION+283, // (default reduction)
   }
 ,
-{ // state 1766
-105,1724, // "m"
+{ // state 1568
+119,2016, // "k"
   }
 ,
-{ // state 1767
-0x80000000|1588, // match move
-0x80000000|787, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 1569
+0x80000000|1666, // match move
+0x80000000|284, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 1768
-2,1880, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+191, // (default reduction)
+{ // state 1570
+MIN_REDUCTION+27, // (default reduction)
   }
 ,
-{ // state 1769
-MIN_REDUCTION+108, // (default reduction)
+{ // state 1571
+0x80000000|546, // match move
+0x80000000|1907, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 1770
-0x80000000|1569, // match move
-0x80000000|155, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 1572
+0x80000000|1828, // match move
+0x80000000|739, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 1771
-0x80000000|1736, // match move
-0x80000000|914, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 1573
+0x80000000|624, // match move
+0x80000000|220, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 1772
-108,899, // "y"
-114,284, // "u"
-118,800, // "h"
-121,2016, // "t"
-122,1029, // "w"
+{ // state 1574
+89,329, // "c"
   }
 ,
-{ // state 1773
-0x80000000|423, // match move
-0x80000000|286, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 1575
+2,262, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+132, // (default reduction)
   }
 ,
-{ // state 1774
-112,100, // "o"
+{ // state 1576
+2,1385, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+90, // (default reduction)
   }
 ,
-{ // state 1775
-MIN_REDUCTION+101, // (default reduction)
+{ // state 1577
+2,1651, // white*
+MIN_REDUCTION+178, // (default reduction)
   }
 ,
-{ // state 1776
-2,1644, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+158, // (default reduction)
+{ // state 1578
+2,1300, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+168, // (default reduction)
   }
 ,
-{ // state 1777
-0x80000000|1080, // match move
-0x80000000|1969, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 1579
+2,608, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+136, // (default reduction)
   }
 ,
-{ // state 1778
-0x80000000|686, // match move
-0x80000000|341, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 1580
+MIN_REDUCTION+348, // (default reduction)
   }
 ,
-{ // state 1779
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+223, // $NT
+{ // state 1581
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+139, // (default reduction)
   }
 ,
-{ // state 1780
-95,388, // "e"
+{ // state 1582
+0x80000000|922, // match move
+0x80000000|13, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
-{ // state 1781
-0x80000000|958, // match move
-0x80000000|2003, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 1583
+2,1540, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+98, // (default reduction)
   }
 ,
-{ // state 1782
-90,1166, // "l"
+{ // state 1584
+0x80000000|2000, // match move
+0x80000000|1999, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 1783
-178,MIN_REDUCTION+129, // $NT
-MIN_REDUCTION+129, // (default reduction)
+{ // state 1585
+95,1829, // "e"
   }
 ,
-{ // state 1784
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+362, // (default reduction)
+{ // state 1586
+0x80000000|1160, // match move
+0x80000000|504, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 1785
-MIN_REDUCTION+274, // (default reduction)
+{ // state 1587
+164,127, // {10}
   }
 ,
-{ // state 1786
-MIN_REDUCTION+107, // (default reduction)
+{ // state 1588
+0x80000000|2014, // match move
+0x80000000|955, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
-{ // state 1787
-121,1701, // "t"
+{ // state 1589
+0x80000000|574, // match move
+0x80000000|1391, // no-match move
+// T-test match for 10:
+164,
   }
 ,
-{ // state 1788
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+331, // (default reduction)
+{ // state 1590
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+310, // (default reduction)
   }
 ,
-{ // state 1789
-MIN_REDUCTION+97, // (default reduction)
+{ // state 1591
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+187, // (default reduction)
   }
 ,
-{ // state 1790
-0x80000000|1377, // match move
-0x80000000|1912, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+{ // state 1592
+2,937, // white*
+MIN_REDUCTION+150, // (default reduction)
   }
 ,
-{ // state 1791
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+220, // (default reduction)
+{ // state 1593
+2,384, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+320, // (default reduction)
   }
 ,
-{ // state 1792
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+161, // (default reduction)
+{ // state 1594
+5,81, // `boolean
+6,163, // `class
+7,1436, // `extends
+8,1507, // `void
+9,931, // `int
+10,844, // `while
+11,853, // `if
+12,1510, // `else
+13,75, // `for
+14,46, // `break
+15,36, // `this
+16,879, // `false
+17,617, // `true
+18,1420, // `super
+19,626, // `null
+20,731, // `return
+21,818, // `instanceof
+22,2018, // `new
+23,1685, // `abstract
+24,598, // `assert
+25,888, // `byte
+26,1320, // `case
+27,2007, // `catch
+28,944, // `char
+29,1469, // `const
+30,139, // `continue
+31,629, // `default
+32,1408, // `do
+33,157, // `double
+34,1777, // `enum
+35,1292, // `final
+36,1299, // `finally
+37,1307, // `float
+38,1010, // `goto
+39,557, // `implements
+40,1186, // `import
+41,1815, // `interface
+42,693, // `long
+43,55, // `native
+44,479, // `package
+45,201, // `private
+46,1855, // `protected
+47,100, // `public
+48,529, // `short
+49,11, // `static
+50,1679, // `strictfp
+51,470, // `switch
+52,870, // `synchronized
+53,788, // `throw
+54,999, // `throws
+55,337, // `transient
+56,884, // `try
+57,375, // `volatile
+89,445, // "c"
+90,1318, // "l"
+91,1557, // "a"
+92,1786, // "s"
+95,373, // "e"
+103,1219, // "d"
+104,1556, // "g"
+106,1498, // "p"
+107,1770, // "v"
+109,395, // "f"
+110,1551, // "i"
+113,1947, // "r"
+117,1600, // "b"
+120,1235, // "n"
+121,1439, // "t"
+122,1728, // "w"
   }
 ,
-{ // state 1793
-120,1624, // "n"
+{ // state 1595
+2,1953, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+164, // (default reduction)
   }
 ,
-{ // state 1794
-110,1401, // "i"
+{ // state 1596
+95,771, // "e"
   }
 ,
-{ // state 1795
-0x80000000|411, // match move
-0x80000000|675, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 1597
+0x80000000|1803, // match move
+0x80000000|1897, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
-{ // state 1796
-0x80000000|1, // match move
-0x80000000|1712, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1797
-2,692, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+302, // (default reduction)
-  }
-,
-{ // state 1798
-0x80000000|218, // match move
-0x80000000|1986, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1799
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
+{ // state 1598
 MIN_REDUCTION+313, // (default reduction)
   }
 ,
-{ // state 1800
-178,MIN_REDUCTION+285, // $NT
+{ // state 1599
+2,1675, // white*
+MIN_REDUCTION+148, // (default reduction)
   }
 ,
-{ // state 1801
-0x80000000|1440, // match move
+{ // state 1600
+108,1526, // "y"
+112,1772, // "o"
+113,1981, // "r"
+  }
+,
+{ // state 1601
+2,2013, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+284, // (default reduction)
+  }
+,
+{ // state 1602
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+153, // (default reduction)
+  }
+,
+{ // state 1603
+89,197, // "c"
+  }
+,
+{ // state 1604
+2,886, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+242, // (default reduction)
+  }
+,
+{ // state 1605
+2,1760, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+257, // (default reduction)
+  }
+,
+{ // state 1606
+0x80000000|563, // match move
+0x80000000|1363, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1607
+MIN_REDUCTION+89, // (default reduction)
+  }
+,
+{ // state 1608
+92,984, // "s"
+  }
+,
+{ // state 1609
+90,264, // "l"
+  }
+,
+{ // state 1610
+91,1154, // "a"
+  }
+,
+{ // state 1611
+0x80000000|434, // match move
+0x80000000|1432, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1612
+0x80000000|1933, // match move
+0x80000000|1550, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1613
+0x80000000|1279, // match move
+0x80000000|1814, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1614
+92,1945, // "s"
+  }
+,
+{ // state 1615
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+193, // (default reduction)
+  }
+,
+{ // state 1616
+0x80000000|1379, // match move
+0x80000000|1565, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1617
+121,277, // "t"
+  }
+,
+{ // state 1618
+MIN_REDUCTION+359, // (default reduction)
+  }
+,
+{ // state 1619
+MIN_REDUCTION+338, // (default reduction)
+  }
+,
+{ // state 1620
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+319, // (default reduction)
+  }
+,
+{ // state 1621
+MIN_REDUCTION+85, // (default reduction)
+  }
+,
+{ // state 1622
+3,6, // $$0
+4,1070, // token
+125,726, // white
+126,1489, // {12}
+127,1489, // " "
+128,1489, // {9}
+130,1390, // comment
+132,1121, // blockComment
+136,1532, // slashStar
+149,1327, // "/"
+173,1612, // token*
+MIN_REDUCTION+3, // (default reduction)
+  }
+,
+{ // state 1623
+0x80000000|136, // match move
+0x80000000|1511, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1624
+0x80000000|837, // match move
 0x80000000|8, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
-{ // state 1802
-0x80000000|1154, // match move
-0x80000000|1413, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 1625
+MIN_REDUCTION+130, // (default reduction)
   }
 ,
-{ // state 1803
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
+{ // state 1626
+0x80000000|733, // match move
+0x80000000|613, // no-match move
+0x80000000|94, // NT-test-match state for digit
+  }
+,
+{ // state 1627
+120,1524, // "n"
+  }
+,
+{ // state 1628
+MIN_REDUCTION+289, // (default reduction)
+  }
+,
+{ // state 1629
+0x80000000|1, // match move
+0x80000000|1839, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1630
+0x80000000|1978, // match move
+0x80000000|48, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1631
+0x80000000|1, // match move
+0x80000000|1416, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1632
+121,516, // "t"
+  }
+,
+{ // state 1633
+2,1837, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+93, // $NT
+  }
+,
+{ // state 1634
+0x80000000|1170, // match move
+0x80000000|1611, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1635
+2,346, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+239, // (default reduction)
+  }
+,
+{ // state 1636
+149,297, // "/"
+  }
+,
+{ // state 1637
+0x80000000|1672, // match move
+0x80000000|599, // no-match move
+// T-test match for "/":
+149,
+  }
+,
+{ // state 1638
+121,183, // "t"
+  }
+,
+{ // state 1639
+0x80000000|615, // match move
+0x80000000|1446, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1640
+4,1347, // token
+5,442, // `boolean
+6,750, // `class
+7,691, // `extends
+8,234, // `void
+9,1117, // `int
+10,333, // `while
+11,360, // `if
+12,764, // `else
+13,1150, // `for
+14,2002, // `break
+15,324, // `this
+16,391, // `false
+17,280, // `true
+18,929, // `super
+19,131, // `null
+20,711, // `return
+21,1359, // `instanceof
+22,2033, // `new
+23,1140, // `abstract
+24,480, // `assert
+25,195, // `byte
+26,545, // `case
+27,1570, // `catch
+28,991, // `char
+29,137, // `const
+30,323, // `continue
+31,1962, // `default
+32,1396, // `do
+33,2015, // `double
+34,660, // `enum
+35,180, // `final
+36,283, // `finally
+37,686, // `float
+38,1755, // `goto
+39,113, // `implements
+40,242, // `import
+41,869, // `interface
+42,1285, // `long
+43,550, // `native
+44,1114, // `package
+45,1404, // `private
+46,679, // `protected
+47,43, // `public
+48,1437, // `short
+49,1192, // `static
+50,340, // `strictfp
+51,554, // `switch
+52,774, // `synchronized
+53,828, // `throw
+54,378, // `throws
+55,1060, // `transient
+56,275, // `try
+57,436, // `volatile
+89,354, // "c"
+90,1788, // "l"
+91,1061, // "a"
+92,1763, // "s"
+95,640, // "e"
+103,224, // "d"
+104,1716, // "g"
+106,1688, // "p"
+107,1141, // "v"
+109,308, // "f"
+110,52, // "i"
+113,274, // "r"
+117,1003, // "b"
+120,482, // "n"
+121,896, // "t"
+122,1394, // "w"
+MIN_REDUCTION+362, // (default reduction)
+  }
+,
+{ // state 1641
+MIN_REDUCTION+347, // (default reduction)
+  }
+,
+{ // state 1642
+0x80000000|1, // match move
+0x80000000|1804, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1643
+MIN_REDUCTION+109, // (default reduction)
+  }
+,
+{ // state 1644
+118,1120, // "h"
+  }
+,
+{ // state 1645
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+238, // $NT
+  }
+,
+{ // state 1646
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+244, // (default reduction)
+  }
+,
+{ // state 1647
+0x80000000|1906, // match move
+0x80000000|940, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1648
+2,1887, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+142, // (default reduction)
+  }
+,
+{ // state 1649
+MIN_REDUCTION+196, // (default reduction)
+  }
+,
+{ // state 1650
+0x80000000|1056, // match move
+0x80000000|864, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1651
+0x80000000|914, // match move
+0x80000000|1100, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1652
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+256, // (default reduction)
+  }
+,
+{ // state 1653
+0x80000000|899, // match move
+0x80000000|16, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1654
+2,1112, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+281, // (default reduction)
+  }
+,
+{ // state 1655
+2,1459, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+290, // $NT
+  }
+,
+{ // state 1656
+2,1460, // white*
+MIN_REDUCTION+134, // (default reduction)
+  }
+,
+{ // state 1657
+0x80000000|537, // match move
+0x80000000|187, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1658
+121,463, // "t"
+  }
+,
+{ // state 1659
+0x80000000|1904, // match move
+0x80000000|1005, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1660
+89,1993, // "c"
+  }
+,
+{ // state 1661
+2,1647, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+299, // (default reduction)
+  }
+,
+{ // state 1662
+95,1473, // "e"
+  }
+,
+{ // state 1663
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+211, // (default reduction)
+  }
+,
+{ // state 1664
+90,355, // "l"
+  }
+,
+{ // state 1665
+106,1207, // "p"
+  }
+,
+{ // state 1666
+89,1889, // "c"
+90,1889, // "l"
+91,1889, // "a"
+92,1889, // "s"
+93,313, // idChar
+95,1889, // "e"
+100,1286, // letter
+101,410, // digit
+102,1324, // "_"
+103,1889, // "d"
+104,1889, // "g"
+105,1889, // "m"
+106,1889, // "p"
+107,1889, // "v"
+108,1889, // "y"
+109,1889, // "f"
+110,1889, // "i"
+111,1889, // {"A".."Z"}
+112,1889, // "o"
+113,1889, // "r"
+114,1889, // "u"
+115,1889, // "x"
+116,1889, // {"j" "q"}
+117,1889, // "b"
+118,1889, // "h"
+119,1889, // "k"
+120,1889, // "n"
+121,1889, // "t"
+122,1889, // "w"
+123,1889, // "z"
+124,1146, // {"0".."9"}
+169,1744, // idChar**
+176,1477, // idChar*
+  }
+,
+{ // state 1667
+0x80000000|872, // match move
+0x80000000|1938, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1668
+MIN_REDUCTION+127, // (default reduction)
+  }
+,
+{ // state 1669
+0x80000000|268, // match move
+0x80000000|122, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1670
+92,332, // "s"
+  }
+,
+{ // state 1671
+0x80000000|1373, // match move
+0x80000000|786, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1672
+149,824, // "/"
+  }
+,
+{ // state 1673
+MIN_REDUCTION+102, // (default reduction)
+  }
+,
+{ // state 1674
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+265, // (default reduction)
+  }
+,
+{ // state 1675
+0x80000000|256, // match move
+0x80000000|835, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1676
+0x80000000|334, // match move
+0x80000000|1543, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1677
+0x80000000|623, // match move
+0x80000000|1903, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1678
+117,1883, // "b"
+  }
+,
+{ // state 1679
+179,MIN_REDUCTION+312, // $NT
+  }
+,
+{ // state 1680
+2,1887, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+142, // (default reduction)
+  }
+,
+{ // state 1681
+MIN_REDUCTION+125, // (default reduction)
+  }
+,
+{ // state 1682
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+205, // (default reduction)
+  }
+,
+{ // state 1683
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+205, // (default reduction)
+  }
+,
+{ // state 1684
+MIN_REDUCTION+295, // (default reduction)
+  }
+,
+{ // state 1685
+179,MIN_REDUCTION+231, // $NT
+  }
+,
+{ // state 1686
+0x80000000|1268, // match move
+0x80000000|1362, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1687
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+97, // (default reduction)
+  }
+,
+{ // state 1688
+91,1660, // "a"
+113,1288, // "r"
+114,1018, // "u"
+  }
+,
+{ // state 1689
+0x80000000|1471, // match move
+0x80000000|1650, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1690
+MIN_REDUCTION+339, // (default reduction)
+  }
+,
+{ // state 1691
+0x80000000|1937, // match move
+0x80000000|767, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1692
+113,992, // "r"
+  }
+,
+{ // state 1693
+MIN_REDUCTION+105, // (default reduction)
+  }
+,
+{ // state 1694
+2,966, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+317, // (default reduction)
+  }
+,
+{ // state 1695
+2,1657, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+158, // (default reduction)
+  }
+,
+{ // state 1696
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
 MIN_REDUCTION+159, // (default reduction)
   }
 ,
+{ // state 1697
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+163, // (default reduction)
+  }
+,
+{ // state 1698
+0x80000000|1, // match move
+0x80000000|267, // no-match move
+0x80000000|532, // NT-test-match state for letter
+  }
+,
+{ // state 1699
+0x80000000|637, // match move
+0x80000000|1357, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1700
+120,1297, // "n"
+  }
+,
+{ // state 1701
+0x80000000|609, // match move
+0x80000000|1698, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1702
+0x80000000|1, // match move
+0x80000000|1624, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1703
+0x80000000|1281, // match move
+0x80000000|875, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1704
+2,539, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+166, // (default reduction)
+  }
+,
+{ // state 1705
+MIN_REDUCTION+59, // (default reduction)
+  }
+,
+{ // state 1706
+0x80000000|1789, // match move
+0x80000000|492, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1707
+0x80000000|543, // match move
+0x80000000|1885, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1708
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+295, // (default reduction)
+  }
+,
+{ // state 1709
+121,2003, // "t"
+  }
+,
+{ // state 1710
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+322, // (default reduction)
+  }
+,
+{ // state 1711
+95,54, // "e"
+  }
+,
+{ // state 1712
+123,457, // "z"
+  }
+,
+{ // state 1713
+0x80000000|1077, // match move
+0x80000000|397, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1714
+0x80000000|1, // match move
+0x80000000|571, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1715
+0x80000000|975, // match move
+0x80000000|1686, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1716
+112,1264, // "o"
+  }
+,
+{ // state 1717
+121,1555, // "t"
+  }
+,
+{ // state 1718
+2,1831, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+144, // (default reduction)
+  }
+,
+{ // state 1719
+164,1451, // {10}
+  }
+,
+{ // state 1720
+0x80000000|1, // match move
+0x80000000|728, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1721
+114,14, // "u"
+  }
+,
+{ // state 1722
+MIN_REDUCTION+304, // (default reduction)
+  }
+,
+{ // state 1723
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+208, // (default reduction)
+  }
+,
+{ // state 1724
+MIN_REDUCTION+111, // (default reduction)
+  }
+,
+{ // state 1725
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+167, // (default reduction)
+  }
+,
+{ // state 1726
+0x80000000|951, // match move
+0x80000000|1653, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1727
+0x80000000|1222, // match move
+0x80000000|1479, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1728
+118,87, // "h"
+  }
+,
+{ // state 1729
+MIN_REDUCTION+153, // (default reduction)
+  }
+,
+{ // state 1730
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+193, // $NT
+  }
+,
+{ // state 1731
+90,1156, // "l"
+  }
+,
+{ // state 1732
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+364, // (default reduction)
+  }
+,
+{ // state 1733
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+135, // (default reduction)
+  }
+,
+{ // state 1734
+2,974, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+260, // $NT
+  }
+,
+{ // state 1735
+2,1229, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+174, // (default reduction)
+  }
+,
+{ // state 1736
+0x80000000|1200, // match move
+0x80000000|692, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1737
+0x80000000|1986, // match move
+0x80000000|848, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1738
+0x80000000|1, // match move
+0x80000000|1762, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1739
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+229, // $NT
+  }
+,
+{ // state 1740
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+177, // (default reduction)
+  }
+,
+{ // state 1741
+0x80000000|1, // match move
+0x80000000|700, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1742
+2,381, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+236, // $NT
+  }
+,
+{ // state 1743
+MIN_REDUCTION+88, // (default reduction)
+  }
+,
+{ // state 1744
+0x80000000|586, // match move
+0x80000000|1821, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1745
+MIN_REDUCTION+361, // (default reduction)
+  }
+,
+{ // state 1746
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+292, // (default reduction)
+  }
+,
+{ // state 1747
+MIN_REDUCTION+235, // (default reduction)
+  }
+,
+{ // state 1748
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+184, // $NT
+  }
+,
+{ // state 1749
+0x80000000|1194, // match move
+0x80000000|1602, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1750
+120,1346, // "n"
+  }
+,
+{ // state 1751
+2,1971, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+296, // (default reduction)
+  }
+,
+{ // state 1752
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+187, // $NT
+  }
+,
+{ // state 1753
+2,219, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+172, // (default reduction)
+  }
+,
+{ // state 1754
+0x80000000|1857, // match move
+0x80000000|548, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1755
+MIN_REDUCTION+38, // (default reduction)
+  }
+,
+{ // state 1756
+0x80000000|1932, // match move
+0x80000000|790, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1757
+121,1197, // "t"
+  }
+,
+{ // state 1758
+0x80000000|1283, // match move
+0x80000000|1873, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1759
+2,797, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+218, // (default reduction)
+  }
+,
+{ // state 1760
+0x80000000|1652, // match move
+0x80000000|211, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1761
+0x80000000|720, // match move
+0x80000000|1310, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1762
+0x80000000|1262, // match move
+0x80000000|1572, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1763
+108,792, // "y"
+114,1665, // "u"
+118,602, // "h"
+121,1397, // "t"
+122,171, // "w"
+  }
+,
+{ // state 1764
+0x80000000|1930, // match move
+0x80000000|521, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1765
+105,102, // "m"
+  }
+,
+{ // state 1766
+0x80000000|909, // match move
+0x80000000|1970, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1767
+0x80000000|777, // match move
+0x80000000|511, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1768
+2,483, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+323, // (default reduction)
+  }
+,
+{ // state 1769
+121,1629, // "t"
+  }
+,
+{ // state 1770
+112,1152, // "o"
+  }
+,
+{ // state 1771
+95,1741, // "e"
+  }
+,
+{ // state 1772
+112,1796, // "o"
+  }
+,
+{ // state 1773
+0x80000000|1, // match move
+0x80000000|1781, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1774
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+153, // (default reduction)
+  }
+,
+{ // state 1775
+0x80000000|1, // match move
+0x80000000|760, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1776
+0x80000000|746, // match move
+0x80000000|1332, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1777
+179,MIN_REDUCTION+264, // $NT
+  }
+,
+{ // state 1778
+0x80000000|1, // match move
+0x80000000|759, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1779
+179,MIN_REDUCTION+112, // $NT
+MIN_REDUCTION+112, // (default reduction)
+  }
+,
+{ // state 1780
+105,1738, // "m"
+  }
+,
+{ // state 1781
+0x80000000|1601, // match move
+0x80000000|803, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1782
+2,1896, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+191, // (default reduction)
+  }
+,
+{ // state 1783
+MIN_REDUCTION+108, // (default reduction)
+  }
+,
+{ // state 1784
+0x80000000|1581, // match move
+0x80000000|159, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1785
+0x80000000|1751, // match move
+0x80000000|934, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1786
+108,919, // "y"
+114,288, // "u"
+118,817, // "h"
+121,2035, // "t"
+122,1044, // "w"
+  }
+,
+{ // state 1787
+0x80000000|433, // match move
+0x80000000|290, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1788
+112,105, // "o"
+  }
+,
+{ // state 1789
+2,1657, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+158, // (default reduction)
+  }
+,
+{ // state 1790
+MIN_REDUCTION+101, // (default reduction)
+  }
+,
+{ // state 1791
+0x80000000|1095, // match move
+0x80000000|1985, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1792
+0x80000000|698, // match move
+0x80000000|350, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1793
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+223, // $NT
+  }
+,
+{ // state 1794
+95,399, // "e"
+  }
+,
+{ // state 1795
+0x80000000|976, // match move
+0x80000000|2021, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1796
+90,1182, // "l"
+  }
+,
+{ // state 1797
+179,MIN_REDUCTION+119, // $NT
+MIN_REDUCTION+119, // (default reduction)
+  }
+,
+{ // state 1798
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+363, // (default reduction)
+  }
+,
+{ // state 1799
+MIN_REDUCTION+274, // (default reduction)
+  }
+,
+{ // state 1800
+MIN_REDUCTION+107, // (default reduction)
+  }
+,
+{ // state 1801
+121,1714, // "t"
+  }
+,
+{ // state 1802
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+331, // (default reduction)
+  }
+,
+{ // state 1803
+MIN_REDUCTION+97, // (default reduction)
+  }
+,
 { // state 1804
-0x80000000|234, // match move
-0x80000000|1212, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+0x80000000|1392, // match move
+0x80000000|1927, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 1805
-0x80000000|170, // match move
-0x80000000|1245, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+89,1091, // "c"
+90,1091, // "l"
+91,1091, // "a"
+92,1091, // "s"
+95,1091, // "e"
+96,1091, // "!"
+97,1091, // "="
+98,1091, // "+"
+102,1091, // "_"
+103,1091, // "d"
+104,1091, // "g"
+105,1091, // "m"
+106,1091, // "p"
+107,1091, // "v"
+108,1091, // "y"
+109,1091, // "f"
+110,1091, // "i"
+111,1091, // {"A".."Z"}
+112,1091, // "o"
+113,1091, // "r"
+114,1091, // "u"
+115,1091, // "x"
+116,1091, // {"j" "q"}
+117,1091, // "b"
+118,1091, // "h"
+119,1091, // "k"
+120,1091, // "n"
+121,1091, // "t"
+122,1091, // "w"
+123,1091, // "z"
+124,1091, // {"0".."9"}
+127,1091, // " "
+134,1864, // printable**
+135,606, // printable
+140,1091, // "["
+141,1091, // "-"
+142,1091, // "<"
+143,1091, // "|"
+144,1091, // {"?".."@"}
+145,1091, // "&"
+146,1091, // ")"
+147,1091, // ","
+148,1091, // "]"
+149,1091, // "/"
+150,1091, // {"#".."$"}
+151,1091, // ";"
+152,1091, // ">"
+153,1091, // "{"
+154,1091, // "%"
+155,1091, // "("
+156,1091, // "\"
+157,1091, // "."
+158,1091, // ":"
+159,1091, // "}"
+160,1091, // {"^" "`" "~"}
+161,1091, // "'"
+162,1091, // '"'
+163,1091, // "*"
+174,316, // printable*
   }
 ,
 { // state 1806
-0x80000000|28, // match move
-0x80000000|467, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+220, // (default reduction)
   }
 ,
 { // state 1807
-2,1910, // white*
-MIN_REDUCTION+146, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+161, // (default reduction)
   }
 ,
 { // state 1808
-0x80000000|2011, // match move
-0x80000000|1876, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+120,1638, // "n"
   }
 ,
 { // state 1809
-90,1573, // "l"
+110,1414, // "i"
   }
 ,
 { // state 1810
-95,1751, // "e"
+0x80000000|422, // match move
+0x80000000|687, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 1811
 0x80000000|1, // match move
-0x80000000|1702, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|1726, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 1812
-95,373, // "e"
+2,704, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+302, // (default reduction)
   }
 ,
 { // state 1813
-2,418, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+263, // (default reduction)
+0x80000000|222, // match move
+0x80000000|2004, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 1814
-0x80000000|1, // match move
-0x80000000|731, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+313, // (default reduction)
   }
 ,
 { // state 1815
-95,82, // "e"
+179,MIN_REDUCTION+285, // $NT
   }
 ,
 { // state 1816
-0x80000000|901, // match move
-0x80000000|1808, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|1452, // match move
+0x80000000|9, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 1817
-92,1657, // "s"
+0x80000000|1169, // match move
+0x80000000|1426, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 1818
-90,1810, // "l"
-112,953, // "o"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+159, // (default reduction)
   }
 ,
 { // state 1819
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+131, // (default reduction)
+0x80000000|237, // match move
+0x80000000|1231, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 1820
-91,918, // "a"
+0x80000000|174, // match move
+0x80000000|1263, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 1821
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+229, // (default reduction)
+0x80000000|29, // match move
+0x80000000|478, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 1822
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+92, // $NT
+0x80000000|2030, // match move
+0x80000000|1892, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 1823
-0x80000000|22, // match move
-0x80000000|1039, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+2,1925, // white*
+MIN_REDUCTION+146, // (default reduction)
   }
 ,
 { // state 1824
-0x80000000|610, // match move
-0x80000000|115, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+90,1585, // "l"
   }
 ,
 { // state 1825
-MIN_REDUCTION+83, // (default reduction)
+95,1765, // "e"
   }
 ,
 { // state 1826
-0x80000000|605, // match move
-0x80000000|1949, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|1, // match move
+0x80000000|1715, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 1827
-MIN_REDUCTION+334, // (default reduction)
+95,383, // "e"
   }
 ,
 { // state 1828
-2,1119, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+254, // (default reduction)
+2,429, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+263, // (default reduction)
   }
 ,
 { // state 1829
-2,1120, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+287, // (default reduction)
+0x80000000|1, // match move
+0x80000000|747, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 1830
-MIN_REDUCTION+286, // (default reduction)
+95,86, // "e"
   }
 ,
 { // state 1831
-2,856, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+176, // (default reduction)
+0x80000000|921, // match move
+0x80000000|1822, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 1832
-0x80000000|1489, // match move
-0x80000000|412, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+92,1670, // "s"
   }
 ,
 { // state 1833
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+173, // (default reduction)
+90,1825, // "l"
+112,973, // "o"
   }
 ,
 { // state 1834
-121,375, // "t"
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+131, // (default reduction)
   }
 ,
 { // state 1835
-MIN_REDUCTION+63, // (default reduction)
+91,938, // "a"
   }
 ,
 { // state 1836
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+155, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+229, // (default reduction)
   }
 ,
 { // state 1837
-91,1556, // "a"
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+92, // $NT
   }
 ,
 { // state 1838
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+256, // $NT
+0x80000000|23, // match move
+0x80000000|1054, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 1839
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+193, // (default reduction)
+0x80000000|621, // match move
+0x80000000|119, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 1840
-178,MIN_REDUCTION+300, // $NT
+MIN_REDUCTION+83, // (default reduction)
   }
 ,
 { // state 1841
-91,402, // "a"
+0x80000000|616, // match move
+0x80000000|1965, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 1842
-2,1423, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+203, // (default reduction)
+MIN_REDUCTION+334, // (default reduction)
   }
 ,
 { // state 1843
-123,138, // "z"
+2,1135, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+254, // (default reduction)
   }
 ,
 { // state 1844
-MIN_REDUCTION+103, // (default reduction)
+2,1136, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+287, // (default reduction)
   }
 ,
 { // state 1845
-2,23, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+311, // (default reduction)
-  }
-,
-{ // state 1846
-MIN_REDUCTION+103, // (default reduction)
-  }
-,
-{ // state 1847
-92,1980, // "s"
-121,163, // "t"
-  }
-,
-{ // state 1848
-0x80000000|223, // match move
-0x80000000|1142, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1849
-MIN_REDUCTION+141, // (default reduction)
-  }
-,
-{ // state 1850
-0x80000000|307, // match move
-0x80000000|151, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1851
-0x80000000|1068, // match move
-0x80000000|1690, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1852
-2,940, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+293, // $NT
-  }
-,
-{ // state 1853
-MIN_REDUCTION+128, // (default reduction)
-  }
-,
-{ // state 1854
-0x80000000|664, // match move
-0x80000000|1829, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1855
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
 MIN_REDUCTION+286, // (default reduction)
   }
 ,
-{ // state 1856
-4,1330, // token
-58,1508, // `!
-59,1692, // `!=
-60,882, // `%
-61,685, // `&&
-62,657, // `*
-63,1835, // `(
-64,1936, // `)
-65,1023, // `{
-66,1027, // `}
-67,1043, // `-
-68,809, // `+
-69,625, // `=
-70,1179, // `==
-71,439, // `[
-72,1452, // `]
-73,396, // `||
-74,2021, // `<
-75,602, // `<=
-76,175, // `,
-77,298, // `>
-78,778, // `>=
-79,31, // `.
-80,968, // `;
-81,938, // `++
-82,417, // `--
-83,1825, // `/
-84,738, // `:
-85,1607, // ID
-86,793, // INT_LITERAL
-87,136, // STRING_LITERAL
-88,1729, // CHAR_LITERAL
-89,653, // "c"
-90,653, // "l"
-91,653, // "a"
-92,653, // "s"
-95,653, // "e"
-96,1108, // "!"
-97,1889, // "="
-98,404, // "+"
-99,795, // digit++
-100,1688, // letter
-101,1240, // digit
-103,653, // "d"
-104,653, // "g"
-105,653, // "m"
-106,653, // "p"
-107,653, // "v"
-108,653, // "y"
-109,653, // "f"
-110,653, // "i"
-111,653, // {"A".."Z"}
-112,653, // "o"
-113,653, // "r"
-114,653, // "u"
-115,653, // "x"
-116,653, // {"j" "q"}
-117,653, // "b"
-118,653, // "h"
-119,653, // "k"
-120,653, // "n"
-121,653, // "t"
-122,653, // "w"
-123,653, // "z"
-124,392, // {"0".."9"}
-134,1009, // "["
-135,999, // "-"
-136,1173, // "<"
-137,447, // "|"
-139,2015, // "&"
-140,395, // ")"
-141,1948, // ","
-142,173, // "]"
-143,1229, // "/"
-145,1310, // ";"
-146,552, // ">"
-147,1278, // "{"
-148,1011, // "%"
-149,458, // "("
-151,1391, // "."
-152,1654, // ":"
-153,1823, // "}"
-155,991, // "'"
-156,661, // '"'
-157,253, // "*"
-168,1557, // letter++
-174,594, // digit+
-176,1151, // letter+
-MIN_REDUCTION+361, // (default reduction)
-  }
-,
-{ // state 1857
-0x80000000|166, // match move
-0x80000000|1661, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1858
-0x80000000|454, // match move
-0x80000000|183, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1859
-90,485, // "l"
-  }
-,
-{ // state 1860
-110,1687, // "i"
-  }
-,
-{ // state 1861
-2,873, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+96, // (default reduction)
-  }
-,
-{ // state 1862
-MIN_REDUCTION+4, // (default reduction)
-  }
-,
-{ // state 1863
-0x80000000|629, // match move
-0x80000000|1239, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1864
-0x80000000|727, // match move
-0x80000000|1087, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1865
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+165, // (default reduction)
-  }
-,
-{ // state 1866
-0x80000000|1, // match move
-0x80000000|669, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1867
-90,55, // "l"
-  }
-,
-{ // state 1868
-110,249, // "i"
-113,690, // "r"
-  }
-,
-{ // state 1869
-2,1700, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+314, // (default reduction)
-  }
-,
-{ // state 1870
-2,1441, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+200, // (default reduction)
-  }
-,
-{ // state 1871
-0x80000000|1143, // match move
-0x80000000|1022, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1872
-92,260, // "s"
-  }
-,
-{ // state 1873
-0x80000000|195, // match move
-0x80000000|221, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1874
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+295, // $NT
-  }
-,
-{ // state 1875
-2,548, // white*
-MIN_REDUCTION+162, // (default reduction)
-  }
-,
-{ // state 1876
-0x80000000|789, // match move
-0x80000000|1927, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1877
-0x80000000|1, // match move
-0x80000000|1920, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1878
-0x80000000|1317, // match move
-0x80000000|1165, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1879
-0x80000000|1223, // match move
-0x80000000|225, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1880
-0x80000000|383, // match move
-0x80000000|262, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1881
-0x80000000|1674, // match move
-0x80000000|263, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1882
-2,548, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+162, // (default reduction)
-  }
-,
-{ // state 1883
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+298, // $NT
-  }
-,
-{ // state 1884
-0x80000000|1, // match move
-0x80000000|860, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1885
-2,856, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
+{ // state 1846
+2,876, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
 MIN_REDUCTION+176, // (default reduction)
   }
 ,
+{ // state 1847
+0x80000000|1499, // match move
+0x80000000|423, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1848
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+173, // (default reduction)
+  }
+,
+{ // state 1849
+121,386, // "t"
+  }
+,
+{ // state 1850
+MIN_REDUCTION+63, // (default reduction)
+  }
+,
+{ // state 1851
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+155, // (default reduction)
+  }
+,
+{ // state 1852
+91,1568, // "a"
+  }
+,
+{ // state 1853
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+256, // $NT
+  }
+,
+{ // state 1854
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+193, // (default reduction)
+  }
+,
+{ // state 1855
+179,MIN_REDUCTION+300, // $NT
+  }
+,
+{ // state 1856
+91,413, // "a"
+  }
+,
+{ // state 1857
+2,1435, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+203, // (default reduction)
+  }
+,
+{ // state 1858
+123,142, // "z"
+  }
+,
+{ // state 1859
+MIN_REDUCTION+103, // (default reduction)
+  }
+,
+{ // state 1860
+2,24, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+311, // (default reduction)
+  }
+,
+{ // state 1861
+MIN_REDUCTION+103, // (default reduction)
+  }
+,
+{ // state 1862
+92,1998, // "s"
+121,167, // "t"
+  }
+,
+{ // state 1863
+0x80000000|227, // match move
+0x80000000|1157, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1864
+129,649, // eol
+164,1076, // {10}
+165,1589, // {13}
+  }
+,
+{ // state 1865
+MIN_REDUCTION+141, // (default reduction)
+  }
+,
+{ // state 1866
+0x80000000|314, // match move
+0x80000000|155, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1867
+0x80000000|1082, // match move
+0x80000000|1703, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1868
+2,960, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+293, // $NT
+  }
+,
+{ // state 1869
+MIN_REDUCTION+118, // (default reduction)
+  }
+,
+{ // state 1870
+0x80000000|676, // match move
+0x80000000|1844, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1871
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+286, // (default reduction)
+  }
+,
+{ // state 1872
+4,1347, // token
+58,1519, // `!
+59,1705, // `!=
+60,902, // `%
+61,697, // `&&
+62,668, // `*
+63,1850, // `(
+64,1951, // `)
+65,1039, // `{
+66,1042, // `}
+67,1057, // `-
+68,827, // `+
+69,634, // `=
+70,1195, // `==
+71,450, // `[
+72,1462, // `]
+73,407, // `||
+74,2039, // `<
+75,614, // `<=
+76,179, // `,
+77,302, // `>
+78,794, // `>=
+79,33, // `.
+80,985, // `;
+81,958, // `++
+82,428, // `--
+83,1840, // `/
+84,754, // `:
+85,1621, // ID
+86,809, // INT_LITERAL
+87,140, // STRING_LITERAL
+88,1743, // CHAR_LITERAL
+89,663, // "c"
+90,663, // "l"
+91,663, // "a"
+92,663, // "s"
+95,663, // "e"
+96,1123, // "!"
+97,1508, // "="
+98,414, // "+"
+99,811, // digit++
+100,1701, // letter
+101,1258, // digit
+103,663, // "d"
+104,663, // "g"
+105,663, // "m"
+106,663, // "p"
+107,663, // "v"
+108,663, // "y"
+109,663, // "f"
+110,663, // "i"
+111,663, // {"A".."Z"}
+112,663, // "o"
+113,663, // "r"
+114,663, // "u"
+115,663, // "x"
+116,663, // {"j" "q"}
+117,663, // "b"
+118,663, // "h"
+119,663, // "k"
+120,663, // "n"
+121,663, // "t"
+122,663, // "w"
+123,663, // "z"
+124,403, // {"0".."9"}
+140,1025, // "["
+141,1015, // "-"
+142,1189, // "<"
+143,458, // "|"
+145,2034, // "&"
+146,406, // ")"
+147,1964, // ","
+148,177, // "]"
+149,1247, // "/"
+151,1328, // ";"
+152,562, // ">"
+153,1295, // "{"
+154,1027, // "%"
+155,469, // "("
+157,1406, // "."
+158,1667, // ":"
+159,1838, // "}"
+161,2025, // "'"
+162,673, // '"'
+163,255, // "*"
+168,1569, // letter++
+175,604, // digit+
+177,1166, // letter+
+MIN_REDUCTION+362, // (default reduction)
+  }
+,
+{ // state 1873
+0x80000000|170, // match move
+0x80000000|1674, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1874
+0x80000000|464, // match move
+0x80000000|186, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1875
+90,495, // "l"
+  }
+,
+{ // state 1876
+110,1700, // "i"
+  }
+,
+{ // state 1877
+2,893, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+96, // (default reduction)
+  }
+,
+{ // state 1878
+MIN_REDUCTION+4, // (default reduction)
+  }
+,
+{ // state 1879
+0x80000000|638, // match move
+0x80000000|1257, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1880
+0x80000000|742, // match move
+0x80000000|1103, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1881
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+165, // (default reduction)
+  }
+,
+{ // state 1882
+0x80000000|1, // match move
+0x80000000|681, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1883
+90,57, // "l"
+  }
+,
+{ // state 1884
+110,251, // "i"
+113,702, // "r"
+  }
+,
+{ // state 1885
+2,1713, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+314, // (default reduction)
+  }
+,
 { // state 1886
-MIN_REDUCTION+363, // (default reduction)
+2,1453, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+200, // (default reduction)
   }
 ,
 { // state 1887
-3,6, // $$0
-4,1056, // token
-125,712, // white
-126,1479, // {12}
-127,1479, // " "
-128,1479, // {9}
-130,1375, // comment
-143,1422, // "/"
-160,1629, // oneLineComment
-161,1106, // blockComment
-162,2020, // doubleSlash
-164,1520, // slashStar
-173,1599, // token*
-MIN_REDUCTION+3, // (default reduction)
+0x80000000|1158, // match move
+0x80000000|1038, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 1888
-0x80000000|1494, // match move
-0x80000000|779, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+92,263, // "s"
   }
 ,
 { // state 1889
-0x80000000|1294, // match move
-0x80000000|917, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|198, // match move
+0x80000000|225, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 1890
-178,MIN_REDUCTION+123, // $NT
-MIN_REDUCTION+123, // (default reduction)
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+295, // $NT
   }
 ,
 { // state 1891
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+298, // (default reduction)
+2,558, // white*
+MIN_REDUCTION+162, // (default reduction)
   }
 ,
 { // state 1892
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+289, // (default reduction)
+0x80000000|805, // match move
+0x80000000|1942, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 1893
-92,814, // "s"
+0x80000000|1, // match move
+0x80000000|1935, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 1894
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+226, // (default reduction)
+0x80000000|1334, // match move
+0x80000000|1181, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 1895
-0x80000000|1, // match move
-0x80000000|1135, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|1241, // match move
+0x80000000|229, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 1896
-112,400, // "o"
+0x80000000|394, // match move
+0x80000000|265, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 1897
-121,1708, // "t"
+0x80000000|1687, // match move
+0x80000000|266, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
   }
 ,
 { // state 1898
-0x80000000|654, // match move
-0x80000000|1487, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+2,558, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+162, // (default reduction)
   }
 ,
 { // state 1899
-0x80000000|826, // match move
-0x80000000|1855, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+298, // $NT
   }
 ,
 { // state 1900
-117,1596, // "b"
+0x80000000|1, // match move
+0x80000000|880, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 1901
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+271, // (default reduction)
+2,876, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+176, // (default reduction)
   }
 ,
 { // state 1902
-89,1393, // "c"
-90,1393, // "l"
-91,1393, // "a"
-92,1393, // "s"
-95,1393, // "e"
-96,1393, // "!"
-97,1393, // "="
-98,1393, // "+"
-102,1393, // "_"
-103,1393, // "d"
-104,1393, // "g"
-105,1393, // "m"
-106,1393, // "p"
-107,1393, // "v"
-108,1393, // "y"
-109,1393, // "f"
-110,1393, // "i"
-111,1393, // {"A".."Z"}
-112,1393, // "o"
-113,1393, // "r"
-114,1393, // "u"
-115,1393, // "x"
-116,1393, // {"j" "q"}
-117,1393, // "b"
-118,1393, // "h"
-119,1393, // "k"
-120,1393, // "n"
-121,1393, // "t"
-122,1393, // "w"
-123,1393, // "z"
-124,1393, // {"0".."9"}
-127,1393, // " "
-129,1341, // eol
-131,1062, // {10}
-132,1577, // {13}
-133,1255, // printable
-134,1393, // "["
-135,1393, // "-"
-136,1393, // "<"
-137,1393, // "|"
-138,1393, // {"?".."@"}
-139,1393, // "&"
-140,1393, // ")"
-141,1393, // ","
-142,1393, // "]"
-143,1393, // "/"
-144,1393, // {"#".."$"}
-145,1393, // ";"
-146,1393, // ">"
-147,1393, // "{"
-148,1393, // "%"
-149,1393, // "("
-150,1393, // "\"
-151,1393, // "."
-152,1393, // ":"
-153,1393, // "}"
-154,1393, // {"^" "`" "~"}
-155,1393, // "'"
-156,1393, // '"'
-157,1393, // "*"
+MIN_REDUCTION+364, // (default reduction)
   }
 ,
 { // state 1903
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+244, // $NT
+0x80000000|1505, // match move
+0x80000000|795, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 1904
-0x80000000|834, // match move
-0x80000000|765, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
+3,6, // $$0
+4,1070, // token
+125,726, // white
+126,1489, // {12}
+127,1489, // " "
+128,1489, // {9}
+130,1390, // comment
+131,1643, // oneLineComment
+132,1121, // blockComment
+133,203, // doubleSlash
+136,1532, // slashStar
+149,144, // "/"
+173,1612, // token*
+MIN_REDUCTION+3, // (default reduction)
   }
 ,
 { // state 1905
-110,1699, // "i"
+179,MIN_REDUCTION+113, // $NT
+MIN_REDUCTION+113, // (default reduction)
   }
 ,
 { // state 1906
-2,1662, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+148, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+298, // (default reduction)
   }
 ,
 { // state 1907
-89,1393, // "c"
-90,1393, // "l"
-91,1393, // "a"
-92,1393, // "s"
-95,1393, // "e"
-96,1393, // "!"
-97,1393, // "="
-98,1393, // "+"
-102,1393, // "_"
-103,1393, // "d"
-104,1393, // "g"
-105,1393, // "m"
-106,1393, // "p"
-107,1393, // "v"
-108,1393, // "y"
-109,1393, // "f"
-110,1393, // "i"
-111,1393, // {"A".."Z"}
-112,1393, // "o"
-113,1393, // "r"
-114,1393, // "u"
-115,1393, // "x"
-116,1393, // {"j" "q"}
-117,1393, // "b"
-118,1393, // "h"
-119,1393, // "k"
-120,1393, // "n"
-121,1393, // "t"
-122,1393, // "w"
-123,1393, // "z"
-124,1393, // {"0".."9"}
-127,1393, // " "
-129,1760, // eol
-131,1299, // {10}
-132,884, // {13}
-133,558, // printable
-134,1393, // "["
-135,1393, // "-"
-136,1393, // "<"
-137,1393, // "|"
-138,1393, // {"?".."@"}
-139,1393, // "&"
-140,1393, // ")"
-141,1393, // ","
-142,1393, // "]"
-143,1393, // "/"
-144,1393, // {"#".."$"}
-145,1393, // ";"
-146,1393, // ">"
-147,1393, // "{"
-148,1393, // "%"
-149,1393, // "("
-150,1393, // "\"
-151,1393, // "."
-152,1393, // ":"
-153,1393, // "}"
-154,1393, // {"^" "`" "~"}
-155,1393, // "'"
-156,1393, // '"'
-157,1393, // "*"
-163,957, // printable*
-  }
-,
-{ // state 1908
-MIN_REDUCTION+310, // (default reduction)
-  }
-,
-{ // state 1909
-178,MIN_REDUCTION+111, // $NT
-MIN_REDUCTION+111, // (default reduction)
-  }
-,
-{ // state 1910
-0x80000000|773, // match move
-0x80000000|1914, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1911
-2,131, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+209, // (default reduction)
-  }
-,
-{ // state 1912
-0x80000000|803, // match move
-0x80000000|1564, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1913
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+307, // (default reduction)
-  }
-,
-{ // state 1914
-0x80000000|937, // match move
-0x80000000|870, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1915
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+325, // (default reduction)
-  }
-,
-{ // state 1916
-0x80000000|2019, // match move
-0x80000000|1277, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1917
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+304, // (default reduction)
-  }
-,
-{ // state 1918
-4,1330, // token
-MIN_REDUCTION+361, // (default reduction)
-  }
-,
-{ // state 1919
-MIN_REDUCTION+262, // (default reduction)
-  }
-,
-{ // state 1920
-0x80000000|20, // match move
-0x80000000|984, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1921
-0x80000000|1353, // match move
-0x80000000|147, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1922
-2,1164, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+170, // (default reduction)
-  }
-,
-{ // state 1923
-0x80000000|1472, // match move
-0x80000000|1678, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1924
-MIN_REDUCTION+328, // (default reduction)
-  }
-,
-{ // state 1925
-0x80000000|248, // match move
-0x80000000|549, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1926
-0x80000000|1081, // match move
-0x80000000|200, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1927
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+143, // (default reduction)
-  }
-,
-{ // state 1928
-0x80000000|1326, // match move
-0x80000000|1420, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1929
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+147, // (default reduction)
-  }
-,
-{ // state 1930
-92,1628, // "s"
-  }
-,
-{ // state 1931
-178,MIN_REDUCTION+124, // $NT
-MIN_REDUCTION+124, // (default reduction)
-  }
-,
-{ // state 1932
-95,1704, // "e"
-  }
-,
-{ // state 1933
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+169, // (default reduction)
-  }
-,
-{ // state 1934
-0x80000000|1312, // match move
-0x80000000|408, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1935
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+196, // (default reduction)
-  }
-,
-{ // state 1936
-MIN_REDUCTION+64, // (default reduction)
-  }
-,
-{ // state 1937
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+250, // (default reduction)
-  }
-,
-{ // state 1938
-0x80000000|523, // match move
-0x80000000|1926, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1939
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+179, // (default reduction)
-  }
-,
-{ // state 1940
-2,1625, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+212, // (default reduction)
-  }
-,
-{ // state 1941
-91,1679, // "a"
-  }
-,
-{ // state 1942
-90,1465, // "l"
-110,1368, // "i"
-  }
-,
-{ // state 1943
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+283, // (default reduction)
-  }
-,
-{ // state 1944
-MIN_REDUCTION+117, // (default reduction)
-  }
-,
-{ // state 1945
-2,1324, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+218, // $NT
-  }
-,
-{ // state 1946
-0x80000000|997, // match move
-0x80000000|1802, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1947
-MIN_REDUCTION+31, // (default reduction)
-  }
-,
-{ // state 1948
-0x80000000|1582, // match move
-0x80000000|942, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1949
-0x80000000|656, // match move
-0x80000000|961, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1950
-0x80000000|723, // match move
-0x80000000|1167, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1951
-121,1517, // "t"
-  }
-,
-{ // state 1952
-0x80000000|314, // match move
-0x80000000|1237, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1953
-91,42, // "a"
-  }
-,
-{ // state 1954
-0x80000000|1355, // match move
-0x80000000|1770, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1955
-0x80000000|1695, // match move
-0x80000000|243, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1956
-125,792, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+283, // $NT
-  }
-,
-{ // state 1957
-95,611, // "e"
-  }
-,
-{ // state 1958
-0x80000000|1, // match move
-0x80000000|542, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1959
-0x80000000|1281, // match move
-0x80000000|1034, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1960
-2,379, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+100, // (default reduction)
-  }
-,
-{ // state 1961
-0x80000000|1, // match move
-0x80000000|930, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1962
-MIN_REDUCTION+238, // (default reduction)
-  }
-,
-{ // state 1963
-0x80000000|1337, // match move
-0x80000000|683, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1964
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+175, // (default reduction)
-  }
-,
-{ // state 1965
-95,1837, // "e"
-  }
-,
-{ // state 1966
-0x80000000|1875, // match move
-0x80000000|49, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1967
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+274, // (default reduction)
-  }
-,
-{ // state 1968
-2,1535, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+227, // (default reduction)
-  }
-,
-{ // state 1969
-0x80000000|1385, // match move
-0x80000000|1656, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 1970
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+196, // (default reduction)
-  }
-,
-{ // state 1971
-0x80000000|1718, // match move
-0x80000000|841, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1972
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+244, // (default reduction)
-  }
-,
-{ // state 1973
-2,472, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+323, // (default reduction)
-  }
-,
-{ // state 1974
-MIN_REDUCTION+157, // (default reduction)
-  }
-,
-{ // state 1975
-MIN_REDUCTION+106, // (default reduction)
-  }
-,
-{ // state 1976
-119,268, // "k"
-  }
-,
-{ // state 1977
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+259, // (default reduction)
-  }
-,
-{ // state 1978
-0x80000000|1207, // match move
-0x80000000|582, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1979
-178,MIN_REDUCTION+101, // $NT
-  }
-,
-{ // state 1980
-121,1075, // "t"
-  }
-,
-{ // state 1981
-0x80000000|1350, // match move
-0x80000000|1367, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1982
-MIN_REDUCTION+316, // (default reduction)
-  }
-,
-{ // state 1983
-0x80000000|1768, // match move
-0x80000000|1024, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1984
-MIN_REDUCTION+14, // (default reduction)
-  }
-,
-{ // state 1985
-0x80000000|1, // match move
-0x80000000|1978, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1986
-0x80000000|890, // match move
-0x80000000|1152, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1987
-2,1921, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+272, // (default reduction)
-  }
-,
-{ // state 1988
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-129,482, // eol
-130,1769, // comment
-131,1062, // {10}
-132,1577, // {13}
-MIN_REDUCTION+256, // (default reduction)
-  }
-,
-{ // state 1989
-178,MIN_REDUCTION+243, // $NT
-  }
-,
-{ // state 1990
-2,215, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+172, // (default reduction)
-  }
-,
-{ // state 1991
-0x80000000|1, // match move
-0x80000000|1946, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1992
-0x80000000|1, // match move
-0x80000000|29, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1993
-0x80000000|214, // match move
-0x80000000|334, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
-  }
-,
-{ // state 1994
-112,93, // "o"
-  }
-,
-{ // state 1995
-0x80000000|1140, // match move
-0x80000000|720, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
-  }
-,
-{ // state 1996
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+95, // (default reduction)
-  }
-,
-{ // state 1997
-MIN_REDUCTION+33, // (default reduction)
-  }
-,
-{ // state 1998
-0x80000000|1, // match move
-0x80000000|1031, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 1999
-0x80000000|1, // match move
-0x80000000|1008, // no-match move
-0x80000000|64, // NT-test-match state for idChar
-  }
-,
-{ // state 2000
-178,MIN_REDUCTION+228, // $NT
-  }
-,
-{ // state 2001
-2,1414, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+242, // $NT
-  }
-,
-{ // state 2002
-110,1562, // "i"
-  }
-,
-{ // state 2003
-0x80000000|172, // match move
-0x80000000|1227, // no-match move
-0x80000000|1581, // NT-test-match state for reserved
-  }
-,
-{ // state 2004
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
 MIN_REDUCTION+289, // (default reduction)
   }
 ,
-{ // state 2005
-2,593, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1422, // "/"
-160,715, // oneLineComment
-161,48, // blockComment
-162,732, // doubleSlash
-164,1194, // slashStar
-MIN_REDUCTION+215, // (default reduction)
+{ // state 1908
+92,831, // "s"
   }
 ,
-{ // state 2006
-91,1306, // "a"
+{ // state 1909
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+226, // (default reduction)
   }
 ,
-{ // state 2007
-108,449, // "y"
+{ // state 1910
+129,1523, // eol
+134,330, // printable**
+164,73, // {10}
+165,1520, // {13}
+174,316, // printable*
   }
 ,
-{ // state 2008
+{ // state 1911
 0x80000000|1, // match move
-0x80000000|1038, // no-match move
-0x80000000|64, // NT-test-match state for idChar
+0x80000000|1151, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
-{ // state 2009
-0x80000000|2018, // match move
-0x80000000|952, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+{ // state 1912
+112,411, // "o"
   }
 ,
-{ // state 2010
-2,1903, // white*
-125,2024, // white
-126,857, // {12}
-127,857, // " "
-128,857, // {9}
-129,1169, // eol
-130,977, // comment
-131,1299, // {10}
-132,884, // {13}
-143,1422, // "/"
-160,1218, // oneLineComment
-161,821, // blockComment
-162,1907, // doubleSlash
-164,782, // slashStar
-178,MIN_REDUCTION+245, // $NT
+{ // state 1913
+121,1721, // "t"
   }
 ,
-{ // state 2011
+{ // state 1914
+0x80000000|664, // match move
+0x80000000|1497, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1915
+0x80000000|843, // match move
+0x80000000|1871, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1916
+117,1609, // "b"
+  }
+,
+{ // state 1917
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+271, // (default reduction)
+  }
+,
+{ // state 1918
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+244, // $NT
+  }
+,
+{ // state 1919
+0x80000000|851, // match move
+0x80000000|780, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1920
+110,1712, // "i"
+  }
+,
+{ // state 1921
+2,1675, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+148, // (default reduction)
+  }
+,
+{ // state 1922
+MIN_REDUCTION+340, // (default reduction)
+  }
+,
+{ // state 1923
+MIN_REDUCTION+310, // (default reduction)
+  }
+,
+{ // state 1924
+179,MIN_REDUCTION+123, // $NT
+MIN_REDUCTION+123, // (default reduction)
+  }
+,
+{ // state 1925
+0x80000000|789, // match move
+0x80000000|1929, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1926
+2,135, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+209, // (default reduction)
+  }
+,
+{ // state 1927
+0x80000000|820, // match move
+0x80000000|1576, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1928
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+307, // (default reduction)
+  }
+,
+{ // state 1929
+0x80000000|957, // match move
+0x80000000|890, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1930
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+325, // (default reduction)
+  }
+,
+{ // state 1931
+0x80000000|2038, // match move
+0x80000000|1294, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1932
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+304, // (default reduction)
+  }
+,
+{ // state 1933
+4,1347, // token
+MIN_REDUCTION+362, // (default reduction)
+  }
+,
+{ // state 1934
+MIN_REDUCTION+262, // (default reduction)
+  }
+,
+{ // state 1935
+0x80000000|21, // match move
+0x80000000|1001, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1936
+0x80000000|1368, // match move
+0x80000000|152, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1937
+2,1180, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+170, // (default reduction)
+  }
+,
+{ // state 1938
+0x80000000|1482, // match move
+0x80000000|1691, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1939
+MIN_REDUCTION+328, // (default reduction)
+  }
+,
+{ // state 1940
+0x80000000|250, // match move
+0x80000000|559, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1941
+0x80000000|1096, // match move
+0x80000000|204, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1942
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
 MIN_REDUCTION+143, // (default reduction)
   }
 ,
+{ // state 1943
+0x80000000|1343, // match move
+0x80000000|1433, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1944
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+147, // (default reduction)
+  }
+,
+{ // state 1945
+92,1642, // "s"
+  }
+,
+{ // state 1946
+179,MIN_REDUCTION+114, // $NT
+MIN_REDUCTION+114, // (default reduction)
+  }
+,
+{ // state 1947
+95,1717, // "e"
+  }
+,
+{ // state 1948
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+169, // (default reduction)
+  }
+,
+{ // state 1949
+0x80000000|1329, // match move
+0x80000000|419, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1950
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+196, // (default reduction)
+  }
+,
+{ // state 1951
+MIN_REDUCTION+64, // (default reduction)
+  }
+,
+{ // state 1952
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+250, // (default reduction)
+  }
+,
+{ // state 1953
+0x80000000|534, // match move
+0x80000000|1941, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1954
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+179, // (default reduction)
+  }
+,
+{ // state 1955
+2,1639, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+212, // (default reduction)
+  }
+,
+{ // state 1956
+91,1692, // "a"
+  }
+,
+{ // state 1957
+90,1475, // "l"
+110,1383, // "i"
+  }
+,
+{ // state 1958
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+283, // (default reduction)
+  }
+,
+{ // state 1959
+MIN_REDUCTION+129, // (default reduction)
+  }
+,
+{ // state 1960
+2,1341, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+218, // $NT
+  }
+,
+{ // state 1961
+0x80000000|1013, // match move
+0x80000000|1817, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1962
+MIN_REDUCTION+31, // (default reduction)
+  }
+,
+{ // state 1963
+179,MIN_REDUCTION+111, // $NT
+MIN_REDUCTION+111, // (default reduction)
+  }
+,
+{ // state 1964
+0x80000000|1595, // match move
+0x80000000|962, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1965
+0x80000000|667, // match move
+0x80000000|979, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1966
+0x80000000|737, // match move
+0x80000000|1183, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1967
+121,1529, // "t"
+  }
+,
+{ // state 1968
+0x80000000|322, // match move
+0x80000000|1255, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1969
+91,44, // "a"
+  }
+,
+{ // state 1970
+0x80000000|1370, // match move
+0x80000000|1784, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1971
+0x80000000|1708, // match move
+0x80000000|246, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1972
+125,808, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+283, // $NT
+  }
+,
+{ // state 1973
+95,622, // "e"
+  }
+,
+{ // state 1974
+0x80000000|1, // match move
+0x80000000|552, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1975
+0x80000000|1298, // match move
+0x80000000|1049, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1976
+2,390, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+100, // (default reduction)
+  }
+,
+{ // state 1977
+0x80000000|1, // match move
+0x80000000|950, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 1978
+MIN_REDUCTION+238, // (default reduction)
+  }
+,
+{ // state 1979
+0x80000000|1353, // match move
+0x80000000|695, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1980
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+175, // (default reduction)
+  }
+,
+{ // state 1981
+95,1852, // "e"
+  }
+,
+{ // state 1982
+0x80000000|1891, // match move
+0x80000000|51, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1983
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+274, // (default reduction)
+  }
+,
+{ // state 1984
+2,1547, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+227, // (default reduction)
+  }
+,
+{ // state 1985
+0x80000000|1400, // match move
+0x80000000|1669, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
+  }
+,
+{ // state 1986
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+196, // (default reduction)
+  }
+,
+{ // state 1987
+0x80000000|1732, // match move
+0x80000000|858, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 1988
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+244, // (default reduction)
+  }
+,
+{ // state 1989
+0x80000000|859, // match move
+0x80000000|7, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1990
+2,483, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+323, // (default reduction)
+  }
+,
+{ // state 1991
+MIN_REDUCTION+157, // (default reduction)
+  }
+,
+{ // state 1992
+MIN_REDUCTION+106, // (default reduction)
+  }
+,
+{ // state 1993
+119,271, // "k"
+  }
+,
+{ // state 1994
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+259, // (default reduction)
+  }
+,
+{ // state 1995
+0x80000000|1224, // match move
+0x80000000|592, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 1996
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+149, // (default reduction)
+  }
+,
+{ // state 1997
+179,MIN_REDUCTION+101, // $NT
+  }
+,
+{ // state 1998
+121,1089, // "t"
+  }
+,
+{ // state 1999
+0x80000000|1365, // match move
+0x80000000|1382, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 2000
+MIN_REDUCTION+316, // (default reduction)
+  }
+,
+{ // state 2001
+0x80000000|1782, // match move
+0x80000000|1040, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 2002
+MIN_REDUCTION+14, // (default reduction)
+  }
+,
+{ // state 2003
+0x80000000|1, // match move
+0x80000000|1995, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 2004
+0x80000000|910, // match move
+0x80000000|1167, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 2005
+2,1936, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+272, // (default reduction)
+  }
+,
+{ // state 2006
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+129,493, // eol
+130,1783, // comment
+164,1076, // {10}
+165,1589, // {13}
+MIN_REDUCTION+256, // (default reduction)
+  }
+,
+{ // state 2007
+179,MIN_REDUCTION+243, // $NT
+  }
+,
+{ // state 2008
+2,219, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+172, // (default reduction)
+  }
+,
+{ // state 2009
+0x80000000|1, // match move
+0x80000000|1961, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 2010
+0x80000000|1, // match move
+0x80000000|30, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 2011
+0x80000000|218, // match move
+0x80000000|343, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
 { // state 2012
-MIN_REDUCTION+354, // (default reduction)
+112,98, // "o"
   }
 ,
 { // state 2013
-95,932, // "e"
+0x80000000|1155, // match move
+0x80000000|734, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
   }
 ,
 { // state 2014
-MIN_REDUCTION+22, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+95, // (default reduction)
   }
 ,
 { // state 2015
-139,843, // "&"
+MIN_REDUCTION+33, // (default reduction)
   }
 ,
 { // state 2016
-91,329, // "a"
-113,2002, // "r"
+0x80000000|1, // match move
+0x80000000|1046, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 2017
-0x80000000|1906, // match move
-0x80000000|1175, // no-match move
-0x80000000|63, // NT-test-match state for doubleSlash
+0x80000000|1, // match move
+0x80000000|1024, // no-match move
+0x80000000|67, // NT-test-match state for idChar
   }
 ,
 { // state 2018
-125,1627, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+89, // (default reduction)
+179,MIN_REDUCTION+228, // $NT
   }
 ,
 { // state 2019
-2,1950, // white*
-125,702, // white
-126,1975, // {12}
-127,1975, // " "
-128,1975, // {9}
-130,1769, // comment
-143,1309, // "/"
-161,48, // blockComment
-164,1194, // slashStar
-MIN_REDUCTION+93, // (default reduction)
+2,1427, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+242, // $NT
   }
 ,
 { // state 2020
-89,1393, // "c"
-90,1393, // "l"
-91,1393, // "a"
-92,1393, // "s"
-95,1393, // "e"
-96,1393, // "!"
-97,1393, // "="
-98,1393, // "+"
-102,1393, // "_"
-103,1393, // "d"
-104,1393, // "g"
-105,1393, // "m"
-106,1393, // "p"
-107,1393, // "v"
-108,1393, // "y"
-109,1393, // "f"
-110,1393, // "i"
-111,1393, // {"A".."Z"}
-112,1393, // "o"
-113,1393, // "r"
-114,1393, // "u"
-115,1393, // "x"
-116,1393, // {"j" "q"}
-117,1393, // "b"
-118,1393, // "h"
-119,1393, // "k"
-120,1393, // "n"
-121,1393, // "t"
-122,1393, // "w"
-123,1393, // "z"
-124,1393, // {"0".."9"}
-127,1393, // " "
-129,1442, // eol
-131,71, // {10}
-132,1509, // {13}
-133,558, // printable
-134,1393, // "["
-135,1393, // "-"
-136,1393, // "<"
-137,1393, // "|"
-138,1393, // {"?".."@"}
-139,1393, // "&"
-140,1393, // ")"
-141,1393, // ","
-142,1393, // "]"
-143,1393, // "/"
-144,1393, // {"#".."$"}
-145,1393, // ";"
-146,1393, // ">"
-147,1393, // "{"
-148,1393, // "%"
-149,1393, // "("
-150,1393, // "\"
-151,1393, // "."
-152,1393, // ":"
-153,1393, // "}"
-154,1393, // {"^" "`" "~"}
-155,1393, // "'"
-156,1393, // '"'
-157,1393, // "*"
-163,758, // printable*
+110,1574, // "i"
   }
 ,
 { // state 2021
-MIN_REDUCTION+74, // (default reduction)
+0x80000000|176, // match move
+0x80000000|1245, // no-match move
+0x80000000|1594, // NT-test-match state for reserved
   }
 ,
 { // state 2022
-MIN_REDUCTION+161, // (default reduction)
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+289, // (default reduction)
   }
 ,
 { // state 2023
-0x80000000|158, // match move
-0x80000000|470, // no-match move
-0x80000000|1622, // NT-test-match state for slashStar
+2,603, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+131,729, // oneLineComment
+132,50, // blockComment
+133,66, // doubleSlash
+136,1210, // slashStar
+149,144, // "/"
+MIN_REDUCTION+215, // (default reduction)
   }
 ,
 { // state 2024
-178,MIN_REDUCTION+349, // $NT
-MIN_REDUCTION+349, // (default reduction)
+91,1322, // "a"
   }
 ,
+{ // state 2025
+89,1625, // "c"
+90,1625, // "l"
+91,1625, // "a"
+92,1625, // "s"
+95,1625, // "e"
+96,1014, // "!"
+97,1959, // "="
+98,1959, // "+"
+102,1625, // "_"
+103,1625, // "d"
+104,1625, // "g"
+105,1625, // "m"
+106,1625, // "p"
+107,1625, // "v"
+108,1625, // "y"
+109,1625, // "f"
+110,1625, // "i"
+111,1959, // {"A".."Z"}
+112,1625, // "o"
+113,1625, // "r"
+114,1625, // "u"
+115,1625, // "x"
+116,1625, // {"j" "q"}
+117,1625, // "b"
+118,1625, // "h"
+119,1625, // "k"
+120,1625, // "n"
+121,1625, // "t"
+122,1625, // "w"
+123,1625, // "z"
+124,1959, // {"0".."9"}
+127,1014, // " "
+140,1959, // "["
+141,1959, // "-"
+142,1959, // "<"
+143,1625, // "|"
+144,1959, // {"?".."@"}
+145,1014, // "&"
+146,1959, // ")"
+147,1959, // ","
+148,1625, // "]"
+149,1959, // "/"
+150,1014, // {"#".."$"}
+151,1959, // ";"
+152,1959, // ">"
+153,1625, // "{"
+154,1014, // "%"
+155,1959, // "("
+157,1959, // "."
+158,1959, // ":"
+159,1625, // "}"
+160,1625, // {"^" "`" "~"}
+162,1014, // '"'
+163,1959, // "*"
+167,385, // charPrintable
+  }
+,
+{ // state 2026
+108,460, // "y"
+  }
+,
+{ // state 2027
+0x80000000|1, // match move
+0x80000000|1053, // no-match move
+0x80000000|67, // NT-test-match state for idChar
+  }
+,
+{ // state 2028
+0x80000000|2037, // match move
+0x80000000|972, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 2029
+2,1918, // white*
+125,2043, // white
+126,877, // {12}
+127,877, // " "
+128,877, // {9}
+129,1185, // eol
+130,994, // comment
+131,1236, // oneLineComment
+132,838, // blockComment
+133,1248, // doubleSlash
+136,798, // slashStar
+149,144, // "/"
+164,1315, // {10}
+165,904, // {13}
+179,MIN_REDUCTION+245, // $NT
+  }
+,
+{ // state 2030
+MIN_REDUCTION+143, // (default reduction)
+  }
+,
+{ // state 2031
+MIN_REDUCTION+353, // (default reduction)
+  }
+,
+{ // state 2032
+95,952, // "e"
+  }
+,
+{ // state 2033
+MIN_REDUCTION+22, // (default reduction)
+  }
+,
+{ // state 2034
+145,861, // "&"
+  }
+,
+{ // state 2035
+91,338, // "a"
+113,2020, // "r"
+  }
+,
+{ // state 2036
+0x80000000|1921, // match move
+0x80000000|1191, // no-match move
+0x80000000|65, // NT-test-match state for doubleSlash
+  }
+,
+{ // state 2037
+125,1641, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+89, // (default reduction)
+  }
+,
+{ // state 2038
+2,1966, // white*
+125,714, // white
+126,1992, // {12}
+127,1992, // " "
+128,1992, // {9}
+130,1783, // comment
+132,50, // blockComment
+136,1210, // slashStar
+149,1327, // "/"
+MIN_REDUCTION+93, // (default reduction)
+  }
+,
+{ // state 2039
+MIN_REDUCTION+74, // (default reduction)
+  }
+,
+{ // state 2040
+MIN_REDUCTION+161, // (default reduction)
+  }
+,
+{ // state 2041
+0x80000000|162, // match move
+0x80000000|481, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 2042
+0x80000000|1216, // match move
+0x80000000|273, // no-match move
+0x80000000|1636, // NT-test-match state for slashStar
+  }
+,
+{ // state 2043
+179,MIN_REDUCTION+348, // $NT
+MIN_REDUCTION+348, // (default reduction)
+  }
+,
+};
+}
+public TokenGrammarParseTable(TokenGrammar actionObj) {
+  actionObject = actionObj;
+  parseTable = new int[2044][];
+  int doneSoFar = 0;
+  doneSoFar += new Initter1().doInit(doneSoFar);
+  doneSoFar += new Initter2().doInit(doneSoFar);
+  doneSoFar += new Initter3().doInit(doneSoFar);
+  doneSoFar += new Initter4().doInit(doneSoFar);
+}
 public int[] getProdTable() { return prodTable; }
 private static int[] prodTable = {
 // $$start ::= start
@@ -18133,6 +17922,30 @@ private static int[] prodTable = {
 (125<<16)+1,
 // white ::= comment
 (125<<16)+1,
+// comment ::= oneLineComment
+(130<<16)+1,
+// comment ::= blockComment
+(130<<16)+1,
+// oneLineComment ::= doubleSlash printable** eol
+(131<<16)+3,
+// oneLineComment ::= doubleSlash !printable eol
+(131<<16)+2,
+// blockComment ::= slashStar blockCommentContent* starSlash
+(132<<16)+3,
+// blockComment ::= slashStar starSlash
+(132<<16)+2,
+// blockCommentContent ::= {9 " "..")" "+".."~"}
+(139<<16)+1,
+// blockCommentContent ::= "*" !"/"
+(139<<16)+1,
+// blockCommentContent ::= eol
+(139<<16)+1,
+// slashStar ::= "/" "*"
+(136<<16)+2,
+// starSlash ::= "*" "/"
+(138<<16)+2,
+// doubleSlash ::= "/" "/"
+(133<<16)+2,
 // eol ::= {10}
 (129<<16)+1,
 // eol ::= {13} {10}
@@ -18140,43 +17953,19 @@ private static int[] prodTable = {
 // eol ::= {13} !10
 (129<<16)+1,
 // printable ::= {" ".."~"}
-(133<<16)+1,
+(135<<16)+1,
 // stringPrintable ::= {" ".."!"}
-(158<<16)+1,
+(166<<16)+1,
 // stringPrintable ::= {"#".."["}
-(158<<16)+1,
+(166<<16)+1,
 // stringPrintable ::= {"]".."~"}
-(158<<16)+1,
+(166<<16)+1,
 // charPrintable ::= {" ".."&"}
-(159<<16)+1,
+(167<<16)+1,
 // charPrintable ::= {"(".."["}
-(159<<16)+1,
+(167<<16)+1,
 // charPrintable ::= {"]".."~"}
-(159<<16)+1,
-// comment ::= oneLineComment
-(130<<16)+1,
-// comment ::= blockComment
-(130<<16)+1,
-// oneLineComment ::= doubleSlash printable* eol
-(160<<16)+3,
-// oneLineComment ::= doubleSlash eol
-(160<<16)+2,
-// blockComment ::= slashStar blockCommentContent* starSlash
-(161<<16)+3,
-// blockComment ::= slashStar starSlash
-(161<<16)+2,
-// blockCommentContent ::= {9 " "..")" "+".."~"}
 (167<<16)+1,
-// blockCommentContent ::= "*" !"/"
-(167<<16)+1,
-// blockCommentContent ::= eol
-(167<<16)+1,
-// slashStar ::= "/" "*"
-(164<<16)+2,
-// starSlash ::= "*" "/"
-(166<<16)+2,
-// doubleSlash ::= "/" "/"
-(162<<16)+2,
 // `! ::= "!" !"=" white*
 (58<<16)+2,
 // `! ::= "!" !"="
@@ -18213,9 +18002,9 @@ private static int[] prodTable = {
 (67<<16)+2,
 // `- ::= "-" !"-"
 (67<<16)+1,
-// `= ::= "=" white*
+// `= ::= "=" !"=" white*
 (69<<16)+2,
-// `= ::= "="
+// `= ::= "=" !"="
 (69<<16)+1,
 // `== ::= "=" "=" white*
 (70<<16)+3,
@@ -18603,22 +18392,20 @@ private static int[] prodTable = {
 (173<<16)+2,
 // token* ::= token
 (173<<16)+1,
+// printable** ::= printable* !printable
+(134<<16)+1,
 // digit++ ::= digit+ !digit
 (99<<16)+1,
 // idChar** ::= idChar* !idChar
 (169<<16)+1,
-// printable* ::= printable* printable
-(163<<16)+2,
-// printable* ::= printable
-(163<<16)+1,
 // white* ::= white* white
 (2<<16)+2,
 // white* ::= white
 (2<<16)+1,
 // blockCommentContent* ::= blockCommentContent* blockCommentContent
-(165<<16)+2,
+(137<<16)+2,
 // blockCommentContent* ::= blockCommentContent
-(165<<16)+1,
+(137<<16)+1,
 // stringPrintable* ::= stringPrintable* stringPrintable
 (171<<16)+2,
 // stringPrintable* ::= stringPrintable
@@ -18626,17 +18413,21 @@ private static int[] prodTable = {
 // letter++ ::= letter+ !letter
 (168<<16)+1,
 // digit+ ::= digit
-(174<<16)+1,
-// digit+ ::= digit+ digit
-(174<<16)+2,
-// letter+ ::= letter
-(176<<16)+1,
-// letter+ ::= letter+ letter
-(176<<16)+2,
-// idChar* ::= idChar* idChar
-(175<<16)+2,
-// idChar* ::= idChar
 (175<<16)+1,
+// digit+ ::= digit+ digit
+(175<<16)+2,
+// letter+ ::= letter
+(177<<16)+1,
+// letter+ ::= letter+ letter
+(177<<16)+2,
+// printable* ::= printable* printable
+(174<<16)+2,
+// printable* ::= printable
+(174<<16)+1,
+// idChar* ::= idChar* idChar
+(176<<16)+2,
+// idChar* ::= idChar
+(176<<16)+1,
 // $$0 ::= token*
 (3<<16)+1,
 // $$1 ::= white*
@@ -18658,10 +18449,10 @@ private static int[] charMapTable = {
 -1, // 7
 -1, // 8
 128, // 9
-131, // 10
+164, // 10
 -1, // 11
 126, // 12
-132, // 13
+165, // 13
 -1, // 14
 -1, // 15
 -1, // 16
@@ -18682,20 +18473,20 @@ private static int[] charMapTable = {
 -1, // 31
 127, // " "
 96, // "!"
-156, // '"'
-144, // "#"
-144, // "$"
-148, // "%"
-139, // "&"
-155, // "'"
-149, // "("
-140, // ")"
-157, // "*"
+162, // '"'
+150, // "#"
+150, // "$"
+154, // "%"
+145, // "&"
+161, // "'"
+155, // "("
+146, // ")"
+163, // "*"
 98, // "+"
-141, // ","
-135, // "-"
-151, // "."
-143, // "/"
+147, // ","
+141, // "-"
+157, // "."
+149, // "/"
 124, // "0"
 124, // "1"
 124, // "2"
@@ -18706,13 +18497,13 @@ private static int[] charMapTable = {
 124, // "7"
 124, // "8"
 124, // "9"
-152, // ":"
-145, // ";"
-136, // "<"
+158, // ":"
+151, // ";"
+142, // "<"
 97, // "="
-146, // ">"
-138, // "?"
-138, // "@"
+152, // ">"
+144, // "?"
+144, // "@"
 111, // "A"
 111, // "B"
 111, // "C"
@@ -18739,12 +18530,12 @@ private static int[] charMapTable = {
 111, // "X"
 111, // "Y"
 111, // "Z"
-134, // "["
-150, // "\"
-142, // "]"
-154, // "^"
+140, // "["
+156, // "\"
+148, // "]"
+160, // "^"
 102, // "_"
-154, // "`"
+160, // "`"
 91, // "a"
 117, // "b"
 89, // "c"
@@ -18771,10 +18562,10 @@ private static int[] charMapTable = {
 115, // "x"
 108, // "y"
 123, // "z"
-147, // "{"
-137, // "|"
-153, // "}"
-154, // "~"
+153, // "{"
+143, // "|"
+159, // "}"
+160, // "~"
 -1, // 127
 -1, // 128
 -1, // 129
@@ -19251,27 +19042,28 @@ private String[] actionProdNameTable = {
 "", // 341
 "token* ::= token* token", // 342
 "token* ::= token* token", // 343
-"digit++ ::= digit+ !digit", // 344
-"idChar** ::= idChar* !idChar", // 345
-"printable* ::= printable* printable", // 346
-"printable* ::= printable* printable", // 347
+"printable** ::= printable* !printable", // 344
+"digit++ ::= digit+ !digit", // 345
+"idChar** ::= idChar* !idChar", // 346
+"white* ::= white* white", // 347
 "white* ::= white* white", // 348
-"white* ::= white* white", // 349
+"blockCommentContent* ::= blockCommentContent* blockCommentContent", // 349
 "blockCommentContent* ::= blockCommentContent* blockCommentContent", // 350
-"blockCommentContent* ::= blockCommentContent* blockCommentContent", // 351
+"stringPrintable* ::= stringPrintable* stringPrintable", // 351
 "stringPrintable* ::= stringPrintable* stringPrintable", // 352
-"stringPrintable* ::= stringPrintable* stringPrintable", // 353
-"letter++ ::= letter+ !letter", // 354
-"digit+ ::= digit", // 355
-"digit+ ::= digit+ digit", // 356
-"letter+ ::= letter", // 357
-"letter+ ::= letter+ letter", // 358
-"idChar* ::= idChar* idChar", // 359
+"letter++ ::= letter+ !letter", // 353
+"digit+ ::= digit", // 354
+"digit+ ::= digit+ digit", // 355
+"letter+ ::= letter", // 356
+"letter+ ::= letter+ letter", // 357
+"printable* ::= printable* printable", // 358
+"printable* ::= printable* printable", // 359
 "idChar* ::= idChar* idChar", // 360
-"", // 361
+"idChar* ::= idChar* idChar", // 361
 "", // 362
 "", // 363
 "", // 364
+"", // 365
 };
 public int[][] getActionTable() { return actionTable; }
 private int[][] actionTable = {
@@ -19279,442 +19071,442 @@ private int[][] actionTable = {
       ((1<<5)|0xe)/*popPos:1*/,
     },
     { // 1: $$start ::= [start] @pass
-      ((2<<5)|0x6)/*nullProductionAction:2*/,
+      ((3<<5)|0x6)/*nullProductionAction:3*/,
     },
     { // 2: start ::= white* $$0 @void
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
     },
     { // 3: start ::= white* [token*] @void
-      ((4<<5)|0x6)/*nullProductionAction:4*/,
+      ((5<<5)|0x6)/*nullProductionAction:5*/,
       ((1<<5)|0xe)/*popPos:1*/,
     },
     { // 4: start ::= [white*] $$0 @void
       ((1<<5)|0xe)/*popPos:1*/,
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
     },
     { // 5: token ::= [#] `boolean @sawBoolean(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((0<<5)|0x5)/*methodCall:0*/,
     },
     { // 6: token ::= [#] `class @sawClass(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((1<<5)|0x5)/*methodCall:1*/,
     },
     { // 7: token ::= [#] `extends @sawExtends(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((2<<5)|0x5)/*methodCall:2*/,
     },
     { // 8: token ::= [#] `void @sawVoid(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((3<<5)|0x5)/*methodCall:3*/,
     },
     { // 9: token ::= [#] `int @sawInt(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((4<<5)|0x5)/*methodCall:4*/,
     },
     { // 10: token ::= [#] `while @sawWhile(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((5<<5)|0x5)/*methodCall:5*/,
     },
     { // 11: token ::= [#] `if @sawIf(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((6<<5)|0x5)/*methodCall:6*/,
     },
     { // 12: token ::= [#] `else @sawElse(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((7<<5)|0x5)/*methodCall:7*/,
     },
     { // 13: token ::= [#] `for @sawFor(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((8<<5)|0x5)/*methodCall:8*/,
     },
     { // 14: token ::= [#] `break @sawBreak(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((9<<5)|0x5)/*methodCall:9*/,
     },
     { // 15: token ::= [#] `this @sawThis(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((10<<5)|0x5)/*methodCall:10*/,
     },
     { // 16: token ::= [#] `false @sawFalse(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((11<<5)|0x5)/*methodCall:11*/,
     },
     { // 17: token ::= [#] `true @sawTrue(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((12<<5)|0x5)/*methodCall:12*/,
     },
     { // 18: token ::= [#] `super @sawSuper(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((13<<5)|0x5)/*methodCall:13*/,
     },
     { // 19: token ::= [#] `null @sawNull(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((14<<5)|0x5)/*methodCall:14*/,
     },
     { // 20: token ::= [#] `return @sawReturn(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((15<<5)|0x5)/*methodCall:15*/,
     },
     { // 21: token ::= [#] `instanceof @sawInstanceof(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((16<<5)|0x5)/*methodCall:16*/,
     },
     { // 22: token ::= [#] `new @sawNew(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((17<<5)|0x5)/*methodCall:17*/,
     },
     { // 23: token ::= [#] `abstract @sawAbstract(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((18<<5)|0x5)/*methodCall:18*/,
     },
     { // 24: token ::= [#] `assert @sawAssert(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((19<<5)|0x5)/*methodCall:19*/,
     },
     { // 25: token ::= [#] `byte @sawByte(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((20<<5)|0x5)/*methodCall:20*/,
     },
     { // 26: token ::= [#] `case @sawCase(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((21<<5)|0x5)/*methodCall:21*/,
     },
     { // 27: token ::= [#] `catch @sawCatch(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((22<<5)|0x5)/*methodCall:22*/,
     },
     { // 28: token ::= [#] `char @sawChar(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((23<<5)|0x5)/*methodCall:23*/,
     },
     { // 29: token ::= [#] `const @sawConst(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((24<<5)|0x5)/*methodCall:24*/,
     },
     { // 30: token ::= [#] `continue @sawContinue(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((25<<5)|0x5)/*methodCall:25*/,
     },
     { // 31: token ::= [#] `default @sawDefault(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((26<<5)|0x5)/*methodCall:26*/,
     },
     { // 32: token ::= [#] `do @sawDo(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((27<<5)|0x5)/*methodCall:27*/,
     },
     { // 33: token ::= [#] `double @sawDouble(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((28<<5)|0x5)/*methodCall:28*/,
     },
     { // 34: token ::= [#] `enum @sawEnum(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((29<<5)|0x5)/*methodCall:29*/,
     },
     { // 35: token ::= [#] `final @sawFinal(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((30<<5)|0x5)/*methodCall:30*/,
     },
     { // 36: token ::= [#] `finally @sawFinally(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((31<<5)|0x5)/*methodCall:31*/,
     },
     { // 37: token ::= [#] `float @sawFloat(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((32<<5)|0x5)/*methodCall:32*/,
     },
     { // 38: token ::= [#] `goto @sawGoto(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((33<<5)|0x5)/*methodCall:33*/,
     },
     { // 39: token ::= [#] `implements @sawImplements(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((34<<5)|0x5)/*methodCall:34*/,
     },
     { // 40: token ::= [#] `import @sawImport(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((35<<5)|0x5)/*methodCall:35*/,
     },
     { // 41: token ::= [#] `interface @sawInterface(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((36<<5)|0x5)/*methodCall:36*/,
     },
     { // 42: token ::= [#] `long @sawLong(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((37<<5)|0x5)/*methodCall:37*/,
     },
     { // 43: token ::= [#] `native @sawNative(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((38<<5)|0x5)/*methodCall:38*/,
     },
     { // 44: token ::= [#] `package @sawPackage(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((39<<5)|0x5)/*methodCall:39*/,
     },
     { // 45: token ::= [#] `private @sawPrivate(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((40<<5)|0x5)/*methodCall:40*/,
     },
     { // 46: token ::= [#] `protected @sawProtected(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((41<<5)|0x5)/*methodCall:41*/,
     },
     { // 47: token ::= [#] `public @sawPublic(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((42<<5)|0x5)/*methodCall:42*/,
     },
     { // 48: token ::= [#] `short @sawShort(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((43<<5)|0x5)/*methodCall:43*/,
     },
     { // 49: token ::= [#] `static @sawStatic(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((44<<5)|0x5)/*methodCall:44*/,
     },
     { // 50: token ::= [#] `strictfp @sawStrictfp(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((45<<5)|0x5)/*methodCall:45*/,
     },
     { // 51: token ::= [#] `switch @sawSwitch(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((46<<5)|0x5)/*methodCall:46*/,
     },
     { // 52: token ::= [#] `synchronized @sawSynchronized(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((47<<5)|0x5)/*methodCall:47*/,
     },
     { // 53: token ::= [#] `throw @sawThrow(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((48<<5)|0x5)/*methodCall:48*/,
     },
     { // 54: token ::= [#] `throws @sawThrows(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((49<<5)|0x5)/*methodCall:49*/,
     },
     { // 55: token ::= [#] `transient @sawTransient(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((50<<5)|0x5)/*methodCall:50*/,
     },
     { // 56: token ::= [#] `try @sawTry(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((51<<5)|0x5)/*methodCall:51*/,
     },
     { // 57: token ::= [#] `volatile @sawVolatile(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((52<<5)|0x5)/*methodCall:52*/,
     },
     { // 58: token ::= [#] `! @sawNot(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((53<<5)|0x5)/*methodCall:53*/,
     },
     { // 59: token ::= [#] `!= @sawNotEqual(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((54<<5)|0x5)/*methodCall:54*/,
     },
     { // 60: token ::= [#] `% @sawRemainder(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((55<<5)|0x5)/*methodCall:55*/,
     },
     { // 61: token ::= [#] `&& @sawAnd(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((56<<5)|0x5)/*methodCall:56*/,
     },
     { // 62: token ::= [#] `* @sawTimes(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((57<<5)|0x5)/*methodCall:57*/,
     },
     { // 63: token ::= [#] `( @sawLpar(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((58<<5)|0x5)/*methodCall:58*/,
     },
     { // 64: token ::= [#] `) @sawRpar(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((59<<5)|0x5)/*methodCall:59*/,
     },
     { // 65: token ::= [#] `{ @sawLbrace(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((60<<5)|0x5)/*methodCall:60*/,
     },
     { // 66: token ::= [#] `} @sawRbrace(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((61<<5)|0x5)/*methodCall:61*/,
     },
     { // 67: token ::= [#] `- @sawMinus(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((62<<5)|0x5)/*methodCall:62*/,
     },
     { // 68: token ::= [#] `+ @sawPlus(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((63<<5)|0x5)/*methodCall:63*/,
     },
     { // 69: token ::= [#] `= @sawAssign(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((64<<5)|0x5)/*methodCall:64*/,
     },
     { // 70: token ::= [#] `== @sawEqual(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((65<<5)|0x5)/*methodCall:65*/,
     },
     { // 71: token ::= [#] `[ @sawLbrack(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((66<<5)|0x5)/*methodCall:66*/,
     },
     { // 72: token ::= [#] `] @sawRbrack(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((67<<5)|0x5)/*methodCall:67*/,
     },
     { // 73: token ::= [#] `|| @sawOr(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((68<<5)|0x5)/*methodCall:68*/,
     },
     { // 74: token ::= [#] `< @sawLess(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((69<<5)|0x5)/*methodCall:69*/,
     },
     { // 75: token ::= [#] `<= @sawLessEq(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((70<<5)|0x5)/*methodCall:70*/,
     },
     { // 76: token ::= [#] `, @sawComma(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((71<<5)|0x5)/*methodCall:71*/,
     },
     { // 77: token ::= [#] `> @sawGreater(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((72<<5)|0x5)/*methodCall:72*/,
     },
     { // 78: token ::= [#] `>= @sawGreaterEq(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((73<<5)|0x5)/*methodCall:73*/,
     },
     { // 79: token ::= [#] `. @sawDot(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((74<<5)|0x5)/*methodCall:74*/,
     },
     { // 80: token ::= [#] `; @sawSemi(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((75<<5)|0x5)/*methodCall:75*/,
     },
     { // 81: token ::= [#] `++ @sawPlusPlus(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((76<<5)|0x5)/*methodCall:76*/,
     },
     { // 82: token ::= [#] `-- @sawMinusMinus(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((77<<5)|0x5)/*methodCall:77*/,
     },
     { // 83: token ::= [#] `/ @sawSlash(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((78<<5)|0x5)/*methodCall:78*/,
     },
     { // 84: token ::= [#] `: @sawColon(int)=>
       ((1<<5)|0xe)/*popPos:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((79<<5)|0x5)/*methodCall:79*/,
     },
     { // 85: token ::= [#] ID @identifier(int,String)=>
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((80<<5)|0x5)/*methodCall:80*/,
     },
     { // 86: token ::= [#] INT_LITERAL @intLit(int,int)=>
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((81<<5)|0x5)/*methodCall:81*/,
     },
     { // 87: token ::= [#] STRING_LITERAL @stringLit(int,String)=>
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((82<<5)|0x5)/*methodCall:82*/,
     },
     { // 88: token ::= [#] CHAR_LITERAL @charLit(int,int)=>
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((83<<5)|0x5)/*methodCall:83*/,
     },
     { // 89: `class ::= "c" "l" "a" "s" "s" !idChar white* @void
@@ -19732,7 +19524,7 @@ private int[][] actionTable = {
       ((5<<5)|0x3)/*popOffPushBack:5*/,
     },
     { // 90: `class ::= "c" "l" "a" "s" "s" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -19761,7 +19553,7 @@ private int[][] actionTable = {
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
     { // 93: `else ::= "e" "l" "s" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -19784,7 +19576,7 @@ private int[][] actionTable = {
       ((2<<5)|0x3)/*popOffPushBack:2*/,
     },
     { // 96: `!= ::= "!" "=" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -19798,7 +19590,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 98: `+ ::= "+" !"+" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -19807,14 +19599,14 @@ private int[][] actionTable = {
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((84<<5)|0x5)/*methodCall:84*/,
     },
     { // 100: INT_LITERAL ::= [#] digit++ [white*] @convertToInt(int,List<Character>)=>int
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((84<<5)|0x5)/*methodCall:84*/,
     },
     { // 101: idChar ::= letter @pass
@@ -19848,61 +19640,13 @@ private int[][] actionTable = {
     { // 108: white ::= comment @void
       ((1<<5)|0xe)/*popPos:1*/,
     },
-    { // 109: eol ::= {10} [registerNewline] @void
-      ((10<<5)|0x6)/*nullProductionAction:10*/,
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0x3)/*popOffPushBack:1*/,
-    },
-    { // 110: eol ::= {13} {10} [registerNewline] @void
-      ((10<<5)|0x6)/*nullProductionAction:10*/,
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((2<<5)|0x3)/*popOffPushBack:2*/,
-    },
-    { // 111: eol ::= {13} !10 [registerNewline] @void
-      ((10<<5)|0x6)/*nullProductionAction:10*/,
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0x3)/*popOffPushBack:1*/,
-    },
-    { // 112: printable ::= {" ".."~"} @pass
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-    },
-    { // 113: stringPrintable ::= {" ".."!"} @pass
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-    },
-    { // 114: stringPrintable ::= {"#".."["} @pass
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-    },
-    { // 115: stringPrintable ::= {"]".."~"} @pass
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-    },
-    { // 116: charPrintable ::= {" ".."&"} @pass
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-    },
-    { // 117: charPrintable ::= {"(".."["} @pass
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-    },
-    { // 118: charPrintable ::= {"]".."~"} @pass
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-    },
-    { // 119: comment ::= oneLineComment @void
+    { // 109: comment ::= oneLineComment @void
       ((1<<5)|0xe)/*popPos:1*/,
     },
-    { // 120: comment ::= blockComment @void
+    { // 110: comment ::= blockComment @void
       ((1<<5)|0xe)/*popPos:1*/,
     },
-    { // 121: oneLineComment ::= doubleSlash printable* eol @void
+    { // 111: oneLineComment ::= doubleSlash printable** eol @void
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
@@ -19910,14 +19654,14 @@ private int[][] actionTable = {
       ((2<<5)|0x0)/*popToPushBack:2*/,
       ((3<<5)|0x3)/*popOffPushBack:3*/,
     },
-    { // 122: oneLineComment ::= doubleSlash [printable*] eol @void
+    { // 112: oneLineComment ::= doubleSlash !printable [printable**] eol @void
       ((1<<5)|0xe)/*popPos:1*/,
       ((0<<5)|0x6)/*nullProductionAction:0*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((2<<5)|0x0)/*popToPushBack:2*/,
       ((3<<5)|0x3)/*popOffPushBack:3*/,
     },
-    { // 123: blockComment ::= slashStar blockCommentContent* starSlash @void
+    { // 113: blockComment ::= slashStar blockCommentContent* starSlash @void
       ((1<<5)|0xe)/*popPos:1*/,
       ((2<<5)|0x0)/*popToPushBack:2*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -19925,42 +19669,90 @@ private int[][] actionTable = {
       ((2<<5)|0x0)/*popToPushBack:2*/,
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
-    { // 124: blockComment ::= slashStar [blockCommentContent*] starSlash @void
+    { // 114: blockComment ::= slashStar [blockCommentContent*] starSlash @void
       ((1<<5)|0xe)/*popPos:1*/,
       ((2<<5)|0x0)/*popToPushBack:2*/,
-      ((6<<5)|0x6)/*nullProductionAction:6*/,
+      ((7<<5)|0x6)/*nullProductionAction:7*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((2<<5)|0x0)/*popToPushBack:2*/,
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
-    { // 125: blockCommentContent ::= {9 " "..")" "+".."~"} @void
+    { // 115: blockCommentContent ::= {9 " "..")" "+".."~"} @void
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
-    { // 126: blockCommentContent ::= "*" !"/" @void
+    { // 116: blockCommentContent ::= "*" !"/" @void
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
-    { // 127: blockCommentContent ::= eol @void
+    { // 117: blockCommentContent ::= eol @void
       ((1<<5)|0xe)/*popPos:1*/,
     },
-    { // 128: slashStar ::= "/" "*" @pass
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-    },
-    { // 129: starSlash ::= "*" "/" @pass
+    { // 118: slashStar ::= "/" "*" @pass
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
     },
-    { // 130: doubleSlash ::= "/" "/" @pass
+    { // 119: starSlash ::= "*" "/" @pass
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+    },
+    { // 120: doubleSlash ::= "/" "/" @pass
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+    },
+    { // 121: eol ::= {10} [registerNewline] @void
+      ((11<<5)|0x6)/*nullProductionAction:11*/,
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0x3)/*popOffPushBack:1*/,
+    },
+    { // 122: eol ::= {13} {10} [registerNewline] @void
+      ((11<<5)|0x6)/*nullProductionAction:11*/,
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((2<<5)|0x3)/*popOffPushBack:2*/,
+    },
+    { // 123: eol ::= {13} !10 [registerNewline] @void
+      ((11<<5)|0x6)/*nullProductionAction:11*/,
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0x3)/*popOffPushBack:1*/,
+    },
+    { // 124: printable ::= {" ".."~"} @pass
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+    },
+    { // 125: stringPrintable ::= {" ".."!"} @pass
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+    },
+    { // 126: stringPrintable ::= {"#".."["} @pass
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+    },
+    { // 127: stringPrintable ::= {"]".."~"} @pass
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+    },
+    { // 128: charPrintable ::= {" ".."&"} @pass
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+    },
+    { // 129: charPrintable ::= {"(".."["} @pass
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+    },
+    { // 130: charPrintable ::= {"]".."~"} @pass
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
     },
@@ -19971,7 +19763,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 132: `! ::= "!" !"=" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -19983,7 +19775,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 134: `% ::= "%" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -19997,7 +19789,7 @@ private int[][] actionTable = {
       ((2<<5)|0x3)/*popOffPushBack:2*/,
     },
     { // 136: `&& ::= "&" "&" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20011,7 +19803,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 138: `* ::= "*" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20023,7 +19815,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 140: `( ::= "(" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20035,7 +19827,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 142: `) ::= ")" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20047,7 +19839,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 144: `{ ::= "{" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20059,7 +19851,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 146: `} ::= "}" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20071,19 +19863,19 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 148: `- ::= "-" !"-" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
-    { // 149: `= ::= "=" white* @void
+    { // 149: `= ::= "=" !"=" white* @void
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
-    { // 150: `= ::= "=" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+    { // 150: `= ::= "=" !"=" [white*] @void
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20097,7 +19889,7 @@ private int[][] actionTable = {
       ((2<<5)|0x3)/*popOffPushBack:2*/,
     },
     { // 152: `== ::= "=" "=" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20111,7 +19903,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 154: `[ ::= "[" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20123,7 +19915,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 156: `] ::= "]" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20137,7 +19929,7 @@ private int[][] actionTable = {
       ((2<<5)|0x3)/*popOffPushBack:2*/,
     },
     { // 158: `|| ::= "|" "|" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20151,7 +19943,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 160: `< ::= "<" !"=" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20165,7 +19957,7 @@ private int[][] actionTable = {
       ((2<<5)|0x3)/*popOffPushBack:2*/,
     },
     { // 162: `<= ::= "<" "=" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20179,7 +19971,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 164: `, ::= "," [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20191,7 +19983,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 166: `> ::= ">" !"=" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20205,7 +19997,7 @@ private int[][] actionTable = {
       ((2<<5)|0x3)/*popOffPushBack:2*/,
     },
     { // 168: `>= ::= ">" "=" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20219,7 +20011,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 170: `: ::= ":" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20231,7 +20023,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 172: `. ::= "." [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20243,7 +20035,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 174: `; ::= ";" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20257,7 +20049,7 @@ private int[][] actionTable = {
       ((2<<5)|0x3)/*popOffPushBack:2*/,
     },
     { // 176: `++ ::= "+" "+" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20273,7 +20065,7 @@ private int[][] actionTable = {
       ((2<<5)|0x3)/*popOffPushBack:2*/,
     },
     { // 178: `-- ::= "-" "-" [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20287,7 +20079,7 @@ private int[][] actionTable = {
       ((1<<5)|0x3)/*popOffPushBack:1*/,
     },
     { // 180: `/ ::= !doubleSlash !slashStar "/" !{"*" "/"} [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x3)/*popOffPushBack:1*/,
@@ -20311,7 +20103,7 @@ private int[][] actionTable = {
       ((7<<5)|0x3)/*popOffPushBack:7*/,
     },
     { // 182: `boolean ::= "b" "o" "o" "l" "e" "a" "n" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20350,7 +20142,7 @@ private int[][] actionTable = {
       ((7<<5)|0x3)/*popOffPushBack:7*/,
     },
     { // 185: `extends ::= "e" "x" "t" "e" "n" "d" "s" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20383,7 +20175,7 @@ private int[][] actionTable = {
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
     { // 188: `void ::= "v" "o" "i" "d" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20408,7 +20200,7 @@ private int[][] actionTable = {
       ((3<<5)|0x3)/*popOffPushBack:3*/,
     },
     { // 191: `int ::= "i" "n" "t" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20435,7 +20227,7 @@ private int[][] actionTable = {
       ((5<<5)|0x3)/*popOffPushBack:5*/,
     },
     { // 194: `while ::= "w" "h" "i" "l" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20460,7 +20252,7 @@ private int[][] actionTable = {
       ((2<<5)|0x3)/*popOffPushBack:2*/,
     },
     { // 197: `if ::= "i" "f" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20481,7 +20273,7 @@ private int[][] actionTable = {
       ((3<<5)|0x3)/*popOffPushBack:3*/,
     },
     { // 200: `for ::= "f" "o" "r" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20508,7 +20300,7 @@ private int[][] actionTable = {
       ((5<<5)|0x3)/*popOffPushBack:5*/,
     },
     { // 203: `break ::= "b" "r" "e" "a" "k" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20537,7 +20329,7 @@ private int[][] actionTable = {
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
     { // 206: `this ::= "t" "h" "i" "s" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20566,7 +20358,7 @@ private int[][] actionTable = {
       ((5<<5)|0x3)/*popOffPushBack:5*/,
     },
     { // 209: `false ::= "f" "a" "l" "s" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20595,7 +20387,7 @@ private int[][] actionTable = {
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
     { // 212: `true ::= "t" "r" "u" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20624,7 +20416,7 @@ private int[][] actionTable = {
       ((5<<5)|0x3)/*popOffPushBack:5*/,
     },
     { // 215: `super ::= "s" "u" "p" "e" "r" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20653,7 +20445,7 @@ private int[][] actionTable = {
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
     { // 218: `null ::= "n" "u" "l" "l" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20684,7 +20476,7 @@ private int[][] actionTable = {
       ((6<<5)|0x3)/*popOffPushBack:6*/,
     },
     { // 221: `return ::= "r" "e" "t" "u" "r" "n" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20727,7 +20519,7 @@ private int[][] actionTable = {
       ((10<<5)|0x3)/*popOffPushBack:10*/,
     },
     { // 224: `instanceof ::= "i" "n" "s" "t" "a" "n" "c" "e" "o" "f" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20764,7 +20556,7 @@ private int[][] actionTable = {
       ((3<<5)|0x3)/*popOffPushBack:3*/,
     },
     { // 227: `new ::= "n" "e" "w" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20797,7 +20589,7 @@ private int[][] actionTable = {
       ((8<<5)|0x3)/*popOffPushBack:8*/,
     },
     { // 230: `abstract ::= "a" "b" "s" "t" "r" "a" "c" "t" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20836,7 +20628,7 @@ private int[][] actionTable = {
       ((6<<5)|0x3)/*popOffPushBack:6*/,
     },
     { // 233: `assert ::= "a" "s" "s" "e" "r" "t" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20867,7 +20659,7 @@ private int[][] actionTable = {
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
     { // 236: `byte ::= "b" "y" "t" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20894,7 +20686,7 @@ private int[][] actionTable = {
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
     { // 239: `case ::= "c" "a" "s" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20923,7 +20715,7 @@ private int[][] actionTable = {
       ((5<<5)|0x3)/*popOffPushBack:5*/,
     },
     { // 242: `catch ::= "c" "a" "t" "c" "h" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20952,7 +20744,7 @@ private int[][] actionTable = {
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
     { // 245: `char ::= "c" "h" "a" "r" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -20981,7 +20773,7 @@ private int[][] actionTable = {
       ((5<<5)|0x3)/*popOffPushBack:5*/,
     },
     { // 248: `const ::= "c" "o" "n" "s" "t" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21018,7 +20810,7 @@ private int[][] actionTable = {
       ((8<<5)|0x3)/*popOffPushBack:8*/,
     },
     { // 251: `continue ::= "c" "o" "n" "t" "i" "n" "u" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21059,7 +20851,7 @@ private int[][] actionTable = {
       ((7<<5)|0x3)/*popOffPushBack:7*/,
     },
     { // 254: `default ::= "d" "e" "f" "a" "u" "l" "t" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21088,7 +20880,7 @@ private int[][] actionTable = {
       ((2<<5)|0x3)/*popOffPushBack:2*/,
     },
     { // 257: `do ::= "d" "o" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21115,7 +20907,7 @@ private int[][] actionTable = {
       ((6<<5)|0x3)/*popOffPushBack:6*/,
     },
     { // 260: `double ::= "d" "o" "u" "b" "l" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21146,7 +20938,7 @@ private int[][] actionTable = {
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
     { // 263: `enum ::= "e" "n" "u" "m" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21175,7 +20967,7 @@ private int[][] actionTable = {
       ((5<<5)|0x3)/*popOffPushBack:5*/,
     },
     { // 266: `final ::= "f" "i" "n" "a" "l" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21210,7 +21002,7 @@ private int[][] actionTable = {
       ((7<<5)|0x3)/*popOffPushBack:7*/,
     },
     { // 269: `finally ::= "f" "i" "n" "a" "l" "l" "y" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21245,7 +21037,7 @@ private int[][] actionTable = {
       ((5<<5)|0x3)/*popOffPushBack:5*/,
     },
     { // 272: `float ::= "f" "l" "o" "a" "t" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21274,7 +21066,7 @@ private int[][] actionTable = {
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
     { // 275: `goto ::= "g" "o" "t" "o" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21313,7 +21105,7 @@ private int[][] actionTable = {
       ((10<<5)|0x3)/*popOffPushBack:10*/,
     },
     { // 278: `implements ::= "i" "m" "p" "l" "e" "m" "e" "n" "t" "s" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21356,7 +21148,7 @@ private int[][] actionTable = {
       ((6<<5)|0x3)/*popOffPushBack:6*/,
     },
     { // 281: `import ::= "i" "m" "p" "o" "r" "t" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21397,7 +21189,7 @@ private int[][] actionTable = {
       ((9<<5)|0x3)/*popOffPushBack:9*/,
     },
     { // 284: `interface ::= "i" "n" "t" "e" "r" "f" "a" "c" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21434,7 +21226,7 @@ private int[][] actionTable = {
       ((4<<5)|0x3)/*popOffPushBack:4*/,
     },
     { // 287: `long ::= "l" "o" "n" "g" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21465,7 +21257,7 @@ private int[][] actionTable = {
       ((6<<5)|0x3)/*popOffPushBack:6*/,
     },
     { // 290: `native ::= "n" "a" "t" "i" "v" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21502,7 +21294,7 @@ private int[][] actionTable = {
       ((7<<5)|0x3)/*popOffPushBack:7*/,
     },
     { // 293: `package ::= "p" "a" "c" "k" "a" "g" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21541,7 +21333,7 @@ private int[][] actionTable = {
       ((7<<5)|0x3)/*popOffPushBack:7*/,
     },
     { // 296: `private ::= "p" "r" "i" "v" "a" "t" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21584,7 +21376,7 @@ private int[][] actionTable = {
       ((9<<5)|0x3)/*popOffPushBack:9*/,
     },
     { // 299: `protected ::= "p" "r" "o" "t" "e" "c" "t" "e" "d" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21625,7 +21417,7 @@ private int[][] actionTable = {
       ((6<<5)|0x3)/*popOffPushBack:6*/,
     },
     { // 302: `public ::= "p" "u" "b" "l" "i" "c" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21658,7 +21450,7 @@ private int[][] actionTable = {
       ((5<<5)|0x3)/*popOffPushBack:5*/,
     },
     { // 305: `short ::= "s" "h" "o" "r" "t" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21691,7 +21483,7 @@ private int[][] actionTable = {
       ((6<<5)|0x3)/*popOffPushBack:6*/,
     },
     { // 308: `static ::= "s" "t" "a" "t" "i" "c" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21730,7 +21522,7 @@ private int[][] actionTable = {
       ((8<<5)|0x3)/*popOffPushBack:8*/,
     },
     { // 311: `strictfp ::= "s" "t" "r" "i" "c" "t" "f" "p" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21769,7 +21561,7 @@ private int[][] actionTable = {
       ((6<<5)|0x3)/*popOffPushBack:6*/,
     },
     { // 314: `switch ::= "s" "w" "i" "t" "c" "h" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21816,7 +21608,7 @@ private int[][] actionTable = {
       ((12<<5)|0x3)/*popOffPushBack:12*/,
     },
     { // 317: `synchronized ::= "s" "y" "n" "c" "h" "r" "o" "n" "i" "z" "e" "d" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21861,7 +21653,7 @@ private int[][] actionTable = {
       ((5<<5)|0x3)/*popOffPushBack:5*/,
     },
     { // 320: `throw ::= "t" "h" "r" "o" "w" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21894,7 +21686,7 @@ private int[][] actionTable = {
       ((6<<5)|0x3)/*popOffPushBack:6*/,
     },
     { // 323: `throws ::= "t" "h" "r" "o" "w" "s" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21935,7 +21727,7 @@ private int[][] actionTable = {
       ((9<<5)|0x3)/*popOffPushBack:9*/,
     },
     { // 326: `transient ::= "t" "r" "a" "n" "s" "i" "e" "n" "t" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -21970,7 +21762,7 @@ private int[][] actionTable = {
       ((3<<5)|0x3)/*popOffPushBack:3*/,
     },
     { // 329: `try ::= "t" "r" "y" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -22003,7 +21795,7 @@ private int[][] actionTable = {
       ((8<<5)|0x3)/*popOffPushBack:8*/,
     },
     { // 332: `volatile ::= "v" "o" "l" "a" "t" "i" "l" "e" !idChar [white*] @void
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -22034,7 +21826,7 @@ private int[][] actionTable = {
       ((2<<5)|0x4)/*stringConcat:2*/,
     },
     { // 335: ID ::= !reserved letter++ idChar** [white*] @text
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
@@ -22043,14 +21835,14 @@ private int[][] actionTable = {
     },
     { // 336: ID ::= !reserved letter++ !idChar [idChar**] $$1 @text
       ((1<<5)|0xe)/*popPos:1*/,
-      ((3<<5)|0x6)/*nullProductionAction:3*/,
+      ((4<<5)|0x6)/*nullProductionAction:4*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((2<<5)|0x4)/*stringConcat:2*/,
     },
     { // 337: ID ::= !reserved letter++ !idChar [idChar**] [white*] @text
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
-      ((3<<5)|0x6)/*nullProductionAction:3*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
+      ((4<<5)|0x6)/*nullProductionAction:4*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((2<<5)|0x4)/*stringConcat:2*/,
@@ -22067,12 +21859,12 @@ private int[][] actionTable = {
     { // 339: STRING_LITERAL ::= '"' [stringPrintable*] $$2 @text
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0x6)/*nullProductionAction:1*/,
+      ((2<<5)|0x6)/*nullProductionAction:2*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((3<<5)|0x4)/*stringConcat:3*/,
     },
-    { // 340: CHAR_LITERAL ::= "'" charPrintable "'" white* @return0(char,char,char)=>int
+    { // 340: CHAR_LITERAL ::= [#] "'" charPrintable "'" white* @return0(int,char,char,char)=>int
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
@@ -22080,16 +21872,18 @@ private int[][] actionTable = {
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((85<<5)|0x5)/*methodCall:85*/,
     },
-    { // 341: CHAR_LITERAL ::= "'" charPrintable "'" [white*] @return0(char,char,char)=>int
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+    { // 341: CHAR_LITERAL ::= [#] "'" charPrintable "'" [white*] @return0(int,char,char,char)=>int
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((85<<5)|0x5)/*methodCall:85*/,
     },
     { // 342: token* ::= token* token @append
@@ -22098,118 +21892,123 @@ private int[][] actionTable = {
     },
     { // 343: token* ::= [token*] token @append
       ((1<<5)|0xe)/*popPos:1*/,
-      ((4<<5)|0x6)/*nullProductionAction:4*/,
+      ((5<<5)|0x6)/*nullProductionAction:5*/,
     },
-    { // 344: digit++ ::= digit+ !digit @pass
+    { // 344: printable** ::= printable* !printable @pass
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
     },
-    { // 345: idChar** ::= idChar* !idChar @pass
+    { // 345: digit++ ::= digit+ !digit @pass
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
     },
-    { // 346: printable* ::= printable* printable @append
+    { // 346: idChar** ::= idChar* !idChar @pass
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0xb)/*append:1*/,
     },
-    { // 347: printable* ::= [printable*] printable @append
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((0<<5)|0x6)/*nullProductionAction:0*/,
-      ((1<<5)|0xb)/*append:1*/,
-    },
-    { // 348: white* ::= white* white @append
+    { // 347: white* ::= white* white @append
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
     },
-    { // 349: white* ::= [white*] white @append
+    { // 348: white* ::= [white*] white @append
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
+    },
+    { // 349: blockCommentContent* ::= blockCommentContent* blockCommentContent @append
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0xe)/*popPos:1*/,
+    },
+    { // 350: blockCommentContent* ::= [blockCommentContent*] blockCommentContent @append
       ((1<<5)|0xe)/*popPos:1*/,
       ((7<<5)|0x6)/*nullProductionAction:7*/,
     },
-    { // 350: blockCommentContent* ::= blockCommentContent* blockCommentContent @append
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0xe)/*popPos:1*/,
-    },
-    { // 351: blockCommentContent* ::= [blockCommentContent*] blockCommentContent @append
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((6<<5)|0x6)/*nullProductionAction:6*/,
-    },
-    { // 352: stringPrintable* ::= stringPrintable* stringPrintable @append
+    { // 351: stringPrintable* ::= stringPrintable* stringPrintable @append
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xb)/*append:1*/,
     },
-    { // 353: stringPrintable* ::= [stringPrintable*] stringPrintable @append
+    { // 352: stringPrintable* ::= [stringPrintable*] stringPrintable @append
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((2<<5)|0x6)/*nullProductionAction:2*/,
+      ((1<<5)|0xb)/*append:1*/,
+    },
+    { // 353: letter++ ::= letter+ !letter @pass
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+    },
+    { // 354: digit+ ::= digit @singleList
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0xa)/*singleList:1*/,
+    },
+    { // 355: digit+ ::= digit+ digit @append
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0xb)/*append:1*/,
+    },
+    { // 356: letter+ ::= letter @singleList
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0xa)/*singleList:1*/,
+    },
+    { // 357: letter+ ::= letter+ letter @append
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0xb)/*append:1*/,
+    },
+    { // 358: printable* ::= printable* printable @append
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0xe)/*popPos:1*/,
+      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((1<<5)|0xb)/*append:1*/,
+    },
+    { // 359: printable* ::= [printable*] printable @append
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0x6)/*nullProductionAction:1*/,
       ((1<<5)|0xb)/*append:1*/,
     },
-    { // 354: letter++ ::= letter+ !letter @pass
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-    },
-    { // 355: digit+ ::= digit @singleList
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0xa)/*singleList:1*/,
-    },
-    { // 356: digit+ ::= digit+ digit @append
+    { // 360: idChar* ::= idChar* idChar @append
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
       ((1<<5)|0xb)/*append:1*/,
     },
-    { // 357: letter+ ::= letter @singleList
+    { // 361: idChar* ::= [idChar*] idChar @append
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0xa)/*singleList:1*/,
-    },
-    { // 358: letter+ ::= letter+ letter @append
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
+      ((6<<5)|0x6)/*nullProductionAction:6*/,
       ((1<<5)|0xb)/*append:1*/,
     },
-    { // 359: idChar* ::= idChar* idChar @append
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((1<<5)|0xb)/*append:1*/,
-    },
-    { // 360: idChar* ::= [idChar*] idChar @append
-      ((1<<5)|0xe)/*popPos:1*/,
-      ((1<<5)|0x0)/*popToPushBack:1*/,
-      ((5<<5)|0x6)/*nullProductionAction:5*/,
-      ((1<<5)|0xb)/*append:1*/,
-    },
-    { // 361: $$0 ::= token* @pass
+    { // 362: $$0 ::= token* @pass
       ((1<<5)|0xe)/*popPos:1*/,
     },
-    { // 362: $$1 ::= white* @pass
+    { // 363: $$1 ::= white* @pass
       ((1<<5)|0xe)/*popPos:1*/,
     },
-    { // 363: $$2 ::= '"' white* @pass
+    { // 364: $$2 ::= '"' white* @pass
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
     },
-    { // 364: $$2 ::= '"' [white*] @pass
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
+    { // 365: $$2 ::= '"' [white*] @pass
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
       ((1<<5)|0xe)/*popPos:1*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
     },
 };
 public String[] getNullProdNameTable() { return nullProdNameTable; }
 private String[] nullProdNameTable = {
+    "printable** ::= printable* !printable", // printable**
     "printable* ::=", // printable*
     "stringPrintable* ::=", // stringPrintable*
     "", // start
@@ -22224,6 +22023,9 @@ private String[] nullProdNameTable = {
 };
 public int[][] getNullProductionActionTable() { return nullActionTable; }
 private int[][] nullActionTable = {
+    { // printable**
+      ((1<<5)|0x6)/*nullProductionAction:1*/,
+    },
     { // printable*
       ((1<<5)|0x9)/*emptyList:1*/,
     },
@@ -22231,11 +22033,11 @@ private int[][] nullActionTable = {
       ((1<<5)|0x9)/*emptyList:1*/,
     },
     { // start
-      ((7<<5)|0x6)/*nullProductionAction:7*/,
-      ((4<<5)|0x6)/*nullProductionAction:4*/,
+      ((8<<5)|0x6)/*nullProductionAction:8*/,
+      ((5<<5)|0x6)/*nullProductionAction:5*/,
     },
     { // idChar**
-      ((5<<5)|0x6)/*nullProductionAction:5*/,
+      ((6<<5)|0x6)/*nullProductionAction:6*/,
     },
     { // token*
     },
@@ -22247,14 +22049,14 @@ private int[][] nullActionTable = {
     { // white*
     },
     { // $$start
-      ((2<<5)|0x6)/*nullProductionAction:2*/,
+      ((3<<5)|0x6)/*nullProductionAction:3*/,
     },
     { // #
       7/*duplicateTop*/,
       ((1<<5)|0x0)/*popToPushBack:1*/,
     },
     { // registerNewline
-      ((9<<5)|0x6)/*nullProductionAction:9*/,
+      ((10<<5)|0x6)/*nullProductionAction:10*/,
       ((86<<5)|0x5)/*methodCall:86*/,
     },
 };
@@ -22693,10 +22495,11 @@ public void actionCall(int idx, wrangLR.runtime.SemanticInfo si) {
     }
     break;
     case 85: {
-      char parm0 = (Character)si.popPb();
+      int parm0 = (Integer)si.popPb();
       char parm1 = (Character)si.popPb();
       char parm2 = (Character)si.popPb();
-      int result = actionObject.return0(parm0,parm1,parm2);
+      char parm3 = (Character)si.popPb();
+      int result = actionObject.return0(parm0,parm1,parm2,parm3);
       si.pushPb(result);
     }
     break;
@@ -22793,7 +22596,7 @@ private String[] saNameSigTable = {
 "void stringLit(int,String)",
 "void charLit(int,int)",
 "int convertToInt(int,List<Character>)",
-"int return0(char,char,char)",
+"int return0(int,char,char,char)",
 "void registerNewline(int)",
 };
 public String[] getSaNameSigTable() {
@@ -22885,7 +22688,7 @@ private int[] sigCountTable = {
 2,0,
 2,0,
 2,1,
-3,1,
+4,1,
 1,0,
 };
 public int[] getSigCountTable() {
@@ -23024,49 +22827,50 @@ private int[] symbolSizeTable = {
     -1,
     0,
     0,
-    -1,
-    -1,
-    1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    1,
-    1,
     0,
     0,
     2,
+    1,
     1,
     2,
     0,
     2,
     0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    1,
+    1,
     1,
     1,
     0,
     1,
     1,
     0,
+    1,
     1,
     1,
     1,

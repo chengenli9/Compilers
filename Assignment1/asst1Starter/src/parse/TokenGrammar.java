@@ -539,16 +539,13 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: comment ::= oneLineComment
     //: comment ::= blockComment
 
-    //: oneLineComment ::= doubleSlash printable** eol 
-    //: blockComment ::= slashStar blockCommentContent* starSlash 
+    //: oneLineComment ::= "//" printable** eol 
+    //: blockComment ::= "/*" blockCommentContent* "*/"
 
+    //: blockCommentContent ::= eol
     //: blockCommentContent ::= {9 32..41 43..126}
     //: blockCommentContent ::= "*" !"/"
-    //: blockCommentContent ::= eol
 
-    //: slashStar ::= "/*" => pass
-    //: starSlash ::= "*/" => pass
-    //: doubleSlash ::= "//" => pass
 
 
     // to handle the common end-of-line sequences on different types
@@ -616,7 +613,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `; ::= ";" white*
     //: `++ ::= "++" white*
     //: `-- ::= "--" white*
-    //: `/ ::= !doubleSlash !slashStar "/" !{"/" "*"} white* 
+    //: `/ ::= "/" !{"/" "*"} white* 
     
     //: `boolean ::= "boolean" !idChar white* 
     //: reserved ::= `boolean

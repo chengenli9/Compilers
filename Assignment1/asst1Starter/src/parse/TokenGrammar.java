@@ -521,11 +521,11 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     // handle hexidecimal numbers
     //: hex ::= "x" => pass
     //: hex ::= "X" => pass
-    //: INT_LITERAL ::= # "0" hex digit++ =>
+    //: INT_LITERAL ::= # "0" hex idChar++ =>
     public int convertHexToInt(int pos, Character zero, Character hex, List<Character> s) {
         try {
             
-            return Integer.decode("0x" + String.valueof(s));
+            return Integer.decode("0x" + String.valueOf(s));
         } catch (NumberFormatException nfx) {
             error(pos, CompError.OutOfRange(s.toString()));
             return 0;
@@ -536,7 +536,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: INT_LITERAL ::= # "0" digit++ white* => 
     public int convertOctalToInt(int pos, Character zero, List<Character> s) {
         try {
-            return Integer.decode("0" + string.valueof(s));
+            return Integer.decode("0" + String.valueOf(s));
         } catch (NumberFormatException nfx) {
             error(pos, CompError.OutOfRange(s.toString()));
             return 0;
@@ -574,9 +574,9 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: blockComment ::= "/*" blockCommentContent* "*/"
 
     //: blockCommentContent ::= eol
-    
     // exclude '*' if it follows with a '/'
     //: blockCommentContent ::= {9 32..41 43..126}
+    // exclude '/' if it follows a '*'
     //: blockCommentContent ::= "*" !"/"
 
 

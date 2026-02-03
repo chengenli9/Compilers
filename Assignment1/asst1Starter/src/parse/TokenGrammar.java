@@ -571,12 +571,14 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: stringPrintable ::= {" ".."!"} => pass
     //: stringPrintable ::= {"#".."["} => pass
     //: stringPrintable ::= {"]".."~"} => pass
+    //: stringPrintable ::= recognizeEscapeChar => pass
      
 
     // char printables are every character except ' and \
     //: charPrintable ::= {" ".."&"} => pass
     //: charPrintable ::= {"(".."["} => pass
     //: charPrintable ::= {"]".."~"} => pass
+    //: charPrintable ::= recognizeEscapeChar => pass
 
 
     // The end of file is when we don't match any character.
@@ -722,9 +724,48 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
 
     //: STRING_LITERAL ::= '"' stringPrintable* '"' white* => text
 
-    //: CHAR_LITERAL ::= # "'" charPrintable "'" white* =>
+    //: CHAR_LITERAL ::= "'" charPrintable "'" white* =>
     
-    public int return0(int pos, char c1, char c2, char c3) { return (int) c2; }
+    public int return0(char c1, char c2, char c3) { return (int) c2; }
 
+    //================ Extention 2 =====================
+
+    //: escapeChars ::= '\\' => pass
+    //: escapeChars ::= '\"' => pass
+    //: escapeChars ::= "\'" => pass
+    //: escapeChars ::= '\n' => pass
+    //: escapeChars ::= '\t' => pass
+    //: escapeChars ::= '\f' => pass
+    //: escapeChars ::= '\r' => pass
+
+    //: recognizeEscapeChar ::= escapeChars => 
+        // if it reads an escape char then it should return it
+        public char recognizeEscapeChar(char backSlash, char c) {
+            switch(c) {
+                //backslash
+                case '\\':
+                    return '\\';
+                //double quote
+                case '\"':
+                    return '\"';
+                //single quote
+                case '\'': 
+                    return '\'';
+                // newline
+                case '\n':
+                    return '\n';
+                // tab
+                case '\t':
+                    return '\t';
+                // form feed
+                case '\f':
+                    return '\f';
+                //cariage return 
+                case '\r':
+                    return '\r';
+            }
+
+            return 0;
+        }
     
 }

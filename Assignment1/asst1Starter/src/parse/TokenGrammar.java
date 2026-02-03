@@ -512,21 +512,27 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
         }
     }
 
+    // case when int is just zero
     //: INT_LITERAL ::= # "0" !digit !{"x" "X"} white* => 
     public int returnZero(int pos, char c) {return 0;}
 
+    // ============= Extention 3 =============
+
+    // handle hexidecimal numbers
     //: hex ::= "x" => pass
     //: hex ::= "X" => pass
     //: INT_LITERAL ::= # "0" hex digit++ =>
     public int convertHexToInt(int pos, Character zero, Character hex, List<Character> s) {
         try {
+            
             return Integer.decode("0x" + String.valueof(s));
         } catch (NumberFormatException nfx) {
             error(pos, CompError.OutOfRange(s.toString()));
             return 0;
         }
     }
-
+    
+    // handles octal numbers
     //: INT_LITERAL ::= # "0" digit++ white* => 
     public int convertOctalToInt(int pos, Character zero, List<Character> s) {
         try {
@@ -568,6 +574,8 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: blockComment ::= "/*" blockCommentContent* "*/"
 
     //: blockCommentContent ::= eol
+    
+    // exclude '*' if it follows with a '/'
     //: blockCommentContent ::= {9 32..41 43..126}
     //: blockCommentContent ::= "*" !"/"
 

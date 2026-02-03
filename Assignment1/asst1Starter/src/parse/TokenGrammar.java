@@ -498,7 +498,7 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
     //: `+ ::= "+" !"+" white*
 
     // a numeric literal
-    //: INT_LITERAL ::= # digit++ white* =>
+    //: INT_LITERAL ::= # !"0" digit++ white* =>
     public int convertToInt(int pos, List<Character> s)
     {
         try
@@ -507,6 +507,31 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
         }
         catch (NumberFormatException nfx)
         {
+            error(pos, CompError.OutOfRange(s.toString()));
+            return 0;
+        }
+    }
+
+    //: INT_LITERAL ::= # "0" !digit !{"x" "X"} white* => 
+    public int returnZero(int pos, char c) {return 0;}
+
+    //: hex ::= "x" => pass
+    //: hex ::= "X" => pass
+    //: INT_LITERAL ::= # "0" hex digit++ =>
+    public int convertHexToInt(int pos, Character zero, Character hex, List<Character> s) {
+        try {
+            return Integer.decode("0x" + String.valueof(s));
+        } catch (NumberFormatException nfx) {
+            error(pos, CompError.OutOfRange(s.toString()));
+            return 0;
+        }
+    }
+
+    //: INT_LITERAL ::= # "0" digit++ white* => 
+    public int convertOctalToInt(int pos, Character zero, List<Character> s) {
+        try {
+            return Integer.decode("0" + string.valueof(s));
+        } catch (NumberFormatException nfx) {
             error(pos, CompError.OutOfRange(s.toString()));
             return 0;
         }
@@ -768,4 +793,6 @@ public class TokenGrammar implements wrangLR.runtime.MessageObject
             return 0;
         }
     
+    
+
 }

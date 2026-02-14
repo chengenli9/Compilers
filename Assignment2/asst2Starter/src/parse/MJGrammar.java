@@ -77,20 +77,81 @@ public class MJGrammar implements MessageObject, FilePosObject
         return new Program(pos, new ClassDeclList(vec));
     }
 
-    //: <class decl> ::= `class # ID `{ <decl in class>* `} =>
-    public ClassDecl createClassDecl(int pos, String name, List<Decl> vec)
+    // Extends
+    //: <extends ID> ::= `extends ID => pass
+    //: <class decl> ::= `class # ID <extends ID>? `{ <decl in class>* `} =>
+    public ClassDecl createClassDecl(int pos, String name, String extds, List<Decl> vec)
     {
-        return new ClassDecl(pos, name, "Object", new DeclList(vec));
+        if (extds == null) {
+            return new ClassDecl(pos, name, "Object", new DeclList(vec));
+        }
+        return new ClassDecl(pos, name, extds, new DeclList(vec));
     }
 
+    
+    //: <decl in class> ::= <field decl> => pass
     //: <decl in class> ::= <method decl> => pass
 
-    //: <method decl> ::= `public `void # ID `( `) `{ <stmt>* `} =>
-    public Decl createMethodDeclVoid(int pos, String name, List<Stmt> stmts)
+    //================================================================
+    // method declaration
+    //================================================================
+
+    //: <method decl> ::= `public `void # ID `( <paramList>? `) `{ <stmt>* `} =>
+    public Decl createMethodDeclVoid(int pos, String name, VarDeclList paramList, List<Stmt> stmts)
     {
-        return new MethodDeclVoid(pos, name, new VarDeclList(new VarDeclList()),
+        if (paramList == null) {
+            return new MethodDeclVoid(pos, name, new VarDeclList(new VarDeclList()),
                                   new StmtList(stmts));
+        } 
+
+        return new MethodDeclVoid(pos, name, paramList, new StmtList(stmts));
     }
+
+    //: <method decl> ::= `public <type> # ID `( <paramList>? `) `{ <stmt>*  `return <expr>`; `} => 
+    public Decl createMethodDeclNonVoid(Type t, int pos, String id, VarDeclList paramList, List<Stmt> stmts, Exp e) 
+    {
+        if (paramList == null) {
+            return new MethodDeclNonVoid(
+                pos,
+                t,
+                id,
+                new VarDeclList(new VarDeclList()), 
+                new StmtList(stmts),
+                e
+            );
+        }
+
+        return new MethodDeclNonVoid(
+                pos,
+                t,
+                id,
+                paramList, 
+                new StmtList(stmts),
+                e
+            );
+    }
+    
+    //: <param> ::= <type> # ID => 
+    public VarDecl newParam(Type t, int pos, String id) 
+    {
+        return new ParamDecl(pos, t, id);
+    }
+    //: <extra param> ::= `, <type> # ID => 
+    public VarDecl newExtraParam(Type t, int pos, String id) 
+    {
+        return new ParamDecl(pos, t, id);
+    }
+
+    //: <paramList> ::= <param> <extra param>* =>
+    public VarDeclList newParamList(VarDecl p, List<VarDecl> params) 
+    {
+        params.add(p);
+        return new VarDeclList(params);
+    }
+
+    //================================================================
+    // Types Declaration
+    //================================================================
 
     //: <type> ::= # `int =>
     public Type intType(int pos)
@@ -128,10 +189,26 @@ public class MJGrammar implements MessageObject, FilePosObject
     }
     //: <stmt> ::= <local var decl> `; => pass
 
+    //: <stmt> ::= # `if `( <expr> `) <stmt> # => 
+    public Stmt newIf(int pos, Exp cond, Stmt trueBranch, int elsePos) {
+        return new If(pos, cond, trueBranch, new Block(elsePos, new StmtList()));
+    }
+
+    //: <stmt> ::= # `for `( <local var decl> `; <expr> `; <assign> `)
+
+    //================================================================
+    // Assignments
+    //================================================================
+
+
     //: <assign> ::= <expr> # `= <expr> =>
     public Stmt assign(Exp lhs, int pos, Exp rhs)
     {
         return new Assign(pos, lhs, rhs);
+    }
+    //: <field decl> ::= <type> # ID `; =>
+    public Decl fieldDecl(Type t, int pos, String name) {
+	    return new FieldDecl(pos, t, name);
     }
 
     //: <local var decl> ::= <type> # ID `= <expr> =>
@@ -139,6 +216,8 @@ public class MJGrammar implements MessageObject, FilePosObject
     {
         return new LocalDeclStmt(pos, new LocalVarDecl(pos, t, name, init));
     }
+
+    
 
     //================================================================
     // expressions
@@ -202,6 +281,8 @@ public class MJGrammar implements MessageObject, FilePosObject
     {
         return new IntLit(pos, n);
     }
+
+    
 
     //================================================================
     // Lexical grammar for filtered language begins here: DO NOT

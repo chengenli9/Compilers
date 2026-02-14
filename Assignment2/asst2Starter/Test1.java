@@ -11,3 +11,4 @@ class Main extends Lib {
 		return z + b;
 	}
 }
+

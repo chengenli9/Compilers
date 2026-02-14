@@ -189,12 +189,30 @@ public class MJGrammar implements MessageObject, FilePosObject
     }
     //: <stmt> ::= <local var decl> `; => pass
 
-    //: <stmt> ::= # `if `( <expr> `) <stmt> # => 
+    //====== If statement ======
+    //: <stmt> ::= # `if `( <expr> `) <stmt> # !`else => 
     public Stmt newIf(int pos, Exp cond, Stmt trueBranch, int elsePos) {
         return new If(pos, cond, trueBranch, new Block(elsePos, new StmtList()));
     }
 
-    //: <stmt> ::= # `for `( <local var decl> `; <expr> `; <assign> `)
+    //: <stmt> ::= # `if `( <expr> `) <stmt> # `else <stmt> => 
+    public Stmt newIfElse(int pos, Exp cond, Stmt trueBranch, int elsePos, Stmt elseBranch) {
+        return new If(pos, cond, trueBranch, elseBranch); 
+    }
+
+    //====== While Statement ======
+    //: <stmt> ::= # `while `( <expr> `) <stmt> => 
+    public Stmt newWhile(int pos, Exp cond, Stmt trueBranch) {
+        return new While(pos, cond, trueBranch);
+    }
+
+    //====== For Loop ======
+    // : <stmt> ::= # `for `( <local var decl> `; <expr> `; <assign> `) <stmt> # => 
+    // public Stmt newFor(LocalVarDecl varDecl, Exp e, Assign asst, StmtList stmt, int pos) {
+    //     return new Block(
+            
+    //     );
+    // }
 
     //================================================================
     // Assignments

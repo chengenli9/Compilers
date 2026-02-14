@@ -347,7 +347,7 @@ public class MJGrammar implements MessageObject, FilePosObject
     }
 
     //====== Call expressions ======
-    //: <callExpr> ::= # ID `( <exprList> `) => 
+    //: <callExpr> ::= # ID `( <exprList>? `) => 
     public Call newCallExpr(int pos, String name, ExpList es) {
         if (es == null) {
             es = new ExpList();

@@ -206,13 +206,30 @@ public class MJGrammar implements MessageObject, FilePosObject
         return new While(pos, cond, trueBranch);
     }
 
-    //====== For Loop ======
-    // : <stmt> ::= # `for `( <local var decl> `; <expr> `; <assign> `) <stmt> # => 
-    // public Stmt newFor(LocalVarDecl varDecl, Exp e, Assign asst, StmtList stmt, int pos) {
+    // //====== For Loop ======
+    // //
+    // //  for ( (type ID = exp | assign | callExp)? ; exp? ; (assign | callExp)? ) stmt
+    // //
+    // //: <stmt> ::= # `for `( <for1> `; <for2> `; <for3> `) <stmt> => 
+    // public Stmt newFor(int pos, Stmt init, Exp cond, Stmt update, StmtList stmt,) {
     //     return new Block(
             
     //     );
     // }
+
+
+    // //: <for1> ::= <local var decl> => pass
+    // //: <for1> ::= <assign> => pass
+    // //: <for1> ::= # <callExpr> => 
+    // public Stmt for1CallExpression(int pos, Call e) {
+    //     return CallStatement(pos, e);
+    // }
+
+    // //: <for2> ::= <expr> => pass
+    // //: <for3> ::= <stmt> => pass
+
+    
+
 
     //================================================================
     // Assignments
@@ -224,6 +241,35 @@ public class MJGrammar implements MessageObject, FilePosObject
     {
         return new Assign(pos, lhs, rhs);
     }
+
+    //: <assign> ::= # `++ ID => 
+    public Stmt prefixPlus(int pos, String name) => {
+        IDExp lhs = new IDExp(pos, name);
+        IDExp rhs = new Plus(pos, lhs, new IntLit(pos, 1));
+        return new Assign(pos, lhs, rhs);
+    }
+
+    //: <assign> ::= # ID `++ =>
+    public Stmt posfixPlus(int pos, String name) => {
+        IDExp lhs = new IDExp(pos, name);
+        IDExp rhs = new Plus(pos, lhs, new IntLit(pos, 1));
+        return new Assign(pos, lhs, rhs);
+    }
+
+    //: <assign> ::= # `-- ID => 
+    public Stmt prefixPlus(int pos, String name) => {
+        IDExp lhs = new IDExp(pos, name);
+        IDExp rhs = new Minus(pos, lhs, new IntLit(pos, 1));
+        return new Assign(pos, lhs, rhs);
+    }
+
+     //: <assign> ::= # ID `-- => 
+    public Stmt prefixPlus(int pos, String name) => {
+        IDExp lhs = new IDExp(pos, name);
+        IDExp rhs = new Minus(pos, lhs, new IntLit(pos, 1));
+        return new Assign(pos, lhs, rhs);
+    }
+
     //: <field decl> ::= <type> # ID `; =>
     public Decl fieldDecl(Type t, int pos, String name) {
 	    return new FieldDecl(pos, t, name);
@@ -300,6 +346,21 @@ public class MJGrammar implements MessageObject, FilePosObject
         return new IntLit(pos, n);
     }
 
+    //====== Call expressions ======
+    //: <callExpr> ::= # ID `( <exprList> `) => 
+    public Call newCallExpr(int pos, String name, ExpList es) {
+        if (es == null) {
+            es = new ExpList();
+        }
+        return new Call(pos, name, es);
+    }
+
+    //: <exprList> ::= # <expr> <extraExpr>* => 
+    public newExpList(int pos, Exp e, List<Expr> es) {
+        es.add(e);
+        return new ExpList(es);
+    }
+    //: <extraExpr> ::= `, <expr> => pass
     
 
     //================================================================

@@ -180,14 +180,28 @@ public class MJGrammar implements MessageObject, FilePosObject
     // statement-level constructs
     //================================================================
 
+    //: <stmt> ::= # <callExpr> `; => 
+    public Stmt newCallStmt(int pos, Exp callExpr) {
+        return new CallStmt(pos, (Call)callExpr);
+    }
+
+    //: <stmt> ::= # `break `; => 
+    public Stmt newBreak(int pos) {
+        return new Break(pos);
+    }
+
     //: <stmt> ::= <assign> `; => pass
 
-    //: <stmt> ::= # `{ <stmt>* `} =>
+    //: <stmt> ::= # `; => 
+    public Stmt emptyStmt(int pos) {
+        return new Block(pos, new StmtList());
+    }
+
+    //: <stmt> ::= # `{ <stmtDecl>* `} =>
     public Stmt newBlock(int pos, List<Stmt> sl)
     {
         return new Block(pos, new StmtList(sl));
     }
-    //: <stmt> ::= <local var decl> `; => pass
 
     //====== If statement ======
     //: <stmt> ::= # `if `( <expr> `) <stmt> # !`else => 
@@ -206,29 +220,56 @@ public class MJGrammar implements MessageObject, FilePosObject
         return new While(pos, cond, trueBranch);
     }
 
-    // //====== For Loop ======
-    // //
-    // //  for ( (type ID = exp | assign | callExp)? ; exp? ; (assign | callExp)? ) stmt
-    // //
-    // //: <stmt> ::= # `for `( <for1> `; <for2> `; <for3> `) <stmt> => 
-    // public Stmt newFor(int pos, Stmt init, Exp cond, Stmt update, StmtList stmt,) {
-    //     return new Block(
-            
-    //     );
-    // }
+    //====== For Loop ======
+    //
+    //  for ( (type ID = exp | assign | callExp)? ; exp? ; (assign | callExp)? ) stmt
+    //
+    //: <stmt> ::= # `for `( <forInit>? `; <expr>? `; <forUpdate>? `) <stmt> => 
+    public Stmt newFor(int pos, Stmt init, Exp cond, Stmt update, Stmt body) {
+        StmtList whileBody = new StmtList();
+        whileBody.add(body);
+        whileBody.add(update);
 
+        Stmt whileBlock = newWhile(pos, cond, newBlock(pos, whileBody));
+        StmtList blockStmts = new StmtList();
+        blockStmts.add(init);
+        blockStmts.add(whileBlock);
 
-    // //: <for1> ::= <local var decl> => pass
-    // //: <for1> ::= <assign> => pass
-    // //: <for1> ::= # <callExpr> => 
-    // public Stmt for1CallExpression(int pos, Call e) {
-    //     return CallStatement(pos, e);
-    // }
-
-    // //: <for2> ::= <expr> => pass
-    // //: <for3> ::= <stmt> => pass
-
+        return newBlock(pos, blockStmts);
     
+    }
+
+
+    //: <forInit> ::= <local var decl> => pass
+    //: <forInit> ::= <assign> => pass
+    //: <forInit> ::= # <callExpr> => 
+    public Stmt forLoopInit(int pos, Exp e) {
+        return new CallStmt(pos, (Call)e);
+    }
+
+    //: <forUpdate> ::= <assign> => pass
+    //: <forUpdate> ::= # <callExpr> => 
+    public Stmt forLoppUpdate(int pos, Exp e) {
+        return new CallStmt(pos, (Call)e);
+    }
+
+    //: <stmtDecl> ::= <stmt> => pass
+    //: <stmtDecl> ::= <local var decl> `; => pass
+
+    //: <stmt> ::= # `switch `( <expr> `) `{ <switchContent>* `} =>
+    public Stmt newSwitch(int pos, Exp cond, List<Stmt> content) {
+        return new Switch(pos, cond, new StmtList(content));
+    }
+
+    //: <switchContent> ::= <stmtDecl> => pass
+    //: <switchContent> ::= `case # <expr> `: => 
+    public Stmt newCase(int pos, Exp e) {
+        return new Case(pos, e);
+    }
+    //: <switchContent> ::= # `default `; => 
+    public Stmt newDefault(int pos) {
+        return new Default(pos);
+    }
 
 
     //================================================================
@@ -236,37 +277,37 @@ public class MJGrammar implements MessageObject, FilePosObject
     //================================================================
 
 
-    //: <assign> ::= <expr> # `= <expr> =>
+    //: <assign> ::= <expr1> # `= <expr> =>
     public Stmt assign(Exp lhs, int pos, Exp rhs)
     {
         return new Assign(pos, lhs, rhs);
     }
 
     //: <assign> ::= # `++ ID => 
-    public Stmt prefixPlus(int pos, String name) => {
+    public Stmt prefixPlus(int pos, String name) {
         IDExp lhs = new IDExp(pos, name);
-        IDExp rhs = new Plus(pos, lhs, new IntLit(pos, 1));
+        Exp rhs = new Plus(pos, lhs, new IntLit(pos, 1));
         return new Assign(pos, lhs, rhs);
     }
 
     //: <assign> ::= # ID `++ =>
-    public Stmt posfixPlus(int pos, String name) => {
+    public Stmt posfixPlus(int pos, String name) {
         IDExp lhs = new IDExp(pos, name);
-        IDExp rhs = new Plus(pos, lhs, new IntLit(pos, 1));
+        Exp rhs = new Plus(pos, lhs, new IntLit(pos, 1));
         return new Assign(pos, lhs, rhs);
     }
 
     //: <assign> ::= # `-- ID => 
-    public Stmt prefixPlus(int pos, String name) => {
+    public Stmt prefixMinus(int pos, String name) {
         IDExp lhs = new IDExp(pos, name);
-        IDExp rhs = new Minus(pos, lhs, new IntLit(pos, 1));
+        Exp rhs = new Minus(pos, lhs, new IntLit(pos, 1));
         return new Assign(pos, lhs, rhs);
     }
 
      //: <assign> ::= # ID `-- => 
-    public Stmt prefixPlus(int pos, String name) => {
+    public Stmt posfixMinus(int pos, String name) {
         IDExp lhs = new IDExp(pos, name);
-        IDExp rhs = new Minus(pos, lhs, new IntLit(pos, 1));
+        Exp rhs = new Minus(pos, lhs, new IntLit(pos, 1));
         return new Assign(pos, lhs, rhs);
     }
 
@@ -281,7 +322,6 @@ public class MJGrammar implements MessageObject, FilePosObject
         return new LocalDeclStmt(pos, new LocalVarDecl(pos, t, name, init));
     }
 
-    
 
     //================================================================
     // expressions
@@ -291,27 +331,109 @@ public class MJGrammar implements MessageObject, FilePosObject
 
     // these precedence levels have not been filled in at all, so there
     // are only pass-through productions
+
+    //============= expr7 ==============
+    //: <expr8> ::= <expr8> # `|| <expr7> =>
+    public Exp newOr(Exp e1, int pos, Exp e2) {
+        return new Or(pos, e1, e2);
+    }
     //: <expr8> ::= <expr7> => pass
+
+    //============= expr7 ==============
+    //: <expr7> ::= <expr7> # `&& <expr6> =>
+    public Exp newAnd(Exp e1, int pos, Exp e2) {
+        return new And(pos, e1, e2);
+    }
     //: <expr7> ::= <expr6> => pass
-    //: <expr6> ::= <expr5> => pass
+
+
+    //============= expr6 ==============
+    //: <expr6> ::= <expr6> # `!= <expr5> =>
+    public Exp newNotEq(Exp e1, int pos, Exp e2) {
+        return newUnaryNot(pos, new Equals(pos, e1, e2));
+    }
+
+    //: <expr6> ::= <expr6> # `== <expr5> =>
+    public Exp newEq(Exp e1, int pos, Exp e2) {
+        return new Equals(pos, e1, e2);
+    }
+     //: <expr6> ::= <expr5> => pass
+
+    //============= expr5 ==============
+
+    // Less than '<'
+    //: <expr5> ::= <expr5> # `< <expr4> =>
+    public Exp newLessThan(Exp e1, int pos, Exp e2) {
+        return new LessThan(pos, e1, e2);
+    }
+
+    // Greater than '>'
+    //: <expr5> ::= <expr5> # `> <expr4> =>
+    public Exp newGreaterThan(Exp e1, int pos, Exp e2) {
+        return new GreaterThan(pos, e1, e2);
+    }
+
+    // Greater than or Equal '>='
+    //: <expr5> ::= <expr5> # `>= <expr4> =>
+    public Exp newGreaterThanOrEq(Exp e1, int pos, Exp e2) {
+        return new Not(pos, new GreaterThan(pos, e1, e2));
+    }
+
+    // Less than or Equal '<='
+    //: <expr5> ::= <expr5> # `<= <expr4> =>
+    public Exp newLessThanOrEq(Exp e1, int pos, Exp e2) {
+        return new Not(pos, new LessThan(pos, e1, e2));
+    }
+
+    // instanceof 
+    //: <expr5> ::= <expr5> # `instanceof ID =>
+    public Exp newInstanceof(Exp e, int pos, String id) {
+        return new InstanceOf(pos, e, new IDType(pos, id));
+    }
+
     //: <expr5> ::= <expr4> => pass
+
+
 
     // these remaining precedence levels have been filled in to some extent,
     // but most or all of them have need to be expanded
 
+    // ============ expr4 ============
     //: <expr4> ::= <expr4> # `+ <expr3> =>
     public Exp newPlus(Exp e1, int pos, Exp e2)
     {
         return new Plus(pos, e1, e2);
     }
+
+    //: <expr4> ::= <expr4> # `- <expr3> =>
+    public Exp newMinus(Exp e1, int pos, Exp e2)
+    {
+        return new Minus(pos, e1, e2);
+    }
+
     //: <expr4> ::= <expr3> => pass
+
+    // ============ expr3 ============
 
     //: <expr3> ::= <expr3> # `* <expr2> =>
     public Exp newTimes(Exp e1, int pos, Exp e2)
     {
         return new Times(pos, e1, e2);
     }
+
+    //: <expr3> ::= <expr3> # `/ <expr2> => 
+    public Exp newDivide(Exp e1, int pos, Exp e2) {
+        return new Divide(pos, e1, e2);
+    }
+
+    //: <expr3> ::= <expr3> # `% <expr2> => 
+    public Exp newMod(Exp e1, int pos, Exp e2) {
+        return new Remainder(pos, e1, e2);
+    }
+
     //: <expr3> ::= <expr2> => pass
+
+    // ============ expr2 ============
 
     //: <expr2> ::= <cast expr> => pass
     //: <expr2> ::= <unary expr> => pass
@@ -328,7 +450,22 @@ public class MJGrammar implements MessageObject, FilePosObject
     {
         return new Minus(pos, new IntLit(pos, 0), e);
     }
+
+    //: <unary expr> ::= # `+ <unary expr> =>
+    public Exp newUnaryPlus(int pos, Exp e)
+    {
+        return new Plus(pos, new IntLit(pos, 0), e);
+    }
+
+    //: <unary expr> ::= # `! <unary expr> => 
+    public Exp newUnaryNot(int pos, Exp e) 
+    {
+        return new Not(pos, e);
+    }
+
     //: <unary expr> ::= <expr1> => pass
+
+    // ============ expr1 ============
 
     //: <expr1> ::= # ID  =>
     public Exp newIDExp(int pos, String name)
@@ -340,23 +477,87 @@ public class MJGrammar implements MessageObject, FilePosObject
     {
         return new ArrayLookup(pos, e1, e2);
     }
+
     //: <expr1> ::= # INTLIT =>
     public Exp newIntLit(int pos, int n)
     {
         return new IntLit(pos, n);
     }
+    //: <expr1> ::= # CHARLIT => 
+    public Exp newCharLit(int pos, int n)
+    {
+        return new IntLit(pos, n);
+    }
+
+    //: <expr1> ::= # STRINGLIT => 
+    public Exp newStringLit(int pos, String s) 
+    {
+        return new StringLit(pos, s);
+    }
+
+    //: <expr1> ::= # `true => 
+    public Exp newTrue(int pos) { return new True(pos); }
+
+    //: <expr1> ::= # `false => 
+    public Exp newFalse(int pos) {return new False(pos);}
+
+    //: <expr1> ::= # `null => 
+    public Exp newNull(int pos) {return new Null(pos);}
+
+    //: <expr1> ::= # `this => 
+    public Exp newThis(int pos) { return new This(pos);}
+
+    //: <expr1> ::= # <expr1> `. ID => 
+    public Exp newInstVarAccess(int pos, Exp e, String id) {return new FieldAccess(pos, e, id); }
+
+    //: <expr1> ::= # `new # ID `( `) =>
+    public Exp newObject(int pos1, int pos2, String id) {
+        return new NewObject(pos1, new IDType(pos2, id));
+    }
+
+    //: <expr1> ::= `new <type> !<empty bracket pair> # `[ <expr> `] <empty bracket pair>** => 
+    public Exp newCreateArray(Type t, int pos, Exp e, List<Object> objects) {
+        ArrayType arr = new ArrayType(pos, t);
+        for (Object object: objects) {
+            arr = new ArrayType(pos, arr);
+        }
+        return new NewArray(pos, arr, e);
+    }
+
+    //: <expr1> ::= !<cast expr> `( <expr> `) => pass
+
+    //: <expr1> ::= <callExpr> => pass
+   
+
 
     //====== Call expressions ======
     //: <callExpr> ::= # ID `( <exprList>? `) => 
-    public Call newCallExpr(int pos, String name, ExpList es) {
+    public Exp newCallExpr(int pos, String name, ExpList es) {
         if (es == null) {
             es = new ExpList();
         }
-        return new Call(pos, name, es);
+        return new Call(pos, new This(pos), name, es);
+    } 
+
+    //: <callExpr> ::= <expr1> # `. ID `( <exprList>? `) => 
+    public Exp newCallExpr2(Exp e, int pos, String id, ExpList es) {
+        if (es == null) {
+            es = new ExpList();
+        }
+        return new Call(pos, e, id, es);
     }
 
+    //: <callExpr> ::= # `super `. ID `( <exprList>? `) => 
+    public Exp newSuperCallExpr(int pos, String id, ExpList es) {
+        if (es == null) {
+            es = new ExpList();
+        }
+        return new Call(pos, new Super(pos), id, es);
+    }
+
+
     //: <exprList> ::= # <expr> <extraExpr>* => 
-    public newExpList(int pos, Exp e, List<Expr> es) {
+    public ExpList newExpList(int pos, Exp e, List<Exp> es) {
         es.add(e);
         return new ExpList(es);
     }

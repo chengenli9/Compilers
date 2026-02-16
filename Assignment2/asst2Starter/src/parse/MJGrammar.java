@@ -145,7 +145,7 @@ public class MJGrammar implements MessageObject, FilePosObject
     //: <paramList> ::= <param> <extra param>* =>
     public VarDeclList newParamList(VarDecl p, List<VarDecl> params) 
     {
-        params.add(p);
+        params.add(0, p);
         return new VarDeclList(params);
     }
 
@@ -268,7 +268,7 @@ public class MJGrammar implements MessageObject, FilePosObject
     public Stmt newCase(int pos, Exp e) {
         return new Case(pos, e);
     }
-    //: <switchContent> ::= # `default `; => 
+    //: <switchContent> ::= # `default `: => 
     public Stmt newDefault(int pos) {
         return new Default(pos);
     }
@@ -379,13 +379,13 @@ public class MJGrammar implements MessageObject, FilePosObject
     // Greater than or Equal '>='
     //: <expr5> ::= <expr5> # `>= <expr4> =>
     public Exp newGreaterThanOrEq(Exp e1, int pos, Exp e2) {
-        return new Not(pos, new GreaterThan(pos, e1, e2));
+        return new Not(pos, new LessThan(pos, e1, e2));
     }
 
     // Less than or Equal '<='
     //: <expr5> ::= <expr5> # `<= <expr4> =>
     public Exp newLessThanOrEq(Exp e1, int pos, Exp e2) {
-        return new Not(pos, new LessThan(pos, e1, e2));
+        return new Not(pos, new GreaterThan(pos, e1, e2));
     }
 
     // instanceof 
@@ -561,7 +561,7 @@ public class MJGrammar implements MessageObject, FilePosObject
 
     //: <exprList> ::= # <expr> <extraExpr>* => 
     public ExpList newExpList(int pos, Exp e, List<Exp> es) {
-        es.add(e);
+        es.add(0, e);
         return new ExpList(es);
     }
     //: <extraExpr> ::= `, <expr> => pass

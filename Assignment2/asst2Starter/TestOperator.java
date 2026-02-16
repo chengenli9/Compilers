@@ -3,7 +3,7 @@ class Main {
     public void main() {
 		int x = 1;
 
-        if (z < 100) {
+        if (z <= 100) {
             x = 100;
         }
 	}

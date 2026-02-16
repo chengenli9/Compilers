@@ -192,6 +192,7 @@ public class MJGrammar implements MessageObject, FilePosObject
 
     //: <stmt> ::= <assign> `; => pass
 
+
     //: <stmt> ::= # `; => 
     public Stmt emptyStmt(int pos) {
         return new Block(pos, new StmtList());
@@ -202,6 +203,8 @@ public class MJGrammar implements MessageObject, FilePosObject
     {
         return new Block(pos, new StmtList(sl));
     }
+
+    //: <stmt> ::= <local var decl> `; => pass
 
     //====== If statement ======
     //: <stmt> ::= # `if `( <expr> `) <stmt> # !`else => 
@@ -254,7 +257,6 @@ public class MJGrammar implements MessageObject, FilePosObject
     }
 
     //: <stmtDecl> ::= <stmt> => pass
-    //: <stmtDecl> ::= <local var decl> `; => pass
 
     //: <stmt> ::= # `switch `( <expr> `) `{ <switchContent>* `} =>
     public Stmt newSwitch(int pos, Exp cond, List<Stmt> content) {
@@ -328,6 +330,10 @@ public class MJGrammar implements MessageObject, FilePosObject
     //================================================================
 
     //: <expr> ::= <expr8> => pass
+    //: <expr8> ::= <expr7> => pass
+    //: <expr7> ::= <expr6> => pass
+    //: <expr6> ::= <expr5> => pass
+
 
     // these precedence levels have not been filled in at all, so there
     // are only pass-through productions
@@ -337,15 +343,12 @@ public class MJGrammar implements MessageObject, FilePosObject
     public Exp newOr(Exp e1, int pos, Exp e2) {
         return new Or(pos, e1, e2);
     }
-    //: <expr8> ::= <expr7> => pass
 
     //============= expr7 ==============
     //: <expr7> ::= <expr7> # `&& <expr6> =>
     public Exp newAnd(Exp e1, int pos, Exp e2) {
         return new And(pos, e1, e2);
     }
-    //: <expr7> ::= <expr6> => pass
-
 
     //============= expr6 ==============
     //: <expr6> ::= <expr6> # `!= <expr5> =>
@@ -357,7 +360,7 @@ public class MJGrammar implements MessageObject, FilePosObject
     public Exp newEq(Exp e1, int pos, Exp e2) {
         return new Equals(pos, e1, e2);
     }
-     //: <expr6> ::= <expr5> => pass
+    
 
     //============= expr5 ==============
 

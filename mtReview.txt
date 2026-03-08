@@ -1,0 +1,172 @@
+
+
+
+// add try catch finally tokens
+
+//: `try ::= "try" !idChar white* 
+//: reserved ::= `try
+
+//: `catch ::= "catch" !idChar white*
+//: reserved ::= `catch
+
+//: `finally ::= "finally" !idChar white*
+//: reserved ::= `finally
+
+
+
+// add to syntax tree
+// cannot have catch independent of 'try'
+
+class Catch extends Stmt
+{
+   ParamDecl catchDecl;
+   StmtList catchStmts;
+}
+
+class TryCatch extends Stmt 
+{
+   StmtList tryStmts; 
+   StmtList catchList;
+   StmtList finallyList; 
+}
+
+
+<stmt> ::= # `try `{ <stmt>* `} <catch>+ <finally>? =>
+public Stmt newTry(int pos, List<Stmt> tblock, List<Catch> cs, StmtList fs)
+{
+   return new TryCatch(
+	new StmtList(ts), 
+	new StmtList(cs), 
+	new StmtList(fs), 
+	fs == null ? new StmtList() : fs);  
+}
+
+<catch> ::= # `catch `( <param> `) `{ <stm>* `} => {
+public Catch makeCatch(int pos, ParamDecl p, List<Stmt> ss) 
+{
+   return new Catch(pos, p, StmtList(ss));
+}
+
+
+<finally> ::= `finally `{ <stmt>* `} => 
+public StmtList makeFinally(List<Stmt> ss)
+{
+   return new StmtList(ss);
+}
+
+
+//================== challenge 2 =====================
+
+//is this ambigoose?
+
+S ::= SS
+S ::= ( )
+S ::= ( s ) 
+
+// yes!
+// example: ()()()
+
+	s
+      /  \
+     s    s
+     |   / \
+    ()  s   s
+        |   |
+       ()   ()
+
+       s
+      /  \
+     s    s
+    / \   |
+   s   s  () 	
+   |   |
+  ()  ()
+
+//================== challenge 3 =====================
+
+0b010101101
+
+racecar
+
+palindrom of binary numbers
+
+S ::= 11
+S ::= 00
+S ::= 0S0 
+S ::= 1S1
+S ::= 1
+S ::= 0
+
+//================== challenge 4 =====================
+
+abstract class Tree
+{
+   int visit(Visitor V);
+}
+
+class Leaf extends Tree
+{
+   int val;
+   int visit(Vistor v);
+}
+
+class Branch extends Tree
+{
+   int val;
+   Tree left;
+   Tree right;
+
+   int visit(Visitor v)
+}
+
+class MaxVisitor extends Visitor
+{
+   int visit(Branch b)
+   {
+      int val = b.val;
+      int lval = b.left.accept(this); // call accept to do recursion
+      int rval = b.right.accept(this);
+      return Math.max(val, Math.max(lval, rval));
+   }
+
+   int visit(Leaf l)
+   {
+      return l.val;
+   }
+
+}
+
+
+//================== challenge 5 =====================
+
+// add lambda expressions to java
+
+inc = \x -> x + 1
+
+inc = (int x) => x + 1;
+
+
+class Lambda extends Expr
+{
+   DeclList vars;
+   Expr ret;
+}
+
+//: pcomma ::= `, param
+//: paramList ::= param pcomma*
+
+//: param ::= <type> ID
+//: # `( param+ `) `=> <expr> => 
+public Exp newLambda(Declist ps, Expr e) 
+{
+   return new lambda(pos, ps, e);
+} 
+
+
+
+
+
+
+
+
+

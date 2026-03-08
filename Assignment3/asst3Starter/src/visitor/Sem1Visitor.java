@@ -1,8 +1,8 @@
 package visitor;
 
-import syntaxtree.*;
-import java.util.*;
 import errorMsg.*;
+import java.util.*;
+import syntaxtree.*;
 // The purpose of the Sem1Visitor class is to:
 // - enter each class declaration into the global environment
 //   - duplicate class names are detected
@@ -32,6 +32,45 @@ public class Sem1Visitor extends Visitor
     {
         return classEnv;
     }
+
+    @Override
+    public Object visit(ClassDecl n) 
+    {
+        if (classEnv.containsKey(n.name)) {
+            errorMsg.error(n.pos, "Error: duplicate class name: " + n.name);
+        }
+        else 
+        {
+            classEnv.put(n.name, n);
+        }
+        currentClass = n;
+        n.decls.accept(this);
+        currentClass = null;
+        return null;
+    }
+
+    @Override 
+    public Object visit(MethodDecl n)
+    {
+        if (currentClass.methodEnv.containsKey(n.name)) {
+            errorMsg.error(n.pos, "Error: duplicate method name: " + n.name + " in class " + currentClass);
+        }
+        currentClass.methodEnv.put(n.name, n);
+        n.classDecl = currentClass;
+        return super.visit(n);
+    }
+
+    @Override 
+    public Object visit(FieldDecl n)
+    {
+        if (currentClass.fieldEnv.containsKey(n.name)) {
+            errorMsg.error(n.pos, "Error: duplicate instance variable name: " + n.name + " in class " + currentClass);
+        }
+        currentClass.fieldEnv.put(n.name, n);
+        return null;
+    }
+
+
 
     /**
      * Inserts the predefined class declarations into the Program

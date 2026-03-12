@@ -36,7 +36,6 @@ public class Sem2Visitor extends Visitor
             if (!visited.contains(classDecl)) {
                 HashSet<ClassDecl> path = new HashSet<>();
                 ClassDecl current = classDecl;
-                
                 while (current != null) {
                     if (path.contains(current)) {
                         errorMsg.error(current.pos, CompError.InheritanceCycle(current.name));

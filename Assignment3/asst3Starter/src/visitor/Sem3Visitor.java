@@ -48,230 +48,207 @@ public class Sem3Visitor extends Visitor
         classEnv         = env;
         localEnv         = new HashMap<String,VarDecl>();
         breakTargetStack = new Stack<BreakTarget>();
-        unusedLocals     = new HashMap<>();
-        unusedClasses    = new HashSet<>();
-        init             = new HashSet<>();
     }
 
-    // populate unused classes set, visit everything and warn leftover unused
     @Override
-    public Object visit(Program n) {
-        unusedClasses.addAll(classEnv.keySet());
-        // remove predefined classes
-        unusedClasses.remove("Object");
-        unusedClasses.remove("String");
-        unusedClasses.remove("Lib");
-        unusedClasses.remove("RunMain");
-
-        n.classDecls.accept(this);
-        n.mainStmt.accept(this);
-
-        // warn unused classes after full traversal
-        for (String name : unusedClasses) {
-            ClassDecl cd = classEnv.get(name);
-            if (cd != null) {
-                errorMsg.warning(cd.pos, CompWarning.UnusedClass(name));
-            }
-        }
+    public Object visit(Program p)
+    {
+        p.classDecls.accept(this);
+        p.mainStmt.accept(this);
         return null;
     }
 
-    // Set current class and mark superclass as used
     @Override
-    public Object visit(ClassDecl n) {
+    public Object visit(ClassDecl n)
+    {
         currentClass = n;
-        unusedClasses.remove(n.superName);
         n.decls.accept(this);
         return null;
     }
 
-    // Reset scope for new void method and warn unused vars at end
     @Override
-    public Object visit(MethodDeclVoid n) {
-        localEnv = new HashMap<>();
-        init = new HashSet<>();
-        unusedLocals = new HashMap<>();
-        n.params.accept(this);
-        n.stmts.accept(this);
-        warnUnusedVars();
-        return null;
-    }
+    public Object visit(MethodDeclVoid n)
+    {
+        // Push a new local variable environment for this method
+        HashMap<String, VarDecl> savedEnv = localEnv;
+        localEnv = new HashMap<String, VarDecl>();
 
-    // Reset scope for new non-void method and warn unused vars at end
-    @Override
-    public Object visit(MethodDeclNonVoid n) {
-        localEnv = new HashMap<>();
-        init = new HashSet<>();
-        unusedLocals = new HashMap<>();
-        n.rtnType.accept(this);
-        n.params.accept(this);
-        n.stmts.accept(this);
-        n.rtnExp.accept(this);
-        warnUnusedVars();
-        return null;
-    }
-
-    // report any vars still in unused set
-    private void warnUnusedVars() {
-        for (Map.Entry<String,Integer> entry : unusedLocals.entrySet()) {
-            errorMsg.warning(entry.getValue(), CompWarning.UnusedVariable(entry.getKey()));
+        // Add formal parameters to the environment
+        // Check for duplicate parameter names
+        for (Object obj : n.params) {
+            ParamDecl param = (ParamDecl) obj;
+            if (localEnv.containsKey(param.name)) {
+                errorMsg.error(param.pos, CompError.DuplicateVariable(param.name));
+            } else {
+                localEnv.put(param.name, param);
+            }
+            // Visit the parameter's type
+            param.type.accept(this);
         }
-    }
 
-    // Register param in local scope, mark initialized and track usage
-    @Override
-    public Object visit(ParamDecl n) {
-        n.type.accept(this);
-        if (localEnv.containsKey(n.name)) {
-            errorMsg.error(n.pos, CompError.DuplicateVariable(n.name));
-        }
-        else {
-            localEnv.put(n.name, n);
-            init.add(n.name);
-            unusedLocals.put(n.name, n.pos);
-        }
-        return null;
-    }
-
-    // Save/restore scope around block for proper scoping
-    @Override
-    public Object visit(Block n) {
-        HashMap<String, VarDecl> savedEnv = new HashMap<>(localEnv);
-        HashSet<String> savedInit = new HashSet<>(init);
+        // Visit the method body
         n.stmts.accept(this);
+
+        // Restore the previous environment
         localEnv = savedEnv;
-        init = savedInit;
         return null;
     }
 
-    // Add var to scope before visiting init expr so self-refs
-    // Resolve to this local and trigger uninitialized error
     @Override
-    public Object visit(LocalVarDecl n) {
+    public Object visit(MethodDeclNonVoid n)
+    {
+        // Push a new local variable environment for this method
+        HashMap<String, VarDecl> savedEnv = localEnv;
+        localEnv = new HashMap<String, VarDecl>();
+
+        // Add formal parameters to the environment
+        // Check for duplicate parameter names
+        for (Object obj : n.params) {
+            ParamDecl param = (ParamDecl) obj;
+            if (localEnv.containsKey(param.name)) {
+                errorMsg.error(param.pos, CompError.DuplicateVariable(param.name));
+            } else {
+                localEnv.put(param.name, param);
+            }
+            // Visit the parameter's type
+            param.type.accept(this);
+        }
+
+        // Visit the method body
+        n.stmts.accept(this);
+
+        // Visit the return type and return expression
+        n.rtnType.accept(this);
+        n.rtnExp.accept(this);
+
+        // Restore the previous environment
+        localEnv = savedEnv;
+        return null;
+    }
+
+    @Override
+    public Object visit(LocalVarDecl n)
+    {
+        // Check for duplicate local variable names
         if (localEnv.containsKey(n.name)) {
             errorMsg.error(n.pos, CompError.DuplicateVariable(n.name));
-            n.initExp.accept(this);
-            n.type.accept(this);
-        }
-        else {
-            // in scope but not yet initialized
+        } else {
             localEnv.put(n.name, n);
-            unusedLocals.put(n.name, n.pos);
-            n.initExp.accept(this);
-            n.type.accept(this);
-            init.add(n.name);
         }
+
+        // Visit the type
+        n.type.accept(this);
+
+        // Visit the initializer expression
+        n.initExp.accept(this);
+
         return null;
     }
 
-    // resolve variable: check locals first, then fields up hierarchy
     @Override
-    public Object visit(IDExp n) {
-        VarDecl decl = localEnv.get(n.name);
-        if (decl != null) {
-            // local found, check if initialized
-            if (!init.contains(n.name)) {
-                errorMsg.error(n.pos, CompError.UninitializedVariable(n.name));
-            }
-            n.link = decl;
-            unusedLocals.remove(n.name);
-            return null;
-        }
-        // check fields up class hierarchy
-        decl = lookupField(n.name, currentClass);
-        if (decl != null) {
-            n.link = decl;
-            return null;
-        }
-        errorMsg.error(n.pos, CompError.UndefinedVariable(n.name));
-        return null;
-    }
-    // Traverse the chain and look for field by name
-    private VarDecl lookupField(String name, ClassDecl cd) {
-        while (cd != null) {
-            FieldDecl fd = cd.fieldEnv.get(name);
-            if (fd != null) {
-                return fd;
-            }
-            cd = cd.superLink;
-        }
+    public Object visit(LocalDeclStmt n)
+    {
+        n.localVarDecl.accept(this);
         return null;
     }
 
-    // Resolve type name to class decl and mark class as used
     @Override
-    public Object visit(IDType n) {
-        ClassDecl decl = classEnv.get(n.name);
-        if (decl != null) {
-            n.link = decl;
-            unusedClasses.remove(n.name);
-        }
-        else {
-            errorMsg.error(n.pos, CompError.UndefinedClass(n.name));
-        }
+    public Object visit(Block n)
+    {
+        // For block, we don't create a new environment just for the block
+        // Local variable declarations within a block are managed by LocalDeclStmt
+        n.stmts.accept(this);
         return null;
     }
 
-    // Push while as break target and pop after body
     @Override
-    public Object visit(While n) {
-        n.exp.accept(this);
+    public Object visit(While n)
+    {
+        // Push the while statement onto the break target stack
         breakTargetStack.push(n);
+
+        // Visit the test expression
+        n.exp.accept(this);
+
+        // Visit the body
         n.body.accept(this);
+
+        // Pop the while statement from the break target stack
         breakTargetStack.pop();
+
         return null;
     }
 
-    // Link break to enclosing while/switch and error if none
     @Override
-    public Object visit(Break n) {
+    public Object visit(Switch n)
+    {
+        // Push the switch statement onto the break target stack
+        breakTargetStack.push(n);
+
+        // Visit the switch expression
+        n.exp.accept(this);
+
+        // Visit the statements in the switch body
+        n.stmts.accept(this);
+
+        // Pop the switch statement from the break target stack
+        breakTargetStack.pop();
+
+        return null;
+    }
+
+    @Override
+    public Object visit(Case n)
+    {
+        // Visit the case expression
+        n.exp.accept(this);
+        return null;
+    }
+
+    @Override
+    public Object visit(Break n)
+    {
+        // Check if the break is inside a while or switch
         if (breakTargetStack.isEmpty()) {
             errorMsg.error(n.pos, CompError.TopLevelBreak());
-        }
-        else {
+        } else {
+            // Link the break to its enclosing while or switch
             n.breakLink = breakTargetStack.peek();
         }
         return null;
     }
 
-    // Handle switch scoping and track vars declared in current chunk
     @Override
-    public Object visit(Switch n) {
-        n.exp.accept(this);
-        breakTargetStack.push(n);
-
-        HashMap<String, VarDecl> savedEnv = new HashMap<>(localEnv);
-        HashSet<String> savedInit = new HashSet<>(init);
-        ArrayList<String> chunkVars = new ArrayList<>();
-
-        for (int i = 0; i < n.stmts.size(); i++) {
-            Stmt stmt = n.stmts.get(i);
-            if (stmt instanceof Label) {
-                ((Label) stmt).enclosingSwitch = n;
-            }
-            stmt.accept(this);
-            // track vars declared in this chunk
-            if (stmt instanceof LocalDeclStmt) {
-                chunkVars.add(((LocalDeclStmt) stmt).localVarDecl.name);
-            }
-            // warn about unused chunk vars
-            if (stmt instanceof Break) {
-                for (String var : chunkVars) {
-                    if (unusedLocals.containsKey(var)) {
-                        errorMsg.warning(unusedLocals.get(var), CompWarning.UnusedVariable(var));
-                        unusedLocals.remove(var);
-                    }
-                    localEnv.remove(var);
-                    init.remove(var);
-                }
-                chunkVars.clear();
-            }
+    public Object visit(IDExp n)
+    {
+        // Look up the variable in the local environment
+        VarDecl varDecl = localEnv.get(n.name);
+        
+        if (varDecl == null) {
+            // Variable not found - report undefined variable error
+            errorMsg.error(n.pos, CompError.UndefinedVariable(n.name));
+        } else {
+            // Link the IDExp to its declaration
+            n.link = varDecl;
         }
 
-        // restore scope after switch
-        localEnv = savedEnv;
-        init = savedInit;
-        breakTargetStack.pop();
+        return null;
+    }
+
+    @Override
+    public Object visit(IDType n)
+    {
+        // Look up the type in the class environment
+        ClassDecl classDecl = classEnv.get(n.name);
+        
+        if (classDecl == null) {
+            // Type not found - report undefined class error
+            errorMsg.error(n.pos, CompError.UndefinedClass(n.name));
+        } else {
+            // Link the IDType to its class declaration
+            n.link = classDecl;
+        }
+
         return null;
     }
 

@@ -40,7 +40,8 @@ public class Sem1Visitor extends Visitor
     @Override
     public Object visit(ClassDecl n) 
     {
-        if (classEnv.containsKey(n.name)) {
+        if (classEnv.containsKey(n.name)) 
+        {
             errorMsg.error(n.pos, CompError.DuplicateClass(n.name));
         }
         else 
@@ -56,7 +57,8 @@ public class Sem1Visitor extends Visitor
     @Override 
     public Object visit(MethodDeclVoid n)
     {
-        if (currentClass.methodEnv.containsKey(n.name)) {
+        if (currentClass.methodEnv.containsKey(n.name)) 
+        {
             errorMsg.error(n.pos, CompError.DuplicateMethod(n.name));
         } 
         else 
@@ -88,11 +90,13 @@ public class Sem1Visitor extends Visitor
     @Override
     public Object visit(FieldDecl n)
     {
-        if (n.name.equals("length")) {
+        if (n.name.equals("length")) 
+        {
             errorMsg.error(n.pos, CompError.IllegalLength());
         }
 
-        if (currentClass.fieldEnv.containsKey(n.name)) {
+        if (currentClass.fieldEnv.containsKey(n.name)) 
+        {
             errorMsg.error(n.pos, CompError.DuplicateField(n.name));
         } 
         else 

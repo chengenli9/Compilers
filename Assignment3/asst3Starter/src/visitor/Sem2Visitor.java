@@ -25,6 +25,7 @@ public class Sem2Visitor extends Visitor
         classEnv = env;
     }
 
+    // Start with all classes as unused, then remove as we link them
     @Override 
     public Object visit(Program p) 
     {
@@ -32,13 +33,17 @@ public class Sem2Visitor extends Visitor
 
         // Check for inheritanceCycle
         HashSet<ClassDecl> visited = new HashSet<>();
-        for (ClassDecl classDecl : classEnv.values()) {
-            if (!visited.contains(classDecl)) {
+        for (ClassDecl classDecl : classEnv.values()) 
+        {
+            if (!visited.contains(classDecl)) 
+            {
                 HashSet<ClassDecl> path = new HashSet<>();
                 ClassDecl current = classDecl;
                 
-                while (current != null) {
-                    if (path.contains(current)) {
+                while (current != null) 
+                {
+                    if (path.contains(current)) 
+                    {
                         errorMsg.error(current.pos, CompError.InheritanceCycle(current.name));
                         break;
                     }
@@ -52,18 +57,21 @@ public class Sem2Visitor extends Visitor
         return null;
     }
 
+    // Link each class to its superclass and check for illegal superclasses
     @Override 
     public Object visit(ClassDecl n)
     {
         // Check if superclass is String or RunMain
-        if (n.superName.equals("String") || n.superName.equals("RunMain")) {
+        if (n.superName.equals("String") || n.superName.equals("RunMain")) 
+        {
             errorMsg.error(n.pos, CompError.IllegalSuperclass(n.superName));
             return null;
         }
         
         // Look up superclass
         ClassDecl superclass = classEnv.get(n.superName);
-        if (superclass == null) {
+        if (superclass == null) 
+        {
             errorMsg.error(n.pos, CompError.UndefinedSuperclass(n.superName));
             return null;
         }

@@ -56,10 +56,12 @@ public class Sem3Visitor extends Visitor
         
     }
 
-    // populate unused classes set, visit everything and warn leftover unused
+    // Start with all classes as unused, then remove as we link them
     @Override
-    public Object visit(Program n) {
+    public Object visit(Program n) 
+    {
         unusedClasses.clear();
+        // add all classes to unused set at start of traversal
         for (Map.Entry<String,ClassDecl> e : classEnv.entrySet())
         {
             ClassDecl cd = e.getValue();
@@ -69,7 +71,6 @@ public class Sem3Visitor extends Visitor
             }
         }
         
-
         n.classDecls.accept(this);
         n.mainStmt.accept(this);
 
@@ -78,18 +79,22 @@ public class Sem3Visitor extends Visitor
     }
 
     // helper for warning unused classes at end of traversal
-    private void unnusedClassesWarning() {
-        for (String id : unusedClasses) {
+    private void unnusedClassesWarning() 
+    {
+        for (String id : unusedClasses) 
+        {
             ClassDecl cd = classEnv.get(id);
-            if (cd != null) {
+            if (cd != null) 
+            {
                 errorMsg.warning(cd.pos, CompWarning.UnusedClass(id));
             }
         }
     }
 
-    // Set current class and mark superclass as used
+    // Mark class as used and visit fields/methods
     @Override
-    public Object visit(ClassDecl n) {
+    public Object visit(ClassDecl n) 
+    {
         currentClass = n;
         unusedClasses.remove(n.superName);
         n.decls.accept(this);
@@ -98,7 +103,8 @@ public class Sem3Visitor extends Visitor
 
     // Reset scope for new void method and warn unused vars at end
     @Override
-    public Object visit(MethodDeclVoid n) {
+    public Object visit(MethodDeclVoid n) 
+    {
         resetScope();
         n.params.accept(this);
         n.stmts.accept(this);
@@ -107,9 +113,10 @@ public class Sem3Visitor extends Visitor
         return null;
     }
 
-    // Reset scope for new non-void method and warn unused vars at end
+    // Reset scope for new non-void method and warn about unussed vars
     @Override
-    public Object visit(MethodDeclNonVoid n) {
+    public Object visit(MethodDeclNonVoid n) 
+    {
         resetScope();
         n.rtnType.accept(this);
         n.rtnExp.accept(this);
@@ -120,28 +127,24 @@ public class Sem3Visitor extends Visitor
         return null;
     }
 
-    // Reset scope for constructor and warn unused vars at end
-    private void resetScope() {
+    // Reset scope for constructor and warn about unused vars 
+    private void resetScope() 
+    {
         localEnv = new HashMap<>();
         init = new HashSet<>();
         unusedLocals = new HashMap<>();
     }
 
-    // report any vars still in unused set
-    // private void warnUnusedVars() {
-    //     for (Map.Entry<String,Integer> entry : unusedLocals.entrySet()) 
-    //     {
-    //         errorMsg.warning(entry.getValue(), CompWarning.UnusedVariable(entry.getKey()));
-    //     }
-    // }
-    // different way of warnUnsedVars
-    private void unusedVarsWarning() {
-        for (String var : unusedLocals.keySet()) {
+    // Helper to warn about unused local variables at end of method/constructor
+    private void unusedVarsWarning() 
+    {
+        for (String var : unusedLocals.keySet()) 
+        {
             errorMsg.warning(unusedLocals.get(var), CompWarning.UnusedVariable(var));
         }
     }
 
-    // Register param in local scope, mark initialized and track usage
+    // Check for duplicate param name and add to scope and init set
     @Override
     public Object visit(ParamDecl n) 
     {
@@ -161,7 +164,8 @@ public class Sem3Visitor extends Visitor
 
     // Handle block scoping by saving and restoring 
     @Override
-    public Object visit(Block n) {
+    public Object visit(Block n) 
+    {
         HashMap<String, VarDecl> localEnv = new HashMap<>(this.localEnv);
         HashSet<String> init = new HashSet<>(this.init);
 
@@ -173,10 +177,10 @@ public class Sem3Visitor extends Visitor
         return null;
     }
 
-    // Add var to scope before visiting init expr so self-refs
-    // Resolve to this local and trigger uninitialized error
+    // Check for duplicate local var name and add to scope and init set
     @Override
-    public Object visit(LocalVarDecl n) {
+    public Object visit(LocalVarDecl n) 
+    {
         if (localEnv.containsKey(n.name)) {
             errorMsg.error(n.pos, CompError.DuplicateVariable(n.name));
             n.initExp.accept(this);
@@ -184,7 +188,6 @@ public class Sem3Visitor extends Visitor
         }
         else 
         {
-            // in scope but not yet initialized
             localEnv.put(n.name, n);
             unusedLocals.put(n.name, n.pos);
             n.initExp.accept(this);
@@ -195,10 +198,13 @@ public class Sem3Visitor extends Visitor
     }
 
     // Traverse the chain and look for field by name
-    private VarDecl checkField(String name, ClassDecl classDecl) {
-        while (classDecl != null) {
+    private VarDecl checkField(String name, ClassDecl classDecl) 
+    {
+        while (classDecl != null) 
+        {
             FieldDecl fieldDecl = classDecl.fieldEnv.get(name);
-            if (fieldDecl != null) {
+            if (fieldDecl != null) 
+            {
                 return fieldDecl;
             }
             classDecl = classDecl.superLink;
@@ -206,13 +212,16 @@ public class Sem3Visitor extends Visitor
         return null;
     }
 
-    // resolve variable: check locals first, then fields up hierarchy
+    // Link IDExp to VarDecl in scope or field, and error if not found
     @Override
-    public Object visit(IDExp n) {
+    public Object visit(IDExp n) 
+    {
         VarDecl varDecl = localEnv.get(n.name);
-        if (varDecl != null) {
+        if (varDecl != null) 
+        {
             //local found, check if initialized
-            if (!init.contains(n.name) && varDecl instanceof LocalVarDecl) {
+            if (!init.contains(n.name) && varDecl instanceof LocalVarDecl) 
+            {
                 errorMsg.error(n.pos, CompError.UninitializedVariable(n.name));
             }
             n.link = varDecl;
@@ -221,9 +230,10 @@ public class Sem3Visitor extends Visitor
 
             
         }
-        // check fields up class hierarchy
+        // not local, check fields
         varDecl = checkField(n.name, currentClass);
-        if (varDecl != null) {
+        if (varDecl != null) 
+        {
             n.link = varDecl;
             return null;
         }
@@ -231,12 +241,13 @@ public class Sem3Visitor extends Visitor
         return null;
     }
     
-
-    // Resolve type name to class decl and mark class as used
+    // Link IDType to ClassDecl and error if not found
     @Override
-    public Object visit(IDType n) {
+    public Object visit(IDType n) 
+    {
         ClassDecl decl = classEnv.get(n.name);
-        if (decl == null) {
+        if (decl == null) 
+        {
 
             errorMsg.error(n.pos, CompError.UndefinedClass(n.name));
         }
@@ -248,9 +259,10 @@ public class Sem3Visitor extends Visitor
         return null;
     }
 
-    // Push while as break target and pop after body
+    // Track enclosing while for break statements
     @Override
-    public Object visit(While n) {
+    public Object visit(While n) 
+    {
         n.exp.accept(this);
         breakTargetStack.push(n);
 
@@ -262,7 +274,8 @@ public class Sem3Visitor extends Visitor
 
     // Link break to enclosing while/switch and error if none
     @Override
-    public Object visit(Break n) {
+    public Object visit(Break n) 
+    {
         if (breakTargetStack.isEmpty()) {
             errorMsg.error(n.pos, CompError.TopLevelBreak());
         }
@@ -273,45 +286,52 @@ public class Sem3Visitor extends Visitor
         return null;
     }
 
-    // Handle switch scoping and track vars declared in current chunk
+    // Track enclosing switch for break statements and handle switch chunk scoping
     @Override
     public Object visit(Switch n) 
     {
         n.exp.accept(this);
         breakTargetStack.push(n);
 
-        HashMap<String, VarDecl> savedEnv = new HashMap<>(localEnv);
-        HashSet<String> savedInit = new HashSet<>(init);
+        HashMap<String, VarDecl> env = new HashMap<>(localEnv);
+        HashSet<String> newInit = new HashSet<>(init);
         ArrayList<String> chunkVars = new ArrayList<>();
 
-        for (Stmt stmt : n.stmts) {
-            if (stmt instanceof Label) {
+        for (Stmt stmt : n.stmts) 
+        {
+            if (stmt instanceof Label) 
+            {
                 ((Label) stmt).enclosingSwitch = n;
             }
 
             stmt.accept(this);
 
-            if (stmt instanceof LocalDeclStmt) {
+            if (stmt instanceof LocalDeclStmt) 
+            {
                 chunkVars.add(((LocalDeclStmt) stmt).localVarDecl.name);
             }
 
-            if (stmt instanceof Break) {
-                flushSwitchChunkVariables(chunkVars);
+            if (stmt instanceof Break) 
+            {
+                switchChunkHelper(chunkVars);
             }
         }
 
-        // restore scope after switch
-        localEnv = savedEnv;
-        init = savedInit;
+        // restore scope at end of switch
+        localEnv = env;
+        init = newInit;
         breakTargetStack.pop();
         return null;
     }
 
     // Helper to flush variables declared within a switch chunk
-    private void flushSwitchChunkVariables(List<String> chunkVars) {
-        for (String var : chunkVars) {
+    private void switchChunkHelper(List<String> chunkVars) 
+    {
+        for (String var : chunkVars) 
+        {
             Integer pos = unusedLocals.get(var);
-            if (pos != null) {
+            if (pos != null) 
+            {
                 errorMsg.warning(pos, CompWarning.UnusedVariable(var));
                 unusedLocals.remove(var);
             }

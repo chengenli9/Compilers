@@ -1,0 +1,120 @@
+# int x = val + 1
+# x = 2 * x
+# answer = x - val
+
+.data
+
+# we'll use this as the input to our program.
+# we can make more constants if we need them.
+184:val:
+.word 42
+
+# at the end of our program we'll store the result here.
+188:answer:
+.word 0
+
+.text
+
+### Code starts here
+0:main:
+
+# int x = val + 1
+
+  # push val into stack
+0#  lw $t0, val
+4#  subu $sp, $sp, 4
+8#  sw $t0, ($sp)
+
+  # push 1 into stack
+12#  li $t0, 1
+16#  subu $sp, $sp, 4
+20#  sw $t0, ($sp)
+
+  # stack 
+  # -----
+  #   val
+  #.    1
+
+  # pop 1 into t2
+24#  lw $t2, ($sp)
+28#  addu $sp, $sp, 4
+
+  # pop val into t1
+32#  lw $t1, ($sp)
+36#  addu $sp, $sp, 4
+ 
+  # t0 = val + 1
+40#  addu $t0, $t1, $t2
+
+  # push result onto stack
+44#  subu $sp, $sp, 4
+48#"x"  sw $t0, ($sp) #**"x"
+
+  # stack 
+  # -----
+  # val+1
+  #.    
+
+# x = 2 * x
+
+  # push 2 into stack
+52#  li $t0, 2
+56#  subu $sp, $sp, 4
+60#  sw $t0, ($sp)
+
+  # load x into t0 and push t0 to the stack
+64#  lw $t0, 4($sp)
+68#  subu $sp, $sp, 4
+72#  sw $t0, ($sp)
+
+76#  lw $t2, ($sp)
+80#  addu $sp, $sp, 4
+
+84#  lw $t1, ($sp)
+88#  addu $sp, $sp, 4
+ 
+92#  mul $t0, $t1, $t2
+93##...mult $t1,$t2
+97##...mflo $t0
+
+  # store back into x
+100#  sw $t0, ($sp) 
+
+# answer = x - val
+
+  # push x into stack
+104#  lw $t0, ($sp)
+108#  subu $sp, $sp, 4
+112#  sw $t0, ($sp)
+  # push val into stack
+116#  lw $t0, val
+120#  subu $sp, $sp, 4
+124#  sw $t0, ($sp)
+
+128#  lw $t2, ($sp)
+132#  addu $sp, $sp, 4
+
+136#  lw $t1, ($sp)
+140#  addu $sp, $sp, 4
+
+144#  subu $t0, $t1, $t2
+  
+148#  sw $t0, answer
+
+
+  ### End of program,
+  ### Print the answer, and \n, then exit
+
+  # print value stored in answer
+152#  li $v0,1
+156#  lw $a0,answer
+160#  syscall
+
+  # print newline
+164#  li $v0,11
+168#  li $a0,10
+172#  syscall
+
+  # exit the program
+176#  li $v0,10
+180#  syscall

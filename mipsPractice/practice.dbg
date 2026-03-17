@@ -1,0 +1,37 @@
+.data
+
+# we'll use this as the input to our program.
+# we can make more constants if we need them.
+40:val:
+.word 42
+
+# at the end of our program we'll store the result here.
+44:answer:
+.word 0
+
+.text
+
+### Code starts here
+0:main:
+
+0#  lw $t0, val
+  
+4#  sw $t0, answer
+
+
+  ### End of program,
+  ### Print the answer, and \n, then exit
+
+  # print value stored in answer
+8#  li $v0,1
+12#  lw $a0,answer
+16#  syscall
+
+  # print newline
+20#  li $v0,11
+24#  li $a0,10
+28#  syscall
+
+  # exit the program
+32#  li $v0,10
+36#  syscall

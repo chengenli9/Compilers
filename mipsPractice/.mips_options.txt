@@ -1,0 +1,7 @@
+true
+18
+true
+false
+30000
+(none)
+/Users/chengenli/Desktop/Compilers/mipsPractice/problem2.asm

@@ -1,4 +1,3 @@
-// author: Chengen Li
 package visitor;
 
 import syntaxtree.*;
@@ -126,57 +125,90 @@ public class Sem4Visitor extends Visitor
         return superType;
     }
 
-
-    private Type binaryCompare(BinExp n, Type expected) {
-        Type t1 = (Type)n.left.accept(this);
-        Type t2 = (Type)n.right.accept(this);
-        if (!t1.equals(expected)) {
-            errorMsg.error(n.left.pos, CompError.TypeMismatch(t1, expected));
+    private void checkType(Type t, int pos) {
+        if (!t.isInt()) {
+            errorMsg.error(pos, CompError.TypeMismatch(t, Int));
         }
-        if (!t2.equals(expected)) {
-            errorMsg.error(n.right.pos, CompError.TypeMismatch(t2, expected));
-        }
-        n.type = expected;
-        return expected;
     }
 
-    @Override
     public Object visit(Plus p)
     {
-        return binaryCompare(p, Int);
+        Type t1 = (Type)p.left.accept(this);
+        Type t2 = (Type)p.right.accept(this);
+        checkType(t1, p.pos);
+        checkType(t2, p.pos);
+        p.type = Int;
+        return Int;
     }
 
-    @Override
     public Object visit(Minus m)
     {
-        return binaryCompare(m, Int);
+        Type t1 = (Type)m.left.accept(this);
+        Type t2 = (Type)m.right.accept(this);
+        checkType(t1, m.pos);
+        checkType(t2, m.pos);
+        m.type = Int;
+        return Int;
     }
-    @Override
+
     public Object visit(Times t)
     {
-        return binaryCompare(t, Int);
+        Type t1 = (Type)t.left.accept(this);
+        Type t2 = (Type)t.right.accept(this);
+        checkType(t1, t.pos);
+        checkType(t2, t.pos);
+        t.type = Int;
+        return Int;
     }
-    @Override
+
     public Object visit(Divide d)
     {
-        return binaryCompare(d, Int);
+        Type t1 = (Type)d.left.accept(this);
+        Type t2 = (Type)d.right.accept(this);
+        checkType(t1, d.pos);
+        checkType(t2, d.pos);
+        d.type = Int;
+        return Int;
     }
-    @Override
+
     public Object visit(Remainder r) 
     {
-        return binaryCompare(r, Int);
+        Type t1 = (Type)r.left.accept(this);
+        Type t2 = (Type)r.right.accept(this);
+        checkType(t1, r.pos);
+        checkType(t2, r.pos);
+        r.type = Int;
+        return Int;
     }
-    
+
     @Override
     public Object visit(And a)
     {
-        return binaryCompare(a, Bool);
+        Type t1 = (Type)a.left.accept(this);
+        Type t2 = (Type)a.right.accept(this);
+        if (!t1.isBoolean()) {
+            errorMsg.error(a.left.pos, CompError.TypeMismatch(t1, Bool));
+        }
+        if (!t2.isBoolean()) {
+            errorMsg.error(a.right.pos, CompError.TypeMismatch(t2, Bool));
+        }
+        a.type = Bool;
+        return Bool;
     }
 
     @Override
     public Object visit(Or o)
     {
-        return binaryCompare(o, Bool);
+        Type t1 = (Type)o.left.accept(this);
+        Type t2 = (Type)o.right.accept(this);
+        if (!t1.isBoolean()) {
+            errorMsg.error(o.left.pos, CompError.TypeMismatch(t1, Bool));
+        }
+        if (!t2.isBoolean()) {
+            errorMsg.error(o.right.pos, CompError.TypeMismatch(t2, Bool));
+        }
+        o.type = Bool;
+        return Bool;
     }
 
     @Override
@@ -185,10 +217,10 @@ public class Sem4Visitor extends Visitor
         Type t1 = (Type)l.left.accept(this);
         Type t2 = (Type)l.right.accept(this);
         if (!t1.isInt()) {
-            errorMsg.error(l.left.pos, CompError.TypeMismatch(t1, Int));
+            errorMsg.error(l.pos, CompError.TypeMismatch(t1, Int));
         }
         if (!t2.isInt()) {
-            errorMsg.error(l.right.pos, CompError.TypeMismatch(t2, Int));
+            errorMsg.error(l.pos, CompError.TypeMismatch(t2, Int));
         }
         l.type = Bool;
         return Bool;
@@ -200,10 +232,10 @@ public class Sem4Visitor extends Visitor
         Type t1 = (Type)g.left.accept(this);
         Type t2 = (Type)g.right.accept(this);
         if (!t1.isInt()) {
-            errorMsg.error(g.left.pos, CompError.TypeMismatch(t1, Int));
+            errorMsg.error(g.pos, CompError.TypeMismatch(t1, Int));
         }
         if (!t2.isInt()) {
-            errorMsg.error(g.right.pos, CompError.TypeMismatch(t2, Int));
+            errorMsg.error(g.pos, CompError.TypeMismatch(t2, Int));
         }
         g.type = Bool;
         return Bool;
@@ -464,16 +496,12 @@ public class Sem4Visitor extends Visitor
         return null;
     }
 
-    
-
     @Override
     public Object visit(MethodDeclVoid md)
     {
         visit((MethodDecl)md);
         return null;
     }
-
-
 
     @Override
     public Object visit(If i)
@@ -535,9 +563,6 @@ public class Sem4Visitor extends Visitor
         b.stmts.accept(this);
         return null;
     }
-
-
-
 
 }
 

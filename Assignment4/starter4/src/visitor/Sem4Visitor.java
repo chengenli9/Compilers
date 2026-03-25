@@ -131,7 +131,7 @@ public class Sem4Visitor extends Visitor
     }
 
     //================================================================
-    // Binary expressions
+    // Binary Operators
     //================================================================
 
 
@@ -267,7 +267,7 @@ public class Sem4Visitor extends Visitor
     }
 
     // ===============================================================
-    // Unary expressions 
+    // Unary Operators
     // ===============================================================
     @Override
     public Object visit(Not n)
@@ -374,6 +374,7 @@ public class Sem4Visitor extends Visitor
     {
         Type t = (Type)f.exp.accept(this);
 
+        // check that t is a class type
         if (!t.isID()) {
             errorMsg.error(f.pos, CompError.UndefinedField(f.varName, t));
             f.type = Error;
@@ -384,12 +385,12 @@ public class Sem4Visitor extends Visitor
         ClassDecl cd = id.link;
         FieldDecl fd = null;
 
+        // look for field in class and superclasses
         while (cd != null) {
             fd = cd.fieldEnv.get(f.varName);
             if (fd != null) break;
             cd = cd.superLink;
         }
-
         if (fd == null) {
             errorMsg.error(f.pos, CompError.UndefinedField(f.varName, t));
             f.type = Error;
@@ -413,6 +414,7 @@ public class Sem4Visitor extends Visitor
         IDType id = (IDType)rec;
         ClassDecl cd = id.link;
         MethodDecl md = null;
+        
         while (cd != null) {
             md = cd.methodEnv.get(c.methName);
             if (md != null) break;
@@ -436,6 +438,7 @@ public class Sem4Visitor extends Visitor
                 }
             }
         }
+        // set call type based on method return type
         c.type = md instanceof MethodDeclNonVoid ? ((MethodDeclNonVoid)md).rtnType : Void;
         return c.type;
     }

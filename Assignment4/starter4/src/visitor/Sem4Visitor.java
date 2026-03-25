@@ -1,4 +1,6 @@
 // author: Chengen Li
+// version: 3/24/2026 11:10 PM
+
 package visitor;
 
 import syntaxtree.*;
@@ -69,7 +71,9 @@ public class Sem4Visitor extends Visitor
         ObjectType.link = classEnv.get("Object");
     }
 
-
+    //================================================================
+    // Leaf expressions
+    //================================================================
     @Override
     public Object visit(IntLit i)
     {
@@ -126,7 +130,12 @@ public class Sem4Visitor extends Visitor
         return superType;
     }
 
+    //================================================================
+    // Binary expressions
+    //================================================================
 
+
+    // helper method for checking binary expressions with expected type
     private Type binaryCompare(BinExp n, Type expected) {
         Type t1 = (Type)n.left.accept(this);
         Type t2 = (Type)n.right.accept(this);
@@ -221,6 +230,7 @@ public class Sem4Visitor extends Visitor
         return Bool;
     }
 
+    // helper method for checking type compatibility (for == and instanceof)
     private boolean compatible(Type t1, Type t2) {
         return subtype(t1, t2) || subtype(t2, t1);
     }
@@ -231,15 +241,22 @@ public class Sem4Visitor extends Visitor
         if (s.isInt() && t.isInt()) return true;
         if (s.isBoolean() && t.isBoolean()) return true;
         if (s.isVoid() && t.isVoid()) return true;
+
+        // array and array have to match base type
         if (s.isArray() && t.isArray()) {
             return subtype(((ArrayType)s).baseType, ((ArrayType)t).baseType);
         }
+        // array is compatible with Object
         if (s.isArray() && t.isObject()) return true;
+
+        // for class types, check if s is a subclass of t
         if (s.isID() && t.isID()) {
             IDType is = (IDType)s;
             IDType it = (IDType)t;
+
             if (is.link == null || it.link == null) return false;
             ClassDecl cs = is.link;
+            
             while (cs != null) {
                 if (cs == it.link) return true;
                 cs = cs.superLink;
@@ -249,16 +266,24 @@ public class Sem4Visitor extends Visitor
         return false;
     }
 
+    // ===============================================================
+    // Unary expressions 
+    // ===============================================================
     @Override
     public Object visit(Not n)
     {
         Type t = (Type)n.exp.accept(this);
+
         if (!t.isBoolean()) {
-            errorMsg.error(n.pos, CompError.IncompatibleType(t, Bool));
+            errorMsg.error(n.pos, CompError.TypeMismatch(t, Bool));
         }
         n.type = Bool;
         return Bool;
     }
+
+    //================================================================
+    // Arrays
+    //================================================================
 
     @Override
     public Object visit(ArrayLength a)
@@ -294,13 +319,19 @@ public class Sem4Visitor extends Visitor
     @Override
     public Object visit(NewArray n)
     {
-        Type t = (Type)n.sizeExp.accept(this);
-        if (!t.isInt()) {
-            errorMsg.error(n.pos, CompError.IncompatibleType(t, Int));
+        n.objType.accept(this);
+        Type sizeType = (Type)n.sizeExp.accept(this);
+
+        if (sizeType == null) {
+            sizeType = Error;
         }
-        ArrayType arr = new ArrayType(n.pos, n.objType);
-        n.type = arr;
-        return arr;
+        // give an error if size is not an int or error
+        if (!sizeType.isError() && !sizeType.isInt()) {
+            errorMsg.error(n.sizeExp.pos, CompError.TypeMismatch(sizeType, Int));
+        }
+
+        n.type = new ArrayType(n.pos, n.objType);
+        return n.type;
     }
 
     @Override
@@ -342,24 +373,29 @@ public class Sem4Visitor extends Visitor
     public Object visit(FieldAccess f)
     {
         Type t = (Type)f.exp.accept(this);
+
         if (!t.isID()) {
             errorMsg.error(f.pos, CompError.UndefinedField(f.varName, t));
             f.type = Error;
             return Error;
         }
+
         IDType id = (IDType)t;
         ClassDecl cd = id.link;
         FieldDecl fd = null;
+
         while (cd != null) {
             fd = cd.fieldEnv.get(f.varName);
             if (fd != null) break;
             cd = cd.superLink;
         }
+
         if (fd == null) {
             errorMsg.error(f.pos, CompError.UndefinedField(f.varName, t));
             f.type = Error;
             return Error;
         }
+
         f.varDec = fd;
         f.type = fd.type;
         return fd.type;
@@ -404,6 +440,9 @@ public class Sem4Visitor extends Visitor
         return c.type;
     }
 
+    // ================================================================
+    // Declarations 
+    // ================================================================
     @Override
     public Object visit(ClassDecl cd)
     {
@@ -423,8 +462,10 @@ public class Sem4Visitor extends Visitor
         // check override
         if (currentClass.superLink != null) {
             MethodDecl superMd = currentClass.superLink.methodEnv.get(md.name);
+
             if (superMd != null) {
                 md.superMethod = superMd;
+
                 // check params
                 if (md.params.size() != superMd.params.size()) {
                     errorMsg.error(md.pos, CompError.NumArgsOverride());
@@ -438,9 +479,10 @@ public class Sem4Visitor extends Visitor
                         }
                     }
                 }
-                // check return
+                // check return type
                 Type rt1 = md instanceof MethodDeclNonVoid ? ((MethodDeclNonVoid)md).rtnType : Void;
                 Type rt2 = superMd instanceof MethodDeclNonVoid ? ((MethodDeclNonVoid)superMd).rtnType : Void;
+
                 if (!rt1.equals(rt2)) {
                     errorMsg.error(md.pos, CompError.ReturnOverride());
                 }
@@ -464,7 +506,6 @@ public class Sem4Visitor extends Visitor
         return null;
     }
 
-    
 
     @Override
     public Object visit(MethodDeclVoid md)
@@ -473,17 +514,19 @@ public class Sem4Visitor extends Visitor
         return null;
     }
 
-
+    // ================================================================
+    // Statements
+    // ================================================================
 
     @Override
-    public Object visit(If i)
+    public Object visit(If n)
     {
-        Type t = (Type)i.exp.accept(this);
-        if (!t.isBoolean()) {
-            errorMsg.error(i.pos, CompError.TypeMismatch(t, Bool));
+        Type t = (Type)n.exp.accept(this);
+        if (!t.isBoolean() && !t.isError() && !t.isNull()) {
+            errorMsg.error(n.pos, CompError.TypeMismatch(t, Bool));
         }
-        i.trueStmt.accept(this);
-        i.falseStmt.accept(this);
+        n.trueStmt.accept(this);
+        n.falseStmt.accept(this);
         return null;
     }
 
@@ -491,14 +534,15 @@ public class Sem4Visitor extends Visitor
     public Object visit(While w)
     {
         Type t = (Type)w.exp.accept(this);
-        if (!t.isBoolean()) {
+        if (!t.isBoolean() && !t.isError() && !t.isNull()) {
             errorMsg.error(w.pos, CompError.TypeMismatch(t, Bool));
         }
         w.body.accept(this);
         return null;
     }
 
-    private boolean isAssignableValue(Exp e) {
+    // helper method to check if an expression is an lvalue
+    private boolean isLValue(Exp e) {
         return e instanceof IDExp || e instanceof FieldAccess || e instanceof ArrayLookup || e instanceof This || e instanceof Super;
     }
 
@@ -509,11 +553,13 @@ public class Sem4Visitor extends Visitor
         Type lhs = (Type)a.lhs.accept(this);
         Type rhs = (Type)a.rhs.accept(this);
         
-        if (!isAssignableValue(a.lhs)) {
+        // check that lhs is assignable / an lvalue
+        if (!isLValue(a.lhs)) {
             errorMsg.error(a.lhs.pos, CompError.Assignment());
         }
 
-        if (!subtype(rhs, lhs)) {
+        // check that rhs is subtype of lhs
+        if (!lhs.isNull() && !rhs.isNull() && !subtype(rhs, lhs)) {
             errorMsg.error(a.pos, CompError.Subtype(rhs, lhs));
         }
         return null;

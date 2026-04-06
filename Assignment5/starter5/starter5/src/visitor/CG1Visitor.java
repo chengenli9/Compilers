@@ -94,7 +94,18 @@ public class CG1Visitor extends Visitor
      */
     private void setOffsets(ClassDecl c)
     {
+        if (c.superLink != null) {
+            c.numDataFields = c.superLink.numDataFields;
+            c.numObjFields = c.superLink.numObjFields;
+        } else {
+            c.numDataFields++;
+            c.numObjFields++;
+        }
 
+        for (InstVarDecl v : c.fieldEnv.values()) {
+
+            //
+        }
     }
    
 
@@ -175,6 +186,17 @@ public class CG1Visitor extends Visitor
         code.emit(at, "  .word mth_Object_equals");
         code.emit(at, "  .word mth_Object_toString");
         code.emit(at, "END_CLASS_"+at.vtableName()+":");
+    }
+
+    public void pushPopHelper(Type t) {
+        if (t.isInt()) {
+            code.emit(" subu $sp, $sp, 8");
+            code.emit(" sw $s5, 4($sp)"); // garbage collector pointer
+            code.emit(" sw $t0, ($sp)");
+        } else {
+            code.emit(" subu $sp, $sp, 4");
+            code.emit(" sw $t0, ($sp)");
+        }
     }
 
 }

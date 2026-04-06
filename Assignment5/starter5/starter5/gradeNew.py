@@ -36,7 +36,6 @@ from os import pathsep        # for compatability with windows since it uses ; f
 from shutil import rmtree     # remove directory at the end
 import subprocess             # just import subprocess, because the function is called run
                               # and I want my own version.
-import shutil
 
 # IF YOU ARE USING WINDOWS POWERSHELL YOU NEED TO CHANGE THIS TO TRUE!
 # This is because windows powershell doesn't allow you to redirect stdin
@@ -72,10 +71,8 @@ def main():
 
     # scrap directory for running the java tests
     scrap.mkdir(exist_ok=True)
-    shutil.copy(src / runMain, scrap / runMain)
-    shutil.copy(src / lib, scrap / lib)
-    #(src / lib).copy_into(scrap)
-    #(src / lib).copy_into(scrap)
+    (src / runMain).copy_into(scrap)
+    (src / lib).copy_into(scrap)
 
     # get each batch of tests and run them
     for batchDir in sorted(Path(argv[1]).iterdir()):
@@ -162,8 +159,7 @@ def mips(test, dat):
 # Runs java on the program and returns the output.
 def javaRun(test,dat):
     out = ""
-    shutil.copy(test, scrap / Path(test.name))
-    #test.copy_into(scrap)
+    test.copy_into(scrap)
 
     with chdir(scrap):
         # actually compile the java code.

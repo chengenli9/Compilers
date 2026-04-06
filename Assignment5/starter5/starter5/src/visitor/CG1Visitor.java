@@ -94,17 +94,79 @@ public class CG1Visitor extends Visitor
      */
     private void setOffsets(ClassDecl c)
     {
-        if (c.superLink != null) {
-            c.numDataFields = c.superLink.numDataFields;
-            c.numObjFields = c.superLink.numObjFields;
-        } else {
-            c.numDataFields++;
-            c.numObjFields++;
+        int numDataFields = 0;
+        int numObjFields = 0;
+        
+        // Count fields from parent class
+        if(c.superLink != null)
+        {
+            numDataFields = c.superLink.numDataFields;
+            numObjFields = c.superLink.numObjFields;
         }
-
-        for (InstVarDecl v : c.fieldEnv.values()) {
-
-            //
+        
+        // Assign offsets to fields in this class
+        for(Decl d : c.decls)
+        {
+            if(d instanceof FieldDecl v)
+            {
+                if(v.type.isInt() || v.type.isBoolean())
+                {
+                    // Data field: assign negative offset
+                    // Offsets: -16, -20, -24, -28, ...
+                    numDataFields++;
+                    v.offset = -(4 * (numDataFields + 3));
+                }
+                else
+                {
+                    // Object field: assign positive offset (0, 4, 8, 12, ...)
+                    v.offset = 4 * numObjFields;
+                    numObjFields++;
+                }
+            }
+        }
+        
+        // Store the total counts in the class
+        c.numDataFields = numDataFields;
+        c.numObjFields = numObjFields;
+        
+        // Assign offsets to method parameters
+        for(Decl d : c.decls)
+        {
+            if(d instanceof MethodDecl m)
+            {
+                // Parameters are stored on stack in reverse order
+                // Last parameter is at offset 4, earlier parameters at higher offsets
+                if(m.params != null && !m.params.isEmpty())
+                {
+                    int paramOffset = 4;
+                    
+                    // Iterate in reverse order (from last to first parameter)
+                    for(int i = m.params.size() - 1; i >= 0; i--)
+                    {
+                        VarDecl param = m.params.get(i);
+                        param.offset = paramOffset;
+                        
+                        // Move to next (earlier) parameter
+                        if(param.type.isInt())
+                        {
+                            paramOffset += 8;  // int takes 8 bytes on stack
+                        }
+                        else
+                        {
+                            paramOffset += 4;  // boolean and objects take 4 bytes
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Recursively set offsets for all subclasses
+        if(c.subclasses != null)
+        {
+            for(ClassDecl subclass : c.subclasses)
+            {
+                setOffsets(subclass);
+            }
         }
     }
    
@@ -188,16 +250,6 @@ public class CG1Visitor extends Visitor
         code.emit(at, "END_CLASS_"+at.vtableName()+":");
     }
 
-    public void pushPopHelper(Type t) {
-        if (t.isInt()) {
-            code.emit(" subu $sp, $sp, 8");
-            code.emit(" sw $s5, 4($sp)"); // garbage collector pointer
-            code.emit(" sw $t0, ($sp)");
-        } else {
-            code.emit(" subu $sp, $sp, 4");
-            code.emit(" sw $t0, ($sp)");
-        }
-    }
 
 }
 

@@ -115,11 +115,40 @@ public class CG3Visitor extends Visitor
         }
     }
 
-    public void resizeStack(int size) 
+    public void popSize(int size) 
     {
         code.emit(" addu $sp, $sp, "+size);
         stack -= size;
     }
+
+    public void swap(int pSize, String reg)
+    {
+        code.emit(" lw $t0, "+pSize+"($sp)");
+        code.emit(" sw "+reg+", "+pSize+"($sp)");
+        code.emit(" move "+reg+", $t0");
+    }
+
+    public void npe(String reg) 
+    {
+        code.emit(" beqz "+reg+", nullPtrException");
+    }
+
+    public void oob(String reg1, String reg2) 
+    {
+        npe(reg1);
+        code.emit(" lw $t3, -4("+reg1+")");
+        code.emit(" bgeu "+reg2+", $t3, arrayIndexOutOfBounds");
+    }
+
+    public void arrayLoad(String reg0, String reg1, String reg2) 
+    {
+        code.emit(" sll "+reg0+", "+reg2+", 2");
+        code.emit(" addu "+reg0+", "+reg0+", "+reg1);
+    }
+
+    
+
+    
 
     // =================================
     // Classes
@@ -132,6 +161,14 @@ public class CG3Visitor extends Visitor
     // =================================
     // Integer/Boolean/String Literals
     // =================================
+    // TODO
+    @Override
+    public Object visit(IDExp n)
+    {
+        return null;
+    }
+
+
     @Override
     public Object visit(IntLit n)
     {
@@ -146,10 +183,13 @@ public class CG3Visitor extends Visitor
     public Object visit(StringLit n)
     {
         code.comment(n, "begin");
-        code.emit(" la $t0, strLit_"+n.uniqueCgRep);
+        code.emit(" la $t0, strLit_"+n.uniqueId);
+    
+        push(n.type, "$t0");
         code.comment(n, "end");
         return null;
     }
+
 
     @Override
     public Object visit(True n)
@@ -265,7 +305,7 @@ public class CG3Visitor extends Visitor
         visit((MethodDecl)n);
 
         // pop off local variables 
-        resizeStack(stack);
+        popSize(stack);
         pop(new VoidType(-1), "$ra");
         code.emit(" jr $ra");
 
@@ -287,14 +327,14 @@ public class CG3Visitor extends Visitor
         pop(n.rtnType, "$t0");
 
         // pop off local variables 
-        resizeStack(stack);
+        popSize(stack);
         pop(new VoidType(-1), "$ra");
         code.emit(" jr $ra");
 
         return null;
     }
 
-    // TODO
+    
     @Override
     public Object visit(Call c)
     {
@@ -303,8 +343,38 @@ public class CG3Visitor extends Visitor
         c.args.accept(this);
 
         // check if super
+        if (c.obj.name().equals("Super")) {
+            swap(c.methodLink.paramSize * 4, "$s2");
+            code.emit(" jal mth_"+c.methodLink.name+"_"+c.methodLink.classDecl.name);
+            popSize(c.methodLink.paramSize * 4);
+            pop(new VoidType(-1), "$s2");
+            push(c.type, "t0");
+        } else {
+            swap(c.methodLink.paramSize * 4, "$s2");
+            npe("$s2");
+            code.emit(" lw $t0, -12($s2)");
+            code.emit(" lw $t0, "+c.methodLink.vtableOffset+"($t0)");
+            code.emit(" jalr $t0");
+            popSize(c.methodLink.paramSize * 4);
+            pop(new VoidType(-1), "$s2");
+            push(c.type, "t0");
+
+        }
+        code.comment(c, "end");
 
 
+        return null;
+    }
+
+    @Override
+    public Object visit(CallStmt c)
+    {
+        code.comment(c, "begin");
+        
+        c.callExp.accept(this);
+        pop(c.callExp.type, "$t0"); 
+
+        code.comment(c, "end");
         return null;
     }
 

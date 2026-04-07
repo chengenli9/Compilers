@@ -83,8 +83,8 @@ main:
 # begin: Call at 0.0; stackHeight = 0
   li $v0, 10
   syscall
-.globl mth_Main_main
-mth_Main_main:
+.globl mth_main_Main
+mth_main_Main:
  subu $sp, $sp, 4
  sw $ra, ($sp)
  addu $sp, $sp, 0

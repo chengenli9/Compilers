@@ -103,8 +103,8 @@ main:
 # begin: Call at 0.0; stackHeight = 0
   li $v0, 10
   syscall
-.globl mth_Main_main
-mth_Main_main:
+.globl mth_main_Main
+mth_main_Main:
  subu $sp, $sp, 4
  sw $ra, ($sp)
 # begin: Call at 3.13; stackHeight = 0
@@ -113,7 +113,7 @@ mth_Main_main:
  sw $s2, ($sp)
 # end: Super at 3.13; stackHeight = 4
 # begin: StringLit at 3.22; stackHeight = 4
- la $t0, strLit_syntaxtree.StringLit@377dca04
+ la $t0, strLit_syntaxtree.StringLit@6574b225
 # end: StringLit at 3.22; stackHeight = 4
  addu $sp, $sp, 4
  lw $ra, ($sp)

@@ -34,17 +34,17 @@ public class CG3Visitor extends Visitor
         stack = 0;
     }
 
-    public void fakeMainStmt()
-    {
-        code.emit("  li $s6, 1");
-        code.emit("  li $s7, 0");
-        code.emit("  newObject");
-        code.emit("  la $t0, CLASS_Main"); // put Main object on the stack
-        code.emit("  sw $t0, -12($s7)");
-        code.emit("  addu $sp,$sp,4");
-        code.emit("  move $s2, $s7");
-        code.emit("  jal mth_main_Main");
-    }
+    // public void fakeMainStmt()
+    // {
+    //     code.emit("  li $s6, 1");
+    //     code.emit("  li $s7, 0");
+    //     code.emit("  newObject");
+    //     code.emit("  la $t0, CLASS_Main"); // put Main object on the stack
+    //     code.emit("  sw $t0, -12($s7)");
+    //     code.emit("  addu $sp,$sp,4");
+    //     code.emit("  move $s2, $s7");
+    //     code.emit("  jal mth_main_Main");
+    // }
 
     @Override
     public Object visit(Program n)
@@ -256,8 +256,8 @@ public class CG3Visitor extends Visitor
     @Override
     public Object visit(MethodDeclVoid n)
     {
-        code.emit(".globl mth_"+n.classDecl.name+"_"+n.name);
-        code.emit("mth_"+n.classDecl.name+"_"+n.name+":");
+        code.emit(".globl "+"mth_"+n.name+"_"+n.classDecl.name);
+        code.emit("mth_"+n.name+"_"+n.classDecl.name+":");
         push(new VoidType(-1), "$ra");
 
         stack = 0;
@@ -275,8 +275,8 @@ public class CG3Visitor extends Visitor
     @Override
     public Object visit(MethodDeclNonVoid n)
     {
-        code.emit(".globl mth_"+n.classDecl.name+"_"+n.name);
-        code.emit("mth_"+n.classDecl.name+"_"+n.name+":");
+        code.emit(".globl "+"mth_"+n.name+"_"+n.classDecl.name);
+        code.emit("mth_"+n.name+"_"+n.classDecl.name+":");
         push(n.rtnType, "$ra");
 
         stack = 0;

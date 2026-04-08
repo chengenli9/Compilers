@@ -111,24 +111,20 @@ mth_main_Main:
  subu $sp, $sp, 8
  sw $t0, ($sp)
 # end: IntLit at 3.17; stackHeight = 8
- lw $zero, ($sp)
-# begin: CallStmt at 4.13; stackHeight = 8
-# begin: Call at 4.13; stackHeight = 8
-# begin: Super at 4.13; stackHeight = 8
+  subu $sp, $sp, 4 # LocalVarDecl at 3.11; stackHeight = 8
+  sw $t0, ($sp) # LocalVarDecl at 3.11; stackHeight = 8
+# begin: CallStmt at 4.13; stackHeight = 12
+# begin: Call at 4.13; stackHeight = 12
+# begin: Super at 4.13; stackHeight = 12
  subu $sp, $sp, 4
  sw $s2, ($sp)
-# end: Super at 4.13; stackHeight = 12
-# begin: Minus at 4.25; stackHeight = 12
-# begin: IDExp at 4.22; stackHeight = 12
- lw $t0, -8($sp)
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: IDExp at 4.22; stackHeight = 20
-# begin: IntLit at 4.26; stackHeight = 20
+# end: Super at 4.13; stackHeight = 16
+# begin: Minus at 4.25; stackHeight = 16
+# begin: IntLit at 4.26; stackHeight = 16
   li $t0, 263
  subu $sp, $sp, 8
  sw $t0, ($sp)
-# end: IntLit at 4.26; stackHeight = 28
+# end: IntLit at 4.26; stackHeight = 24
  lw $t1, ($sp)
  addu $sp, $sp, 8
  lw $t0, ($sp)
@@ -136,13 +132,13 @@ mth_main_Main:
   sub $t0, $t1, $t2
  subu $sp, $sp, 8
  sw $t0, ($sp)
-# end: Minus at 4.25; stackHeight = 20
+# end: Minus at 4.25; stackHeight = 16
  jal mth_printInt_Lib
-# end: Call at 4.13; stackHeight = 20
+# end: Call at 4.13; stackHeight = 16
  lw $t0, ($sp)
  addu $sp, $sp, 4
-# end: CallStmt at 4.13; stackHeight = 16
- addu $sp, $sp, 16
+# end: CallStmt at 4.13; stackHeight = 12
+ addu $sp, $sp, 12
  lw $ra, ($sp)
  addu $sp, $sp, 4
  jr $ra

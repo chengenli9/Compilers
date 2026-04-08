@@ -165,30 +165,14 @@ public class CG3Visitor extends Visitor
     {
         n.initExp.accept(this);
 
-        visit((VarDecl)n);
+        // push the value onto the stack
+        code.emit(n, "  subu $sp, $sp, 4");
+        code.emit(n, "  sw $t0, ($sp)");
 
-        code.emit(" lw $zero, ($sp)"); 
-        n.offset = -stack;
+        stack += 4;
 
-        return null;
-    }
+        n.offset = stack;
 
-    @Override
-    public Object visit(IDExp n) 
-    {
-        code.comment(n, "begin");
-        // if is instance of fieldvardecl
-        if (n.link instanceof FieldDecl) {
-            FieldDecl f = (FieldDecl) n.link;
-            code.emit(" lw $t0, 4($s2)"); // load vtable pointer
-            code.emit(" lw $t0, "+f.offset+"($t0)"); // load field value
-            push(n.type, "$t0");
-        }
-        else {
-            code.emit(" lw $t0, "+n.link.offset+"($sp)");
-            push(n.type, "$t0");
-        }
-        code.comment(n, "end");
         return null;
     }
 

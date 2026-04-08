@@ -88,13 +88,25 @@ END_CLASS_Object: # ClassDecl at 0.0
 .globl main
 main:
   jal vm_init
-# begin: Call at 0.0; stackHeight = 0
+  li $s6, 1
+  li $s7, 0
+  jal newObject
+  la $t0, CLASS_Main
+  sw $t0, -12($s7)
+  addu $sp,$sp,4
+  move $s2, $s7
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  jal mth_main_Main
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
 mth_main_Main:
  subu $sp, $sp, 4
  sw $ra, ($sp)
+ lw $s2, 4($sp)
+# begin: CallStmt at 3.11; stackHeight = 0
 # begin: Call at 3.11; stackHeight = 0
 # begin: Super at 3.11; stackHeight = 0
  subu $sp, $sp, 4
@@ -103,10 +115,14 @@ mth_main_Main:
 # begin: IntLit at 3.20; stackHeight = 4
   li $t0, 345
  subu $sp, $sp, 8
- sw $s5, 4($sp)
  sw $t0, ($sp)
 # end: IntLit at 3.20; stackHeight = 12
- addu $sp, $sp, 12
+ jal mth_printInt_Lib
+# end: Call at 3.11; stackHeight = 12
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 3.11; stackHeight = 8
+ addu $sp, $sp, 8
  lw $ra, ($sp)
  addu $sp, $sp, 4
  jr $ra

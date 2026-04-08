@@ -112,13 +112,13 @@ public class CG1Visitor extends Visitor
                 if(v.type.isInt() || v.type.isBoolean())
                 {
                     // Data field: assign negative offset
-                    // Offsets: -16, -20, -24, -28, ...
+                    // Offsets: -16, -20, -24, -28
                     numDataFields++;
                     v.offset = -(4 * (numDataFields + 3));
                 }
                 else
                 {
-                    // Object field: assign positive offset (0, 4, 8, 12, ...)
+                    // Object field: assign positive offset (0, 4, 8, 12)
                     v.offset = 4 * numObjFields;
                     numObjFields++;
                 }
@@ -134,26 +134,26 @@ public class CG1Visitor extends Visitor
         {
             if(d instanceof MethodDecl m)
             {
-                // Parameters are stored on stack in reverse order
-                // Last parameter is at offset 4, earlier parameters at higher offsets
+                // Parameters are stored on stack in order
+                // First parameter (this) at offset 4, others at higher offsets
                 if(m.params != null && !m.params.isEmpty())
                 {
                     int paramOffset = 4;
                     
-                    // Iterate in reverse order (from last to first parameter)
-                    for(int i = m.params.size() - 1; i >= 0; i--)
+                    // Iterate in order (from first to last parameter)
+                    for(int i = 0; i < m.params.size(); i++)
                     {
                         VarDecl param = m.params.get(i);
                         param.offset = paramOffset;
                         
-                        // Move to next (earlier) parameter
+                        // Move to next parameter
                         if(param.type.isInt())
                         {
-                            paramOffset += 8;  // int takes 8 bytes on stack
+                            paramOffset += 8;  
                         }
                         else
                         {
-                            paramOffset += 4;  // boolean and objects take 4 bytes
+                            paramOffset += 4;  
                         }
                     }
                 }

@@ -88,25 +88,49 @@ END_CLASS_Object: # ClassDecl at 0.0
 .globl main
 main:
   jal vm_init
-# begin: Call at 0.0; stackHeight = 0
+  li $s6, 1
+  li $s7, 0
+  jal newObject
+  la $t0, CLASS_Main
+  sw $t0, -12($s7)
+  addu $sp,$sp,4
+  move $s2, $s7
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  jal mth_main_Main
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
 mth_main_Main:
  subu $sp, $sp, 4
  sw $ra, ($sp)
+ lw $s2, 4($sp)
 # begin: IntLit at 3.17; stackHeight = 0
   li $t0, 27
  subu $sp, $sp, 8
- sw $s5, 4($sp)
  sw $t0, ($sp)
 # end: IntLit at 3.17; stackHeight = 8
-# begin: Call at 4.7; stackHeight = 8
-# begin: This at 4.7; stackHeight = 8
+  subu $sp, $sp, 4 # LocalVarDecl at 3.11; stackHeight = 8
+  sw $t0, ($sp) # LocalVarDecl at 3.11; stackHeight = 8
+# begin: CallStmt at 4.7; stackHeight = 12
+# begin: Call at 4.7; stackHeight = 12
+# begin: This at 4.7; stackHeight = 12
  subu $sp, $sp, 4
  sw $s2, ($sp)
-# end: This at 4.7; stackHeight = 12
- addu $sp, $sp, 12
+# end: This at 4.7; stackHeight = 16
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 4.7; stackHeight = 12
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 4.7; stackHeight = 8
+ addu $sp, $sp, 8
  lw $ra, ($sp)
  addu $sp, $sp, 4
  jr $ra

@@ -100,22 +100,47 @@ strLit_0: # StringLit at 3.16
 .globl main
 main:
   jal vm_init
-# begin: Call at 0.0; stackHeight = 0
+  li $s6, 1
+  li $s7, 0
+  jal newObject
+  la $t0, CLASS_Main
+  sw $t0, -12($s7)
+  addu $sp,$sp,4
+  move $s2, $s7
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  jal mth_main_Main
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
 mth_main_Main:
  subu $sp, $sp, 4
  sw $ra, ($sp)
+ lw $s2, 4($sp)
+# begin: CallStmt at 3.7; stackHeight = 0
 # begin: Call at 3.7; stackHeight = 0
 # begin: This at 3.7; stackHeight = 0
  subu $sp, $sp, 4
  sw $s2, ($sp)
 # end: This at 3.7; stackHeight = 4
 # begin: StringLit at 3.16; stackHeight = 4
- la $t0, strLit_syntaxtree.StringLit@6574b225
-# end: StringLit at 3.16; stackHeight = 4
+ la $t0, strLit_0
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 3.16; stackHeight = 8
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
  addu $sp, $sp, 4
+# end: Call at 3.7; stackHeight = 4
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 3.7; stackHeight = 0
+ addu $sp, $sp, 0
  lw $ra, ($sp)
  addu $sp, $sp, 4
  jr $ra

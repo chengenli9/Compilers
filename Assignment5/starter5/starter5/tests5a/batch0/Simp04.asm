@@ -100,21 +100,40 @@ strLit_0: # StringLit at 3.22
 .globl main
 main:
   jal vm_init
-# begin: Call at 0.0; stackHeight = 0
+  li $s6, 1
+  li $s7, 0
+  jal newObject
+  la $t0, CLASS_Main
+  sw $t0, -12($s7)
+  addu $sp,$sp,4
+  move $s2, $s7
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  jal mth_main_Main
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
 mth_main_Main:
  subu $sp, $sp, 4
  sw $ra, ($sp)
+ lw $s2, 4($sp)
+# begin: CallStmt at 3.13; stackHeight = 0
 # begin: Call at 3.13; stackHeight = 0
 # begin: Super at 3.13; stackHeight = 0
  subu $sp, $sp, 4
  sw $s2, ($sp)
 # end: Super at 3.13; stackHeight = 4
 # begin: StringLit at 3.22; stackHeight = 4
- la $t0, strLit_syntaxtree.StringLit@6574b225
-# end: StringLit at 3.22; stackHeight = 4
+ la $t0, strLit_0
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 3.22; stackHeight = 8
+ jal mth_printStr_Lib
+# end: Call at 3.13; stackHeight = 8
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 3.13; stackHeight = 4
  addu $sp, $sp, 4
  lw $ra, ($sp)
  addu $sp, $sp, 4

@@ -121,50 +121,51 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
-  addu $sp,$sp,4
-  move $s2, $s7
-  subu $sp, $sp, 4
-  sw $s2, ($sp)
-  jal mth_main_Main
   addu $sp, $sp, 4
+  move $s2, $s7
+  jal mth_main_Main
   li $v0, 10
   syscall
 .globl mth_main_Main
 mth_main_Main:
- subu $sp, $sp, 4
- sw $ra, ($sp)
- lw $s2, 4($sp)
-# begin: Null at 6.11; stackHeight = 0
- subu $sp, $sp, 4
- sw $zero, ($sp)
-# end: Null at 6.11; stackHeight = 4
-  subu $sp, $sp, 4 # LocalVarDecl at 6.7; stackHeight = 4
-  sw $t0, ($sp) # LocalVarDecl at 6.7; stackHeight = 4
-# begin: IntLit at 7.8; stackHeight = 8
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  li $t0, 0
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, 0($sp)
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
   li $t0, 24
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: IntLit at 7.8; stackHeight = 16
-# begin: CallStmt at 8.8; stackHeight = 16
-# begin: Call at 8.8; stackHeight = 16
-# begin: Super at 8.8; stackHeight = 16
- subu $sp, $sp, 4
- sw $s2, ($sp)
-# end: Super at 8.8; stackHeight = 20
-# begin: StringLit at 8.17; stackHeight = 20
- la $t0, strLit_10
- subu $sp, $sp, 4
- sw $t0, ($sp)
-# end: StringLit at 8.17; stackHeight = 24
- jal mth_printStr_Lib
-# end: Call at 8.8; stackHeight = 24
- lw $t0, ($sp)
- addu $sp, $sp, 4
-# end: CallStmt at 8.8; stackHeight = 20
- addu $sp, $sp, 20
- lw $ra, ($sp)
- addu $sp, $sp, 4
- jr $ra
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  lw $t1, ($sp)
+  addu $sp, $sp, 4
+  beq $t1, $zero, nullPtrException
+  sw $t0, -16($t1)
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  la $t0, strLit_10
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, 4($sp)
+  sw $s2, 4($sp)
+  move $s2, $t0
+  jal mth_printStr_Lib
+  addu $sp, $sp, 4
+  lw $s2, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 ##############################################################
 # MiniJava/UP library for MIPS/Spim -- version that assumes
 #    one-word boolean on stack

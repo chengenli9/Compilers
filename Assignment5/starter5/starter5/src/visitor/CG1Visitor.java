@@ -129,34 +129,35 @@ public class CG1Visitor extends Visitor
         c.numDataFields = numDataFields;
         c.numObjFields = numObjFields;
         
-        // Assign offsets to method parameters
+        // Assign offsets to method parameters and compute paramSize
         for(Decl d : c.decls)
         {
             if(d instanceof MethodDecl m)
             {
-                // Parameters are stored on stack in order
-                // First parameter (this) at offset 4, others at higher offsets
-                if(m.params != null && !m.params.isEmpty())
+                // paramOffset starts at 4 because the callee pushes $ra first,
+                // so the first parameter is at $sp+4 in the callee's frame.
+                int paramOffset = 4;
+
+                if(m.params != null)
                 {
-                    int paramOffset = 4;
-                    
-                    // Iterate in order (from first to last parameter)
                     for(int i = 0; i < m.params.size(); i++)
                     {
                         VarDecl param = m.params.get(i);
                         param.offset = paramOffset;
-                        
-                        // Move to next parameter
+
                         if(param.type.isInt())
                         {
-                            paramOffset += 8;  
+                            paramOffset += 8;
                         }
                         else
                         {
-                            paramOffset += 4;  
+                            paramOffset += 4;
                         }
                     }
                 }
+
+                // paramSize = total bytes consumed by all parameters
+                m.paramSize = paramOffset - 4;
             }
         }
         

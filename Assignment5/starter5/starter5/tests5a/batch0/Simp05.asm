@@ -105,45 +105,37 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
-  addu $sp,$sp,4
-  move $s2, $s7
-  subu $sp, $sp, 4
-  sw $s2, ($sp)
-  jal mth_main_Main
   addu $sp, $sp, 4
+  move $s2, $s7
+  jal mth_main_Main
   li $v0, 10
   syscall
 .globl mth_main_Main
 mth_main_Main:
- subu $sp, $sp, 4
- sw $ra, ($sp)
- lw $s2, 4($sp)
-# begin: CallStmt at 3.7; stackHeight = 0
-# begin: Call at 3.7; stackHeight = 0
-# begin: This at 3.7; stackHeight = 0
- subu $sp, $sp, 4
- sw $s2, ($sp)
-# end: This at 3.7; stackHeight = 4
-# begin: StringLit at 3.16; stackHeight = 4
- la $t0, strLit_0
- subu $sp, $sp, 4
- sw $t0, ($sp)
-# end: StringLit at 3.16; stackHeight = 8
- beq $s2, $zero, nullPtrException
- lw $t0, -12($s2)
- lw $t0, 24($t0)
- jalr $t0 # printStr
- addu $sp, $sp, 0
- lw $s2, ($sp)
- addu $sp, $sp, 4
-# end: Call at 3.7; stackHeight = 4
- lw $t0, ($sp)
- addu $sp, $sp, 4
-# end: CallStmt at 3.7; stackHeight = 0
- addu $sp, $sp, 0
- lw $ra, ($sp)
- addu $sp, $sp, 4
- jr $ra
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  la $t0, strLit_0
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, 4($sp)
+  sw $s2, 4($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 24($t0)
+  jalr $t0
+  addu $sp, $sp, 4
+  lw $s2, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 ##############################################################
 # MiniJava/UP library for MIPS/Spim -- version that assumes
 #    one-word boolean on stack

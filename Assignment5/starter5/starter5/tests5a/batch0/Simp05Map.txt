@@ -93,7 +93,7 @@ mth_hashCode_String: 176
 mth_intToChar_Lib: 1980
 mth_intToString_Lib: 1736
 mth_length_String: 1444
-mth_main_Main: 56
+mth_main_Main: 44
 mth_printBool_Lib: 1208
 mth_printInt_Lib: 1192
 mth_printStr_Lib: 1076

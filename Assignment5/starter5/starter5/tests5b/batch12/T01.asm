@@ -121,47 +121,48 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
-  addu $sp,$sp,4
-  move $s2, $s7
-  subu $sp, $sp, 4
-  sw $s2, ($sp)
-  jal mth_main_Main
   addu $sp, $sp, 4
+  move $s2, $s7
+  jal mth_main_Main
   li $v0, 10
   syscall
 .globl mth_main_Main
 mth_main_Main:
- subu $sp, $sp, 4
- sw $ra, ($sp)
- lw $s2, 4($sp)
-# begin: Null at 6.11; stackHeight = 0
- subu $sp, $sp, 4
- sw $zero, ($sp)
-# end: Null at 6.11; stackHeight = 4
-  subu $sp, $sp, 4 # LocalVarDecl at 6.7; stackHeight = 4
-  sw $t0, ($sp) # LocalVarDecl at 6.7; stackHeight = 4
-  subu $sp, $sp, 4 # LocalVarDecl at 7.6; stackHeight = 8
-  sw $t0, ($sp) # LocalVarDecl at 7.6; stackHeight = 8
-# begin: CallStmt at 8.8; stackHeight = 12
-# begin: Call at 8.8; stackHeight = 12
-# begin: Super at 8.8; stackHeight = 12
- subu $sp, $sp, 4
- sw $s2, ($sp)
-# end: Super at 8.8; stackHeight = 16
-# begin: StringLit at 8.17; stackHeight = 16
- la $t0, strLit_11
- subu $sp, $sp, 4
- sw $t0, ($sp)
-# end: StringLit at 8.17; stackHeight = 20
- jal mth_printStr_Lib
-# end: Call at 8.8; stackHeight = 20
- lw $t0, ($sp)
- addu $sp, $sp, 4
-# end: CallStmt at 8.8; stackHeight = 16
- addu $sp, $sp, 16
- lw $ra, ($sp)
- addu $sp, $sp, 4
- jr $ra
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  li $t0, 0
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, 0($sp)
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  beq $t0, $zero, nullPtrException
+  lw $t0, -16($t0)
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  la $t0, strLit_11
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, 4($sp)
+  sw $s2, 4($sp)
+  move $s2, $t0
+  jal mth_printStr_Lib
+  addu $sp, $sp, 4
+  lw $s2, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 12
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 ##############################################################
 # MiniJava/UP library for MIPS/Spim -- version that assumes
 #    one-word boolean on stack

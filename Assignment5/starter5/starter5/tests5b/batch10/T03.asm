@@ -102,81 +102,84 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
-  addu $sp,$sp,4
-  move $s2, $s7
-  subu $sp, $sp, 4
-  sw $s2, ($sp)
-  jal mth_main_Main
   addu $sp, $sp, 4
+  move $s2, $s7
+  jal mth_main_Main
   li $v0, 10
   syscall
 .globl mth_main_Main
 mth_main_Main:
- subu $sp, $sp, 4
- sw $ra, ($sp)
- lw $s2, 4($sp)
-# begin: CallStmt at 6.8; stackHeight = 0
-# begin: Call at 6.8; stackHeight = 0
-# begin: Super at 6.8; stackHeight = 0
- subu $sp, $sp, 4
- sw $s2, ($sp)
-# end: Super at 6.8; stackHeight = 4
-# begin: Call at 6.28; stackHeight = 4
-# begin: IntLit at 6.33; stackHeight = 4
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  li $s6, 2
+  li $s7, 0
+  jal newObject
+  la $t0, CLASS_Main
+  sw $t0, -12($s7)
   li $t0, 124
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: IntLit at 6.33; stackHeight = 12
- beq $s2, $zero, nullPtrException
- lw $t0, -12($s2)
- lw $t0, 48($t0)
- jalr $t0 # init
- addu $sp, $sp, 0
- lw $s2, ($sp)
- addu $sp, $sp, 4
- subu $sp, $sp, 4
- sw $t0, ($sp)
-# end: Call at 6.28; stackHeight = 12
- jal mth_printInt_Lib
-# end: Call at 6.8; stackHeight = 12
- lw $t0, ($sp)
- addu $sp, $sp, 4
-# end: CallStmt at 6.8; stackHeight = 8
-# begin: CallStmt at 7.8; stackHeight = 8
-# begin: Call at 7.8; stackHeight = 8
-# begin: Super at 7.8; stackHeight = 8
- subu $sp, $sp, 4
- sw $s2, ($sp)
-# end: Super at 7.8; stackHeight = 12
-# begin: StringLit at 7.17; stackHeight = 12
- la $t0, strLit_10
- subu $sp, $sp, 4
- sw $t0, ($sp)
-# end: StringLit at 7.17; stackHeight = 16
- jal mth_printStr_Lib
-# end: Call at 7.8; stackHeight = 16
- lw $t0, ($sp)
- addu $sp, $sp, 4
-# end: CallStmt at 7.8; stackHeight = 12
- addu $sp, $sp, 12
- lw $ra, ($sp)
- addu $sp, $sp, 4
- jr $ra
-.globl mth_init_Main
-mth_init_Main:
- subu $sp, $sp, 4
- sw $ra, ($sp)
- lw $s2, 4($sp)
-# begin: This at 11.9; stackHeight = 0
- subu $sp, $sp, 4
- sw $s2, ($sp)
-# end: This at 11.9; stackHeight = 4
- lw $t0, ($sp)
- addu $sp, $sp, 4
- addu $sp, $sp, 0
- lw $ra, ($sp)
- addu $sp, $sp, 4
- jr $ra
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t0, 8($sp)
+  sw $s2, 8($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 48($t0)
+  jalr $t0
+  addu $sp, $sp, 8
+  lw $s2, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  beq $t0, $zero, nullPtrException
+  lw $t0, -16($t0)
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t0, 8($sp)
+  sw $s2, 8($sp)
+  move $s2, $t0
+  jal mth_printInt_Lib
+  addu $sp, $sp, 8
+  lw $s2, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  la $t0, strLit_10
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, 4($sp)
+  sw $s2, 4($sp)
+  move $s2, $t0
+  jal mth_printStr_Lib
+  addu $sp, $sp, 4
+  lw $s2, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+  lw $t0, 4($sp)
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  sw $t0, -16($s2)
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
 ##############################################################
 # MiniJava/UP library for MIPS/Spim -- version that assumes
 #    one-word boolean on stack

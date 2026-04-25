@@ -116,165 +116,176 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
-  addu $sp,$sp,4
-  move $s2, $s7
-  subu $sp, $sp, 4
-  sw $s2, ($sp)
-  jal mth_main_Main
   addu $sp, $sp, 4
+  move $s2, $s7
+  jal mth_main_Main
   li $v0, 10
   syscall
 .globl mth_main_Main
 mth_main_Main:
- subu $sp, $sp, 4
- sw $ra, ($sp)
- lw $s2, 4($sp)
-# begin: CallStmt at 5.17; stackHeight = 0
-# begin: Call at 5.17; stackHeight = 0
- beq $s2, $zero, nullPtrException
- lw $t0, -12($s2)
- lw $t0, 44($t0)
- jalr $t0 # main
- addu $sp, $sp, 0
- lw $s2, ($sp)
- addu $sp, $sp, 4
-# end: Call at 5.17; stackHeight = -4
- lw $t0, ($sp)
- addu $sp, $sp, 4
-# end: CallStmt at 5.17; stackHeight = -8
- addu $sp, $sp, -8
- lw $ra, ($sp)
- addu $sp, $sp, 4
- jr $ra
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  li $s6, 2
+  li $s7, 0
+  jal newObject
+  la $t0, CLASS_Vehicle
+  sw $t0, -12($s7)
+  lw $t0, 0($sp)
+  sw $s2, 0($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 44($t0)
+  jalr $t0
+  lw $s2, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 .globl mth_main_Vehicle
 mth_main_Vehicle:
- subu $sp, $sp, 4
- sw $ra, ($sp)
- lw $s2, 4($sp)
-# begin: IntLit at 12.11; stackHeight = 0
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: IntLit at 12.11; stackHeight = 8
-# begin: Block at 15.3; stackHeight = 8
-# begin: IntLit at 15.16; stackHeight = 8
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  sw $t0, -16($s2)
   li $t0, 0
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: IntLit at 15.16; stackHeight = 16
-  subu $sp, $sp, 4 # LocalVarDecl at 15.12; stackHeight = 16
-  sw $t0, ($sp) # LocalVarDecl at 15.12; stackHeight = 16
-# begin: BreakTarget at 15.3; stackHeight = 20
-    j while_cond_37
-  while_top_37:
-# begin: Block at 15.3; stackHeight = 20
-# begin: Block at 15.34; stackHeight = 20
-# begin: Plus at 16.23; stackHeight = 20
-# begin: This at 16.12; stackHeight = 20
- subu $sp, $sp, 4
- sw $s2, ($sp)
-# end: This at 16.12; stackHeight = 24
-# begin: IntLit at 16.25; stackHeight = 24
-  li $t0, 13
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: IntLit at 16.25; stackHeight = 32
- lw $t1, ($sp)
- addu $sp, $sp, 8
- lw $t0, ($sp)
- addu $sp, $sp, 8
-  add $t0, $t1, $t2
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: Plus at 16.23; stackHeight = 24
-# begin: This at 17.4; stackHeight = 24
- subu $sp, $sp, 4
- sw $s2, ($sp)
-# end: This at 17.4; stackHeight = 28
-# begin: Minus at 17.23; stackHeight = 28
-# begin: IntLit at 17.25; stackHeight = 28
-  li $t0, 4
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: IntLit at 17.25; stackHeight = 36
- lw $t1, ($sp)
- addu $sp, $sp, 8
- lw $t0, ($sp)
- addu $sp, $sp, 8
-  sub $t0, $t1, $t2
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: Minus at 17.23; stackHeight = 28
- addu $sp, $sp, 8
-# end: Block at 15.34; stackHeight = 20
-# begin: Plus at 15.30; stackHeight = 20
-# begin: IntLit at 15.30; stackHeight = 20
-  li $t0, 1
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: IntLit at 15.30; stackHeight = 28
- lw $t1, ($sp)
- addu $sp, $sp, 8
- lw $t0, ($sp)
- addu $sp, $sp, 8
-  add $t0, $t1, $t2
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: Plus at 15.30; stackHeight = 20
-# end: Block at 15.3; stackHeight = 20
-  while_cond_37:
-# begin: LessThan at 15.21; stackHeight = 20
-# begin: IntLit at 15.23; stackHeight = 20
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+while_cond_37:
+  lw $t0, 0($sp)
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
   li $t0, 2000
- subu $sp, $sp, 8
- sw $t0, ($sp)
-# end: IntLit at 15.23; stackHeight = 28
- lw $t2, ($sp)
- addu $sp, $sp, 8
- lw $t1, ($sp)
- addu $sp, $sp, 8
-    slt $t0, $t1, $t2
- subu $sp, $sp, 4
- sw $t0, ($sp)
-# end: LessThan at 15.21; stackHeight = 16
- lw $t0, ($sp)
- addu $sp, $sp, 4
-    bne $t0, $zero, while_top_37
-  break_target_37:
-# end: BreakTarget at 15.3; stackHeight = 12
- addu $sp, $sp, 4
-# end: Block at 15.3; stackHeight = 8
-# begin: CallStmt at 19.9; stackHeight = 8
-# begin: Call at 19.9; stackHeight = 8
-# begin: Super at 19.9; stackHeight = 8
- subu $sp, $sp, 4
- sw $s2, ($sp)
-# end: Super at 19.9; stackHeight = 12
- jal mth_printInt_Lib
-# end: Call at 19.9; stackHeight = 12
- lw $t0, ($sp)
- addu $sp, $sp, 4
-# end: CallStmt at 19.9; stackHeight = 8
-# begin: CallStmt at 20.9; stackHeight = 8
-# begin: Call at 20.9; stackHeight = 8
-# begin: Super at 20.9; stackHeight = 8
- subu $sp, $sp, 4
- sw $s2, ($sp)
-# end: Super at 20.9; stackHeight = 12
-# begin: StringLit at 20.18; stackHeight = 12
- la $t0, strLit_43
- subu $sp, $sp, 4
- sw $t0, ($sp)
-# end: StringLit at 20.18; stackHeight = 16
- jal mth_printStr_Lib
-# end: Call at 20.9; stackHeight = 16
- lw $t0, ($sp)
- addu $sp, $sp, 4
-# end: CallStmt at 20.9; stackHeight = 12
- addu $sp, $sp, 12
- lw $ra, ($sp)
- addu $sp, $sp, 4
- jr $ra
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t2, ($sp)
+  addu $sp, $sp, 8
+  lw $t1, ($sp)
+  addu $sp, $sp, 8
+  slt $t0, $t1, $t2
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  beq $t0, $zero, break_target_37
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  beq $t0, $zero, nullPtrException
+  lw $t0, -16($t0)
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  li $t0, 13
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t2, ($sp)
+  addu $sp, $sp, 8
+  lw $t1, ($sp)
+  addu $sp, $sp, 8
+  addu $t0, $t1, $t2
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  sw $t0, -16($s2)
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  lw $t0, -16($s2)
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  li $t0, 4
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t2, ($sp)
+  addu $sp, $sp, 8
+  lw $t1, ($sp)
+  addu $sp, $sp, 8
+  subu $t0, $t1, $t2
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  lw $t1, ($sp)
+  addu $sp, $sp, 4
+  beq $t1, $zero, nullPtrException
+  sw $t0, -16($t1)
+  lw $t0, 0($sp)
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  li $t0, 1
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t2, ($sp)
+  addu $sp, $sp, 8
+  lw $t1, ($sp)
+  addu $sp, $sp, 8
+  addu $t0, $t1, $t2
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  sw $t0, 0($sp)
+  j while_cond_37
+break_target_37:
+  addu $sp, $sp, 8
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  lw $t0, -16($s2)
+  subu $sp, $sp, 8
+  sw $zero, 4($sp)
+  sw $t0, ($sp)
+  lw $t0, 8($sp)
+  sw $s2, 8($sp)
+  move $s2, $t0
+  jal mth_printInt_Lib
+  addu $sp, $sp, 8
+  lw $s2, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  la $t0, strLit_43
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, 4($sp)
+  sw $s2, 4($sp)
+  move $s2, $t0
+  jal mth_printStr_Lib
+  addu $sp, $sp, 4
+  lw $s2, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 ##############################################################
 # MiniJava/UP library for MIPS/Spim -- version that assumes
 #    one-word boolean on stack

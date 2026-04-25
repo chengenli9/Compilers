@@ -137,53 +137,55 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
-  addu $sp,$sp,4
-  move $s2, $s7
-  subu $sp, $sp, 4
-  sw $s2, ($sp)
-  jal mth_main_Main
   addu $sp, $sp, 4
+  move $s2, $s7
+  jal mth_main_Main
   li $v0, 10
   syscall
 .globl mth_main_Main
 mth_main_Main:
- subu $sp, $sp, 4
- sw $ra, ($sp)
- lw $s2, 4($sp)
-# begin: Null at 5.12; stackHeight = 0
- subu $sp, $sp, 4
- sw $zero, ($sp)
-# end: Null at 5.12; stackHeight = 4
-  subu $sp, $sp, 4 # LocalVarDecl at 5.5; stackHeight = 4
-  sw $t0, ($sp) # LocalVarDecl at 5.5; stackHeight = 4
-  subu $sp, $sp, 4 # LocalVarDecl at 6.5; stackHeight = 8
-  sw $t0, ($sp) # LocalVarDecl at 6.5; stackHeight = 8
-# begin: CallStmt at 8.2; stackHeight = 12
-# begin: Call at 8.2; stackHeight = 12
-# begin: This at 8.2; stackHeight = 12
- subu $sp, $sp, 4
- sw $s2, ($sp)
-# end: This at 8.2; stackHeight = 16
-# begin: StringLit at 8.11; stackHeight = 16
- la $t0, strLit_14
- subu $sp, $sp, 4
- sw $t0, ($sp)
-# end: StringLit at 8.11; stackHeight = 20
- beq $s2, $zero, nullPtrException
- lw $t0, -12($s2)
- lw $t0, 24($t0)
- jalr $t0 # printStr
- addu $sp, $sp, 0
- lw $s2, ($sp)
- addu $sp, $sp, 4
-# end: Call at 8.2; stackHeight = 16
- lw $t0, ($sp)
- addu $sp, $sp, 4
-# end: CallStmt at 8.2; stackHeight = 12
- addu $sp, $sp, 12
- lw $ra, ($sp)
- addu $sp, $sp, 4
- jr $ra
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  li $t0, 0
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  li $s6, 1
+  li $s7, 0
+  jal newObject
+  la $t0, CLASS_C1
+  sw $t0, -12($s7)
+  lw $t0, 0($sp)
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  la $t0, CLASS_C2
+  la $t1, END_CLASS_C2
+  jal checkCast
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  sw $t0, 4($sp)
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  la $t0, strLit_14
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, 4($sp)
+  sw $s2, 4($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 24($t0)
+  jalr $t0
+  addu $sp, $sp, 4
+  lw $s2, ($sp)
+  addu $sp, $sp, 4
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 ##############################################################
 # MiniJava/UP library for MIPS/Spim -- version that assumes
 #    one-word boolean on stack

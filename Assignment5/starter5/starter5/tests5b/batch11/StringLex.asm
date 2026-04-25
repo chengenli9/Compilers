@@ -1,0 +1,6687 @@
+ .data # Program at 3.1
+# ****** class Object ****** # ClassDecl at 0.0
+  .byte 0 # ClassDecl at 0.0
+  .byte 0 # ClassDecl at 0.0
+  .byte 207 # 'O' with high bit set # ClassDecl at 0.0
+  .byte 98 # 'b' # ClassDecl at 0.0
+  .byte 106 # 'j' # ClassDecl at 0.0
+  .byte 101 # 'e' # ClassDecl at 0.0
+  .byte 99 # 'c' # ClassDecl at 0.0
+  .byte 116 # 't' # ClassDecl at 0.0
+CLASS_Object: # ClassDecl at 0.0
+  .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
+  .word mth_equals_Object # MethodDeclNonVoid at 0.0
+  .word mth_toString_Object # MethodDeclNonVoid at 0.0
+# ****** class String ****** # ClassDecl at 0.0
+  .byte 0 # ClassDecl at 0.0
+  .byte 0 # ClassDecl at 0.0
+  .byte 211 # 'S' with high bit set # ClassDecl at 0.0
+  .byte 116 # 't' # ClassDecl at 0.0
+  .byte 114 # 'r' # ClassDecl at 0.0
+  .byte 105 # 'i' # ClassDecl at 0.0
+  .byte 110 # 'n' # ClassDecl at 0.0
+  .byte 103 # 'g' # ClassDecl at 0.0
+CLASS_String: # ClassDecl at 0.0
+  .word mth_hashCode_String # MethodDeclNonVoid at 0.0
+  .word mth_equals_String # MethodDeclNonVoid at 0.0
+  .word mth_toString_String # MethodDeclNonVoid at 0.0
+  .word mth_concat_String # MethodDeclNonVoid at 0.0
+  .word mth_substring_String # MethodDeclNonVoid at 0.0
+  .word mth_length_String # MethodDeclNonVoid at 0.0
+  .word mth_charAt_String # MethodDeclNonVoid at 0.0
+  .word mth_compareTo_String # MethodDeclNonVoid at 0.0
+END_CLASS_String: # ClassDecl at 0.0
+# ****** class Lib ****** # ClassDecl at 0.0
+  .byte 0 # ClassDecl at 0.0
+  .byte 204 # 'L' with high bit set # ClassDecl at 0.0
+  .byte 105 # 'i' # ClassDecl at 0.0
+  .byte 98 # 'b' # ClassDecl at 0.0
+CLASS_Lib: # ClassDecl at 0.0
+  .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
+  .word mth_equals_Object # MethodDeclNonVoid at 0.0
+  .word mth_toString_Object # MethodDeclNonVoid at 0.0
+  .word mth_readLine_Lib # MethodDeclNonVoid at 0.0
+  .word mth_readInt_Lib # MethodDeclNonVoid at 0.0
+  .word mth_readChar_Lib # MethodDeclNonVoid at 0.0
+  .word mth_printStr_Lib # MethodDeclVoid at 0.0
+  .word mth_printBool_Lib # MethodDeclVoid at 0.0
+  .word mth_printInt_Lib # MethodDeclVoid at 0.0
+  .word mth_intToString_Lib # MethodDeclNonVoid at 0.0
+  .word mth_intToChar_Lib # MethodDeclNonVoid at 0.0
+END_CLASS_Lib: # ClassDecl at 0.0
+# ****** class RunMain ****** # ClassDecl at 0.0
+  .byte 0 # ClassDecl at 0.0
+  .byte 210 # 'R' with high bit set # ClassDecl at 0.0
+  .byte 117 # 'u' # ClassDecl at 0.0
+  .byte 110 # 'n' # ClassDecl at 0.0
+  .byte 77 # 'M' # ClassDecl at 0.0
+  .byte 97 # 'a' # ClassDecl at 0.0
+  .byte 105 # 'i' # ClassDecl at 0.0
+  .byte 110 # 'n' # ClassDecl at 0.0
+CLASS_RunMain: # ClassDecl at 0.0
+  .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
+  .word mth_equals_Object # MethodDeclNonVoid at 0.0
+  .word mth_toString_Object # MethodDeclNonVoid at 0.0
+END_CLASS_RunMain: # ClassDecl at 0.0
+# ****** class Main ****** # ClassDecl at 3.7
+  .byte 205 # 'M' with high bit set # ClassDecl at 3.7
+  .byte 97 # 'a' # ClassDecl at 3.7
+  .byte 105 # 'i' # ClassDecl at 3.7
+  .byte 110 # 'n' # ClassDecl at 3.7
+CLASS_Main: # ClassDecl at 3.7
+  .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
+  .word mth_equals_Object # MethodDeclNonVoid at 0.0
+  .word mth_toString_Object # MethodDeclNonVoid at 0.0
+  .word mth_main_Main # MethodDeclVoid at 4.14
+END_CLASS_Main: # ClassDecl at 3.7
+dataArrayVTableStart: # IntType at 0.0
+END_CLASS_Object: # ClassDecl at 0.0
+  .byte 97 # StringLit at 6.16
+  .byte 98 # StringLit at 6.16
+  .byte 99 # StringLit at 6.16
+  .byte 100 # StringLit at 6.16
+  .byte 101 # StringLit at 6.16
+  .byte 102 # StringLit at 6.16
+  .byte 103 # StringLit at 6.16
+  .byte 104 # StringLit at 6.16
+  .byte 105 # StringLit at 6.16
+  .byte 106 # StringLit at 6.16
+  .byte 107 # StringLit at 6.16
+  .byte 108 # StringLit at 6.16
+  .byte 109 # StringLit at 6.16
+  .byte 110 # StringLit at 6.16
+  .byte 111 # StringLit at 6.16
+  .byte 112 # StringLit at 6.16
+  .byte 113 # StringLit at 6.16
+  .byte 114 # StringLit at 6.16
+  .byte 115 # StringLit at 6.16
+  .byte 116 # StringLit at 6.16
+  .byte 117 # StringLit at 6.16
+  .byte 118 # StringLit at 6.16
+  .byte 119 # StringLit at 6.16
+  .byte 120 # StringLit at 6.16
+  .byte 121 # StringLit at 6.16
+  .byte 122 # StringLit at 6.16
+  .byte 0 # StringLit at 6.16
+  .byte 0 # StringLit at 6.16
+  .word CLASS_String # StringLit at 6.16
+  .word 8 # StringLit at 6.16
+  .word -26 # StringLit at 6.16
+strLit_6: # StringLit at 6.16
+  .byte 65 # StringLit at 7.16
+  .byte 66 # StringLit at 7.16
+  .byte 67 # StringLit at 7.16
+  .byte 68 # StringLit at 7.16
+  .byte 69 # StringLit at 7.16
+  .byte 70 # StringLit at 7.16
+  .byte 71 # StringLit at 7.16
+  .byte 72 # StringLit at 7.16
+  .byte 73 # StringLit at 7.16
+  .byte 74 # StringLit at 7.16
+  .byte 75 # StringLit at 7.16
+  .byte 76 # StringLit at 7.16
+  .byte 77 # StringLit at 7.16
+  .byte 78 # StringLit at 7.16
+  .byte 79 # StringLit at 7.16
+  .byte 80 # StringLit at 7.16
+  .byte 81 # StringLit at 7.16
+  .byte 82 # StringLit at 7.16
+  .byte 83 # StringLit at 7.16
+  .byte 84 # StringLit at 7.16
+  .byte 85 # StringLit at 7.16
+  .byte 86 # StringLit at 7.16
+  .byte 87 # StringLit at 7.16
+  .byte 88 # StringLit at 7.16
+  .byte 89 # StringLit at 7.16
+  .byte 90 # StringLit at 7.16
+  .byte 0 # StringLit at 7.16
+  .byte 0 # StringLit at 7.16
+  .word CLASS_String # StringLit at 7.16
+  .word 8 # StringLit at 7.16
+  .word -26 # StringLit at 7.16
+strLit_10: # StringLit at 7.16
+  .byte 49 # StringLit at 8.16
+  .byte 50 # StringLit at 8.16
+  .byte 51 # StringLit at 8.16
+  .byte 52 # StringLit at 8.16
+  .byte 53 # StringLit at 8.16
+  .byte 54 # StringLit at 8.16
+  .byte 55 # StringLit at 8.16
+  .byte 56 # StringLit at 8.16
+  .byte 57 # StringLit at 8.16
+  .byte 48 # StringLit at 8.16
+  .byte 0 # StringLit at 8.16
+  .byte 0 # StringLit at 8.16
+  .word CLASS_String # StringLit at 8.16
+  .word 4 # StringLit at 8.16
+  .word -10 # StringLit at 8.16
+strLit_14: # StringLit at 8.16
+  .byte 96 # StringLit at 9.16
+  .byte 126 # StringLit at 9.16
+  .byte 33 # StringLit at 9.16
+  .byte 64 # StringLit at 9.16
+  .byte 35 # StringLit at 9.16
+  .byte 36 # StringLit at 9.16
+  .byte 37 # StringLit at 9.16
+  .byte 94 # StringLit at 9.16
+  .byte 38 # StringLit at 9.16
+  .byte 42 # StringLit at 9.16
+  .byte 40 # StringLit at 9.16
+  .byte 41 # StringLit at 9.16
+  .byte 95 # StringLit at 9.16
+  .byte 43 # StringLit at 9.16
+  .byte 61 # StringLit at 9.16
+  .byte 45 # StringLit at 9.16
+  .byte 91 # StringLit at 9.16
+  .byte 93 # StringLit at 9.16
+  .byte 123 # StringLit at 9.16
+  .byte 125 # StringLit at 9.16
+  .byte 124 # StringLit at 9.16
+  .byte 59 # StringLit at 9.16
+  .byte 39 # StringLit at 9.16
+  .byte 58 # StringLit at 9.16
+  .byte 44 # StringLit at 9.16
+  .byte 46 # StringLit at 9.16
+  .byte 47 # StringLit at 9.16
+  .byte 60 # StringLit at 9.16
+  .byte 62 # StringLit at 9.16
+  .byte 63 # StringLit at 9.16
+  .byte 0 # StringLit at 9.16
+  .byte 0 # StringLit at 9.16
+  .word CLASS_String # StringLit at 9.16
+  .word 9 # StringLit at 9.16
+  .word -30 # StringLit at 9.16
+strLit_18: # StringLit at 9.16
+  .byte 10 # StringLit at 10.16
+  .byte 9 # StringLit at 10.16
+  .byte 92 # StringLit at 10.16
+  .byte 39 # StringLit at 10.16
+  .byte 34 # StringLit at 10.16
+  .byte 32 # StringLit at 10.16
+  .byte 0 # StringLit at 10.16
+  .byte 0 # StringLit at 10.16
+  .word CLASS_String # StringLit at 10.16
+  .word 3 # StringLit at 10.16
+  .word -6 # StringLit at 10.16
+strLit_22: # StringLit at 10.16
+  .byte 10 # StringLit at 11.35
+  .byte 0 # StringLit at 11.35
+  .byte 0 # StringLit at 11.35
+  .byte 0 # StringLit at 11.35
+  .word CLASS_String # StringLit at 11.35
+  .word 2 # StringLit at 11.35
+  .word -1 # StringLit at 11.35
+strLit_30: # StringLit at 11.35
+  .byte 10 # StringLit at 12.35
+  .byte 0 # StringLit at 12.35
+  .byte 0 # StringLit at 12.35
+  .byte 0 # StringLit at 12.35
+  .word CLASS_String # StringLit at 12.35
+  .word 2 # StringLit at 12.35
+  .word -1 # StringLit at 12.35
+strLit_38: # StringLit at 12.35
+  .byte 10 # StringLit at 13.35
+  .byte 0 # StringLit at 13.35
+  .byte 0 # StringLit at 13.35
+  .byte 0 # StringLit at 13.35
+  .word CLASS_String # StringLit at 13.35
+  .word 2 # StringLit at 13.35
+  .word -1 # StringLit at 13.35
+strLit_46: # StringLit at 13.35
+  .byte 10 # StringLit at 14.35
+  .byte 0 # StringLit at 14.35
+  .byte 0 # StringLit at 14.35
+  .byte 0 # StringLit at 14.35
+  .word CLASS_String # StringLit at 14.35
+  .word 2 # StringLit at 14.35
+  .word -1 # StringLit at 14.35
+strLit_54: # StringLit at 14.35
+  .byte 10 # StringLit at 15.35
+  .byte 0 # StringLit at 15.35
+  .byte 0 # StringLit at 15.35
+  .byte 0 # StringLit at 15.35
+  .word CLASS_String # StringLit at 15.35
+  .word 2 # StringLit at 15.35
+  .word -1 # StringLit at 15.35
+strLit_62: # StringLit at 15.35
+  .byte 10 # StringLit at 16.35
+  .byte 0 # StringLit at 16.35
+  .byte 0 # StringLit at 16.35
+  .byte 0 # StringLit at 16.35
+  .word CLASS_String # StringLit at 16.35
+  .word 2 # StringLit at 16.35
+  .word -1 # StringLit at 16.35
+strLit_70: # StringLit at 16.35
+  .byte 10 # StringLit at 17.35
+  .byte 0 # StringLit at 17.35
+  .byte 0 # StringLit at 17.35
+  .byte 0 # StringLit at 17.35
+  .word CLASS_String # StringLit at 17.35
+  .word 2 # StringLit at 17.35
+  .word -1 # StringLit at 17.35
+strLit_78: # StringLit at 17.35
+  .byte 10 # StringLit at 18.35
+  .byte 0 # StringLit at 18.35
+  .byte 0 # StringLit at 18.35
+  .byte 0 # StringLit at 18.35
+  .word CLASS_String # StringLit at 18.35
+  .word 2 # StringLit at 18.35
+  .word -1 # StringLit at 18.35
+strLit_86: # StringLit at 18.35
+  .byte 10 # StringLit at 19.35
+  .byte 0 # StringLit at 19.35
+  .byte 0 # StringLit at 19.35
+  .byte 0 # StringLit at 19.35
+  .word CLASS_String # StringLit at 19.35
+  .word 2 # StringLit at 19.35
+  .word -1 # StringLit at 19.35
+strLit_94: # StringLit at 19.35
+  .byte 10 # StringLit at 20.35
+  .byte 0 # StringLit at 20.35
+  .byte 0 # StringLit at 20.35
+  .byte 0 # StringLit at 20.35
+  .word CLASS_String # StringLit at 20.35
+  .word 2 # StringLit at 20.35
+  .word -1 # StringLit at 20.35
+strLit_102: # StringLit at 20.35
+  .byte 10 # StringLit at 21.35
+  .byte 0 # StringLit at 21.35
+  .byte 0 # StringLit at 21.35
+  .byte 0 # StringLit at 21.35
+  .word CLASS_String # StringLit at 21.35
+  .word 2 # StringLit at 21.35
+  .word -1 # StringLit at 21.35
+strLit_110: # StringLit at 21.35
+  .byte 10 # StringLit at 22.35
+  .byte 0 # StringLit at 22.35
+  .byte 0 # StringLit at 22.35
+  .byte 0 # StringLit at 22.35
+  .word CLASS_String # StringLit at 22.35
+  .word 2 # StringLit at 22.35
+  .word -1 # StringLit at 22.35
+strLit_118: # StringLit at 22.35
+  .byte 10 # StringLit at 23.35
+  .byte 0 # StringLit at 23.35
+  .byte 0 # StringLit at 23.35
+  .byte 0 # StringLit at 23.35
+  .word CLASS_String # StringLit at 23.35
+  .word 2 # StringLit at 23.35
+  .word -1 # StringLit at 23.35
+strLit_126: # StringLit at 23.35
+  .byte 10 # StringLit at 24.35
+  .byte 0 # StringLit at 24.35
+  .byte 0 # StringLit at 24.35
+  .byte 0 # StringLit at 24.35
+  .word CLASS_String # StringLit at 24.35
+  .word 2 # StringLit at 24.35
+  .word -1 # StringLit at 24.35
+strLit_134: # StringLit at 24.35
+  .byte 10 # StringLit at 25.35
+  .byte 0 # StringLit at 25.35
+  .byte 0 # StringLit at 25.35
+  .byte 0 # StringLit at 25.35
+  .word CLASS_String # StringLit at 25.35
+  .word 2 # StringLit at 25.35
+  .word -1 # StringLit at 25.35
+strLit_142: # StringLit at 25.35
+  .byte 10 # StringLit at 26.35
+  .byte 0 # StringLit at 26.35
+  .byte 0 # StringLit at 26.35
+  .byte 0 # StringLit at 26.35
+  .word CLASS_String # StringLit at 26.35
+  .word 2 # StringLit at 26.35
+  .word -1 # StringLit at 26.35
+strLit_150: # StringLit at 26.35
+  .byte 10 # StringLit at 27.35
+  .byte 0 # StringLit at 27.35
+  .byte 0 # StringLit at 27.35
+  .byte 0 # StringLit at 27.35
+  .word CLASS_String # StringLit at 27.35
+  .word 2 # StringLit at 27.35
+  .word -1 # StringLit at 27.35
+strLit_158: # StringLit at 27.35
+  .byte 10 # StringLit at 28.35
+  .byte 0 # StringLit at 28.35
+  .byte 0 # StringLit at 28.35
+  .byte 0 # StringLit at 28.35
+  .word CLASS_String # StringLit at 28.35
+  .word 2 # StringLit at 28.35
+  .word -1 # StringLit at 28.35
+strLit_166: # StringLit at 28.35
+  .byte 10 # StringLit at 29.35
+  .byte 0 # StringLit at 29.35
+  .byte 0 # StringLit at 29.35
+  .byte 0 # StringLit at 29.35
+  .word CLASS_String # StringLit at 29.35
+  .word 2 # StringLit at 29.35
+  .word -1 # StringLit at 29.35
+strLit_174: # StringLit at 29.35
+  .byte 10 # StringLit at 30.35
+  .byte 0 # StringLit at 30.35
+  .byte 0 # StringLit at 30.35
+  .byte 0 # StringLit at 30.35
+  .word CLASS_String # StringLit at 30.35
+  .word 2 # StringLit at 30.35
+  .word -1 # StringLit at 30.35
+strLit_182: # StringLit at 30.35
+  .byte 10 # StringLit at 31.35
+  .byte 0 # StringLit at 31.35
+  .byte 0 # StringLit at 31.35
+  .byte 0 # StringLit at 31.35
+  .word CLASS_String # StringLit at 31.35
+  .word 2 # StringLit at 31.35
+  .word -1 # StringLit at 31.35
+strLit_190: # StringLit at 31.35
+  .byte 10 # StringLit at 32.35
+  .byte 0 # StringLit at 32.35
+  .byte 0 # StringLit at 32.35
+  .byte 0 # StringLit at 32.35
+  .word CLASS_String # StringLit at 32.35
+  .word 2 # StringLit at 32.35
+  .word -1 # StringLit at 32.35
+strLit_198: # StringLit at 32.35
+  .byte 10 # StringLit at 33.35
+  .byte 0 # StringLit at 33.35
+  .byte 0 # StringLit at 33.35
+  .byte 0 # StringLit at 33.35
+  .word CLASS_String # StringLit at 33.35
+  .word 2 # StringLit at 33.35
+  .word -1 # StringLit at 33.35
+strLit_206: # StringLit at 33.35
+  .byte 10 # StringLit at 34.35
+  .byte 0 # StringLit at 34.35
+  .byte 0 # StringLit at 34.35
+  .byte 0 # StringLit at 34.35
+  .word CLASS_String # StringLit at 34.35
+  .word 2 # StringLit at 34.35
+  .word -1 # StringLit at 34.35
+strLit_214: # StringLit at 34.35
+  .byte 10 # StringLit at 35.35
+  .byte 0 # StringLit at 35.35
+  .byte 0 # StringLit at 35.35
+  .byte 0 # StringLit at 35.35
+  .word CLASS_String # StringLit at 35.35
+  .word 2 # StringLit at 35.35
+  .word -1 # StringLit at 35.35
+strLit_222: # StringLit at 35.35
+  .byte 10 # StringLit at 36.35
+  .byte 0 # StringLit at 36.35
+  .byte 0 # StringLit at 36.35
+  .byte 0 # StringLit at 36.35
+  .word CLASS_String # StringLit at 36.35
+  .word 2 # StringLit at 36.35
+  .word -1 # StringLit at 36.35
+strLit_230: # StringLit at 36.35
+  .byte 10 # StringLit at 37.35
+  .byte 0 # StringLit at 37.35
+  .byte 0 # StringLit at 37.35
+  .byte 0 # StringLit at 37.35
+  .word CLASS_String # StringLit at 37.35
+  .word 2 # StringLit at 37.35
+  .word -1 # StringLit at 37.35
+strLit_238: # StringLit at 37.35
+  .byte 10 # StringLit at 38.35
+  .byte 0 # StringLit at 38.35
+  .byte 0 # StringLit at 38.35
+  .byte 0 # StringLit at 38.35
+  .word CLASS_String # StringLit at 38.35
+  .word 2 # StringLit at 38.35
+  .word -1 # StringLit at 38.35
+strLit_246: # StringLit at 38.35
+  .byte 10 # StringLit at 39.35
+  .byte 0 # StringLit at 39.35
+  .byte 0 # StringLit at 39.35
+  .byte 0 # StringLit at 39.35
+  .word CLASS_String # StringLit at 39.35
+  .word 2 # StringLit at 39.35
+  .word -1 # StringLit at 39.35
+strLit_254: # StringLit at 39.35
+  .byte 10 # StringLit at 40.35
+  .byte 0 # StringLit at 40.35
+  .byte 0 # StringLit at 40.35
+  .byte 0 # StringLit at 40.35
+  .word CLASS_String # StringLit at 40.35
+  .word 2 # StringLit at 40.35
+  .word -1 # StringLit at 40.35
+strLit_262: # StringLit at 40.35
+  .byte 10 # StringLit at 41.35
+  .byte 0 # StringLit at 41.35
+  .byte 0 # StringLit at 41.35
+  .byte 0 # StringLit at 41.35
+  .word CLASS_String # StringLit at 41.35
+  .word 2 # StringLit at 41.35
+  .word -1 # StringLit at 41.35
+strLit_270: # StringLit at 41.35
+  .byte 10 # StringLit at 42.35
+  .byte 0 # StringLit at 42.35
+  .byte 0 # StringLit at 42.35
+  .byte 0 # StringLit at 42.35
+  .word CLASS_String # StringLit at 42.35
+  .word 2 # StringLit at 42.35
+  .word -1 # StringLit at 42.35
+strLit_278: # StringLit at 42.35
+  .byte 10 # StringLit at 43.35
+  .byte 0 # StringLit at 43.35
+  .byte 0 # StringLit at 43.35
+  .byte 0 # StringLit at 43.35
+  .word CLASS_String # StringLit at 43.35
+  .word 2 # StringLit at 43.35
+  .word -1 # StringLit at 43.35
+strLit_286: # StringLit at 43.35
+  .byte 10 # StringLit at 44.35
+  .byte 0 # StringLit at 44.35
+  .byte 0 # StringLit at 44.35
+  .byte 0 # StringLit at 44.35
+  .word CLASS_String # StringLit at 44.35
+  .word 2 # StringLit at 44.35
+  .word -1 # StringLit at 44.35
+strLit_294: # StringLit at 44.35
+  .byte 10 # StringLit at 45.35
+  .byte 0 # StringLit at 45.35
+  .byte 0 # StringLit at 45.35
+  .byte 0 # StringLit at 45.35
+  .word CLASS_String # StringLit at 45.35
+  .word 2 # StringLit at 45.35
+  .word -1 # StringLit at 45.35
+strLit_302: # StringLit at 45.35
+  .byte 10 # StringLit at 46.35
+  .byte 0 # StringLit at 46.35
+  .byte 0 # StringLit at 46.35
+  .byte 0 # StringLit at 46.35
+  .word CLASS_String # StringLit at 46.35
+  .word 2 # StringLit at 46.35
+  .word -1 # StringLit at 46.35
+strLit_310: # StringLit at 46.35
+  .byte 10 # StringLit at 47.35
+  .byte 0 # StringLit at 47.35
+  .byte 0 # StringLit at 47.35
+  .byte 0 # StringLit at 47.35
+  .word CLASS_String # StringLit at 47.35
+  .word 2 # StringLit at 47.35
+  .word -1 # StringLit at 47.35
+strLit_318: # StringLit at 47.35
+  .byte 10 # StringLit at 48.35
+  .byte 0 # StringLit at 48.35
+  .byte 0 # StringLit at 48.35
+  .byte 0 # StringLit at 48.35
+  .word CLASS_String # StringLit at 48.35
+  .word 2 # StringLit at 48.35
+  .word -1 # StringLit at 48.35
+strLit_326: # StringLit at 48.35
+  .byte 10 # StringLit at 49.35
+  .byte 0 # StringLit at 49.35
+  .byte 0 # StringLit at 49.35
+  .byte 0 # StringLit at 49.35
+  .word CLASS_String # StringLit at 49.35
+  .word 2 # StringLit at 49.35
+  .word -1 # StringLit at 49.35
+strLit_334: # StringLit at 49.35
+  .byte 10 # StringLit at 50.35
+  .byte 0 # StringLit at 50.35
+  .byte 0 # StringLit at 50.35
+  .byte 0 # StringLit at 50.35
+  .word CLASS_String # StringLit at 50.35
+  .word 2 # StringLit at 50.35
+  .word -1 # StringLit at 50.35
+strLit_342: # StringLit at 50.35
+  .byte 10 # StringLit at 51.35
+  .byte 0 # StringLit at 51.35
+  .byte 0 # StringLit at 51.35
+  .byte 0 # StringLit at 51.35
+  .word CLASS_String # StringLit at 51.35
+  .word 2 # StringLit at 51.35
+  .word -1 # StringLit at 51.35
+strLit_350: # StringLit at 51.35
+  .byte 10 # StringLit at 52.35
+  .byte 0 # StringLit at 52.35
+  .byte 0 # StringLit at 52.35
+  .byte 0 # StringLit at 52.35
+  .word CLASS_String # StringLit at 52.35
+  .word 2 # StringLit at 52.35
+  .word -1 # StringLit at 52.35
+strLit_358: # StringLit at 52.35
+  .byte 10 # StringLit at 53.35
+  .byte 0 # StringLit at 53.35
+  .byte 0 # StringLit at 53.35
+  .byte 0 # StringLit at 53.35
+  .word CLASS_String # StringLit at 53.35
+  .word 2 # StringLit at 53.35
+  .word -1 # StringLit at 53.35
+strLit_366: # StringLit at 53.35
+  .byte 10 # StringLit at 54.35
+  .byte 0 # StringLit at 54.35
+  .byte 0 # StringLit at 54.35
+  .byte 0 # StringLit at 54.35
+  .word CLASS_String # StringLit at 54.35
+  .word 2 # StringLit at 54.35
+  .word -1 # StringLit at 54.35
+strLit_374: # StringLit at 54.35
+  .byte 10 # StringLit at 55.35
+  .byte 0 # StringLit at 55.35
+  .byte 0 # StringLit at 55.35
+  .byte 0 # StringLit at 55.35
+  .word CLASS_String # StringLit at 55.35
+  .word 2 # StringLit at 55.35
+  .word -1 # StringLit at 55.35
+strLit_382: # StringLit at 55.35
+  .byte 10 # StringLit at 56.35
+  .byte 0 # StringLit at 56.35
+  .byte 0 # StringLit at 56.35
+  .byte 0 # StringLit at 56.35
+  .word CLASS_String # StringLit at 56.35
+  .word 2 # StringLit at 56.35
+  .word -1 # StringLit at 56.35
+strLit_390: # StringLit at 56.35
+  .byte 10 # StringLit at 57.35
+  .byte 0 # StringLit at 57.35
+  .byte 0 # StringLit at 57.35
+  .byte 0 # StringLit at 57.35
+  .word CLASS_String # StringLit at 57.35
+  .word 2 # StringLit at 57.35
+  .word -1 # StringLit at 57.35
+strLit_398: # StringLit at 57.35
+  .byte 10 # StringLit at 58.35
+  .byte 0 # StringLit at 58.35
+  .byte 0 # StringLit at 58.35
+  .byte 0 # StringLit at 58.35
+  .word CLASS_String # StringLit at 58.35
+  .word 2 # StringLit at 58.35
+  .word -1 # StringLit at 58.35
+strLit_406: # StringLit at 58.35
+  .byte 10 # StringLit at 59.35
+  .byte 0 # StringLit at 59.35
+  .byte 0 # StringLit at 59.35
+  .byte 0 # StringLit at 59.35
+  .word CLASS_String # StringLit at 59.35
+  .word 2 # StringLit at 59.35
+  .word -1 # StringLit at 59.35
+strLit_414: # StringLit at 59.35
+  .byte 10 # StringLit at 60.35
+  .byte 0 # StringLit at 60.35
+  .byte 0 # StringLit at 60.35
+  .byte 0 # StringLit at 60.35
+  .word CLASS_String # StringLit at 60.35
+  .word 2 # StringLit at 60.35
+  .word -1 # StringLit at 60.35
+strLit_422: # StringLit at 60.35
+  .byte 10 # StringLit at 61.35
+  .byte 0 # StringLit at 61.35
+  .byte 0 # StringLit at 61.35
+  .byte 0 # StringLit at 61.35
+  .word CLASS_String # StringLit at 61.35
+  .word 2 # StringLit at 61.35
+  .word -1 # StringLit at 61.35
+strLit_430: # StringLit at 61.35
+  .byte 10 # StringLit at 62.35
+  .byte 0 # StringLit at 62.35
+  .byte 0 # StringLit at 62.35
+  .byte 0 # StringLit at 62.35
+  .word CLASS_String # StringLit at 62.35
+  .word 2 # StringLit at 62.35
+  .word -1 # StringLit at 62.35
+strLit_438: # StringLit at 62.35
+  .byte 10 # StringLit at 63.35
+  .byte 0 # StringLit at 63.35
+  .byte 0 # StringLit at 63.35
+  .byte 0 # StringLit at 63.35
+  .word CLASS_String # StringLit at 63.35
+  .word 2 # StringLit at 63.35
+  .word -1 # StringLit at 63.35
+strLit_446: # StringLit at 63.35
+  .byte 10 # StringLit at 64.35
+  .byte 0 # StringLit at 64.35
+  .byte 0 # StringLit at 64.35
+  .byte 0 # StringLit at 64.35
+  .word CLASS_String # StringLit at 64.35
+  .word 2 # StringLit at 64.35
+  .word -1 # StringLit at 64.35
+strLit_454: # StringLit at 64.35
+  .byte 10 # StringLit at 65.35
+  .byte 0 # StringLit at 65.35
+  .byte 0 # StringLit at 65.35
+  .byte 0 # StringLit at 65.35
+  .word CLASS_String # StringLit at 65.35
+  .word 2 # StringLit at 65.35
+  .word -1 # StringLit at 65.35
+strLit_462: # StringLit at 65.35
+  .byte 10 # StringLit at 66.35
+  .byte 0 # StringLit at 66.35
+  .byte 0 # StringLit at 66.35
+  .byte 0 # StringLit at 66.35
+  .word CLASS_String # StringLit at 66.35
+  .word 2 # StringLit at 66.35
+  .word -1 # StringLit at 66.35
+strLit_470: # StringLit at 66.35
+  .byte 10 # StringLit at 67.35
+  .byte 0 # StringLit at 67.35
+  .byte 0 # StringLit at 67.35
+  .byte 0 # StringLit at 67.35
+  .word CLASS_String # StringLit at 67.35
+  .word 2 # StringLit at 67.35
+  .word -1 # StringLit at 67.35
+strLit_478: # StringLit at 67.35
+  .byte 10 # StringLit at 68.35
+  .byte 0 # StringLit at 68.35
+  .byte 0 # StringLit at 68.35
+  .byte 0 # StringLit at 68.35
+  .word CLASS_String # StringLit at 68.35
+  .word 2 # StringLit at 68.35
+  .word -1 # StringLit at 68.35
+strLit_486: # StringLit at 68.35
+  .byte 10 # StringLit at 69.35
+  .byte 0 # StringLit at 69.35
+  .byte 0 # StringLit at 69.35
+  .byte 0 # StringLit at 69.35
+  .word CLASS_String # StringLit at 69.35
+  .word 2 # StringLit at 69.35
+  .word -1 # StringLit at 69.35
+strLit_494: # StringLit at 69.35
+  .byte 10 # StringLit at 70.35
+  .byte 0 # StringLit at 70.35
+  .byte 0 # StringLit at 70.35
+  .byte 0 # StringLit at 70.35
+  .word CLASS_String # StringLit at 70.35
+  .word 2 # StringLit at 70.35
+  .word -1 # StringLit at 70.35
+strLit_502: # StringLit at 70.35
+  .byte 10 # StringLit at 71.35
+  .byte 0 # StringLit at 71.35
+  .byte 0 # StringLit at 71.35
+  .byte 0 # StringLit at 71.35
+  .word CLASS_String # StringLit at 71.35
+  .word 2 # StringLit at 71.35
+  .word -1 # StringLit at 71.35
+strLit_510: # StringLit at 71.35
+  .byte 10 # StringLit at 72.35
+  .byte 0 # StringLit at 72.35
+  .byte 0 # StringLit at 72.35
+  .byte 0 # StringLit at 72.35
+  .word CLASS_String # StringLit at 72.35
+  .word 2 # StringLit at 72.35
+  .word -1 # StringLit at 72.35
+strLit_518: # StringLit at 72.35
+  .byte 10 # StringLit at 73.35
+  .byte 0 # StringLit at 73.35
+  .byte 0 # StringLit at 73.35
+  .byte 0 # StringLit at 73.35
+  .word CLASS_String # StringLit at 73.35
+  .word 2 # StringLit at 73.35
+  .word -1 # StringLit at 73.35
+strLit_526: # StringLit at 73.35
+  .byte 10 # StringLit at 74.35
+  .byte 0 # StringLit at 74.35
+  .byte 0 # StringLit at 74.35
+  .byte 0 # StringLit at 74.35
+  .word CLASS_String # StringLit at 74.35
+  .word 2 # StringLit at 74.35
+  .word -1 # StringLit at 74.35
+strLit_534: # StringLit at 74.35
+  .byte 10 # StringLit at 75.35
+  .byte 0 # StringLit at 75.35
+  .byte 0 # StringLit at 75.35
+  .byte 0 # StringLit at 75.35
+  .word CLASS_String # StringLit at 75.35
+  .word 2 # StringLit at 75.35
+  .word -1 # StringLit at 75.35
+strLit_542: # StringLit at 75.35
+  .byte 10 # StringLit at 76.35
+  .byte 0 # StringLit at 76.35
+  .byte 0 # StringLit at 76.35
+  .byte 0 # StringLit at 76.35
+  .word CLASS_String # StringLit at 76.35
+  .word 2 # StringLit at 76.35
+  .word -1 # StringLit at 76.35
+strLit_550: # StringLit at 76.35
+  .byte 10 # StringLit at 77.35
+  .byte 0 # StringLit at 77.35
+  .byte 0 # StringLit at 77.35
+  .byte 0 # StringLit at 77.35
+  .word CLASS_String # StringLit at 77.35
+  .word 2 # StringLit at 77.35
+  .word -1 # StringLit at 77.35
+strLit_558: # StringLit at 77.35
+  .byte 10 # StringLit at 78.35
+  .byte 0 # StringLit at 78.35
+  .byte 0 # StringLit at 78.35
+  .byte 0 # StringLit at 78.35
+  .word CLASS_String # StringLit at 78.35
+  .word 2 # StringLit at 78.35
+  .word -1 # StringLit at 78.35
+strLit_566: # StringLit at 78.35
+  .byte 10 # StringLit at 79.35
+  .byte 0 # StringLit at 79.35
+  .byte 0 # StringLit at 79.35
+  .byte 0 # StringLit at 79.35
+  .word CLASS_String # StringLit at 79.35
+  .word 2 # StringLit at 79.35
+  .word -1 # StringLit at 79.35
+strLit_574: # StringLit at 79.35
+  .byte 10 # StringLit at 80.35
+  .byte 0 # StringLit at 80.35
+  .byte 0 # StringLit at 80.35
+  .byte 0 # StringLit at 80.35
+  .word CLASS_String # StringLit at 80.35
+  .word 2 # StringLit at 80.35
+  .word -1 # StringLit at 80.35
+strLit_582: # StringLit at 80.35
+  .byte 10 # StringLit at 81.35
+  .byte 0 # StringLit at 81.35
+  .byte 0 # StringLit at 81.35
+  .byte 0 # StringLit at 81.35
+  .word CLASS_String # StringLit at 81.35
+  .word 2 # StringLit at 81.35
+  .word -1 # StringLit at 81.35
+strLit_590: # StringLit at 81.35
+  .byte 10 # StringLit at 82.35
+  .byte 0 # StringLit at 82.35
+  .byte 0 # StringLit at 82.35
+  .byte 0 # StringLit at 82.35
+  .word CLASS_String # StringLit at 82.35
+  .word 2 # StringLit at 82.35
+  .word -1 # StringLit at 82.35
+strLit_598: # StringLit at 82.35
+  .byte 10 # StringLit at 83.35
+  .byte 0 # StringLit at 83.35
+  .byte 0 # StringLit at 83.35
+  .byte 0 # StringLit at 83.35
+  .word CLASS_String # StringLit at 83.35
+  .word 2 # StringLit at 83.35
+  .word -1 # StringLit at 83.35
+strLit_606: # StringLit at 83.35
+  .byte 10 # StringLit at 84.35
+  .byte 0 # StringLit at 84.35
+  .byte 0 # StringLit at 84.35
+  .byte 0 # StringLit at 84.35
+  .word CLASS_String # StringLit at 84.35
+  .word 2 # StringLit at 84.35
+  .word -1 # StringLit at 84.35
+strLit_614: # StringLit at 84.35
+  .byte 10 # StringLit at 85.35
+  .byte 0 # StringLit at 85.35
+  .byte 0 # StringLit at 85.35
+  .byte 0 # StringLit at 85.35
+  .word CLASS_String # StringLit at 85.35
+  .word 2 # StringLit at 85.35
+  .word -1 # StringLit at 85.35
+strLit_622: # StringLit at 85.35
+  .byte 10 # StringLit at 86.35
+  .byte 0 # StringLit at 86.35
+  .byte 0 # StringLit at 86.35
+  .byte 0 # StringLit at 86.35
+  .word CLASS_String # StringLit at 86.35
+  .word 2 # StringLit at 86.35
+  .word -1 # StringLit at 86.35
+strLit_630: # StringLit at 86.35
+  .byte 10 # StringLit at 87.35
+  .byte 0 # StringLit at 87.35
+  .byte 0 # StringLit at 87.35
+  .byte 0 # StringLit at 87.35
+  .word CLASS_String # StringLit at 87.35
+  .word 2 # StringLit at 87.35
+  .word -1 # StringLit at 87.35
+strLit_638: # StringLit at 87.35
+  .byte 10 # StringLit at 88.35
+  .byte 0 # StringLit at 88.35
+  .byte 0 # StringLit at 88.35
+  .byte 0 # StringLit at 88.35
+  .word CLASS_String # StringLit at 88.35
+  .word 2 # StringLit at 88.35
+  .word -1 # StringLit at 88.35
+strLit_646: # StringLit at 88.35
+  .byte 10 # StringLit at 89.35
+  .byte 0 # StringLit at 89.35
+  .byte 0 # StringLit at 89.35
+  .byte 0 # StringLit at 89.35
+  .word CLASS_String # StringLit at 89.35
+  .word 2 # StringLit at 89.35
+  .word -1 # StringLit at 89.35
+strLit_654: # StringLit at 89.35
+  .byte 10 # StringLit at 90.35
+  .byte 0 # StringLit at 90.35
+  .byte 0 # StringLit at 90.35
+  .byte 0 # StringLit at 90.35
+  .word CLASS_String # StringLit at 90.35
+  .word 2 # StringLit at 90.35
+  .word -1 # StringLit at 90.35
+strLit_662: # StringLit at 90.35
+  .byte 10 # StringLit at 91.35
+  .byte 0 # StringLit at 91.35
+  .byte 0 # StringLit at 91.35
+  .byte 0 # StringLit at 91.35
+  .word CLASS_String # StringLit at 91.35
+  .word 2 # StringLit at 91.35
+  .word -1 # StringLit at 91.35
+strLit_670: # StringLit at 91.35
+  .byte 10 # StringLit at 92.35
+  .byte 0 # StringLit at 92.35
+  .byte 0 # StringLit at 92.35
+  .byte 0 # StringLit at 92.35
+  .word CLASS_String # StringLit at 92.35
+  .word 2 # StringLit at 92.35
+  .word -1 # StringLit at 92.35
+strLit_678: # StringLit at 92.35
+  .byte 10 # StringLit at 93.35
+  .byte 0 # StringLit at 93.35
+  .byte 0 # StringLit at 93.35
+  .byte 0 # StringLit at 93.35
+  .word CLASS_String # StringLit at 93.35
+  .word 2 # StringLit at 93.35
+  .word -1 # StringLit at 93.35
+strLit_686: # StringLit at 93.35
+  .byte 10 # StringLit at 94.35
+  .byte 0 # StringLit at 94.35
+  .byte 0 # StringLit at 94.35
+  .byte 0 # StringLit at 94.35
+  .word CLASS_String # StringLit at 94.35
+  .word 2 # StringLit at 94.35
+  .word -1 # StringLit at 94.35
+strLit_694: # StringLit at 94.35
+  .byte 10 # StringLit at 95.35
+  .byte 0 # StringLit at 95.35
+  .byte 0 # StringLit at 95.35
+  .byte 0 # StringLit at 95.35
+  .word CLASS_String # StringLit at 95.35
+  .word 2 # StringLit at 95.35
+  .word -1 # StringLit at 95.35
+strLit_702: # StringLit at 95.35
+  .byte 10 # StringLit at 96.35
+  .byte 0 # StringLit at 96.35
+  .byte 0 # StringLit at 96.35
+  .byte 0 # StringLit at 96.35
+  .word CLASS_String # StringLit at 96.35
+  .word 2 # StringLit at 96.35
+  .word -1 # StringLit at 96.35
+strLit_710: # StringLit at 96.35
+  .byte 10 # StringLit at 97.35
+  .byte 0 # StringLit at 97.35
+  .byte 0 # StringLit at 97.35
+  .byte 0 # StringLit at 97.35
+  .word CLASS_String # StringLit at 97.35
+  .word 2 # StringLit at 97.35
+  .word -1 # StringLit at 97.35
+strLit_718: # StringLit at 97.35
+  .byte 10 # StringLit at 98.35
+  .byte 0 # StringLit at 98.35
+  .byte 0 # StringLit at 98.35
+  .byte 0 # StringLit at 98.35
+  .word CLASS_String # StringLit at 98.35
+  .word 2 # StringLit at 98.35
+  .word -1 # StringLit at 98.35
+strLit_726: # StringLit at 98.35
+  .byte 10 # StringLit at 99.35
+  .byte 0 # StringLit at 99.35
+  .byte 0 # StringLit at 99.35
+  .byte 0 # StringLit at 99.35
+  .word CLASS_String # StringLit at 99.35
+  .word 2 # StringLit at 99.35
+  .word -1 # StringLit at 99.35
+strLit_734: # StringLit at 99.35
+  .byte 10 # StringLit at 100.35
+  .byte 0 # StringLit at 100.35
+  .byte 0 # StringLit at 100.35
+  .byte 0 # StringLit at 100.35
+  .word CLASS_String # StringLit at 100.35
+  .word 2 # StringLit at 100.35
+  .word -1 # StringLit at 100.35
+strLit_742: # StringLit at 100.35
+  .byte 10 # StringLit at 101.35
+  .byte 0 # StringLit at 101.35
+  .byte 0 # StringLit at 101.35
+  .byte 0 # StringLit at 101.35
+  .word CLASS_String # StringLit at 101.35
+  .word 2 # StringLit at 101.35
+  .word -1 # StringLit at 101.35
+strLit_750: # StringLit at 101.35
+  .byte 10 # StringLit at 102.35
+  .byte 0 # StringLit at 102.35
+  .byte 0 # StringLit at 102.35
+  .byte 0 # StringLit at 102.35
+  .word CLASS_String # StringLit at 102.35
+  .word 2 # StringLit at 102.35
+  .word -1 # StringLit at 102.35
+strLit_758: # StringLit at 102.35
+  .byte 10 # StringLit at 103.36
+  .byte 0 # StringLit at 103.36
+  .byte 0 # StringLit at 103.36
+  .byte 0 # StringLit at 103.36
+  .word CLASS_String # StringLit at 103.36
+  .word 2 # StringLit at 103.36
+  .word -1 # StringLit at 103.36
+strLit_766: # StringLit at 103.36
+  .byte 10 # StringLit at 104.36
+  .byte 0 # StringLit at 104.36
+  .byte 0 # StringLit at 104.36
+  .byte 0 # StringLit at 104.36
+  .word CLASS_String # StringLit at 104.36
+  .word 2 # StringLit at 104.36
+  .word -1 # StringLit at 104.36
+strLit_774: # StringLit at 104.36
+  .byte 10 # StringLit at 105.36
+  .byte 0 # StringLit at 105.36
+  .byte 0 # StringLit at 105.36
+  .byte 0 # StringLit at 105.36
+  .word CLASS_String # StringLit at 105.36
+  .word 2 # StringLit at 105.36
+  .word -1 # StringLit at 105.36
+strLit_782: # StringLit at 105.36
+  .byte 10 # StringLit at 106.36
+  .byte 0 # StringLit at 106.36
+  .byte 0 # StringLit at 106.36
+  .byte 0 # StringLit at 106.36
+  .word CLASS_String # StringLit at 106.36
+  .word 2 # StringLit at 106.36
+  .word -1 # StringLit at 106.36
+strLit_790: # StringLit at 106.36
+  .byte 10 # StringLit at 107.36
+  .byte 0 # StringLit at 107.36
+  .byte 0 # StringLit at 107.36
+  .byte 0 # StringLit at 107.36
+  .word CLASS_String # StringLit at 107.36
+  .word 2 # StringLit at 107.36
+  .word -1 # StringLit at 107.36
+strLit_798: # StringLit at 107.36
+  .byte 10 # StringLit at 108.35
+  .byte 0 # StringLit at 108.35
+  .byte 0 # StringLit at 108.35
+  .byte 0 # StringLit at 108.35
+  .word CLASS_String # StringLit at 108.35
+  .word 2 # StringLit at 108.35
+  .word -1 # StringLit at 108.35
+strLit_806: # StringLit at 108.35
+.text
+.globl main
+main:
+  jal vm_init
+  li $s6, 1
+  li $s7, 0
+  jal newObject
+  la $t0, CLASS_Main
+  sw $t0, -12($s7)
+  addu $sp,$sp,4
+  move $s2, $s7
+  subu $sp, $sp, 4
+  sw $s2, ($sp)
+  jal mth_main_Main
+  addu $sp, $sp, 4
+  li $v0, 10
+  syscall
+.globl mth_main_Main
+mth_main_Main:
+ subu $sp, $sp, 4
+ sw $ra, ($sp)
+ lw $s2, 4($sp)
+  subu $sp, $sp, 4 # LocalVarDecl at 5.7; stackHeight = 0
+  sw $t0, ($sp) # LocalVarDecl at 5.7; stackHeight = 0
+# begin: CallStmt at 6.7; stackHeight = 4
+# begin: Call at 6.7; stackHeight = 4
+# begin: StringLit at 6.16; stackHeight = 4
+ la $t0, strLit_6
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 6.16; stackHeight = 8
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 6.7; stackHeight = 4
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 6.7; stackHeight = 0
+# begin: CallStmt at 7.7; stackHeight = 0
+# begin: Call at 7.7; stackHeight = 0
+# begin: StringLit at 7.16; stackHeight = 0
+ la $t0, strLit_10
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 7.16; stackHeight = 4
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 7.7; stackHeight = 0
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 7.7; stackHeight = -4
+# begin: CallStmt at 8.7; stackHeight = -4
+# begin: Call at 8.7; stackHeight = -4
+# begin: StringLit at 8.16; stackHeight = -4
+ la $t0, strLit_14
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 8.16; stackHeight = 0
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 8.7; stackHeight = -4
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 8.7; stackHeight = -8
+# begin: CallStmt at 9.7; stackHeight = -8
+# begin: Call at 9.7; stackHeight = -8
+# begin: StringLit at 9.16; stackHeight = -8
+ la $t0, strLit_18
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 9.16; stackHeight = -4
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 9.7; stackHeight = -8
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 9.7; stackHeight = -12
+# begin: CallStmt at 10.7; stackHeight = -12
+# begin: Call at 10.7; stackHeight = -12
+# begin: StringLit at 10.16; stackHeight = -12
+ la $t0, strLit_22
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 10.16; stackHeight = -8
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 10.7; stackHeight = -12
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 10.7; stackHeight = -16
+# begin: CallStmt at 11.7; stackHeight = -16
+# begin: Call at 11.7; stackHeight = -16
+# begin: IntLit at 11.16; stackHeight = -16
+  li $t0, 97
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 11.16; stackHeight = -8
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 11.7; stackHeight = -12
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 11.7; stackHeight = -16
+# begin: CallStmt at 11.26; stackHeight = -16
+# begin: Call at 11.26; stackHeight = -16
+# begin: StringLit at 11.35; stackHeight = -16
+ la $t0, strLit_30
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 11.35; stackHeight = -12
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 11.26; stackHeight = -16
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 11.26; stackHeight = -20
+# begin: CallStmt at 12.7; stackHeight = -20
+# begin: Call at 12.7; stackHeight = -20
+# begin: IntLit at 12.16; stackHeight = -20
+  li $t0, 98
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 12.16; stackHeight = -12
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 12.7; stackHeight = -16
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 12.7; stackHeight = -20
+# begin: CallStmt at 12.26; stackHeight = -20
+# begin: Call at 12.26; stackHeight = -20
+# begin: StringLit at 12.35; stackHeight = -20
+ la $t0, strLit_38
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 12.35; stackHeight = -16
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 12.26; stackHeight = -20
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 12.26; stackHeight = -24
+# begin: CallStmt at 13.7; stackHeight = -24
+# begin: Call at 13.7; stackHeight = -24
+# begin: IntLit at 13.16; stackHeight = -24
+  li $t0, 99
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 13.16; stackHeight = -16
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 13.7; stackHeight = -20
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 13.7; stackHeight = -24
+# begin: CallStmt at 13.26; stackHeight = -24
+# begin: Call at 13.26; stackHeight = -24
+# begin: StringLit at 13.35; stackHeight = -24
+ la $t0, strLit_46
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 13.35; stackHeight = -20
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 13.26; stackHeight = -24
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 13.26; stackHeight = -28
+# begin: CallStmt at 14.7; stackHeight = -28
+# begin: Call at 14.7; stackHeight = -28
+# begin: IntLit at 14.16; stackHeight = -28
+  li $t0, 100
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 14.16; stackHeight = -20
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 14.7; stackHeight = -24
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 14.7; stackHeight = -28
+# begin: CallStmt at 14.26; stackHeight = -28
+# begin: Call at 14.26; stackHeight = -28
+# begin: StringLit at 14.35; stackHeight = -28
+ la $t0, strLit_54
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 14.35; stackHeight = -24
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 14.26; stackHeight = -28
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 14.26; stackHeight = -32
+# begin: CallStmt at 15.7; stackHeight = -32
+# begin: Call at 15.7; stackHeight = -32
+# begin: IntLit at 15.16; stackHeight = -32
+  li $t0, 101
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 15.16; stackHeight = -24
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 15.7; stackHeight = -28
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 15.7; stackHeight = -32
+# begin: CallStmt at 15.26; stackHeight = -32
+# begin: Call at 15.26; stackHeight = -32
+# begin: StringLit at 15.35; stackHeight = -32
+ la $t0, strLit_62
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 15.35; stackHeight = -28
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 15.26; stackHeight = -32
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 15.26; stackHeight = -36
+# begin: CallStmt at 16.7; stackHeight = -36
+# begin: Call at 16.7; stackHeight = -36
+# begin: IntLit at 16.16; stackHeight = -36
+  li $t0, 102
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 16.16; stackHeight = -28
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 16.7; stackHeight = -32
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 16.7; stackHeight = -36
+# begin: CallStmt at 16.26; stackHeight = -36
+# begin: Call at 16.26; stackHeight = -36
+# begin: StringLit at 16.35; stackHeight = -36
+ la $t0, strLit_70
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 16.35; stackHeight = -32
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 16.26; stackHeight = -36
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 16.26; stackHeight = -40
+# begin: CallStmt at 17.7; stackHeight = -40
+# begin: Call at 17.7; stackHeight = -40
+# begin: IntLit at 17.16; stackHeight = -40
+  li $t0, 103
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 17.16; stackHeight = -32
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 17.7; stackHeight = -36
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 17.7; stackHeight = -40
+# begin: CallStmt at 17.26; stackHeight = -40
+# begin: Call at 17.26; stackHeight = -40
+# begin: StringLit at 17.35; stackHeight = -40
+ la $t0, strLit_78
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 17.35; stackHeight = -36
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 17.26; stackHeight = -40
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 17.26; stackHeight = -44
+# begin: CallStmt at 18.7; stackHeight = -44
+# begin: Call at 18.7; stackHeight = -44
+# begin: IntLit at 18.16; stackHeight = -44
+  li $t0, 104
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 18.16; stackHeight = -36
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 18.7; stackHeight = -40
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 18.7; stackHeight = -44
+# begin: CallStmt at 18.26; stackHeight = -44
+# begin: Call at 18.26; stackHeight = -44
+# begin: StringLit at 18.35; stackHeight = -44
+ la $t0, strLit_86
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 18.35; stackHeight = -40
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 18.26; stackHeight = -44
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 18.26; stackHeight = -48
+# begin: CallStmt at 19.7; stackHeight = -48
+# begin: Call at 19.7; stackHeight = -48
+# begin: IntLit at 19.16; stackHeight = -48
+  li $t0, 105
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 19.16; stackHeight = -40
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 19.7; stackHeight = -44
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 19.7; stackHeight = -48
+# begin: CallStmt at 19.26; stackHeight = -48
+# begin: Call at 19.26; stackHeight = -48
+# begin: StringLit at 19.35; stackHeight = -48
+ la $t0, strLit_94
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 19.35; stackHeight = -44
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 19.26; stackHeight = -48
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 19.26; stackHeight = -52
+# begin: CallStmt at 20.7; stackHeight = -52
+# begin: Call at 20.7; stackHeight = -52
+# begin: IntLit at 20.16; stackHeight = -52
+  li $t0, 106
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 20.16; stackHeight = -44
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 20.7; stackHeight = -48
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 20.7; stackHeight = -52
+# begin: CallStmt at 20.26; stackHeight = -52
+# begin: Call at 20.26; stackHeight = -52
+# begin: StringLit at 20.35; stackHeight = -52
+ la $t0, strLit_102
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 20.35; stackHeight = -48
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 20.26; stackHeight = -52
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 20.26; stackHeight = -56
+# begin: CallStmt at 21.7; stackHeight = -56
+# begin: Call at 21.7; stackHeight = -56
+# begin: IntLit at 21.16; stackHeight = -56
+  li $t0, 107
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 21.16; stackHeight = -48
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 21.7; stackHeight = -52
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 21.7; stackHeight = -56
+# begin: CallStmt at 21.26; stackHeight = -56
+# begin: Call at 21.26; stackHeight = -56
+# begin: StringLit at 21.35; stackHeight = -56
+ la $t0, strLit_110
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 21.35; stackHeight = -52
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 21.26; stackHeight = -56
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 21.26; stackHeight = -60
+# begin: CallStmt at 22.7; stackHeight = -60
+# begin: Call at 22.7; stackHeight = -60
+# begin: IntLit at 22.16; stackHeight = -60
+  li $t0, 108
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 22.16; stackHeight = -52
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 22.7; stackHeight = -56
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 22.7; stackHeight = -60
+# begin: CallStmt at 22.26; stackHeight = -60
+# begin: Call at 22.26; stackHeight = -60
+# begin: StringLit at 22.35; stackHeight = -60
+ la $t0, strLit_118
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 22.35; stackHeight = -56
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 22.26; stackHeight = -60
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 22.26; stackHeight = -64
+# begin: CallStmt at 23.7; stackHeight = -64
+# begin: Call at 23.7; stackHeight = -64
+# begin: IntLit at 23.16; stackHeight = -64
+  li $t0, 109
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 23.16; stackHeight = -56
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 23.7; stackHeight = -60
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 23.7; stackHeight = -64
+# begin: CallStmt at 23.26; stackHeight = -64
+# begin: Call at 23.26; stackHeight = -64
+# begin: StringLit at 23.35; stackHeight = -64
+ la $t0, strLit_126
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 23.35; stackHeight = -60
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 23.26; stackHeight = -64
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 23.26; stackHeight = -68
+# begin: CallStmt at 24.7; stackHeight = -68
+# begin: Call at 24.7; stackHeight = -68
+# begin: IntLit at 24.16; stackHeight = -68
+  li $t0, 110
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 24.16; stackHeight = -60
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 24.7; stackHeight = -64
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 24.7; stackHeight = -68
+# begin: CallStmt at 24.26; stackHeight = -68
+# begin: Call at 24.26; stackHeight = -68
+# begin: StringLit at 24.35; stackHeight = -68
+ la $t0, strLit_134
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 24.35; stackHeight = -64
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 24.26; stackHeight = -68
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 24.26; stackHeight = -72
+# begin: CallStmt at 25.7; stackHeight = -72
+# begin: Call at 25.7; stackHeight = -72
+# begin: IntLit at 25.16; stackHeight = -72
+  li $t0, 111
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 25.16; stackHeight = -64
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 25.7; stackHeight = -68
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 25.7; stackHeight = -72
+# begin: CallStmt at 25.26; stackHeight = -72
+# begin: Call at 25.26; stackHeight = -72
+# begin: StringLit at 25.35; stackHeight = -72
+ la $t0, strLit_142
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 25.35; stackHeight = -68
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 25.26; stackHeight = -72
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 25.26; stackHeight = -76
+# begin: CallStmt at 26.7; stackHeight = -76
+# begin: Call at 26.7; stackHeight = -76
+# begin: IntLit at 26.16; stackHeight = -76
+  li $t0, 112
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 26.16; stackHeight = -68
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 26.7; stackHeight = -72
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 26.7; stackHeight = -76
+# begin: CallStmt at 26.26; stackHeight = -76
+# begin: Call at 26.26; stackHeight = -76
+# begin: StringLit at 26.35; stackHeight = -76
+ la $t0, strLit_150
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 26.35; stackHeight = -72
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 26.26; stackHeight = -76
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 26.26; stackHeight = -80
+# begin: CallStmt at 27.7; stackHeight = -80
+# begin: Call at 27.7; stackHeight = -80
+# begin: IntLit at 27.16; stackHeight = -80
+  li $t0, 113
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 27.16; stackHeight = -72
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 27.7; stackHeight = -76
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 27.7; stackHeight = -80
+# begin: CallStmt at 27.26; stackHeight = -80
+# begin: Call at 27.26; stackHeight = -80
+# begin: StringLit at 27.35; stackHeight = -80
+ la $t0, strLit_158
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 27.35; stackHeight = -76
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 27.26; stackHeight = -80
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 27.26; stackHeight = -84
+# begin: CallStmt at 28.7; stackHeight = -84
+# begin: Call at 28.7; stackHeight = -84
+# begin: IntLit at 28.16; stackHeight = -84
+  li $t0, 114
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 28.16; stackHeight = -76
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 28.7; stackHeight = -80
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 28.7; stackHeight = -84
+# begin: CallStmt at 28.26; stackHeight = -84
+# begin: Call at 28.26; stackHeight = -84
+# begin: StringLit at 28.35; stackHeight = -84
+ la $t0, strLit_166
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 28.35; stackHeight = -80
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 28.26; stackHeight = -84
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 28.26; stackHeight = -88
+# begin: CallStmt at 29.7; stackHeight = -88
+# begin: Call at 29.7; stackHeight = -88
+# begin: IntLit at 29.16; stackHeight = -88
+  li $t0, 115
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 29.16; stackHeight = -80
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 29.7; stackHeight = -84
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 29.7; stackHeight = -88
+# begin: CallStmt at 29.26; stackHeight = -88
+# begin: Call at 29.26; stackHeight = -88
+# begin: StringLit at 29.35; stackHeight = -88
+ la $t0, strLit_174
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 29.35; stackHeight = -84
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 29.26; stackHeight = -88
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 29.26; stackHeight = -92
+# begin: CallStmt at 30.7; stackHeight = -92
+# begin: Call at 30.7; stackHeight = -92
+# begin: IntLit at 30.16; stackHeight = -92
+  li $t0, 116
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 30.16; stackHeight = -84
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 30.7; stackHeight = -88
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 30.7; stackHeight = -92
+# begin: CallStmt at 30.26; stackHeight = -92
+# begin: Call at 30.26; stackHeight = -92
+# begin: StringLit at 30.35; stackHeight = -92
+ la $t0, strLit_182
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 30.35; stackHeight = -88
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 30.26; stackHeight = -92
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 30.26; stackHeight = -96
+# begin: CallStmt at 31.7; stackHeight = -96
+# begin: Call at 31.7; stackHeight = -96
+# begin: IntLit at 31.16; stackHeight = -96
+  li $t0, 117
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 31.16; stackHeight = -88
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 31.7; stackHeight = -92
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 31.7; stackHeight = -96
+# begin: CallStmt at 31.26; stackHeight = -96
+# begin: Call at 31.26; stackHeight = -96
+# begin: StringLit at 31.35; stackHeight = -96
+ la $t0, strLit_190
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 31.35; stackHeight = -92
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 31.26; stackHeight = -96
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 31.26; stackHeight = -100
+# begin: CallStmt at 32.7; stackHeight = -100
+# begin: Call at 32.7; stackHeight = -100
+# begin: IntLit at 32.16; stackHeight = -100
+  li $t0, 118
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 32.16; stackHeight = -92
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 32.7; stackHeight = -96
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 32.7; stackHeight = -100
+# begin: CallStmt at 32.26; stackHeight = -100
+# begin: Call at 32.26; stackHeight = -100
+# begin: StringLit at 32.35; stackHeight = -100
+ la $t0, strLit_198
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 32.35; stackHeight = -96
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 32.26; stackHeight = -100
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 32.26; stackHeight = -104
+# begin: CallStmt at 33.7; stackHeight = -104
+# begin: Call at 33.7; stackHeight = -104
+# begin: IntLit at 33.16; stackHeight = -104
+  li $t0, 119
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 33.16; stackHeight = -96
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 33.7; stackHeight = -100
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 33.7; stackHeight = -104
+# begin: CallStmt at 33.26; stackHeight = -104
+# begin: Call at 33.26; stackHeight = -104
+# begin: StringLit at 33.35; stackHeight = -104
+ la $t0, strLit_206
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 33.35; stackHeight = -100
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 33.26; stackHeight = -104
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 33.26; stackHeight = -108
+# begin: CallStmt at 34.7; stackHeight = -108
+# begin: Call at 34.7; stackHeight = -108
+# begin: IntLit at 34.16; stackHeight = -108
+  li $t0, 120
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 34.16; stackHeight = -100
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 34.7; stackHeight = -104
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 34.7; stackHeight = -108
+# begin: CallStmt at 34.26; stackHeight = -108
+# begin: Call at 34.26; stackHeight = -108
+# begin: StringLit at 34.35; stackHeight = -108
+ la $t0, strLit_214
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 34.35; stackHeight = -104
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 34.26; stackHeight = -108
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 34.26; stackHeight = -112
+# begin: CallStmt at 35.7; stackHeight = -112
+# begin: Call at 35.7; stackHeight = -112
+# begin: IntLit at 35.16; stackHeight = -112
+  li $t0, 121
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 35.16; stackHeight = -104
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 35.7; stackHeight = -108
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 35.7; stackHeight = -112
+# begin: CallStmt at 35.26; stackHeight = -112
+# begin: Call at 35.26; stackHeight = -112
+# begin: StringLit at 35.35; stackHeight = -112
+ la $t0, strLit_222
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 35.35; stackHeight = -108
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 35.26; stackHeight = -112
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 35.26; stackHeight = -116
+# begin: CallStmt at 36.7; stackHeight = -116
+# begin: Call at 36.7; stackHeight = -116
+# begin: IntLit at 36.16; stackHeight = -116
+  li $t0, 122
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 36.16; stackHeight = -108
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 36.7; stackHeight = -112
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 36.7; stackHeight = -116
+# begin: CallStmt at 36.26; stackHeight = -116
+# begin: Call at 36.26; stackHeight = -116
+# begin: StringLit at 36.35; stackHeight = -116
+ la $t0, strLit_230
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 36.35; stackHeight = -112
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 36.26; stackHeight = -116
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 36.26; stackHeight = -120
+# begin: CallStmt at 37.7; stackHeight = -120
+# begin: Call at 37.7; stackHeight = -120
+# begin: IntLit at 37.16; stackHeight = -120
+  li $t0, 65
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 37.16; stackHeight = -112
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 37.7; stackHeight = -116
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 37.7; stackHeight = -120
+# begin: CallStmt at 37.26; stackHeight = -120
+# begin: Call at 37.26; stackHeight = -120
+# begin: StringLit at 37.35; stackHeight = -120
+ la $t0, strLit_238
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 37.35; stackHeight = -116
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 37.26; stackHeight = -120
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 37.26; stackHeight = -124
+# begin: CallStmt at 38.7; stackHeight = -124
+# begin: Call at 38.7; stackHeight = -124
+# begin: IntLit at 38.16; stackHeight = -124
+  li $t0, 66
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 38.16; stackHeight = -116
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 38.7; stackHeight = -120
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 38.7; stackHeight = -124
+# begin: CallStmt at 38.26; stackHeight = -124
+# begin: Call at 38.26; stackHeight = -124
+# begin: StringLit at 38.35; stackHeight = -124
+ la $t0, strLit_246
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 38.35; stackHeight = -120
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 38.26; stackHeight = -124
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 38.26; stackHeight = -128
+# begin: CallStmt at 39.7; stackHeight = -128
+# begin: Call at 39.7; stackHeight = -128
+# begin: IntLit at 39.16; stackHeight = -128
+  li $t0, 67
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 39.16; stackHeight = -120
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 39.7; stackHeight = -124
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 39.7; stackHeight = -128
+# begin: CallStmt at 39.26; stackHeight = -128
+# begin: Call at 39.26; stackHeight = -128
+# begin: StringLit at 39.35; stackHeight = -128
+ la $t0, strLit_254
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 39.35; stackHeight = -124
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 39.26; stackHeight = -128
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 39.26; stackHeight = -132
+# begin: CallStmt at 40.7; stackHeight = -132
+# begin: Call at 40.7; stackHeight = -132
+# begin: IntLit at 40.16; stackHeight = -132
+  li $t0, 68
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 40.16; stackHeight = -124
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 40.7; stackHeight = -128
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 40.7; stackHeight = -132
+# begin: CallStmt at 40.26; stackHeight = -132
+# begin: Call at 40.26; stackHeight = -132
+# begin: StringLit at 40.35; stackHeight = -132
+ la $t0, strLit_262
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 40.35; stackHeight = -128
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 40.26; stackHeight = -132
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 40.26; stackHeight = -136
+# begin: CallStmt at 41.7; stackHeight = -136
+# begin: Call at 41.7; stackHeight = -136
+# begin: IntLit at 41.16; stackHeight = -136
+  li $t0, 69
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 41.16; stackHeight = -128
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 41.7; stackHeight = -132
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 41.7; stackHeight = -136
+# begin: CallStmt at 41.26; stackHeight = -136
+# begin: Call at 41.26; stackHeight = -136
+# begin: StringLit at 41.35; stackHeight = -136
+ la $t0, strLit_270
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 41.35; stackHeight = -132
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 41.26; stackHeight = -136
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 41.26; stackHeight = -140
+# begin: CallStmt at 42.7; stackHeight = -140
+# begin: Call at 42.7; stackHeight = -140
+# begin: IntLit at 42.16; stackHeight = -140
+  li $t0, 70
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 42.16; stackHeight = -132
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 42.7; stackHeight = -136
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 42.7; stackHeight = -140
+# begin: CallStmt at 42.26; stackHeight = -140
+# begin: Call at 42.26; stackHeight = -140
+# begin: StringLit at 42.35; stackHeight = -140
+ la $t0, strLit_278
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 42.35; stackHeight = -136
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 42.26; stackHeight = -140
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 42.26; stackHeight = -144
+# begin: CallStmt at 43.7; stackHeight = -144
+# begin: Call at 43.7; stackHeight = -144
+# begin: IntLit at 43.16; stackHeight = -144
+  li $t0, 71
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 43.16; stackHeight = -136
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 43.7; stackHeight = -140
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 43.7; stackHeight = -144
+# begin: CallStmt at 43.26; stackHeight = -144
+# begin: Call at 43.26; stackHeight = -144
+# begin: StringLit at 43.35; stackHeight = -144
+ la $t0, strLit_286
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 43.35; stackHeight = -140
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 43.26; stackHeight = -144
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 43.26; stackHeight = -148
+# begin: CallStmt at 44.7; stackHeight = -148
+# begin: Call at 44.7; stackHeight = -148
+# begin: IntLit at 44.16; stackHeight = -148
+  li $t0, 72
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 44.16; stackHeight = -140
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 44.7; stackHeight = -144
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 44.7; stackHeight = -148
+# begin: CallStmt at 44.26; stackHeight = -148
+# begin: Call at 44.26; stackHeight = -148
+# begin: StringLit at 44.35; stackHeight = -148
+ la $t0, strLit_294
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 44.35; stackHeight = -144
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 44.26; stackHeight = -148
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 44.26; stackHeight = -152
+# begin: CallStmt at 45.7; stackHeight = -152
+# begin: Call at 45.7; stackHeight = -152
+# begin: IntLit at 45.16; stackHeight = -152
+  li $t0, 73
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 45.16; stackHeight = -144
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 45.7; stackHeight = -148
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 45.7; stackHeight = -152
+# begin: CallStmt at 45.26; stackHeight = -152
+# begin: Call at 45.26; stackHeight = -152
+# begin: StringLit at 45.35; stackHeight = -152
+ la $t0, strLit_302
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 45.35; stackHeight = -148
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 45.26; stackHeight = -152
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 45.26; stackHeight = -156
+# begin: CallStmt at 46.7; stackHeight = -156
+# begin: Call at 46.7; stackHeight = -156
+# begin: IntLit at 46.16; stackHeight = -156
+  li $t0, 74
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 46.16; stackHeight = -148
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 46.7; stackHeight = -152
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 46.7; stackHeight = -156
+# begin: CallStmt at 46.26; stackHeight = -156
+# begin: Call at 46.26; stackHeight = -156
+# begin: StringLit at 46.35; stackHeight = -156
+ la $t0, strLit_310
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 46.35; stackHeight = -152
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 46.26; stackHeight = -156
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 46.26; stackHeight = -160
+# begin: CallStmt at 47.7; stackHeight = -160
+# begin: Call at 47.7; stackHeight = -160
+# begin: IntLit at 47.16; stackHeight = -160
+  li $t0, 75
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 47.16; stackHeight = -152
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 47.7; stackHeight = -156
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 47.7; stackHeight = -160
+# begin: CallStmt at 47.26; stackHeight = -160
+# begin: Call at 47.26; stackHeight = -160
+# begin: StringLit at 47.35; stackHeight = -160
+ la $t0, strLit_318
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 47.35; stackHeight = -156
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 47.26; stackHeight = -160
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 47.26; stackHeight = -164
+# begin: CallStmt at 48.7; stackHeight = -164
+# begin: Call at 48.7; stackHeight = -164
+# begin: IntLit at 48.16; stackHeight = -164
+  li $t0, 76
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 48.16; stackHeight = -156
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 48.7; stackHeight = -160
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 48.7; stackHeight = -164
+# begin: CallStmt at 48.26; stackHeight = -164
+# begin: Call at 48.26; stackHeight = -164
+# begin: StringLit at 48.35; stackHeight = -164
+ la $t0, strLit_326
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 48.35; stackHeight = -160
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 48.26; stackHeight = -164
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 48.26; stackHeight = -168
+# begin: CallStmt at 49.7; stackHeight = -168
+# begin: Call at 49.7; stackHeight = -168
+# begin: IntLit at 49.16; stackHeight = -168
+  li $t0, 77
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 49.16; stackHeight = -160
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 49.7; stackHeight = -164
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 49.7; stackHeight = -168
+# begin: CallStmt at 49.26; stackHeight = -168
+# begin: Call at 49.26; stackHeight = -168
+# begin: StringLit at 49.35; stackHeight = -168
+ la $t0, strLit_334
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 49.35; stackHeight = -164
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 49.26; stackHeight = -168
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 49.26; stackHeight = -172
+# begin: CallStmt at 50.7; stackHeight = -172
+# begin: Call at 50.7; stackHeight = -172
+# begin: IntLit at 50.16; stackHeight = -172
+  li $t0, 78
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 50.16; stackHeight = -164
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 50.7; stackHeight = -168
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 50.7; stackHeight = -172
+# begin: CallStmt at 50.26; stackHeight = -172
+# begin: Call at 50.26; stackHeight = -172
+# begin: StringLit at 50.35; stackHeight = -172
+ la $t0, strLit_342
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 50.35; stackHeight = -168
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 50.26; stackHeight = -172
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 50.26; stackHeight = -176
+# begin: CallStmt at 51.7; stackHeight = -176
+# begin: Call at 51.7; stackHeight = -176
+# begin: IntLit at 51.16; stackHeight = -176
+  li $t0, 79
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 51.16; stackHeight = -168
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 51.7; stackHeight = -172
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 51.7; stackHeight = -176
+# begin: CallStmt at 51.26; stackHeight = -176
+# begin: Call at 51.26; stackHeight = -176
+# begin: StringLit at 51.35; stackHeight = -176
+ la $t0, strLit_350
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 51.35; stackHeight = -172
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 51.26; stackHeight = -176
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 51.26; stackHeight = -180
+# begin: CallStmt at 52.7; stackHeight = -180
+# begin: Call at 52.7; stackHeight = -180
+# begin: IntLit at 52.16; stackHeight = -180
+  li $t0, 80
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 52.16; stackHeight = -172
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 52.7; stackHeight = -176
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 52.7; stackHeight = -180
+# begin: CallStmt at 52.26; stackHeight = -180
+# begin: Call at 52.26; stackHeight = -180
+# begin: StringLit at 52.35; stackHeight = -180
+ la $t0, strLit_358
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 52.35; stackHeight = -176
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 52.26; stackHeight = -180
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 52.26; stackHeight = -184
+# begin: CallStmt at 53.7; stackHeight = -184
+# begin: Call at 53.7; stackHeight = -184
+# begin: IntLit at 53.16; stackHeight = -184
+  li $t0, 81
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 53.16; stackHeight = -176
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 53.7; stackHeight = -180
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 53.7; stackHeight = -184
+# begin: CallStmt at 53.26; stackHeight = -184
+# begin: Call at 53.26; stackHeight = -184
+# begin: StringLit at 53.35; stackHeight = -184
+ la $t0, strLit_366
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 53.35; stackHeight = -180
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 53.26; stackHeight = -184
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 53.26; stackHeight = -188
+# begin: CallStmt at 54.7; stackHeight = -188
+# begin: Call at 54.7; stackHeight = -188
+# begin: IntLit at 54.16; stackHeight = -188
+  li $t0, 82
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 54.16; stackHeight = -180
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 54.7; stackHeight = -184
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 54.7; stackHeight = -188
+# begin: CallStmt at 54.26; stackHeight = -188
+# begin: Call at 54.26; stackHeight = -188
+# begin: StringLit at 54.35; stackHeight = -188
+ la $t0, strLit_374
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 54.35; stackHeight = -184
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 54.26; stackHeight = -188
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 54.26; stackHeight = -192
+# begin: CallStmt at 55.7; stackHeight = -192
+# begin: Call at 55.7; stackHeight = -192
+# begin: IntLit at 55.16; stackHeight = -192
+  li $t0, 83
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 55.16; stackHeight = -184
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 55.7; stackHeight = -188
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 55.7; stackHeight = -192
+# begin: CallStmt at 55.26; stackHeight = -192
+# begin: Call at 55.26; stackHeight = -192
+# begin: StringLit at 55.35; stackHeight = -192
+ la $t0, strLit_382
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 55.35; stackHeight = -188
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 55.26; stackHeight = -192
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 55.26; stackHeight = -196
+# begin: CallStmt at 56.7; stackHeight = -196
+# begin: Call at 56.7; stackHeight = -196
+# begin: IntLit at 56.16; stackHeight = -196
+  li $t0, 84
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 56.16; stackHeight = -188
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 56.7; stackHeight = -192
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 56.7; stackHeight = -196
+# begin: CallStmt at 56.26; stackHeight = -196
+# begin: Call at 56.26; stackHeight = -196
+# begin: StringLit at 56.35; stackHeight = -196
+ la $t0, strLit_390
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 56.35; stackHeight = -192
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 56.26; stackHeight = -196
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 56.26; stackHeight = -200
+# begin: CallStmt at 57.7; stackHeight = -200
+# begin: Call at 57.7; stackHeight = -200
+# begin: IntLit at 57.16; stackHeight = -200
+  li $t0, 85
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 57.16; stackHeight = -192
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 57.7; stackHeight = -196
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 57.7; stackHeight = -200
+# begin: CallStmt at 57.26; stackHeight = -200
+# begin: Call at 57.26; stackHeight = -200
+# begin: StringLit at 57.35; stackHeight = -200
+ la $t0, strLit_398
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 57.35; stackHeight = -196
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 57.26; stackHeight = -200
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 57.26; stackHeight = -204
+# begin: CallStmt at 58.7; stackHeight = -204
+# begin: Call at 58.7; stackHeight = -204
+# begin: IntLit at 58.16; stackHeight = -204
+  li $t0, 86
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 58.16; stackHeight = -196
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 58.7; stackHeight = -200
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 58.7; stackHeight = -204
+# begin: CallStmt at 58.26; stackHeight = -204
+# begin: Call at 58.26; stackHeight = -204
+# begin: StringLit at 58.35; stackHeight = -204
+ la $t0, strLit_406
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 58.35; stackHeight = -200
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 58.26; stackHeight = -204
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 58.26; stackHeight = -208
+# begin: CallStmt at 59.7; stackHeight = -208
+# begin: Call at 59.7; stackHeight = -208
+# begin: IntLit at 59.16; stackHeight = -208
+  li $t0, 87
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 59.16; stackHeight = -200
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 59.7; stackHeight = -204
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 59.7; stackHeight = -208
+# begin: CallStmt at 59.26; stackHeight = -208
+# begin: Call at 59.26; stackHeight = -208
+# begin: StringLit at 59.35; stackHeight = -208
+ la $t0, strLit_414
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 59.35; stackHeight = -204
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 59.26; stackHeight = -208
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 59.26; stackHeight = -212
+# begin: CallStmt at 60.7; stackHeight = -212
+# begin: Call at 60.7; stackHeight = -212
+# begin: IntLit at 60.16; stackHeight = -212
+  li $t0, 88
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 60.16; stackHeight = -204
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 60.7; stackHeight = -208
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 60.7; stackHeight = -212
+# begin: CallStmt at 60.26; stackHeight = -212
+# begin: Call at 60.26; stackHeight = -212
+# begin: StringLit at 60.35; stackHeight = -212
+ la $t0, strLit_422
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 60.35; stackHeight = -208
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 60.26; stackHeight = -212
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 60.26; stackHeight = -216
+# begin: CallStmt at 61.7; stackHeight = -216
+# begin: Call at 61.7; stackHeight = -216
+# begin: IntLit at 61.16; stackHeight = -216
+  li $t0, 89
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 61.16; stackHeight = -208
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 61.7; stackHeight = -212
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 61.7; stackHeight = -216
+# begin: CallStmt at 61.26; stackHeight = -216
+# begin: Call at 61.26; stackHeight = -216
+# begin: StringLit at 61.35; stackHeight = -216
+ la $t0, strLit_430
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 61.35; stackHeight = -212
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 61.26; stackHeight = -216
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 61.26; stackHeight = -220
+# begin: CallStmt at 62.7; stackHeight = -220
+# begin: Call at 62.7; stackHeight = -220
+# begin: IntLit at 62.16; stackHeight = -220
+  li $t0, 90
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 62.16; stackHeight = -212
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 62.7; stackHeight = -216
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 62.7; stackHeight = -220
+# begin: CallStmt at 62.26; stackHeight = -220
+# begin: Call at 62.26; stackHeight = -220
+# begin: StringLit at 62.35; stackHeight = -220
+ la $t0, strLit_438
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 62.35; stackHeight = -216
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 62.26; stackHeight = -220
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 62.26; stackHeight = -224
+# begin: CallStmt at 63.7; stackHeight = -224
+# begin: Call at 63.7; stackHeight = -224
+# begin: IntLit at 63.16; stackHeight = -224
+  li $t0, 49
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 63.16; stackHeight = -216
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 63.7; stackHeight = -220
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 63.7; stackHeight = -224
+# begin: CallStmt at 63.26; stackHeight = -224
+# begin: Call at 63.26; stackHeight = -224
+# begin: StringLit at 63.35; stackHeight = -224
+ la $t0, strLit_446
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 63.35; stackHeight = -220
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 63.26; stackHeight = -224
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 63.26; stackHeight = -228
+# begin: CallStmt at 64.7; stackHeight = -228
+# begin: Call at 64.7; stackHeight = -228
+# begin: IntLit at 64.16; stackHeight = -228
+  li $t0, 50
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 64.16; stackHeight = -220
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 64.7; stackHeight = -224
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 64.7; stackHeight = -228
+# begin: CallStmt at 64.26; stackHeight = -228
+# begin: Call at 64.26; stackHeight = -228
+# begin: StringLit at 64.35; stackHeight = -228
+ la $t0, strLit_454
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 64.35; stackHeight = -224
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 64.26; stackHeight = -228
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 64.26; stackHeight = -232
+# begin: CallStmt at 65.7; stackHeight = -232
+# begin: Call at 65.7; stackHeight = -232
+# begin: IntLit at 65.16; stackHeight = -232
+  li $t0, 51
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 65.16; stackHeight = -224
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 65.7; stackHeight = -228
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 65.7; stackHeight = -232
+# begin: CallStmt at 65.26; stackHeight = -232
+# begin: Call at 65.26; stackHeight = -232
+# begin: StringLit at 65.35; stackHeight = -232
+ la $t0, strLit_462
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 65.35; stackHeight = -228
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 65.26; stackHeight = -232
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 65.26; stackHeight = -236
+# begin: CallStmt at 66.7; stackHeight = -236
+# begin: Call at 66.7; stackHeight = -236
+# begin: IntLit at 66.16; stackHeight = -236
+  li $t0, 52
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 66.16; stackHeight = -228
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 66.7; stackHeight = -232
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 66.7; stackHeight = -236
+# begin: CallStmt at 66.26; stackHeight = -236
+# begin: Call at 66.26; stackHeight = -236
+# begin: StringLit at 66.35; stackHeight = -236
+ la $t0, strLit_470
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 66.35; stackHeight = -232
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 66.26; stackHeight = -236
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 66.26; stackHeight = -240
+# begin: CallStmt at 67.7; stackHeight = -240
+# begin: Call at 67.7; stackHeight = -240
+# begin: IntLit at 67.16; stackHeight = -240
+  li $t0, 53
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 67.16; stackHeight = -232
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 67.7; stackHeight = -236
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 67.7; stackHeight = -240
+# begin: CallStmt at 67.26; stackHeight = -240
+# begin: Call at 67.26; stackHeight = -240
+# begin: StringLit at 67.35; stackHeight = -240
+ la $t0, strLit_478
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 67.35; stackHeight = -236
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 67.26; stackHeight = -240
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 67.26; stackHeight = -244
+# begin: CallStmt at 68.7; stackHeight = -244
+# begin: Call at 68.7; stackHeight = -244
+# begin: IntLit at 68.16; stackHeight = -244
+  li $t0, 54
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 68.16; stackHeight = -236
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 68.7; stackHeight = -240
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 68.7; stackHeight = -244
+# begin: CallStmt at 68.26; stackHeight = -244
+# begin: Call at 68.26; stackHeight = -244
+# begin: StringLit at 68.35; stackHeight = -244
+ la $t0, strLit_486
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 68.35; stackHeight = -240
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 68.26; stackHeight = -244
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 68.26; stackHeight = -248
+# begin: CallStmt at 69.7; stackHeight = -248
+# begin: Call at 69.7; stackHeight = -248
+# begin: IntLit at 69.16; stackHeight = -248
+  li $t0, 55
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 69.16; stackHeight = -240
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 69.7; stackHeight = -244
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 69.7; stackHeight = -248
+# begin: CallStmt at 69.26; stackHeight = -248
+# begin: Call at 69.26; stackHeight = -248
+# begin: StringLit at 69.35; stackHeight = -248
+ la $t0, strLit_494
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 69.35; stackHeight = -244
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 69.26; stackHeight = -248
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 69.26; stackHeight = -252
+# begin: CallStmt at 70.7; stackHeight = -252
+# begin: Call at 70.7; stackHeight = -252
+# begin: IntLit at 70.16; stackHeight = -252
+  li $t0, 56
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 70.16; stackHeight = -244
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 70.7; stackHeight = -248
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 70.7; stackHeight = -252
+# begin: CallStmt at 70.26; stackHeight = -252
+# begin: Call at 70.26; stackHeight = -252
+# begin: StringLit at 70.35; stackHeight = -252
+ la $t0, strLit_502
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 70.35; stackHeight = -248
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 70.26; stackHeight = -252
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 70.26; stackHeight = -256
+# begin: CallStmt at 71.7; stackHeight = -256
+# begin: Call at 71.7; stackHeight = -256
+# begin: IntLit at 71.16; stackHeight = -256
+  li $t0, 57
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 71.16; stackHeight = -248
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 71.7; stackHeight = -252
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 71.7; stackHeight = -256
+# begin: CallStmt at 71.26; stackHeight = -256
+# begin: Call at 71.26; stackHeight = -256
+# begin: StringLit at 71.35; stackHeight = -256
+ la $t0, strLit_510
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 71.35; stackHeight = -252
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 71.26; stackHeight = -256
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 71.26; stackHeight = -260
+# begin: CallStmt at 72.7; stackHeight = -260
+# begin: Call at 72.7; stackHeight = -260
+# begin: IntLit at 72.16; stackHeight = -260
+  li $t0, 48
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 72.16; stackHeight = -252
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 72.7; stackHeight = -256
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 72.7; stackHeight = -260
+# begin: CallStmt at 72.26; stackHeight = -260
+# begin: Call at 72.26; stackHeight = -260
+# begin: StringLit at 72.35; stackHeight = -260
+ la $t0, strLit_518
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 72.35; stackHeight = -256
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 72.26; stackHeight = -260
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 72.26; stackHeight = -264
+# begin: CallStmt at 73.7; stackHeight = -264
+# begin: Call at 73.7; stackHeight = -264
+# begin: IntLit at 73.16; stackHeight = -264
+  li $t0, 96
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 73.16; stackHeight = -256
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 73.7; stackHeight = -260
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 73.7; stackHeight = -264
+# begin: CallStmt at 73.26; stackHeight = -264
+# begin: Call at 73.26; stackHeight = -264
+# begin: StringLit at 73.35; stackHeight = -264
+ la $t0, strLit_526
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 73.35; stackHeight = -260
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 73.26; stackHeight = -264
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 73.26; stackHeight = -268
+# begin: CallStmt at 74.7; stackHeight = -268
+# begin: Call at 74.7; stackHeight = -268
+# begin: IntLit at 74.16; stackHeight = -268
+  li $t0, 126
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 74.16; stackHeight = -260
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 74.7; stackHeight = -264
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 74.7; stackHeight = -268
+# begin: CallStmt at 74.26; stackHeight = -268
+# begin: Call at 74.26; stackHeight = -268
+# begin: StringLit at 74.35; stackHeight = -268
+ la $t0, strLit_534
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 74.35; stackHeight = -264
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 74.26; stackHeight = -268
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 74.26; stackHeight = -272
+# begin: CallStmt at 75.7; stackHeight = -272
+# begin: Call at 75.7; stackHeight = -272
+# begin: IntLit at 75.16; stackHeight = -272
+  li $t0, 33
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 75.16; stackHeight = -264
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 75.7; stackHeight = -268
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 75.7; stackHeight = -272
+# begin: CallStmt at 75.26; stackHeight = -272
+# begin: Call at 75.26; stackHeight = -272
+# begin: StringLit at 75.35; stackHeight = -272
+ la $t0, strLit_542
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 75.35; stackHeight = -268
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 75.26; stackHeight = -272
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 75.26; stackHeight = -276
+# begin: CallStmt at 76.7; stackHeight = -276
+# begin: Call at 76.7; stackHeight = -276
+# begin: IntLit at 76.16; stackHeight = -276
+  li $t0, 64
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 76.16; stackHeight = -268
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 76.7; stackHeight = -272
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 76.7; stackHeight = -276
+# begin: CallStmt at 76.26; stackHeight = -276
+# begin: Call at 76.26; stackHeight = -276
+# begin: StringLit at 76.35; stackHeight = -276
+ la $t0, strLit_550
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 76.35; stackHeight = -272
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 76.26; stackHeight = -276
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 76.26; stackHeight = -280
+# begin: CallStmt at 77.7; stackHeight = -280
+# begin: Call at 77.7; stackHeight = -280
+# begin: IntLit at 77.16; stackHeight = -280
+  li $t0, 35
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 77.16; stackHeight = -272
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 77.7; stackHeight = -276
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 77.7; stackHeight = -280
+# begin: CallStmt at 77.26; stackHeight = -280
+# begin: Call at 77.26; stackHeight = -280
+# begin: StringLit at 77.35; stackHeight = -280
+ la $t0, strLit_558
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 77.35; stackHeight = -276
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 77.26; stackHeight = -280
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 77.26; stackHeight = -284
+# begin: CallStmt at 78.7; stackHeight = -284
+# begin: Call at 78.7; stackHeight = -284
+# begin: IntLit at 78.16; stackHeight = -284
+  li $t0, 36
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 78.16; stackHeight = -276
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 78.7; stackHeight = -280
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 78.7; stackHeight = -284
+# begin: CallStmt at 78.26; stackHeight = -284
+# begin: Call at 78.26; stackHeight = -284
+# begin: StringLit at 78.35; stackHeight = -284
+ la $t0, strLit_566
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 78.35; stackHeight = -280
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 78.26; stackHeight = -284
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 78.26; stackHeight = -288
+# begin: CallStmt at 79.7; stackHeight = -288
+# begin: Call at 79.7; stackHeight = -288
+# begin: IntLit at 79.16; stackHeight = -288
+  li $t0, 37
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 79.16; stackHeight = -280
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 79.7; stackHeight = -284
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 79.7; stackHeight = -288
+# begin: CallStmt at 79.26; stackHeight = -288
+# begin: Call at 79.26; stackHeight = -288
+# begin: StringLit at 79.35; stackHeight = -288
+ la $t0, strLit_574
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 79.35; stackHeight = -284
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 79.26; stackHeight = -288
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 79.26; stackHeight = -292
+# begin: CallStmt at 80.7; stackHeight = -292
+# begin: Call at 80.7; stackHeight = -292
+# begin: IntLit at 80.16; stackHeight = -292
+  li $t0, 94
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 80.16; stackHeight = -284
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 80.7; stackHeight = -288
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 80.7; stackHeight = -292
+# begin: CallStmt at 80.26; stackHeight = -292
+# begin: Call at 80.26; stackHeight = -292
+# begin: StringLit at 80.35; stackHeight = -292
+ la $t0, strLit_582
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 80.35; stackHeight = -288
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 80.26; stackHeight = -292
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 80.26; stackHeight = -296
+# begin: CallStmt at 81.7; stackHeight = -296
+# begin: Call at 81.7; stackHeight = -296
+# begin: IntLit at 81.16; stackHeight = -296
+  li $t0, 38
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 81.16; stackHeight = -288
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 81.7; stackHeight = -292
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 81.7; stackHeight = -296
+# begin: CallStmt at 81.26; stackHeight = -296
+# begin: Call at 81.26; stackHeight = -296
+# begin: StringLit at 81.35; stackHeight = -296
+ la $t0, strLit_590
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 81.35; stackHeight = -292
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 81.26; stackHeight = -296
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 81.26; stackHeight = -300
+# begin: CallStmt at 82.7; stackHeight = -300
+# begin: Call at 82.7; stackHeight = -300
+# begin: IntLit at 82.16; stackHeight = -300
+  li $t0, 42
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 82.16; stackHeight = -292
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 82.7; stackHeight = -296
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 82.7; stackHeight = -300
+# begin: CallStmt at 82.26; stackHeight = -300
+# begin: Call at 82.26; stackHeight = -300
+# begin: StringLit at 82.35; stackHeight = -300
+ la $t0, strLit_598
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 82.35; stackHeight = -296
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 82.26; stackHeight = -300
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 82.26; stackHeight = -304
+# begin: CallStmt at 83.7; stackHeight = -304
+# begin: Call at 83.7; stackHeight = -304
+# begin: IntLit at 83.16; stackHeight = -304
+  li $t0, 40
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 83.16; stackHeight = -296
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 83.7; stackHeight = -300
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 83.7; stackHeight = -304
+# begin: CallStmt at 83.26; stackHeight = -304
+# begin: Call at 83.26; stackHeight = -304
+# begin: StringLit at 83.35; stackHeight = -304
+ la $t0, strLit_606
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 83.35; stackHeight = -300
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 83.26; stackHeight = -304
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 83.26; stackHeight = -308
+# begin: CallStmt at 84.7; stackHeight = -308
+# begin: Call at 84.7; stackHeight = -308
+# begin: IntLit at 84.16; stackHeight = -308
+  li $t0, 41
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 84.16; stackHeight = -300
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 84.7; stackHeight = -304
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 84.7; stackHeight = -308
+# begin: CallStmt at 84.26; stackHeight = -308
+# begin: Call at 84.26; stackHeight = -308
+# begin: StringLit at 84.35; stackHeight = -308
+ la $t0, strLit_614
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 84.35; stackHeight = -304
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 84.26; stackHeight = -308
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 84.26; stackHeight = -312
+# begin: CallStmt at 85.7; stackHeight = -312
+# begin: Call at 85.7; stackHeight = -312
+# begin: IntLit at 85.16; stackHeight = -312
+  li $t0, 95
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 85.16; stackHeight = -304
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 85.7; stackHeight = -308
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 85.7; stackHeight = -312
+# begin: CallStmt at 85.26; stackHeight = -312
+# begin: Call at 85.26; stackHeight = -312
+# begin: StringLit at 85.35; stackHeight = -312
+ la $t0, strLit_622
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 85.35; stackHeight = -308
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 85.26; stackHeight = -312
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 85.26; stackHeight = -316
+# begin: CallStmt at 86.7; stackHeight = -316
+# begin: Call at 86.7; stackHeight = -316
+# begin: IntLit at 86.16; stackHeight = -316
+  li $t0, 43
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 86.16; stackHeight = -308
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 86.7; stackHeight = -312
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 86.7; stackHeight = -316
+# begin: CallStmt at 86.26; stackHeight = -316
+# begin: Call at 86.26; stackHeight = -316
+# begin: StringLit at 86.35; stackHeight = -316
+ la $t0, strLit_630
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 86.35; stackHeight = -312
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 86.26; stackHeight = -316
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 86.26; stackHeight = -320
+# begin: CallStmt at 87.7; stackHeight = -320
+# begin: Call at 87.7; stackHeight = -320
+# begin: IntLit at 87.16; stackHeight = -320
+  li $t0, 61
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 87.16; stackHeight = -312
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 87.7; stackHeight = -316
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 87.7; stackHeight = -320
+# begin: CallStmt at 87.26; stackHeight = -320
+# begin: Call at 87.26; stackHeight = -320
+# begin: StringLit at 87.35; stackHeight = -320
+ la $t0, strLit_638
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 87.35; stackHeight = -316
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 87.26; stackHeight = -320
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 87.26; stackHeight = -324
+# begin: CallStmt at 88.7; stackHeight = -324
+# begin: Call at 88.7; stackHeight = -324
+# begin: IntLit at 88.16; stackHeight = -324
+  li $t0, 45
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 88.16; stackHeight = -316
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 88.7; stackHeight = -320
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 88.7; stackHeight = -324
+# begin: CallStmt at 88.26; stackHeight = -324
+# begin: Call at 88.26; stackHeight = -324
+# begin: StringLit at 88.35; stackHeight = -324
+ la $t0, strLit_646
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 88.35; stackHeight = -320
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 88.26; stackHeight = -324
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 88.26; stackHeight = -328
+# begin: CallStmt at 89.7; stackHeight = -328
+# begin: Call at 89.7; stackHeight = -328
+# begin: IntLit at 89.16; stackHeight = -328
+  li $t0, 91
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 89.16; stackHeight = -320
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 89.7; stackHeight = -324
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 89.7; stackHeight = -328
+# begin: CallStmt at 89.26; stackHeight = -328
+# begin: Call at 89.26; stackHeight = -328
+# begin: StringLit at 89.35; stackHeight = -328
+ la $t0, strLit_654
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 89.35; stackHeight = -324
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 89.26; stackHeight = -328
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 89.26; stackHeight = -332
+# begin: CallStmt at 90.7; stackHeight = -332
+# begin: Call at 90.7; stackHeight = -332
+# begin: IntLit at 90.16; stackHeight = -332
+  li $t0, 93
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 90.16; stackHeight = -324
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 90.7; stackHeight = -328
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 90.7; stackHeight = -332
+# begin: CallStmt at 90.26; stackHeight = -332
+# begin: Call at 90.26; stackHeight = -332
+# begin: StringLit at 90.35; stackHeight = -332
+ la $t0, strLit_662
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 90.35; stackHeight = -328
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 90.26; stackHeight = -332
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 90.26; stackHeight = -336
+# begin: CallStmt at 91.7; stackHeight = -336
+# begin: Call at 91.7; stackHeight = -336
+# begin: IntLit at 91.16; stackHeight = -336
+  li $t0, 123
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 91.16; stackHeight = -328
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 91.7; stackHeight = -332
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 91.7; stackHeight = -336
+# begin: CallStmt at 91.26; stackHeight = -336
+# begin: Call at 91.26; stackHeight = -336
+# begin: StringLit at 91.35; stackHeight = -336
+ la $t0, strLit_670
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 91.35; stackHeight = -332
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 91.26; stackHeight = -336
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 91.26; stackHeight = -340
+# begin: CallStmt at 92.7; stackHeight = -340
+# begin: Call at 92.7; stackHeight = -340
+# begin: IntLit at 92.16; stackHeight = -340
+  li $t0, 125
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 92.16; stackHeight = -332
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 92.7; stackHeight = -336
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 92.7; stackHeight = -340
+# begin: CallStmt at 92.26; stackHeight = -340
+# begin: Call at 92.26; stackHeight = -340
+# begin: StringLit at 92.35; stackHeight = -340
+ la $t0, strLit_678
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 92.35; stackHeight = -336
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 92.26; stackHeight = -340
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 92.26; stackHeight = -344
+# begin: CallStmt at 93.7; stackHeight = -344
+# begin: Call at 93.7; stackHeight = -344
+# begin: IntLit at 93.16; stackHeight = -344
+  li $t0, 124
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 93.16; stackHeight = -336
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 93.7; stackHeight = -340
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 93.7; stackHeight = -344
+# begin: CallStmt at 93.26; stackHeight = -344
+# begin: Call at 93.26; stackHeight = -344
+# begin: StringLit at 93.35; stackHeight = -344
+ la $t0, strLit_686
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 93.35; stackHeight = -340
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 93.26; stackHeight = -344
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 93.26; stackHeight = -348
+# begin: CallStmt at 94.7; stackHeight = -348
+# begin: Call at 94.7; stackHeight = -348
+# begin: IntLit at 94.16; stackHeight = -348
+  li $t0, 59
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 94.16; stackHeight = -340
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 94.7; stackHeight = -344
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 94.7; stackHeight = -348
+# begin: CallStmt at 94.26; stackHeight = -348
+# begin: Call at 94.26; stackHeight = -348
+# begin: StringLit at 94.35; stackHeight = -348
+ la $t0, strLit_694
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 94.35; stackHeight = -344
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 94.26; stackHeight = -348
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 94.26; stackHeight = -352
+# begin: CallStmt at 95.7; stackHeight = -352
+# begin: Call at 95.7; stackHeight = -352
+# begin: IntLit at 95.16; stackHeight = -352
+  li $t0, 34
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 95.16; stackHeight = -344
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 95.7; stackHeight = -348
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 95.7; stackHeight = -352
+# begin: CallStmt at 95.26; stackHeight = -352
+# begin: Call at 95.26; stackHeight = -352
+# begin: StringLit at 95.35; stackHeight = -352
+ la $t0, strLit_702
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 95.35; stackHeight = -348
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 95.26; stackHeight = -352
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 95.26; stackHeight = -356
+# begin: CallStmt at 96.7; stackHeight = -356
+# begin: Call at 96.7; stackHeight = -356
+# begin: IntLit at 96.16; stackHeight = -356
+  li $t0, 58
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 96.16; stackHeight = -348
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 96.7; stackHeight = -352
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 96.7; stackHeight = -356
+# begin: CallStmt at 96.26; stackHeight = -356
+# begin: Call at 96.26; stackHeight = -356
+# begin: StringLit at 96.35; stackHeight = -356
+ la $t0, strLit_710
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 96.35; stackHeight = -352
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 96.26; stackHeight = -356
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 96.26; stackHeight = -360
+# begin: CallStmt at 97.7; stackHeight = -360
+# begin: Call at 97.7; stackHeight = -360
+# begin: IntLit at 97.16; stackHeight = -360
+  li $t0, 44
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 97.16; stackHeight = -352
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 97.7; stackHeight = -356
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 97.7; stackHeight = -360
+# begin: CallStmt at 97.26; stackHeight = -360
+# begin: Call at 97.26; stackHeight = -360
+# begin: StringLit at 97.35; stackHeight = -360
+ la $t0, strLit_718
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 97.35; stackHeight = -356
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 97.26; stackHeight = -360
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 97.26; stackHeight = -364
+# begin: CallStmt at 98.7; stackHeight = -364
+# begin: Call at 98.7; stackHeight = -364
+# begin: IntLit at 98.16; stackHeight = -364
+  li $t0, 46
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 98.16; stackHeight = -356
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 98.7; stackHeight = -360
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 98.7; stackHeight = -364
+# begin: CallStmt at 98.26; stackHeight = -364
+# begin: Call at 98.26; stackHeight = -364
+# begin: StringLit at 98.35; stackHeight = -364
+ la $t0, strLit_726
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 98.35; stackHeight = -360
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 98.26; stackHeight = -364
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 98.26; stackHeight = -368
+# begin: CallStmt at 99.7; stackHeight = -368
+# begin: Call at 99.7; stackHeight = -368
+# begin: IntLit at 99.16; stackHeight = -368
+  li $t0, 47
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 99.16; stackHeight = -360
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 99.7; stackHeight = -364
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 99.7; stackHeight = -368
+# begin: CallStmt at 99.26; stackHeight = -368
+# begin: Call at 99.26; stackHeight = -368
+# begin: StringLit at 99.35; stackHeight = -368
+ la $t0, strLit_734
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 99.35; stackHeight = -364
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 99.26; stackHeight = -368
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 99.26; stackHeight = -372
+# begin: CallStmt at 100.7; stackHeight = -372
+# begin: Call at 100.7; stackHeight = -372
+# begin: IntLit at 100.16; stackHeight = -372
+  li $t0, 60
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 100.16; stackHeight = -364
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 100.7; stackHeight = -368
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 100.7; stackHeight = -372
+# begin: CallStmt at 100.26; stackHeight = -372
+# begin: Call at 100.26; stackHeight = -372
+# begin: StringLit at 100.35; stackHeight = -372
+ la $t0, strLit_742
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 100.35; stackHeight = -368
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 100.26; stackHeight = -372
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 100.26; stackHeight = -376
+# begin: CallStmt at 101.7; stackHeight = -376
+# begin: Call at 101.7; stackHeight = -376
+# begin: IntLit at 101.16; stackHeight = -376
+  li $t0, 62
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 101.16; stackHeight = -368
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 101.7; stackHeight = -372
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 101.7; stackHeight = -376
+# begin: CallStmt at 101.26; stackHeight = -376
+# begin: Call at 101.26; stackHeight = -376
+# begin: StringLit at 101.35; stackHeight = -376
+ la $t0, strLit_750
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 101.35; stackHeight = -372
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 101.26; stackHeight = -376
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 101.26; stackHeight = -380
+# begin: CallStmt at 102.7; stackHeight = -380
+# begin: Call at 102.7; stackHeight = -380
+# begin: IntLit at 102.16; stackHeight = -380
+  li $t0, 63
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 102.16; stackHeight = -372
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 102.7; stackHeight = -376
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 102.7; stackHeight = -380
+# begin: CallStmt at 102.26; stackHeight = -380
+# begin: Call at 102.26; stackHeight = -380
+# begin: StringLit at 102.35; stackHeight = -380
+ la $t0, strLit_758
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 102.35; stackHeight = -376
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 102.26; stackHeight = -380
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 102.26; stackHeight = -384
+# begin: CallStmt at 103.7; stackHeight = -384
+# begin: Call at 103.7; stackHeight = -384
+# begin: IntLit at 103.16; stackHeight = -384
+  li $t0, 10
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 103.16; stackHeight = -376
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 103.7; stackHeight = -380
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 103.7; stackHeight = -384
+# begin: CallStmt at 103.27; stackHeight = -384
+# begin: Call at 103.27; stackHeight = -384
+# begin: StringLit at 103.36; stackHeight = -384
+ la $t0, strLit_766
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 103.36; stackHeight = -380
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 103.27; stackHeight = -384
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 103.27; stackHeight = -388
+# begin: CallStmt at 104.7; stackHeight = -388
+# begin: Call at 104.7; stackHeight = -388
+# begin: IntLit at 104.16; stackHeight = -388
+  li $t0, 9
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 104.16; stackHeight = -380
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 104.7; stackHeight = -384
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 104.7; stackHeight = -388
+# begin: CallStmt at 104.27; stackHeight = -388
+# begin: Call at 104.27; stackHeight = -388
+# begin: StringLit at 104.36; stackHeight = -388
+ la $t0, strLit_774
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 104.36; stackHeight = -384
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 104.27; stackHeight = -388
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 104.27; stackHeight = -392
+# begin: CallStmt at 105.7; stackHeight = -392
+# begin: Call at 105.7; stackHeight = -392
+# begin: IntLit at 105.16; stackHeight = -392
+  li $t0, 92
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 105.16; stackHeight = -384
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 105.7; stackHeight = -388
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 105.7; stackHeight = -392
+# begin: CallStmt at 105.27; stackHeight = -392
+# begin: Call at 105.27; stackHeight = -392
+# begin: StringLit at 105.36; stackHeight = -392
+ la $t0, strLit_782
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 105.36; stackHeight = -388
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 105.27; stackHeight = -392
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 105.27; stackHeight = -396
+# begin: CallStmt at 106.7; stackHeight = -396
+# begin: Call at 106.7; stackHeight = -396
+# begin: IntLit at 106.16; stackHeight = -396
+  li $t0, 39
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 106.16; stackHeight = -388
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 106.7; stackHeight = -392
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 106.7; stackHeight = -396
+# begin: CallStmt at 106.27; stackHeight = -396
+# begin: Call at 106.27; stackHeight = -396
+# begin: StringLit at 106.36; stackHeight = -396
+ la $t0, strLit_790
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 106.36; stackHeight = -392
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 106.27; stackHeight = -396
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 106.27; stackHeight = -400
+# begin: CallStmt at 107.7; stackHeight = -400
+# begin: Call at 107.7; stackHeight = -400
+# begin: IntLit at 107.16; stackHeight = -400
+  li $t0, 34
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 107.16; stackHeight = -392
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 107.7; stackHeight = -396
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 107.7; stackHeight = -400
+# begin: CallStmt at 107.27; stackHeight = -400
+# begin: Call at 107.27; stackHeight = -400
+# begin: StringLit at 107.36; stackHeight = -400
+ la $t0, strLit_798
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 107.36; stackHeight = -396
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 107.27; stackHeight = -400
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 107.27; stackHeight = -404
+# begin: CallStmt at 108.7; stackHeight = -404
+# begin: Call at 108.7; stackHeight = -404
+# begin: IntLit at 108.16; stackHeight = -404
+  li $t0, 32
+ subu $sp, $sp, 8
+ sw $t0, ($sp)
+# end: IntLit at 108.16; stackHeight = -396
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 32($t0)
+ jalr $t0 # printInt
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 108.7; stackHeight = -400
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 108.7; stackHeight = -404
+# begin: CallStmt at 108.26; stackHeight = -404
+# begin: Call at 108.26; stackHeight = -404
+# begin: StringLit at 108.35; stackHeight = -404
+ la $t0, strLit_806
+ subu $sp, $sp, 4
+ sw $t0, ($sp)
+# end: StringLit at 108.35; stackHeight = -400
+ beq $s2, $zero, nullPtrException
+ lw $t0, -12($s2)
+ lw $t0, 24($t0)
+ jalr $t0 # printStr
+ addu $sp, $sp, 0
+ lw $s2, ($sp)
+ addu $sp, $sp, 4
+# end: Call at 108.26; stackHeight = -404
+ lw $t0, ($sp)
+ addu $sp, $sp, 4
+# end: CallStmt at 108.26; stackHeight = -408
+ addu $sp, $sp, -408
+ lw $ra, ($sp)
+ addu $sp, $sp, 4
+ jr $ra
+##############################################################
+# MiniJava/UP library for MIPS/Spim -- version that assumes
+#    one-word boolean on stack
+# author: Steven R. Vegdahl
+# date: 7-13 July 2004
+# modified 12-17 March 2007
+# modified 3-25 May 2007
+# modified 2 May 2015
+# modified 7 March 2016
+# modified 11 May - 31 June 2017
+# modified 2024 Steven Libby changed calling conventions
+#               This is now passed in s2, 
+#               and methods don't pop parameters
+# status: Seems to work on all test cases.
+###############################################################
+
+
+
+
+###############################################################
+# hashCode() - library method (class Object)
+# - returns a hash code for an object
+# - produces int that is the object's hash code
+#   meaning that they are the same physical object
+# - parameters:
+#   - $s2 - this-pointer (for Object)
+#   - ($sp) - old-this-pointer
+# - return-value:
+#   - $t0 - 1 if the objects were the same; 0 otherwise
+###############################################################
+mth_hashCode_Object:
+    # for now, we'll return the -8 offset word, shifted/added to
+    # itself, then XORed with a fixed "random" value
+    lw $t0,-8($s2) # get word with hash bits from this
+    srl $t1,$t0,11 # shift/add to introduce more "randomness"
+    addu $t0,$t1
+
+    jr $ra # return, no change to the stack
+
+###############################################################
+# equals() - library method (class Object)
+# - tests whether two objects are equal
+# - produces boolean that tells whether two objects are equal--
+#   meaning that they are the same physical object
+# - parameters:
+#   - $s2 - this-pointer
+#   - ($sp) - object to compare to
+#   - 4($sp) - old-this-pointer
+# - return-value:
+#   - $t0 - 1 if the objects were the same; 0 otherwise
+###############################################################
+mth_equals_Object:
+    move $t0,$s2 # first pointer (this)
+    lw $t1,($sp) # second pointer
+    seq $t0,$t0,$t1 # produce boolean telling if they are equal
+
+    jr $ra # return
+
+###############################################################
+# hashCode() - library method (class String)
+# - returns a hash code for an object
+# - produces int that is the object's hash code
+#   meaning that they are the same physical object
+# - parameters:
+#   - $s2 - this-pointer
+#   - ($sp) - old-this-pointer
+# - return-value:
+#   - $t0 - 1 if the objects were the same; 0 otherwise
+###############################################################
+mth_hashCode_String:
+    move $t0,$s2 # put this pointer in t0
+
+    li $t2,0 # current hash value
+    lw $t1,-4($t0) # negative of number of characters in string
+    beq $t1,$zero,done_hashCode_String # if zero length => done
+    addu $t0,$t1 # address of first character in string +12,
+                 # not accounting for padding and header words
+    and $t0,0xfffffffc # adjust for padding
+    subu $t1,$t0,$t1 # address at end of string +12
+loop_hashCode_String:    
+    sll $t4,$t2,5 # multiply by 32
+    subu $t2,$t4,$t2 # subtract original, so that it's now multiply by 31
+    lbu $t3,-12($t0) # current character
+    addu $t2,$t3 # add in current character
+    addu $t0,1 # go to next character's address
+    bne $t0,$t1,loop_hashCode_String # loop back if more
+done_hashCode_String:    
+
+    # push int on stack
+    move $t0, $t2 # put $t2 in return slot
+    jr $ra # return
+
+###############################################################
+# toString() - library method (class Object)
+# - returns a String version of the object
+#   - $s2 - this-pointer
+#   - ($sp) - old-this-pointer
+# - return-value:
+#   - $t0 - the string version of the object
+# ****NOTE: this method counts on the fact that the hashCode method
+# ****is in slot 0 of the vtable    
+###############################################################
+mth_toString_Object:
+    # we need to append:
+    # - a string created from the object name in the negative portion of
+    #   the vtable
+    # - an at-sign "@"
+    # - the hex version of the hashcode for the object, with no leading
+    #   zeros
+
+    # save return address. Get new this pointer
+    subu $sp,4
+    sw $ra,($sp)
+    
+    # get hash value
+    lw $t2,-12($s2) # vtable address
+    lw $t0,($t2) # method address
+    jalr $t0
+    subu $sp,8 # push result (int in $t0) on stack
+    sw $s5,4($sp)
+    sw $t0,($sp)
+
+    # compute print-size of hash value
+    li $t0, 1
+    lw $t1, ($sp)
+    srl $t1,$t1,4
+    beq $t1,$zero,toString_skip_loop
+toString_loop_top:
+    addu $t0,1
+    srl $t1,$t1,4
+    bne $t1,$zero,toString_loop_top
+toString_skip_loop:
+    subu $sp,8
+    sw $s5,4($sp)
+    sw $t0,($sp)
+    
+    ################################################################
+    # at this point, the stack looks like (from top):
+    # - print-size (in bytes) of the hash value
+    # - GC tag (5)
+    # - hash value
+    # - GC tag (5)
+    # - return address
+    # - old this pointer
+    # - ... rest of stack
+    ################################################################
+
+    # determine the size of the "prefix string"
+    lw $t2,-12($s2) # vtable address
+    move $t0,$t2
+toString_checkTagBit:
+    subu $t0,1
+    lb $t1,($t0)
+    and $t1,0x80
+    beq $t1,$zero,toString_checkTagBit
+    subu $t1,$t2,$t0 # size of the prefix string, in bytes
+    subu $sp,8
+    sw $t1,($sp)
+    sw $s5,4($sp) # push size onto stack
+
+    # determine the header words for the string object's header
+    move $s7,$zero # -4 offset header word
+    lw $t4,8($sp) # bytes for hash value
+    addu $t4,$t1 # bytes for prefix
+    # add 8, to account for:
+    #  - +1 for the '@' character
+    #  - +4 for the vtable word
+    #  - +3 to get the effect of rounding up rather than down
+    addu $t4,8
+    srl $s6,$t4,2 # divide by 4
+    
+    # allocate the object
+    jal newObject
+        
+    ################################################################
+    # at this point, the stack looks like (from top):
+    # - new object, allocated to be our string
+    # - number of characters in the prefix
+    # - GC tag (5)
+    # - print-size (in bytes) of the hash value
+    # - GC tag (5)
+    # - hash value
+    # - GC tag (5)
+    # - return address
+    # - old this pointer
+    # - ... rest of stack
+    # $s7 also contains the address of the new object
+    ################################################################
+
+    li $t0,CLASS_String # store string vtable address into ...
+    sw $t0,-12($s7) # ... -12 offset in object header
+    lw $t2,-12($s2) # our object's vtable address
+    lw $t5,4($sp) # number characters in prefix
+    lw $t1,12($sp) # number of characters in hashcode
+    addu $t3,$t1,$t5 # number of characters in string ...
+    addu $t3,1 # ... including the '@' character
+    subu $t0,$zero,$t3 # store negated length into ...
+    sw $t0,-4($s7) # ... -4 offset header word
+    lw $t0,-8($s7) # get -8 offset header-word
+    bge $t0,$zero,skipMask_toString # don't strip hash code if not there
+    and $t0,0xff # mask off object's hash value ...
+    sw $t0,-8($s7) # ... and store back into -8 header-word
+skipMask_toString:
+    sll $t0,2 # convert to byte-offset (and shift off top bit, if there)
+    subu $t0,$s7,$t0 # address first byte of string +8
+#    addu $t1,$t0,$t3 # address of one past last byte of string +8
+    
+    # copy the prefix into the string
+    subu $t4,$t2,$t5
+toString_copyLoop:    
+    lb $t3,($t4)
+    and $t3,0x7f # mask off sign bit (in case first word)
+    sb $t3,-8($t0)
+    addu $t4,1
+    addu $t0,1
+    blt $t4,$t2,toString_copyLoop
+
+    # copy the '@' sign
+    li $t3,'@'
+    sb $t3,-8($t0)
+                
+    ################################################################
+    # at this point, the stack looks like (from top):
+    # - the new string object that we are building
+    # - number of characters in the prefix
+    # - GC tag (5)
+    # - print-size (in bytes) of the hash value
+    # - GC tag (5)
+    # - hash value
+    # - GC tag (5)
+    # - return address
+    # - old this pointer
+    # - ... rest of stack
+    # $t0 contains the address of next byte to store, +8
+    # $t1 the number of characters in the hashcode
+    # $s2 contains the object on which toString() has been called
+    # $s7 also contains the address of the new object
+    ################################################################
+
+    # store the hex version of the hash value
+    addu $t2,$t0,$t1 # address of last byte in string to store +8
+    lw $t3,20($sp) # hash code to print
+toString_hashCopyLoop:
+    and $t4,$t3,0xf
+    srl $t3,4
+    lb $t4,hexChars($t4)
+    sb $t4,-8($t2)
+    subu $t2,$t2,1
+    bgt $t2,$t0,toString_hashCopyLoop
+
+    # blow away stack until return address
+    # put return address in $ra, 
+    # and put return string on top of stack
+    addu $sp,28
+    lw $ra,($sp)
+    addu $sp,4
+    move $t0, $s7 # return string we created
+    jr $ra
+
+###############################################################
+# equals() - library method (class String)
+# - the String version of the .equals method
+# - produces false if the second object is null or is not a String ;
+#   otherwise produces true iff the two strings have the same contents
+# - parameters:
+#   - $s2 - this-pointer
+#   - ($sp) - object to compare to
+#   - 4($sp) - old-this-pointer
+# - return-value:
+#   - ($sp) - 1 if the objects were the same; 0 otherwise
+###############################################################
+mth_equals_String:
+    
+    # quick test for obvious false
+    lw $t0,($sp) # second parameter
+    beq $t0,$zero,goEsFalse # go return false if null
+    lw $t1,-12($t0) # vtable pointer
+    la $t2,CLASS_String # string vtable pointer
+    bne $t1,$t2,goEsFalse # go return false if not a string
+
+    # save $ra, $s2, second parameter
+    # we don't need to swap $s2, 
+    # because it's still in the string class.
+    subu $sp,12
+    sw $ra,8($sp)
+    sw $s2,4($sp)
+    sw $t0,($sp)
+    jal mth_compareTo_String
+    lw $s2, 4($sp) #restore this pointer and pop parameters
+    addu $sp, 8 # pop parameters
+
+    # return value is 1 iff result is 0; else 0
+    seq $t0,$t0,$zero
+
+    # pop return address and return $t0
+    lw $ra,($sp)
+    addu $sp,4
+
+    jr $ra # return
+    
+goEsFalse:
+    # put 0 in $t0 and return
+    li $t0, 0
+    jr $ra # return
+
+###############################################################
+# toString() - library method (class String)
+# - returns a String version of the object
+#   - ($sp) - old-this-pointer
+# - return-value:
+#   - $t0 - the string version of the object
+###############################################################
+mth_toString_String:
+    #we are a string, so return this.
+    move $t0, $s2
+    jr $ra
+
+###############################################################
+# readLine() - library method (class Lib)
+# - reads line from standard input
+# - produces String that contains the line read, except that it
+#   does not include the end-of-line character-sequence. An
+#   end-of-line character-sequence is one of the following:
+#   - a return character followed by a newline character
+#   - a newline character not preceded by a return character
+#   - a return character not followed by a newline character
+#   - an end-of-file character that follows at least one data
+#     character
+# - returns null on end-of-file
+# - parameter:
+#   - $s2 - this-pointer
+#   - ($sp) - old-this-pointer
+# - return-value:
+#   - $t0 - pointer to string containing line that was read
+# - anomalies:
+#   - with bare "return", looks ahead one character to check for
+#     newline.  This could cause non-intuitive behavior when
+#     run interactively.
+###############################################################
+mth_readLine_Lib:
+    
+    subu $sp,$sp,8 # allocate space for data tag, saving $ra
+    sw $ra, 4($sp) # save $ra
+    move $t1,$sp # save "original" sp
+
+  doRead:
+
+    # read the character
+    jal readLogicalChar
+
+    # if we have a 'return', read another character to check for
+    # newline
+    subu $t2,$v0,13
+    bne $t2,$zero,notReturnRL
+    jal readLogicalChar
+    subu $t2,$v0,10 # check for newline
+    beq $t2,$zero,foundNewLine
+    sw $v0,lastCharRead # push back character into queue
+    j foundNewLine # go process the line
+
+  notReturnRL:
+
+    # at this point, $v0 has our character
+
+    subu $t0,$v0,10
+    beq $t0,$zero,foundNewLine
+    blt $v0,$zero,foundEof
+
+    # we have a character, so push it onto stack
+    subu $sp,$sp,4
+    sw $v0,($sp)
+
+    # loop back up to get next character
+    j doRead
+
+  foundEof:
+    # if we had actually read some characters before hitting
+        # the eof, go return them as if a newline had been read
+    bne $t1,$sp foundNewLine
+
+    # otherwise, we got end of file without having read any
+    # new characters, so return null
+    li $s7, 0 # return-value: null
+    j rlReturn # return
+
+  foundNewLine:
+
+    # at this point, we have our newline (or end-of-file), and all space
+    # on the stack above $t1 are characters to be put into the string.
+    # That is therefore the number of data words to allocate (plus 1
+    # more for the class-pointer)
+
+
+    # set up GC tag and char-count on stack
+    subu $t0,$t1,$sp # number of chars we read (times 4)
+    srl $s6,$t0,2 # number of words on stack with chars
+    subu $sp,$sp,4 # push char-count ...
+    sw $s6,($sp) # ... onto stack
+    addu $t2,$t0,5 # GC tag, incl. for count-word
+    sw $t2,($t1) # store GC tag
+    
+    # allocate the appropriate Object
+    addu $s6,$s6,7 # 3 to round up, plus 1 for v-table pointer word
+    srl $s6,$s6,2  # data words in object
+    move $s7,$zero # object words in object
+    jal newObject  # allocate space
+    
+    # store header words
+    la $t0,CLASS_String
+    sw $t0,-12($s7)# store class tag (String) into object
+    lw $t2,4($sp) # char-count
+    sll $t1,$t2,2 # 4 times number of chars
+    subu $t2,$zero,$t2 # negative of char-count
+    sw $t2,-4($s7) # store negative char-count as header-word 2
+
+    # set up pointers to various parts of stack and object
+    lw $t0,-8($s7) # data words in object, possibly must mask off hash
+    bge $t0,$zero,skipMask_readLine # don't strip hash code if not there
+    and $t0,0xff # mask off object's hash value ...
+    sw $t0,-8($s7) # ... and store back into -8 header-word
+  skipMask_readLine:
+
+    sll $t0,$t0,2 # data bytes in object
+    subu $t0,$s7,$t0 # place to store first character (plus 8)    
+    subu $t0,$t0,$t2 # place to store last character (plus 9)
+    addu $sp,$sp,8 # pop redundant object-pointer and count
+    addu $t1,$t1,$sp # first non-char spot on stack
+
+    # at this point:
+    #  $t0 points to the target-spot for the last character (plus 9)
+    #  $t1 contains top spot on the stack not containing a char
+    #  $sp points to the word with the last source character
+
+    # copy the characters, popping each off the stack
+
+    beq $sp,$t1,rlReturn
+  charCopyLoop:
+    lw $t2,($sp)
+    sb $t2,-9($t0)
+    addu $sp,$sp,4
+    subu $t0,$t0,1
+    bne $sp,$t1,charCopyLoop
+  rlReturn:
+
+    lw $ra, 4($sp)
+    addu $sp, 8   # pop $ra and pointless word off stack
+    move $t0, $s7 # return string we allocated in $s7
+    jr $ra
+
+###################################################################
+# readInt() - library method (class Lib)
+# - skips whitespace
+# - then attempts to read a base-10 integer from standard input
+# - aborts program if a valid integer is not found
+# - returns the integer that is read
+# - truncates on overflow
+# - parameter:
+#   - $s2 - this-pointer
+#   - ($sp) - old-this-pointer
+# - return-value:
+#   - $t0 - value that was read
+###################################################################
+mth_readInt_Lib:
+
+    # save $ra by pushing onto stack
+    subu $sp,$sp,4
+    sw $ra,($sp)
+
+  riSkipWhiteLoop:
+    # read a character
+    jal readLogicalChar
+
+    # if character <= 32 ascii, check for whitespace; if not
+    # whitespace, abort 
+    subu $t0,$v0,32
+    bgt $t0,$zero,nonWhite
+    beq $t0,$zero,riSkipWhiteLoop # start over if space
+    subu $t0,$v0,10
+    beq $t0,$zero,riSkipWhiteLoop # start over if newline
+    subu $t0,$v0,9
+    beq $t0,$zero,riSkipWhiteLoop # start over if tab
+    subu $t0,$v0,13
+    beq $t0,$zero,riSkipWhiteLoop # start over if carriage return
+    subu $t0,$v0,12
+    beq $t0,$zero,riSkipWhiteLoop # start over if form-feed
+    j badIntegerFormat # illegal integer char: abort program
+
+  nonWhite:
+    subu $t0,$v0,'-'
+    li $t4,1 # final multiplier
+    bne $t0,$zero,helpReadInt # go read
+    li $t4,-1 # -1 in final multiplier
+
+    # read another character to make up for the '-'
+    jal readLogicalChar
+
+  helpReadInt:
+    li $t2,10
+    subu $t1,$v0,'0' # convert digit to 0-9 value
+    bgeu $t1,$t2,badIntegerFormat # abort if not digit
+    move $t3,$t1 #
+
+    #### at this point, $t3 contains value of the first digit read,
+    #### and $t2 contains the value 10
+
+  digitLoop:
+    # loop invariants:
+    # - $t3 contains the value of the number we've read so far
+    # - $t2 contains the value 10
+
+    jal readLogicalChar # read next character
+    subu $t1,$v0,'0' # convert digit to 0-9 value
+    bgeu $t1,$t2,doneDigitLoop # abort if not digit
+
+    mul $t3,$t3,$t2 # multiply old value by 10
+    addu $t3,$t3,$t1 # add in value of new digit
+    j digitLoop
+
+  doneDigitLoop:
+
+    # "push back" unused character into queue
+    sw $v0,lastCharRead
+
+    # restore return address
+    lw $ra,($sp)
+    addu $sp, 4
+
+    # multiply by sign and put return value in $t0
+    mult $t3,$t4 # multiply to account for poss. minus sign
+    mflo $t3
+    move $t0, $t3
+    
+    # return
+    jr $ra
+
+###################################################################
+# readChar() - library method (class Lib)
+# - reads a single character from standard input
+# - returns the integer that is the encoding of the character
+# - returns -1 if end of file was encountered
+# - parameter:
+#   - ($sp) - old-this-pointer
+# - return-value:
+#   - $t0 - value that was read
+###################################################################
+mth_readChar_Lib:
+
+    # save $ra by pushing onto stack
+    subu $sp,$sp,4
+    sw $ra,($sp)
+
+      # read the character
+    jal readLogicalChar
+
+    # restore return address; put value in $t0
+    # replacing this-pointer saved return address
+    lw $ra,($sp)
+    addu $sp, 4
+    move $t0, $v0
+
+    # return
+    jr $ra
+
+########################################################
+# printStr(str) - library method (class Lib)
+# - prints string to standard output
+# parameters:
+#   - ($sp) - the string to print
+#   - 4($sp) - old-this-pointer
+########################################################
+mth_printStr_Lib:
+    # check for null, printing "(null)", if so
+    lw $t0,($sp)
+    bne $t0,$zero,psNotNull
+
+    # print "(null)"
+    la $a0,nullStr
+    li $v0,4
+    syscall
+    j donePrintStr
+    
+  psNotNull:
+    ##### we have a non-null string #####
+    # this means that:
+    # - number of data words in -8($t0):
+    #   - if the sign bit is 1, the low 31 bits
+    #   - if the sign bit is 0, the low 8 bits
+    # - negative of number of characters in string is in -4($t0)
+    # - string begins at $t0-8-(#dataWords*4), stored 1 char per byte
+    subu $t0,$t0,8
+    lw $t1,($t0) # number of data words, but needs modification
+    blt $t1,$zero,skipPrintStr1
+    and $t1,0xff # mask out all but low byte
+    b skipPrintStr2
+skipPrintStr1:
+    and $t1,0x7ffffff
+skipPrintStr2:    
+    sll $t1,$t1,2
+    subu $t1,$t0,$t1 # first word in string
+    lw $t0,4($t0) # negative of string-length
+    subu $t0,$t1,$t0 # byte just beyond last char in string
+
+    # print the chars in the string
+    beq $t0,$t1,donePrintStr
+  psLoop:
+    lb $a0,($t1) # next byte
+    li $v0,11 # code for printing char
+        syscall # print the char
+    addu $t1,$t1,1 # go to next char
+    blt $t1,$t0,psLoop
+
+  donePrintStr:
+    jr $ra
+
+########################################################
+# printInt(n) - library method (class Lib)
+# - prints integer in decimal format to standard output
+# - parameters:
+#   - ($sp) - the integer to print
+#   - 4($sp) - GC tag
+#   - ($sp) - old-this-pointer
+########################################################
+mth_printInt_Lib:
+    lw $a0,($sp)
+
+    # print it
+    li $v0,1 # code for print-int
+    syscall
+
+    # return
+    jr $ra
+
+########################################################
+# printBool(n) - library method (class Lib)
+# - prints boolean to standard output
+# - parameters:
+#   - ($sp) - the boolean to print
+#   - 4($sp) - old-this-pointer
+########################################################
+mth_printBool_Lib:
+    # pop value off stack, along with 'this'
+    lw $t0,($sp)
+
+    # print either 'true' or 'false', depending on the value
+    la $a0,falseString
+    beq $t0,$zero,skipPB
+    la $a0,trueString
+  skipPB:
+    li $v0,4 # code for print-string
+    syscall
+
+    # return
+    jr $ra
+
+########################################################
+# str.substring(n, k) - library method (class String)
+# takes a substring of a string: Java: str.substring(n, k)
+# - parameters after pushing RA:
+#   - ($sp) - k: one beyond index of last char in subrange
+#   - 4($sp) - GC tag
+#   - 8($sp) - n: index of first char in subrange
+#   - 12($sp) - GC tag
+#   - 16($sp) - old this pointer
+# - return value:
+#  - $t0 - substring
+########################################################
+mth_substring_String:
+
+    # save $ra by pushing onto stack
+    subu $sp,$sp,4
+    sw $ra,($sp)
+
+    # get string from this, we probably don't need the null check.
+    move $t0,$s2
+    beq $t0,$zero,nullPtrException
+
+    # get both indices and string length, and ensure that
+    #   0 <= n <= k <= length
+    lw $t0,-4($t0) # negative of string length
+    subu $t0,$zero,$t0 # string length
+    lw $t1,4($sp) # k
+    lw $t2,12($sp) # n
+    bgt $zero,$t2,strIndexOutOfBounds
+    bgt $t2,$t1,strIndexOutOfBounds
+    bgt $t1,$t0,strIndexOutOfBounds
+
+    # allocate memory
+    subu $s6,$t1,$t2 # # chars in target-string
+    addu $s6,$s6,7 # account for extra "class" (4) word + 3 to round up
+    srl $s6,$s6,2 # convert bytes-count to word-count
+    move $s7,$zero # (no object-bytes in string)
+    jal newObject
+
+    # store "String" tag in object-type field
+    la $t0,CLASS_String
+    sw $t0,-12($s7)
+    
+    # mask off hash bits, if needed
+    lw $t4,-8($s7) # data words in source string
+    bge $t4,$zero,skipMask_substring # don't strip hash code if not there
+    and $t4,0xff # mask off object's hash value ...
+    sw $t4,-8($s7) # ... and store back into -8 header-word
+skipMask_substring:
+
+    # store negative of count (=n-k) into object-length header-word
+    # indicies have changed, because newObject is on stack
+    lw $t1,8($sp) # k
+    lw $t2,16($sp) # n
+    subu $t0,$t2,$t1 # value to store
+    sw $t0,-4($s7) # store value
+    
+    move $t3,$s2 # source string pointer
+    
+    # skip byte-copy loop if length is zero
+    beq $zero,$t0,doneSubCopyzz
+
+    # get pointers set up in preparation for copy
+    lw $t4,-8($t3) # data words in source string
+    sll $t4,$t4,2 # data bytes in source string (incl. padding)
+    subu $t3,$t3,$t4 # addr. of first data word of source string (+8)
+    addu $t3,$t3,$t2 # addr. of first source data byte to be copied (+8)
+    subu $t1,$t3,$t0 # addr. beyond last source data byte to be copied (+8)
+    lw $t2,-8($s7)   # data words in target string
+    sll $t2,$t2,2    # data bytes in target string
+    subu $t2,$s7,$t2 # addr. of first target data byte (+8)
+    
+    ############################################
+    # at this point:
+    # - we know that the string has a positive length
+    # - $t3 contains 8 + address of the first source-byte
+    # - $t1 contains 8 + limit-address of the first source-byte
+    # - $t2 contains 8 + address first target byte
+    ############################################
+
+    # copy the bytes from source to target
+  subCopyLoopzz:
+    lb $t4,-8($t3)
+    sb $t4,-8($t2)
+    addu $t2,$t2,1
+    addu $t3,$t3,1
+    blt $t3,$t1,subCopyLoopzz
+    
+  doneSubCopyzz:
+    # restore return address, store return value, pop stack
+    lw $ra,4($sp) # restore $ra
+    addu $sp,$sp,8 # pop ra, and allocated newObject
+    move $t0, $s7 # we're returning the string we got back
+                  # from newObject
+    
+    # return
+    jr $ra
+
+########################################################
+# length() - library method (class String)
+# returns length of a string: Java: str.length()
+# - parameters:
+#   - ($sp) - old this pointer
+# - return-value:
+#   - $t0 - length of string
+########################################################
+mth_length_String:
+
+    # the length is the negative of 4($s2)
+    lw $t0,-4($s2) # -length
+    subu $t0,$zero,$t0
+
+    # return
+    jr $ra
+
+
+########################################################
+# str1.concat(str2) - library method (class String)
+# (as in Java)
+# - parameters:
+#   - ($sp) - the second string
+#   - 4($sp) - old this pointer
+#   - $s2 - the first string (this)
+# - returns:
+#   - $t0 - pointer to concatenated string
+########################################################
+mth_concat_String:
+    # save $ra by pushing onto stack
+    subu $sp,$sp,4
+    sw $ra, ($sp)
+
+    # get string pointers and check parameter for null
+    lw $t0,4($sp)
+    beq $t0,$zero,nullPtrException
+    move $t1,$s2
+    
+    # get lengths of two strings; allocate object whose size
+    # is their sum divided by 4 (rounded up) plus 1
+    lw $t0,-4($t0) # negative size of second object
+    lw $t1,-4($t1) # negative size of first object
+    addu $s6,$t0,$t1 # sum of negative sizes
+    sra $s6,$s6,2 # negative word-size of char part
+    subu $s6,$zero,$s6 # word size of char part
+    addu $s6,$s6,1 # data word size, including v-table word
+    move $s7,$zero
+    jal newObject
+
+    # store String vtable address in vtable address field
+    la $t0,CLASS_String
+    sw $t0,-12($s7)
+        
+    # mask off hash bits, if needed
+    lw $t4,-8($s7) # # data words in source string
+    bge $t4,$zero,skipMask_concat # don't strip hash code if not there
+    and $t4,0xff # mask off object's hash value ...
+    sw $t4,-8($s7) # ... and store back into -8 header-word
+skipMask_concat:
+
+    move $t9, $s7 # store return string in unused (I hope) t9 register
+
+    #restore $t0, and $t1 after they were potentially blown
+    #away by newObject
+    move $t1,$s2   # first object
+    lw $t0,8($sp) # second object
+    
+    # get negative sizes; sum and store in new object size-field
+    lw $t2,-4($t0) # negative length of second object
+    lw $t3,-4($t1) # negative length of first object
+    addu $t4,$t2,$t3 # sum of negative lengths
+    sw $t4,-4($s7) # store sum as negated target-string length
+
+    #########################################################
+    # at this point:
+    # - $t0 is pointer to second object
+    # - $t1 is pointer to first object
+    # - $t2 is negated length of second object
+    # - $t3 is negated length of first object
+    # - $s7 is pointer to new object
+    #########################################################
+
+    # compute addresses for moving data from first string
+    lw $t4,-8($t1) # # data words in first string
+    sll $t4,$t4,2 # # data bytes in first string
+    subu $t1,$t1,$t4 # addr. (+8) of first byte in first string
+    lw $t4,-8($s7) # # data words in new string
+    sll $t4,$t4,2 # # data bytes in new string
+    subu $s7,$s7,$t4 # addr. (+8) of first byte in new string
+    beq $zero,$t3,doneConcatLoop1zz # skip first loop is no bytes to copy
+    subu $t3,$t1,$t3 # limit (+8) address for first string
+
+    #########################################################
+    # at this point:
+    # - $t0 is pointer to second object
+    # - $t1 is address (+8) of first byte in first object
+    # - $t2 is negated length of second object
+    # - $t3 is limit-address (+8) of data in first object
+    # - $s7 is address (+8) of first byte in new object
+    # - note: if data-length of first object is zero, then
+    #   we skip over this part, and go to 'doneConcatLoop1'
+    #########################################################
+
+    # copy the bytes from first source to target
+  concatLoop1zz:
+    lb $t4,-8($t1)
+    sb $t4,-8($s7)
+    addu $s7,$s7,1
+    addu $t1,$t1,1
+    blt $t1,$t3,concatLoop1zz
+  doneConcatLoop1zz:
+  
+    # if second string is empty, skip rest of copy
+    beq $zero,$t2,doneConcatLoop2zz
+
+      # compute addresses for moving data from second string
+    lw $t4,-8($t0) # # data words in second string
+    sll $t4,$t4,2 # # data bytes in second string
+    subu $t1,$t0,$t4 # addr. (+8) of first byte in second string
+    subu $t3,$t1,$t2 # limit (+8) address for second string
+
+    #########################################################
+    # at this point:
+    # - $t1 is address (+8) of first byte in second object
+    # - $t3 is limit-address (+8) of data in second object
+    # - $s7 is address (+8) of next byte to write new object
+    # - note: if data-length of second object is zero, then
+    #   we skip over this part, and go to 'doneConcatLoop2'
+    #########################################################
+
+    # copy the bytes from first source to target
+  concatLoop2zz:
+    lb $t4,-8($t1)
+    sb $t4,-8($s7)
+    addu $s7,$s7,1
+    addu $t1,$t1,1
+    blt $t1,$t3,concatLoop2zz
+  doneConcatLoop2zz:
+ 
+  concatRtnzz:
+    # return
+    move $t0, $t9 # put saved return string in $t0
+    lw $ra, 4($sp)
+    addu $sp, 8 # pop ra and allocated newObject
+    jr $ra
+
+########################################################
+# str.charAt(n) - library method (class String)
+# accesses a character in a string, as in Java
+# - parameters:
+#   - ($sp) - the index, n
+#   - 4($sp) - GC tag
+#   - 8($sp) - old this pointer
+#   - $s2    - this pointer
+# - returns:
+#   - $t0 - the character found.
+########################################################
+mth_charAt_String:
+    # get string
+    move $t0,$s2
+
+    # check that index is in bounds
+    lw $t1,-4($t0) # negative of # data words in string
+    subu $t3,$zero,$t1 # # chars in string
+    lw $t2,($sp) # index
+    bgeu $t2,$t3,strIndexOutOfBounds
+
+    # access element
+    lw $t1,-8($t0) # # data words in object
+    sll $t1,$t1,2 # - byte-offset from end of chars
+    subu $t1,$t2,$t1 # - address of first char in string, offset by 8
+    addu $t0,$t0,$t1 # - address of our char, offset by 8
+    lb $t0,-8($t0) # our char
+
+    # return
+    jr $ra
+
+########################################################
+# intToString(n) - library method (class Lib)
+# converts int to string: Java: ""+n
+# - parameters:
+#   - ($sp) - the value to convert, n
+#   - 4($sp) - GC tag
+#   - 8($sp) - old-this-pointer
+#   - $s2 - this-pointer
+# - returns:
+#   - $t0 - the string, which is the string representation of
+#     the integer
+########################################################
+mth_intToString_Lib:
+
+    # save return address on stack; allocate space for dummy GC tag
+    subu $sp,$sp,8
+    sw $ra,4($sp)
+
+    # save current sp
+    move $t0,$sp
+
+    # move constant 10 into $t3 
+    # (Good, I didn't know what li did, I'm glad this comment was here)
+    # * slams head through wall *
+    li $t3,10
+
+    # get argument, negate if negative
+    lw $t1,8($sp)
+    bge $t1,$zero,itsNonNegLoop
+    subu $t1,$zero,$t1
+
+    # loop through, computing unsigned remainder by 10, and
+    # storing digits on stack until we reach 0
+  itsNonNegLoop:
+    divu $t1,$t3
+    mflo $t1 # quotient
+    mfhi $t4 # remainder
+    addu $t4,$t4,'0' # turn remainder into digit
+    subu $sp,$sp,4
+    sw $t4,($sp) # push digit onto stack
+    bne $t1,$zero,itsNonNegLoop
+
+    # push '-' if negative
+    lw $t4,8($t0)
+    bge $t4,$zero,itsSkipNeg
+    li $t4,'-'
+    subu $sp,$sp,4
+    sw $t4,($sp)
+  itsSkipNeg:
+
+    ################################################
+    # At this point, all of our digits have been pushed
+    # onto the stack.  $sp points to the first one;
+    # $t0 contains the limit-pointer (into which we need to
+    # write a GC tag).
+    ################################################
+
+    # compute number of characters on stack (one word per character);
+    # write GC tag onto stack; push char-count onto stack
+    subu $s6,$t0,$sp
+    addu $t3,$s6,5 # GC tag (including for count-word, about to be pushed)
+    sw $t3,($t0)
+    srl $s6,$s6,2
+    subu $sp,$sp,4
+    sw $s6,($sp)
+    
+    # allocate memory
+    addu $s6,$s6,7 # 3 to round up, plus 4 for vtable word
+    srl $s6,$s6,2
+    move $s7,$zero # no "object" words in object
+    jal newObject
+
+    # restore char-count; pop it and return value from 'newObject'
+    lw $t0,4($sp)
+    addu $sp,$sp,8
+
+    # store "String" tag into class field
+    subu $s7,$s7,8 # address of header-1 word
+    la $t1,CLASS_String
+    sw $t1,-4($s7)
+        
+    # mask off hash bits, if needed
+    lw $t4,($s7) # # data words in source string
+    bge $t4,$zero,skipMask_intToString # don't strip hash code if not there
+    and $t4,0xff # mask off object's hash value ...
+    sw $t4,($s7) # ... and store back into -8 header-word
+skipMask_intToString:
+    
+    # store negative of char-count into header-2 word
+    subu $t0,$zero,$t0
+    sw $t0,4($s7)
+
+    lw $t1,($s7) # number of data words in string
+    sll $t1,$t1,2 # number data bytes in string
+    subu $t1,$s7,$t1 # first location to store chars in string
+    subu $t0,$t1,$t0 # limit address for chars in string
+
+    ####################################################
+    # at this point:
+    # - $sp contains first source character address
+    # - $t1 contains first target character address
+    # - $t0 contains target-limit address
+    ####################################################
+
+    # loop through and copy all elements as we pop them off the stack.
+    # (In this case, we know that there is it least one.)
+  itsLoop:
+    lw $t2,($sp)
+    addu $sp,$sp,4
+    sb $t2,($t1)
+    addu $t1,$t1,1
+    bne $t1,$t0,itsLoop
+
+    ####################################################
+    # At this point
+    # - ($t0+15)&0xfffffffe is our return value
+    # - ($sp) contains garbage (old GC tag)
+    # - 4($sp) contains return address
+    ####################################################
+
+    # adjust stack, restore return address; return
+    lw $ra,4($sp)
+    addu $sp,$sp,8
+    addu $t0,$t0,15
+    and $t0,$t0,0xfffffffc
+    jr $ra
+
+########################################################
+# intToChar(n) - library method (class Lib)
+# converts int to a one-character string: Java: ""+(char)(n&0xff)
+# - parameters:
+#   - ($sp) - the value to convert, n
+#   - 4($sp) - GC tag
+#   - 8($sp) - old-this-pointer
+# - returns:
+#   - $t0 - the string, which is the converted character
+# - note: only the low 8 bits of the value n are used
+########################################################
+mth_intToChar_Lib:
+    # save return address
+    subu $sp,$sp,4
+    sw $ra,($sp)
+
+    # allocate object
+    li $s6,2
+    move $s7,$zero
+    jal newObject
+
+    # get n from string.
+    lw $t1,8($sp)
+
+    # store "String" tag into class field
+    la $t0,CLASS_String
+    sw $t0,-12($s7)
+        
+    # mask off hash bits, if needed
+    lw $t4,-8($s7) # # data words in source string
+    bge $t4,$zero,skipMask_intToChar # don't strip hash code if not there
+    and $t4,0xff # mask off object's hash value ...
+    sw $t4,-8($s7) # ... and store back into -8 header-word
+  skipMask_intToChar:
+
+    # store data in string
+    sb $t1,-16($s7)
+    
+    # store negative of size in header-word 2
+    li $t0,-1
+    sw $t0,-4($s7)
+
+    # we're returning $s7
+    move $t0, $s7
+
+    # restore $ra, and pop return address and return string off stack
+    lw $ra,4($sp)
+    addu $sp,$sp,8
+
+    # return
+    jr $ra
+
+########################################################
+# str1.compareTo(str2) - library method (class String)
+# compares two strings as in Java
+# - parameters:
+#   - ($sp) - second string
+#   - 4($sp) - old this pointer
+#   - $s2 - first string (this)
+# - returns:
+#   - $t0 - -1, 0, or 1 depending on whether str1 is
+#       lexographically less than, equal to or greater than str2
+########################################################
+mth_compareTo_String:
+    # get string pointers and check parameter for null
+    lw $t0,($sp) # second string
+    beq $t0,$zero,nullPtrException
+    move $t1,$s2 # first string
+    
+    # get (negatives of) respective byte-lengths
+    lw $t2,-4($t0) # negative length of second string
+    lw $t3,-4($t1) # negative length of first string
+
+    # put tentative return value in $t5.
+    # The tentative return value is the one that we will use if we get
+    # to the end of the shorter string during our comparison-loop.
+    slt $t4,$t3,$t2
+    slt $t5,$t2,$t3
+    subu $t5,$t5,$t4
+    
+    # at this point:
+    # - $t0 contains the pointer to the second string object
+    # - $t1 contains the pointer to the first string object
+    # - $t5 contains the value to return if the strings compare equal up
+    #   to the length of the shortest word
+
+    # get begin-of-string addresses
+    lw $t2,-8($t0) # # data words in second string
+    lw $t3,-8($t1) # # data words in first string
+    sll $t2,$t2,2 # byte-offset to beginning of str2 (+8)
+    sll $t3,$t3,2 # byte-offset to beginning of str1 (+8)
+    subu $t0,$t0,$t2 # beginning of str1 address (+8)
+    subu $t1,$t1,$t3 # beginning of str2 address (+8)
+    
+    # put $t1-limit into $t2
+    beq $zero,$t5,skipStrCmpLenzz
+    move $t2,$t3
+  skipStrCmpLenzz:
+    add $t2,$t1,$t2
+    
+    # at this point:
+    # - $t0 contains 8 plus the address of the first data-byte of str2
+    # - $t1 contains 8 plus the address of the first data-byte of str1
+    # - $t2 contains 8 plus the address of the last data-type of str1
+    # - $t5 contains the value to return if the strings compare equal up
+    #   to the length of the shortest word
+
+    #######################################################
+    # at this point, we have
+    # - $t5 containing the tentative return-value
+    # - $t1 containing address of first char in str2
+    # - $t2 containing limit for $t1
+    # - $t0 containing address of first char in str1
+    #######################################################
+
+    # loop through, until we find unequal words or we hit
+    # our limit    
+  cmpLoopzz:
+    lw $t3,-8($t1) # word from str2
+    lw $t4,-8($t0) # word from str1
+    bne $t3,$t4,cmpNotEqualzz
+    addu $t1,$t1,4
+    addu $t0,$t0,4
+    bne $t1,$t2,cmpLoopzz
+
+    # # got to the end of one string: go set up return
+    j cmpHitLimitzz
+
+  cmpNotEqualzz:
+    # found unequal characters: return -1 or 1, depending on which is
+    # greater
+    slt $t5,$t4,$t3 # 1 if str2 > str1, else 0
+    sll $t5,$t5,1 # 2 if str2 > str1, else 0
+    subu $t5,$t5,1 # 1 if str2 > str1, else -1
+  cmpHitLimitzz:
+    move $t0, $t5 # store return value
+    jr $ra # return
+
+########################################################
+# readLogicalChar (millicode)
+#  - logically reads a character from standard input
+#  - first checks character buffer, consuming it if possible
+#  - return-result:
+#    - returns character in $v0
+#  - side-effects:
+#    - reads a character
+#    - clobbers $t0
+########################################################
+readLogicalChar:
+
+    # check if we already have a character
+    lw $v0,lastCharRead
+    li $t0,-2
+    beq $t0,$v0 doReadCh
+
+    # we have our character from the buffer. Wipe out
+    # buffer and return
+    sw $t0,lastCharRead # store -2 into buffer (i.e. "empty")
+    jr $ra # return
+    
+  doReadCh:
+    # we need to actually read a character: read and return
+    li $v0,12 # use system call to read a character
+    syscall
+    jr $ra # return
+
+########################################################
+# newObject (millicode)
+#  - allocates a new object on the heap
+#  - two-word header is set up properly
+#  - all non-header words in object are set to zero
+#  - parameters:
+#    - $s6 = the number of data words in the negative-offset portion of
+#      the object (including the vtable pointer); this value is 1 if the
+#      object is an array; this should always be at least 1
+#    - $s7 - second header-word, which is the number of object
+#      words in the object
+#      - $s7 may not be negative (this is checked); if so, the program is
+#        aborted with an "array size of out bounds" error message
+#      is treated as if it were zero
+#  - return-result:
+#    - returned in $s7
+#    - and pushed on the stack
+#  - side-effects:
+#  - may trash all $tx registers and all $sx registers, except the
+#    "permanent" ones, which get updated with values that are
+#    consistent with the new space
+########################################################
+newObject:
+    # $s6 = # data words
+    # $s7 = # object words (# data words if data-array allocation,
+    # where a negative number is treated as 0)
+    # $ra = return address
+    # on return, pointer to new memory in two places:
+    # - pushed onto top of stack
+    # - in $s7
+    
+    # if the object-portion size is negative, abort with error
+    blt $s7,$zero arraySizeOutOfBounds
+
+    # mark the fact that we have not yet GC'd for this allocation
+    move $t5,$zero
+
+    ###### TEMPORARY #######
+    # for now, go a GC unconditionally, so that a full GC occurs
+    # every time we allocate an object
+    ### let's not do that for now
+    # j doGC
+
+  gcJoin:
+
+    # at this point:
+    #  $s6 contains the before-header word count
+    #  $s7 contains the second header word, which is also the
+    #    after-header word count
+    #  $t5 is zero iff we have not GC'd for this allocation
+
+    # determine if we have enough memory available
+    addu $t0,$s6,$s7
+    sll $t0,$t0,2
+    addu $t0,$t0,8 # amount of memory needed
+    addu $t1,$t0,$s3
+    bgtu $t1,$s4,doGC
+
+    # at this point:
+    #  $s3 points to beginning of segment, and
+    #  $t1 points just past the end
+
+    # zero out the memory
+    move $t2,$s3
+  zeroObjLoop:
+    sw $zero,($s3)
+    lw $zero,($s3)
+
+    addu $s3,4
+    bltu $s3,$t1,zeroObjLoop
+
+    # at this point:
+    #  $s3 has been updated to point to the next free slot,
+    #    which is also the points just past our object
+
+    # compute pointer value and set up header-words
+    sll $t0,$s7,2    # number of post-header bytes
+    subu $t0,$s3,$t0 # pointer that we will return
+
+    # determine the value to store in the first header-word:
+    # if <= 255 (unsigned):
+    #  - it goes into low byte
+    #  - hash bits go into high three bytes, with top bit being 1
+    # if >255 (unsigned)
+    #  - it goes into full word (with a 0 in the high bit)
+    
+    li $t2,255
+    bgeu $s6,$t2 firstHeaderLarge
+    lw $t1,prevHashConstant
+    addu $t1,0x12b68fd2
+    sw $t1,prevHashConstant # update hash constant
+    or $t1,0x80000000 # set top bit
+    and $t1,0xffffff00 # clear low bit
+    or $s6,$t1
+firstHeaderLarge:
+    sw $s6,-8($t0) # store header-1 value
+    lw $zero,-8($t0)
+
+    # store second header-value
+    sw $s7,-4($t0)   # second header-word
+    lw $zero,-4($t0)
+    
+    # put return-value into $s7 and also push it onto top of stack
+    move $s7,$t0
+    subu $sp,$sp,4
+    sw $t0,($sp)
+
+    jr $ra
+    
+  doGC:
+    #####################################################
+    # We need to do a garbage-collect
+    #####################################################
+ 
+     ####### print that we are doing a GC ########
+     ####### THESE THREE LINES WILL NORMALLY BE COMMENTED OUT #######
+#         la $a0,gcMsg # prints message: "GC!" 
+#         li $v0,4 # syscall-code for print-string 
+#         syscall 
+       
+
+    # if we've already done a GC for this allocation, then
+    # we are actually out heap-memory: abort program
+    bne $t5,$zero,outOfHeapMemory
+      
+    # increment the number of times we've done a GC, for later reporting
+    lw $t5,gcCount
+    addu $t5,1
+    sw $t5,gcCount
+
+    # save $s2 (our only rooted register) on the stack
+    # so that the garbage collector processes it
+    subu $sp,$sp,4
+    sw $s2,($sp)
+
+    # set $s3 to the address of the new segment and the
+    # end-limit of the new segment, respectively,
+    # Also, update cur_seg to refer to the other segment
+    lw $t0,cur_seg
+    move $t7,$s4
+    la $t6,seg1_start
+    la $s3,seg0_start
+    la $s4,seg0_end
+    sw $zero,cur_seg
+    bne $t0,$zero,skipGc1
+    la $t6,seg0_start
+    la $s3,seg1_start
+    la $s4,seg1_end
+    sw $s5,cur_seg
+  skipGc1:
+    li $t5,0x80000000
+    lw $t0,stack_bottom
+    subu $t0,4
+
+
+    ###############################################################
+    # at this point:
+    # - $t6 contains the first address of the source space
+    # - $t7 contains the limit address of the source space
+    # - $s3 contains the first address of the target space
+    # - $s4 contains the limit address of the target space
+    # - cur_seg has been updated to refer to the target space
+    # - $t0 contains the address of the deepest stack element
+    # - $sp contains the address of the top stack element
+    # - $s2 is available for use, having been pushed onto the stack
+    # - $t5 contains the value 0x80000000
+    ###############################################################
+
+    ###### begin outer loop to copy all stack-direct objects ######
+
+  gcStackCopyLoop:
+    lw $t1,($t0) # current stack element
+
+    # test if we have a GC tag
+    sll $t2,$t1,31 # zero iff low bit was zero
+    bne $t2,$zero,gcBump # go skip data values if low bit not zero
+
+    # bump stack-address pointer
+    subu $t0,$t0,4
+
+    # if value is out of range (which includes null=0), and is
+    # therefore does not refer to an object on the heap, just go
+    # loop back and do the next one
+    bleu $t1,$t6,gcTestIterDone1
+    bgtu $t1,$t7,gcTestIterDone1
+
+    # if the object has already been moved, update the stack-value
+    # via the forwarding pointer
+    lw $t2,-8($t1) # possible forwarding tag
+    bne $t2,$zero,gcNoForward1 # if not forwarding tag, go copy
+    lw $t2,-4($t1) # forwarding pointer: object's new address
+    sw $t2,4($t0) # update stack value
+    j gcTestIterDone1 # do next iteration
+
+  gcNoForward1:
+    #########################################################
+    # we actually need to copy the object into the new space
+    #########################################################
+
+    # compute the amount of space that is needed
+    bge $t2,$zero,gcSkip2
+    and $t2,0xff #### mask off hash value
+    #### OLD
+    #### subu $t2,$zero,$t2 # set to 1 if -1 (number of data words)
+
+  gcSkip2:
+    sll $t2,$t2,2
+    addu $t2,$t2,8
+    subu $t4,$t1,$t2 # address of first word of source
+    lw $t3,-4($t1) # number of object words (negative means zero)
+    bge $t3,$zero,gcH2Neg1
+    move $t3,$zero
+  gcH2Neg1:
+    sll $t3,$t3,2
+    addu $t3,$t3,$t1 # address one word past last word of source
+
+    addu $t2,$s3,$t2 # pointer to target object
+
+    #########################################################
+    # At this point:
+    # - $t0 contains the address of the stack slot we'll
+    #   process next
+    # - $t1 contains the contents of the stack slot we're
+    #   currently working on, which is a pointer to the source
+    #   object (i.e., the address just beyond the object's header)
+    # - $t2 contains the pointer to the target object
+    # - $t3 contains the limit address of the source object
+    # - $t4 contains the first address of the source object
+    # - $t5 contains the value 0x80000000
+    # - $t6 contains the first address of the source space
+    # - $t7 contains the limit address of the source space
+    # - $s3 contains the first unallocated address of the
+    #   target space, which is also the first address of the
+    #   target object
+    # - $s4 contains the limit address of the target space
+    # - $s5 contains the value 5
+    # - $s6-7 contain the original parameters to the call to
+    #   'newObject'
+    # - $sp contains the address of the top stack element
+    # - available for use: $s0-2
+    #########################################################
+
+    # swap first header word and first data word so that header
+        # can be found by "trailing finger" in the target space
+    lw $s0,($t4)
+    lw $s1,-8($t1)
+    sw $s1,($t4)
+    sw $s0,-8($t1)
+    
+    # copy all source bytes to the target
+  gCinnerCopy1:
+    lw $s0,($t4)
+    sw $s0,($s3)
+    addu $t4,$t4,4
+    addu $s3,$s3,4
+    bltu $t4,$t3,gCinnerCopy1
+
+    ###########################################################
+    # All bytes have been copied to the target space.  We still
+    # need to:
+    # - set up forwarding pointer in source object
+    # - update the pointer in the current stack slot
+    ###########################################################
+
+    # set up the forwarding pointer
+    sw $zero,-8($t1) # 0 in first header-slot
+    sw $t2,-4($t1) # forwarding pointer in second header-slot
+
+    # update the stack slot with the address in the target space
+    sw $t2,4($t0)
+    lw $zero,-8($t2)
+    lw $zero,-4($t2)
+
+    # go handle next stack slot (testing if done)
+    j gcTestIterDone1
+
+  gcBump:
+    #### we have a GC tag.  Bytes to skip: tag value + 3.
+    subu $t0,$t0,$t1
+    subu $t0,$t0,3
+
+  gcTestIterDone1:
+    bgeu $t0,$sp,gcStackCopyLoop
+
+    ###### end outer loop to copy all stack-direct objects ######
+
+    #############################################################
+    # We have finished processing the stack elements.  Now we need
+    # to update elements in the heap itself. This may itself involve
+    # moving additional objects
+    #############################################################
+
+    #########################################################
+    # At this point:
+    # - $t5 contains the value 0x80000000
+    # - $t6 contains the first address of the source space
+    # - $t7 contains the limit address of the source space
+    # - $s3 contains the first unallocated address of the
+    #   target space
+    # - $s4 contains the limit address of the target space
+    # - $s5 contains the value 5
+    # - $s6-7 contain the original parameters to the call to
+    #   'newObject'
+    # We want to set things up so that in addition:
+    # - $t0 is the "trailing finger", containing the address
+    #   of the first slot in target space that we have yet
+    #   to process.
+    # Then during processing:
+    # - $t1 will contain the contents of the heap slot we're
+    #   currently working on, which is a pointer to the source
+    #   object
+    # And when we're actually copying an object:
+    # - $t2 will contain pointer to the target object
+    # - $t3 will contain the limit address of the source object
+    # - $t4 will contain the first address of the source object
+    # - $s1 will contain the the limit address for the current
+    #   object that tells where the pointers in the object end
+    # - available for use: $s0
+    ##########################################################
+
+    # set $t0 to be at the beginning of target-space
+    lw $t1,cur_seg
+    la $t0,seg0_start
+    beq $t1,$zero,gcSkip4
+    la $t0,seg1_start
+
+
+  gcSkip4:
+
+    # if there were no objects put into the heap during stack
+    # processing, we're done, so go finish up
+    bgeu $t0,$s3,gcFinishUp
+
+    ###### begin outer loop to copy all non-stack-direct objects ######
+
+  gcHeapCopyLoop:
+    # get data count for object; swap header-word with first word
+    # of object so that they're back in the right place
+    lw $t1,($t0) # (what will be) first header word for current object
+    move $t2,$t1 # number data bytes in object (poss. w/hash bits)
+    bge $t2,$zero,gcSkip4a # are there hash bits?
+    and $t2,0xff # mask off hash bits
+gcSkip4a:    
+    sll $t2,$t2,2 # # data bytes
+    addu $t2,$t2,8 # to skip header words
+    addu $t2,$t0,$t2 # pointer to new object
+    lw $t3,-8($t2) # word to swap
+    sw $t1,-8($t2) # store header word
+    sw $t3,($t0) # restore first word of object
+
+    ################################################
+    # at this point:
+    # - $t2 contains the pointer to our new object
+    ################################################
+
+    # check if we have a data array
+    lw $t1,-12($t2) # vtable pointer
+    li $t0,dataArrayVTableStart # address of vtable for first data array
+    blt $t1,$t0,gcNotDataArray # if data array, no more xforming to do
+
+    # We have a vtable address that is a data array.
+    # we need skip over it then loop back to do next object.
+  skipToNextObj:
+    lw $t1,-4($t2) # data words in (object position of) array
+    #### note: we know that it's not a string, so the value will
+    #### not be artificially negative
+    sll $t1,$t1,2 # convert to byte-count
+    addu $t0,$t2,$t1 # skip over object
+    j gcTestIterDone2 # go do next object, if any
+
+    ###################################################
+    # at this point:
+    # - the object has been restored to normal status--that is, the
+    #   word-swap has been done
+    # - $t2 contains a pointer to the object
+    ###################################################
+    
+  gcNotDataArray:
+    lw $t3,-4($t2) # # object words (negative treated as zero)
+    bge $t3,$zero,gcH2Neg2
+    move $t3,$zero
+  gcH2Neg2:
+    sll $t3,$t3,2 # # object bytes
+    move $t0,$t2 # address of first pointer in object
+    add $s1,$t2,$t3 # limit address for this object
+
+    #####################################################
+    # At this point, we have to "translate" all pointers,
+    # starting at $t0 to (but not including) $s1
+    #####################################################
+
+    # if there are no pointer-slots (i.e., $t0=$s1), skip this
+    # part
+    beq $t0,$s1,gcTestIterDone2
+    
+  gcNextPointerInObject:
+    # get pointer from object
+    lw $t1,($t0)
+
+    # if value is out of range, and is therefore does not refer
+    # to an object, just go loop back and do the next one
+    bleu $t1,$t6,gcGoNextPointerSlot
+    bgtu $t1,$t7,gcGoNextPointerSlot
+
+    # if the object has already been moved, update the stack-value
+    # via the forwarding pointer
+    lw $t8,-8($t1) # possible forwarding tag
+    bne $t8,$zero,gcNoForward2 # if not forwarding tag, go copy
+    lw $t8,-4($t1) # forwarding pointer: object's new address
+    sw $t8,($t0) # update pointer in object
+    j gcGoNextPointerSlot # do next iteration
+
+  gcNoForward2:
+    #########################################################
+    # we actually need to copy the object into the new space
+    #########################################################
+
+    #########################################################
+    # At this point:
+    # - $t0 contains the address of the heap-slot we're translating
+    # - $t1 will contain the contents of the heap-slot we're
+    #   currently working on, which is a pointer to the source
+    #   object
+    # - $t2 will contains pointer to the object we're in the
+    #   middle of translating
+    # - $t5 contains the value 0x80000000
+    # - $t6 contains the first address of the source space
+    # - $t7 contains the limit address of the source space
+    # - $s3 contains the first unallocated address of the
+    #   target space, which will also be the first address
+    #   of the target object
+    # - $s4 contains the limit address of the target space
+    # - $s5 contains the value 5
+    # - $s6-7 contain the original parameters to the call to
+    #   'newObject'
+    # Then during processing:
+    # And when we're actually copying an object:
+    # - $t3 will contain the limit address of the source object
+    # - $t4 will contain the first address of the source object
+    # - $s1 will contain the the limit address for the current
+    #   object that tells where the pointers in the object end
+    # - $t8 will contain a pointer to the target object
+    # - available for use: $s0, $t8, $t9
+    ##########################################################
+
+    # compute the amount of space that is needed
+    bge $t8,$zero,gcSkip5 # # words in negative-offset portion
+    and $t8,0xff # mask off hash bits
+
+  gcSkip5:
+    sll $t8,$t8,2 # bytes in negative-offset portion ...
+    addu $t8,$t8,8 # ... add in bytes for header-words
+    subu $t4,$t1,$t8 # address of first word of source object
+    lw $t3,-4($t1) # # words in positive-offset portion
+    bge $t3,$zero,gcNoNeg
+    move $t3,$zero # negative treated as zero
+  gcNoNeg:
+    sll $t3,$t3,2 # bytes in negative-offset portion
+    addu $t3,$t3,$t1 # address one word past last word of source
+
+    addu $t8,$s3,$t8 # pointer to target object
+
+    #########################################################
+    # At this point:
+    # - $t0 contains the address of the stack slot we'll
+    #   process next
+    # - $t1 contains the contents of the stack slot we're
+    #   currently working on, which is a pointer to the source
+    #   object
+    # - $t2 will contains pointer to the object we're in the
+    #   middle of translating
+    # - $t3 contains the limit address of the source object
+    # - $t4 contains the first address of the source object
+    # - $t5 contains the value 0x80000000
+    # - $t6 contains the first address of the source space
+    # - $t7 contains the limit address of the source space
+    # - $t8 contains the pointer to the target object
+    # - $s1 contains the the limit address for the current
+    #   object that tells where the pointers in the object end
+    # - $s3 contains the first unallocated address of the
+    #   target space, which is also the first address of the
+    #   target object
+    # - $s4 contains the limit address of the target space
+    # - $s5 contains the value 5
+    # - $s6-7 contain the original parameters to the call to
+    #   'newObject'
+    # - $sp contains the address of the top stack element
+    # - available for use: $s0, $t9
+    #########################################################
+
+    # swap first header word and first data word so that header
+        # can be found by "trailing finger"
+    lw $s0,($t4)
+    lw $t9,-8($t1)
+    sw $t9,($t4)
+    sw $s0,-8($t1)
+
+    # copy all source bytes to the target
+  gCinnerCopy2:
+    lw $s0,($t4)
+    sw $s0,($s3)
+    addu $t4,$t4,4
+    addu $s3,$s3,4
+    bltu $t4,$t3,gCinnerCopy2
+
+    ###########################################################
+    # All bytes have been copied to the target space.  We still
+    # need to:
+    # - set up forwarding pointer in source object
+    # - update the pointer in the current stack slot
+    ###########################################################
+
+    # set up the forwarding pointer
+    sw $zero,-8($t1) # 0 in first header-slot
+    sw $t8,-4($t1) # forwarding pointer in second header-slot
+
+    # update the heap-slot with the address in the target space
+    sw $t8,($t0)
+
+  gcGoNextPointerSlot:
+    # bump $t0 to next slot in object; if not done, loop back
+    addu $t0,$t0,4
+    bltu $t0,$s1,gcNextPointerInObject
+
+  gcTestIterDone2:
+    bltu $t0,$s3,gcHeapCopyLoop
+
+    ###### end outer loop to copy all non-stack-direct objects ######
+
+  gcFinishUp:
+    # restore $s2 to its updated value by popping off stack
+    lw $s2,($sp)
+    addu $sp,$sp,4
+
+    # mark us as having already GC'd
+    move $t5,$s5
+
+    # go try and allocate again
+    j gcJoin
+        
+
+########################################################
+# vm_init (millicode)
+#  - initialzes the virtual machine
+#  - values 5 stored in $s5
+#  - zero ("this pointer") stored in $s2
+#  - heap and heap-limit pointers stored respectively in $s3 and $s4
+#  - address of bottom of stack stored in 'stack_bottom' memory
+#    location
+#  - (note: 'cur_seg' memory location is already set to 0)
+########################################################
+vm_init:
+
+    # mark bottom of stack
+    sw $sp,stack_bottom
+    
+    # set "this" pointer to be null, for now
+    move $s2,$zero
+
+    #set up the "five" register
+    li $s5,5
+
+    la $s3,seg0_start
+    la $s4,seg0_end
+    
+    # return
+    jr $ra
+
+########################################################
+# divide (millicode)
+#  - divides first arg by second (signed divide)
+#  - aborts if divisor is zero
+#  - follows calling conventions for library methods
+#  - parameters:
+#    - ($sp) divisor
+#    - 4($sp) (dummy) GC tag
+#    - 8($sp) dividend
+#    - 12($sp) (dummy) GC tag
+#  - return value:
+#    - ($sp) result
+#    - 4($sp) (dummy) GC tag
+########################################################
+divide:
+    # get parameters; abort if divisor zero
+    lw $t0,($sp)
+    lw $t1,8($sp)
+    beq $t0,$zero,divByZeroError
+    
+    # perform division
+    div $t1,$t0
+    mflo $t0
+
+    # store result, adjust stack and return
+    addu $sp,$sp,8 # adjust stack
+    sw $t0,($sp) # store result
+    jr $ra
+
+########################################################
+# remainder (millicode)
+#  - takes remainder first arg divided by second (signed divide)
+#  - aborts if divisor is zero
+#  - follows calling conventions for library methods
+#  - parameters:
+#    - ($sp) divisor
+#    - 4($sp) (dummy) GC tag
+#    - 8($sp) dividend
+#    - 12($sp) (dummy) GC tag
+#  - return value:
+#    - ($sp) result
+#    - 4($sp) (dummy) GC tag
+########################################################
+remainder:
+    # get parameters; abort if divisor zero
+    lw $t0,($sp)
+    lw $t1,8($sp)
+    beq $t0,$zero,divByZeroError
+    
+    # perform division
+    div $t1,$t0
+    mfhi $t0
+
+    # store result, adjust stack and return
+    addu $sp,$sp,8 # adjust stack
+    sw $t0,($sp) # store result
+    jr $ra
+    
+########################################################
+# checkCast (millicode) - checks that a cast is legal
+#  - aborts if null
+#  - aborts if cast is illegal cast
+#  - parameters:
+#    - ($sp) object to check
+#    - $t0 address of vtable for target-class
+#    - $t1 address one past vtable address of last
+#      subclass of target-class
+#  - return value:
+#    - ($sp) object to check (now checked)
+#  - side-effects: clobbers $t2 and $t3
+########################################################
+checkCast:
+    # get object, allow immediately if null
+    lw $t2,($sp)
+    beq $t2,$zero,checkCastReturn
+    
+    # get vtable address of object, abort if less than
+    # lower limit or greater then or equal to higher
+    # limit
+    lw $t2,-12($t2) # vtable address
+    bge $t2,$t1,castException
+    blt $t2,$t0,castException
+    
+    # return, leaving object unchanged on stack
+  checkCastReturn:    
+    jr $ra    
+
+# checkCast:
+#     # get object, allow immediately if null
+#     lw $t2,($sp)
+#     beq $t2,$zero,checkCastReturn
+#     
+#     # get vtable address of object (using Object vtable
+#     # address for arrays)
+#     lw $t3,-8($t2) # <= 0 if array
+#     lw $t2,-12($t2) # vtable address (unless array)
+#     bgt $t3,$zero,skipArrayCast
+#     la $t2,CLASS_Object
+#     
+#     # get vtable address of object, abort if less than
+#     # lower limit or greater then or equal to higher
+#     # limit
+#   skipArrayCast:
+#     bge $t2,$t1,castException
+#     blt $t2,$t0,castException
+#     
+#     # return, leaving object unchanged on stack
+#   checkCastReturn:    
+#     jr $ra    
+
+########################################################
+# instanceOf (millicode) - tests whether an object is
+#   a member of a given class (or subclass)
+#  - returns false if object is null
+#  - parameters:
+#    - ($sp) object to check
+#    - $t0 address of vtable for target-class
+#    - $t1 address one past vtable address of last
+#      subclass of target-class
+#  - return value:
+#    - ($sp) true (1) or false (0), depending on whether
+#      object is a member
+#  - side-effects: clobbers $t2 and $t3
+########################################################
+instanceOf:
+    # get object, go return false if null
+    lw $t2,($sp)
+    beq $t2,$zero,doneInstanceOf
+    
+    # get vtable address of object, determine if we're >= the
+    # lower limit, and if we're < the higher limit
+    lw $t2,-12($t2) # vtable address
+    sge $t0,$t2,$t0 # are we >= the lower limit?
+    slt $t1,$t2,$t1 # are we < the higher limit?
+    
+    # store the AND of the two conditions onto the stack; return
+    and $t2,$t0,$t1
+    sw $t2,($sp)
+doneInstanceOf: # if we reach here via branch, stack-top is zero,
+            # which will now represent false
+    jr $ra
+
+
+###########################################################
+# jump-targets to terminate program:
+# - exit: returns normally
+# - outOfHeapMemory: prints "out of memory" error and returns
+###########################################################
+
+exitError:
+    # assumes $a0 has pointer to null-terminated string
+
+    # print the string
+    li $v0,4 # syscall-code for print-string
+    syscall
+exit:
+    # print termination message
+    li $v0,4 # syscall-code for print-string
+    la $a0,exitString
+    syscall
+
+    # print number of garbage collections
+    li $v0,4 # syscall-code for print-string
+    la $a0,gcCountMsg
+    syscall # print "Number of ..."
+    lw $a0,gcCount # number of GC's
+    li $v0,1 # code for print-int
+    syscall
+    li $v0,4 # syscall-code for print-string
+    la $a0,newlineString
+    syscall # print newline
+
+    # terminate execution
+    li $v0,10 #syscall-code for "exit"
+    syscall
+
+outOfHeapMemory:
+    la $a0,heapMemoryMsg
+    j exitError
+divByZeroError:
+    la $a0,divByZeroMsg
+    j exitError
+strIndexOutOfBounds:
+    la $a0,strIndexOutOfBoundsMsg
+    j exitError
+arrayIndexOutOfBounds:
+    la $a0,arrayIndexOutOfBoundsMsg
+    j exitError
+arraySizeOutOfBounds:
+    la $a0,arraySizeOutOfBoundsMsg
+    j exitError
+nullPtrException:
+    la $a0,nullPtrExceptionMsg
+    j exitError
+badIntegerFormat:
+    la $a0,badIntegerFormatMsg
+    j exitError
+castException:
+    la $a0,castExceptionMsg
+    j exitError
+############## data section ################
+    .data
+hexChars:
+    .ascii "0123456789abcdef"
+    .align 2
+cur_seg:
+    .word 0
+
+lastCharRead:
+    .word -2 # -2 => no buffered character
+prevHashConstant:
+    .word 0x2785173c
+gcCount:
+    .word 0
+
+heapMemoryMsg:
+    .asciiz "ERROR: out of heap memory\n"
+divByZeroMsg:
+    .asciiz "ERROR: divide by zero\n"
+strIndexOutOfBoundsMsg:
+    .asciiz "ERROR: string index out of bounds\n"
+arrayIndexOutOfBoundsMsg:
+    .asciiz "ERROR: array index out of bounds\n"
+arraySizeOutOfBoundsMsg:
+    .asciiz "ERROR: array size out of bounds\n"
+nullPtrExceptionMsg:
+    .asciiz "ERROR: null-pointer exception\n"
+badIntegerFormatMsg:
+    .asciiz "ERROR: attempt to read badly formatted integer\n"
+castExceptionMsg:
+    .asciiz "ERROR: illegal cast\n"
+gcMsg: 
+      .asciiz "\nGC!\n"
+gcCountMsg: 
+      .asciiz "Number of garbage collections: "
+
+nullStr:
+    .asciiz "null"
+trueString:
+    .asciiz "true"
+falseString:
+    .asciiz "false"
+exitString:
+    .ascii "Program execution completed."
+    #### "falls through" here
+newlineString:
+    .asciiz "\n"
+    
+    .align 2
+stack_bottom:
+    .word 0
+
+# heapFudge: # temporary fudge amount to exercise GC
+#     .word 0
+
+seg0_start:
+    .space 0x100000
+seg0_end:
+seg1_start:
+    .space 0x100000
+seg1_end:

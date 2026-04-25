@@ -141,11 +141,11 @@ public class CG3Visitor extends Visitor
         code.emit(" bgeu "+reg2+", $t3, arrayIndexOutOfBounds");
     }
 
-    // public void arrayLoad(String reg0, String reg1, String reg2) 
-    // {
-    //     code.emit(" sll "+reg0+", "+reg2+", 2");
-    //     code.emit(" addu "+reg0+", "+reg0+", "+reg1);
-    // }
+    public void arrayLoad(String reg0, String reg1, String reg2) 
+    {
+        code.emit(" sll "+reg0+", "+reg2+", 2");
+        code.emit(" addu "+reg0+", "+reg0+", "+reg1);
+    }
 
     // =================================
     // Classes
@@ -156,6 +156,8 @@ public class CG3Visitor extends Visitor
         n.decls.accept(this);
         return null;
     }
+
+    
 
     // =================================
     // variable Declarations
@@ -200,6 +202,21 @@ public class CG3Visitor extends Visitor
     }
 
     @Override
+    public Object visit(IDExp n)  
+    {
+        code.comment(n, "begin");
+        if(n.link.name().equals("FieldDecl")) {
+            code.emit("    lw $t0, "+n.link.offset+"($s2)");
+            push(n.type, "$t0");
+        } else {
+            code.emit("    lw $t0, "+(n.link.offset+stack)+"($sp)");
+            push(n.type, "$t0");
+        }
+        code.comment(n, "end");
+        return null; 
+    }
+
+    @Override
     public Object visit(True n)
     {
         code.comment(n, "begin");
@@ -220,7 +237,7 @@ public class CG3Visitor extends Visitor
     }
 
     // =================================
-    // Arithmetic operators (+,-,*)
+    // operators (+,-,*,/,%,=,<,>,&&,||)
     // =================================
     @Override
     public Object visit(Plus n)
@@ -293,8 +310,61 @@ public class CG3Visitor extends Visitor
         return null;
     }
 
-    
+    @Override
+    public Object visit(Equals n)
+    {
+        code.comment(n, "begin");
+        visit((BinExp)n);
 
+        pop(n.right.type, "$t2");
+        pop(n.left.type, "$t1");
+        code.emit("    seq $t0, $t1, $t2");
+
+        push(n.type, "$t0");
+        code.comment(n, "end");
+        return null;
+    }
+
+    @Override
+    public Object visit(LessThan n) 
+    {
+        code.comment(n, "begin");
+
+        visit((BinExp)n);
+        pop(n.right.type, "$t2");
+        pop(n.left.type, "$t1");
+        code.emit("    slt $t0, $t1, $t2");
+        push(n.type, "$t0");
+        code.comment(n, "end");
+
+        return null; 
+    }
+
+    @Override
+    public Object visit(GreaterThan n) 
+    {
+        code.comment(n, "begin");
+        visit((BinExp)n);
+        pop(n.right.type, "$t2");
+        pop(n.left.type, "$t1");
+        code.emit("    sgt $t0, $t1, $t2");
+        push(n.type, "$t0");
+        code.comment(n, "end");
+        return null; 
+    }
+
+    @Override
+    public Object visit(Or n)          
+    { 
+        n.left.accept(this);
+        code.emit("    lw $t0, ($sp)");
+        code.emit("    beq $t0, $zero, skip_"+n.uniqueId);
+        pop(n.left.type, "$t0");
+        n.right.accept(this);
+        code.emit("skip_"+n.uniqueId+":");
+        code.comment(n, "end");
+        return null; 
+    }
 
 
     // =================================
@@ -398,7 +468,64 @@ public class CG3Visitor extends Visitor
         return null;
     }
 
-    
+    @Override
+    public Object visit(If n) 
+    {
+        code.comment(n, "begin");
+        n.exp.accept(this);
+        pop(n.exp.type, "$t0");
+        code.emit("    beq $t0, $zero, if_else_"+n.uniqueId);
+        n.trueStmt.accept(this);
+        code.emit("    j if_done_"+n.uniqueId);
+        code.emit("  if_else_"+n.uniqueId+":");
+        n.falseStmt.accept(this);
+        code.emit("  if_done_"+n.uniqueId+":");
+        code.comment(n, "end");
+        return null;
+    }
+
+    @Override
+    public Object visit(While n)
+    {
+        code.comment(n, "begin");
+        n.stackHeight = stack;
+        code.emit("    j while_cond_"+n.uniqueId);
+        code.emit("  while_top_"+n.uniqueId+":");
+        n.body.accept(this);
+        code.emit("  while_cond_"+n.uniqueId+":");
+        n.exp.accept(this);
+        pop(n.exp.type, "$t0");
+        code.emit("    bne $t0, $zero, while_top_"+n.uniqueId);
+        code.emit("  break_target_"+n.uniqueId+":");
+        code.comment(n, "end");
+        return null;
+    }
+
+    @Override
+    public Object visit(Break n)
+    {
+        code.comment(n, "begin");
+        popSize(stack - n.breakLink.stackHeight);
+        code.emit("    j break_target_"+n.breakLink.uniqueId);
+        code.comment(n, "end");
+        return null;
+    }
+
+    @Override
+    public Object visit(Block n) 
+    {
+        code.comment(n, "begin");
+        int topStack = stack;
+        n.stmts.accept(this);
+        if((stack - topStack) > 0) {
+            popSize(stack - topStack);
+        }
+        code.comment(n, "end");
+        return null;
+    }
+
+
+
 
     // =================================
     // this and super
@@ -421,4 +548,17 @@ public class CG3Visitor extends Visitor
         code.comment(n, "end");
         return null;
     }
+
+    @Override
+    public Object visit(Null n) 
+    {
+        code.comment(n, "begin");
+        push(n.type, "$zero");
+        code.comment(n, "end");
+        return null;
+    }
+
+    
+
+
 }

@@ -219,26 +219,23 @@ while_cond_52:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  li $t0, 10
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 0
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 11
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
+  lw $t0, ($sp)
   addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  subu $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
+  li $t1, 10
+  beq $t0, $t1, case_label_16
+  li $t1, -11
+  beq $t0, $t1, case_label_20
+  li $t1, 13
+  beq $t0, $t1, case_label_27
+  li $t1, -14
+  beq $t0, $t1, case_label_31
+  li $t1, 17
+  beq $t0, $t1, case_label_39
+  li $t1, -2
+  beq $t0, $t1, case_label_43
+  j case_label_37
+case_label_16:
+case_label_20:
   subu $sp, $sp, 4
   sw $s2, ($sp)
   la $t0, strLit_21
@@ -256,26 +253,8 @@ while_cond_52:
   lw $t0, ($sp)
   addu $sp, $sp, 4
   j break_target_49
-  li $t0, 13
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 0
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 14
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  subu $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
+case_label_27:
+case_label_31:
   subu $sp, $sp, 4
   sw $s2, ($sp)
   la $t0, strLit_32
@@ -293,26 +272,9 @@ while_cond_52:
   lw $t0, ($sp)
   addu $sp, $sp, 4
   j break_target_49
-  li $t0, 17
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 0
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  subu $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
+case_label_37:
+case_label_39:
+case_label_43:
   subu $sp, $sp, 4
   sw $s2, ($sp)
   la $t0, strLit_44
@@ -330,7 +292,7 @@ while_cond_52:
   lw $t0, ($sp)
   addu $sp, $sp, 4
   j break_target_49
-  addu $sp, $sp, 56
+break_target_49:
   lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)

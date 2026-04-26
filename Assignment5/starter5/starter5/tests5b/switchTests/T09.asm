@@ -163,23 +163,77 @@ while_cond_203:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
+  lw $t0, ($sp)
   addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t0, 24($sp)
+  li $t1, 9
+  beq $t0, $t1, case_label_22
+  li $t1, 12
+  beq $t0, $t1, case_label_32
+  li $t1, 15
+  beq $t0, $t1, case_label_42
+  li $t1, 18
+  beq $t0, $t1, case_label_46
+  li $t1, 21
+  beq $t0, $t1, case_label_50
+  li $t1, 276
+  beq $t0, $t1, case_label_54
+  li $t1, 252
+  beq $t0, $t1, case_label_58
+  li $t1, 228
+  beq $t0, $t1, case_label_62
+  li $t1, 71
+  beq $t0, $t1, case_label_64
+  li $t1, 297
+  beq $t0, $t1, case_label_68
+  li $t1, 261
+  beq $t0, $t1, case_label_72
+  li $t1, 33
+  beq $t0, $t1, case_label_84
+  li $t1, 28
+  beq $t0, $t1, case_label_86
+  li $t1, 1
+  beq $t0, $t1, case_label_88
+  li $t1, 159
+  beq $t0, $t1, case_label_92
+  li $t1, 78
+  beq $t0, $t1, case_label_102
+  li $t1, 273
+  beq $t0, $t1, case_label_106
+  li $t1, 81
+  beq $t0, $t1, case_label_116
+  li $t1, 144
+  beq $t0, $t1, case_label_120
+  li $t1, 294
+  beq $t0, $t1, case_label_124
+  li $t1, 57
+  beq $t0, $t1, case_label_135
+  li $t1, 225
+  beq $t0, $t1, case_label_139
+  li $t1, 48
+  beq $t0, $t1, case_label_143
+  li $t1, 255
+  beq $t0, $t1, case_label_153
+  li $t1, 0
+  beq $t0, $t1, case_label_157
+  li $t1, 3
+  beq $t0, $t1, case_label_161
+  li $t1, 6
+  beq $t0, $t1, case_label_165
+  li $t1, 24
+  beq $t0, $t1, case_label_169
+  li $t1, 22
+  beq $t0, $t1, case_label_177
+  li $t1, 27
+  beq $t0, $t1, case_label_181
+  li $t1, 264
+  beq $t0, $t1, case_label_185
+  li $t1, 72
+  beq $t0, $t1, case_label_189
+  li $t1, 219
+  beq $t0, $t1, case_label_193
+  j case_label_125
+case_label_22:
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -197,25 +251,10 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 24($sp)
+  sw $t0, 8($sp)
   j break_target_200
-  li $t0, 4
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t0, 32($sp)
+case_label_32:
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -233,145 +272,22 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 32($sp)
+  sw $t0, 8($sp)
   j break_target_200
-  li $t0, 5
+case_label_42:
+case_label_46:
+case_label_50:
+case_label_54:
+case_label_58:
+case_label_62:
+case_label_64:
+case_label_68:
+case_label_72:
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 6
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 7
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 92
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 84
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 76
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 71
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 99
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 87
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t0, 104($sp)
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t0, 104($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -390,49 +306,13 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 104($sp)
+  sw $t0, 8($sp)
   j break_target_200
-  li $t0, 11
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 28
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 1
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 53
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t0, 136($sp)
+case_label_84:
+case_label_86:
+case_label_88:
+case_label_92:
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -450,41 +330,11 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 136($sp)
+  sw $t0, 8($sp)
   j break_target_200
-  li $t0, 26
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 91
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t0, 152($sp)
+case_label_102:
+case_label_106:
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -495,57 +345,13 @@ while_cond_203:
   jal divide
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 152($sp)
+  sw $t0, 8($sp)
   j break_target_200
-  li $t0, 27
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 48
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 98
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t0, 176($sp)
+case_label_116:
+case_label_120:
+case_label_124:
+case_label_125:
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -563,57 +369,12 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 176($sp)
+  sw $t0, 8($sp)
   j break_target_200
-  li $t0, 19
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 75
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 16
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t0, 200($sp)
+case_label_135:
+case_label_139:
+case_label_143:
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -631,89 +392,14 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 200($sp)
+  sw $t0, 8($sp)
   j break_target_200
-  li $t0, 85
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 0
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 1
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 8
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t0, 240($sp)
+case_label_153:
+case_label_157:
+case_label_161:
+case_label_165:
+case_label_169:
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -731,77 +417,14 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 240($sp)
+  sw $t0, 8($sp)
   j break_target_200
-  li $t0, 22
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 9
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 88
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 24
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 73
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  mul $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t0, 280($sp)
+case_label_177:
+case_label_181:
+case_label_185:
+case_label_189:
+case_label_193:
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -819,9 +442,9 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 280($sp)
+  sw $t0, 8($sp)
   j break_target_200
-  addu $sp, $sp, 272
+break_target_200:
   lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)

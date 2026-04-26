@@ -213,14 +213,23 @@ while_cond_84:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  li $t0, 0
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 1
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  li $t1, 0
+  beq $t0, $t1, case_label_19
+  li $t1, 1
+  beq $t0, $t1, case_label_21
+  li $t1, 2
+  beq $t0, $t1, case_label_31
+  li $t1, 4
+  beq $t0, $t1, case_label_33
+  li $t1, 6
+  beq $t0, $t1, case_label_35
+  li $t1, 7
+  beq $t0, $t1, case_label_37
+  j case_label_46
+case_label_19:
+case_label_21:
   la $t0, strLit_23
   subu $sp, $sp, 4
   sw $t0, ($sp)
@@ -229,24 +238,13 @@ while_cond_84:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 28($sp)
+  sw $t0, 4($sp)
+  addu $sp, $sp, 4
   j break_target_65
-  li $t0, 2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 4
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 6
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 7
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
+case_label_31:
+case_label_33:
+case_label_35:
+case_label_37:
   la $t0, strLit_39
   subu $sp, $sp, 4
   sw $t0, ($sp)
@@ -255,9 +253,11 @@ while_cond_84:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 64($sp)
+  sw $t0, 4($sp)
+  addu $sp, $sp, 4
   j break_target_65
-  lw $t0, 68($sp)
+case_label_46:
+  lw $t0, 4($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -306,11 +306,13 @@ while_cond_84:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 80($sp)
+  sw $t0, 16($sp)
+  addu $sp, $sp, 16
   j break_target_65
+break_target_65:
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 88($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -343,7 +345,7 @@ while_cond_84:
   addu $sp, $sp, 4
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 84($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 4($sp)
@@ -373,7 +375,7 @@ while_cond_84:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  addu $sp, $sp, 84
+  addu $sp, $sp, 4
   lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)

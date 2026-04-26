@@ -199,6 +199,10 @@ while_cond_24:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  j case_label_15
+case_label_15:
   subu $sp, $sp, 4
   sw $s2, ($sp)
   la $t0, strLit_16
@@ -216,7 +220,7 @@ while_cond_24:
   lw $t0, ($sp)
   addu $sp, $sp, 4
   j break_target_21
-  addu $sp, $sp, 8
+break_target_21:
   lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)

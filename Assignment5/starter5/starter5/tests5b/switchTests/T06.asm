@@ -243,14 +243,23 @@ while_cond_92:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  li $t0, 0
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 12
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  li $t1, 0
+  beq $t0, $t1, case_label_14
+  li $t1, 12
+  beq $t0, $t1, case_label_16
+  li $t1, 2
+  beq $t0, $t1, case_label_23
+  li $t1, 9
+  beq $t0, $t1, case_label_25
+  li $t1, 3
+  beq $t0, $t1, case_label_27
+  li $t1, -5
+  beq $t0, $t1, case_label_31
+  j case_label_56
+case_label_14:
+case_label_16:
   subu $sp, $sp, 4
   sw $s2, ($sp)
   la $t0, strLit_17
@@ -268,35 +277,11 @@ while_cond_92:
   lw $t0, ($sp)
   addu $sp, $sp, 4
   j break_target_89
-  li $t0, 2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 9
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 3
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 0
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 5
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t2, ($sp)
-  addu $sp, $sp, 8
-  lw $t1, ($sp)
-  addu $sp, $sp, 8
-  subu $t0, $t1, $t2
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  lw $t0, 56($sp)
+case_label_23:
+case_label_25:
+case_label_27:
+case_label_31:
+  lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -349,8 +334,8 @@ while_cond_92:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  j break_target_89
   addu $sp, $sp, 4
+  j break_target_89
   j if_done_50
 if_else_50:
 if_done_50:
@@ -371,7 +356,8 @@ if_done_50:
   lw $t0, ($sp)
   addu $sp, $sp, 4
   j break_target_89
-  lw $t0, 56($sp)
+case_label_56:
+  lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -455,6 +441,7 @@ if_done_50:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
+  addu $sp, $sp, 8
   j break_target_89
   j if_done_80
 if_else_80:
@@ -479,7 +466,7 @@ if_done_83:
   lw $t0, ($sp)
   addu $sp, $sp, 4
   j break_target_89
-  addu $sp, $sp, 64
+break_target_89:
   lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)

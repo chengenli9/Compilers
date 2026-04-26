@@ -175,7 +175,10 @@ while_cond_18:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
   addu $sp, $sp, 8
+  j break_target_15
+break_target_15:
   lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)

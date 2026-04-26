@@ -272,6 +272,70 @@ public class CG3Visitor extends Visitor
     }
 
     @Override
+    public Object visit(Switch n)
+    {
+        n.stackHeight = stack;
+
+        // Evaluate switch expression; result in $t0
+        n.exp.accept(this);
+        pop(n.exp.type, "$t0");
+
+        // Find the Default node (if any)
+        Default defaultLabel = null;
+        for (Stmt s : n.stmts)
+        {
+            if (s instanceof Default d)
+            {
+                defaultLabel = d;
+                break;
+            }
+        }
+
+        // Emit branch table: one comparison per Case
+        ConstEvalVisitor ceVisitor = new ConstEvalVisitor();
+        for (Stmt s : n.stmts)
+        {
+            if (s instanceof Case c)
+            {
+                Integer val = (Integer) c.exp.accept(ceVisitor);
+                code.emit("  li $t1, " + val);
+                code.emit("  beq $t0, $t1, case_label_" + c.uniqueId);
+            }
+        }
+
+        // Jump to default label, or past the entire switch if no default
+        if (defaultLabel != null)
+        {
+            code.emit("  j case_label_" + defaultLabel.uniqueId);
+        }
+        else
+        {
+            code.emit("  j break_target_" + n.uniqueId);
+        }
+
+        // Emit body: Case/Default nodes emit their labels, other stmts emit code
+        n.stmts.accept(this);
+
+        // Break target (where break; statements jump to)
+        code.emit("break_target_" + n.uniqueId + ":");
+        return null;
+    }
+
+    @Override
+    public Object visit(Case n)
+    {
+        code.emit("case_label_" + n.uniqueId + ":");
+        return null;
+    }
+
+    @Override
+    public Object visit(Default n)
+    {
+        code.emit("case_label_" + n.uniqueId + ":");
+        return null;
+    }
+
+    @Override
     public Object visit(NewObject n)
     {
         ClassDecl cd = n.objType.link;
@@ -284,6 +348,7 @@ public class CG3Visitor extends Visitor
         stack += 4;
         return null;
     }
+
 
 
     // =========================================================

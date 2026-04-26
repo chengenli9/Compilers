@@ -199,22 +199,22 @@ while_cond_32:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  li $t0, 15
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 24
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 33
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
-  li $t0, 34
-  subu $sp, $sp, 8
-  sw $zero, 4($sp)
-  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  li $t1, 15
+  beq $t0, $t1, case_label_16
+  li $t1, 24
+  beq $t0, $t1, case_label_19
+  li $t1, 33
+  beq $t0, $t1, case_label_21
+  li $t1, 34
+  beq $t0, $t1, case_label_23
+  j case_label_17
+case_label_16:
+case_label_17:
+case_label_19:
+case_label_21:
+case_label_23:
   subu $sp, $sp, 4
   sw $s2, ($sp)
   la $t0, strLit_24
@@ -232,7 +232,7 @@ while_cond_32:
   lw $t0, ($sp)
   addu $sp, $sp, 4
   j break_target_29
-  addu $sp, $sp, 40
+break_target_29:
   lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)

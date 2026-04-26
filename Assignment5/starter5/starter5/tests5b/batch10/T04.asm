@@ -307,14 +307,24 @@ strLit_525: # StringLit at 157.19
 .globl main
 main:
   jal vm_init
-  li $s6, 1
+  li $s6, 2
   li $s7, 0
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
+  lw $t0, 0($sp)
+  sw $s2, 0($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 44($t0)
+  jalr $t0
+  lw $s2, ($sp)
   addu $sp, $sp, 4
-  move $s2, $s7
-  jal mth_main_Main
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
@@ -493,6 +503,10 @@ break_target_32:
   lw $ra, ($sp)
   addu $sp, $sp, 4
   jr $ra
+.globl mth_withMoreAdded_Main
+mth_withMoreAdded_Main:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $s6, 1
   li $s7, 2
   jal newObject
@@ -562,7 +576,7 @@ break_target_32:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 48($sp)
+  lw $t0, 32($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 28($sp)
@@ -579,7 +593,7 @@ break_target_32:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 20($sp)
+  sw $t0, 4($sp)
   li $s6, 1
   li $s7, 2
   jal newObject
@@ -636,7 +650,7 @@ break_target_32:
   sw $zero, 4($sp)
   sw $t0, ($sp)
   jal remainder
-  lw $t0, 60($sp)
+  lw $t0, 28($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 24($sp)
@@ -653,7 +667,7 @@ break_target_32:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 36($sp)
+  sw $t0, 4($sp)
   li $s6, 2
   li $s7, 2
   jal newObject
@@ -686,7 +700,7 @@ break_target_32:
   addu $sp, $sp, 4
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 52($sp)
+  lw $t0, 20($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 16($sp)
@@ -703,10 +717,15 @@ break_target_32:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 36($sp)
-  lw $t0, 36($sp)
+  sw $t0, 4($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 .globl mth_createGarbage_Main
 mth_createGarbage_Main:
   subu $sp, $sp, 4
@@ -778,6 +797,10 @@ break_target_121:
   lw $ra, ($sp)
   addu $sp, $sp, 4
   jr $ra
+.globl mth_newPosSeed_Main
+mth_newPosSeed_Main:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
   lw $t0, 0($sp)
@@ -864,6 +887,16 @@ if_done_149:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_newSeed_Main
+mth_newSeed_Main:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   lw $t0, -16($s2)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
@@ -887,6 +920,15 @@ if_done_149:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_randomString_Main
+mth_randomString_Main:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
   lw $t0, 0($sp)
@@ -932,7 +974,7 @@ while_cond_194:
   sw $zero, 4($sp)
   sw $t0, ($sp)
   jal remainder
-  lw $t0, 20($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -943,8 +985,8 @@ while_cond_194:
   jal divide
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 28($sp)
-  lw $t0, 24($sp)
+  sw $t0, 12($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   subu $sp, $sp, 4
@@ -953,7 +995,7 @@ while_cond_194:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 24($sp)
+  lw $t0, 16($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -991,13 +1033,19 @@ while_cond_194:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 24($sp)
-  addu $sp, $sp, 24
+  sw $t0, 8($sp)
+  addu $sp, $sp, 8
   j while_cond_194
 break_target_194:
   lw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 12
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 .globl mth_printList_Main
 mth_printList_Main:
   subu $sp, $sp, 4
@@ -1292,22 +1340,62 @@ break_target_279:
   lw $ra, ($sp)
   addu $sp, $sp, 4
   jr $ra
+.globl mth_intAt_AbsList
+mth_intAt_AbsList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_stringAt_AbsList
+mth_stringAt_AbsList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   la $t0, strLit_293
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_intSize_AbsList
+mth_intSize_AbsList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_stringSize_AbsList
+mth_stringSize_AbsList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 32($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_linkTo_AbsList
+mth_linkTo_AbsList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -1315,7 +1403,16 @@ break_target_279:
   sw $t0, 0($s2)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 36($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_init_IntArrayListElem
+mth_init_IntArrayListElem:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1337,7 +1434,7 @@ while_cond_353:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 52($sp)
+  lw $t0, 20($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1358,11 +1455,11 @@ while_cond_353:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 64($sp)
+  lw $t0, 32($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 80($sp)
+  lw $t0, 48($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1379,7 +1476,7 @@ while_cond_353:
   sll $t1, $t1, 2
   addu $t1, $t1, $t2
   sw $t0, ($t1)
-  lw $t0, 60($sp)
+  lw $t0, 20($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1397,8 +1494,7 @@ while_cond_353:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 60($sp)
-  addu $sp, $sp, 8
+  sw $t0, 20($sp)
   lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
@@ -1421,7 +1517,7 @@ while_cond_353:
   j while_cond_353
 break_target_353:
   addu $sp, $sp, 8
-  lw $t0, 60($sp)
+  lw $t0, 28($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -1429,11 +1525,20 @@ break_target_353:
   sw $t0, 0($s2)
   subu $sp, $sp, 4
   sw $s2, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_intAt_IntArrayListElem
+mth_intAt_IntArrayListElem:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 48($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1449,10 +1554,10 @@ break_target_353:
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
-  beq $t0, $zero, skip_375
+  bne $t0, $zero, skip_375
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  lw $t0, 48($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1482,7 +1587,7 @@ skip_375:
   beq $t0, $zero, if_else_388
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 52($sp)
+  lw $t0, 16($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1501,7 +1606,7 @@ skip_375:
   sw $t0, 0($sp)
   j if_done_388
 if_else_388:
-  lw $t0, 48($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1529,6 +1634,16 @@ if_done_388:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_intSize_IntArrayListElem
+mth_intSize_IntArrayListElem:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   lw $t0, 4($s2)
   subu $sp, $sp, 4
   sw $t0, ($sp)
@@ -1539,12 +1654,21 @@ if_done_388:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_init_StringArrayElement
+mth_init_StringArrayElement:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $s6, 1
   li $s7, 0
   jal newObject
   la $t0, CLASS_Lib
   sw $t0, -12($s7)
-  lw $t0, 68($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1566,7 +1690,7 @@ while_cond_443:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 84($sp)
+  lw $t0, 24($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1587,7 +1711,7 @@ while_cond_443:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 96($sp)
+  lw $t0, 36($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 24($sp)
@@ -1597,7 +1721,7 @@ while_cond_443:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 116($sp)
+  lw $t0, 56($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1667,7 +1791,7 @@ while_cond_443:
   j while_cond_443
 break_target_443:
   addu $sp, $sp, 8
-  lw $t0, 88($sp)
+  lw $t0, 28($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -1675,10 +1799,20 @@ break_target_443:
   sw $t0, 0($s2)
   subu $sp, $sp, 4
   sw $s2, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_stringAt_StringArrayElement
+mth_stringAt_StringArrayElement:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   la $t0, strLit_454
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 76($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1700,7 +1834,7 @@ break_target_443:
   beq $t0, $zero, skip_465
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  lw $t0, 76($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1725,7 +1859,7 @@ skip_465:
   lw $t0, ($sp)
   addu $sp, $sp, 4
   beq $t0, $zero, if_else_473
-  lw $t0, 76($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1753,6 +1887,16 @@ if_done_473:
   lw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_stringSize_StringArrayElement
+mth_stringSize_StringArrayElement:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   lw $t0, 4($s2)
   subu $sp, $sp, 4
   sw $t0, ($sp)
@@ -1763,20 +1907,29 @@ if_done_473:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 96($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_init_CombinedElement
+mth_init_CombinedElement:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
   sw $t0, 4($s2)
-  lw $t0, 88($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
   sw $t0, -16($s2)
-  lw $t0, 100($sp)
+  lw $t0, 16($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -1784,11 +1937,20 @@ if_done_473:
   sw $t0, 0($s2)
   subu $sp, $sp, 4
   sw $s2, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_intAt_CombinedElement
+mth_intAt_CombinedElement:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 100($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1820,10 +1982,20 @@ if_done_518:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_stringAt_CombinedElement
+mth_stringAt_CombinedElement:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   la $t0, strLit_525
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 112($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1853,14 +2025,38 @@ if_done_536:
   lw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_intSize_CombinedElement
+mth_intSize_CombinedElement:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 1
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_stringSize_CombinedElement
+mth_stringSize_CombinedElement:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 1
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 ##############################################################
 # MiniJava/UP library for MIPS/Spim -- version that assumes
 #    one-word boolean on stack

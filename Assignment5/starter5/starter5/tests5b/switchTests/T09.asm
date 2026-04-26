@@ -101,9 +101,19 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
+  lw $t0, 0($sp)
+  sw $s2, 0($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 44($t0)
+  jalr $t0
+  lw $s2, ($sp)
   addu $sp, $sp, 4
-  move $s2, $s7
-  jal mth_main_Main
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
@@ -380,7 +390,7 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 112($sp)
+  sw $t0, 104($sp)
   j break_target_200
   li $t0, 11
   subu $sp, $sp, 8
@@ -422,7 +432,7 @@ while_cond_203:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 144($sp)
+  lw $t0, 136($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -440,7 +450,7 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 144($sp)
+  sw $t0, 136($sp)
   j break_target_200
   li $t0, 26
   subu $sp, $sp, 8
@@ -474,7 +484,7 @@ while_cond_203:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 160($sp)
+  lw $t0, 152($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -485,7 +495,7 @@ while_cond_203:
   jal divide
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 168($sp)
+  sw $t0, 152($sp)
   j break_target_200
   li $t0, 27
   subu $sp, $sp, 8
@@ -535,7 +545,7 @@ while_cond_203:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 192($sp)
+  lw $t0, 176($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -553,7 +563,7 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 192($sp)
+  sw $t0, 176($sp)
   j break_target_200
   li $t0, 19
   subu $sp, $sp, 8
@@ -603,7 +613,7 @@ while_cond_203:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 216($sp)
+  lw $t0, 200($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -621,7 +631,7 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 216($sp)
+  sw $t0, 200($sp)
   j break_target_200
   li $t0, 85
   subu $sp, $sp, 8
@@ -703,7 +713,7 @@ while_cond_203:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 256($sp)
+  lw $t0, 240($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -721,7 +731,7 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 256($sp)
+  sw $t0, 240($sp)
   j break_target_200
   li $t0, 22
   subu $sp, $sp, 8
@@ -791,7 +801,7 @@ while_cond_203:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 296($sp)
+  lw $t0, 280($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -809,9 +819,9 @@ while_cond_203:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 296($sp)
+  sw $t0, 280($sp)
   j break_target_200
-  addu $sp, $sp, 288
+  addu $sp, $sp, 272
   lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)

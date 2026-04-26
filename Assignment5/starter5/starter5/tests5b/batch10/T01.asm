@@ -136,9 +136,19 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
+  lw $t0, 0($sp)
+  sw $s2, 0($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 12($t0)
+  jalr $t0
+  lw $s2, ($sp)
   addu $sp, $sp, 4
-  move $s2, $s7
-  jal mth_main_Main
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
@@ -238,8 +248,7 @@ while_cond_34:
   jal divide
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 8($sp)
-  addu $sp, $sp, 8
+  sw $t0, 0($sp)
   j while_cond_34
 break_target_34:
   addu $sp, $sp, 8
@@ -546,6 +555,10 @@ break_target_116:
   lw $ra, ($sp)
   addu $sp, $sp, 4
   jr $ra
+.globl mth_init_IntList01
+mth_init_IntList01:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   lw $t0, 4($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
@@ -561,6 +574,11 @@ break_target_116:
   sw $t0, 0($s2)
   subu $sp, $sp, 4
   sw $s2, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 ##############################################################
 # MiniJava/UP library for MIPS/Spim -- version that assumes
 #    one-word boolean on stack

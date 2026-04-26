@@ -97,14 +97,24 @@ strLit_10: # StringLit at 7.17
 .globl main
 main:
   jal vm_init
-  li $s6, 1
+  li $s6, 2
   li $s7, 0
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
+  lw $t0, 0($sp)
+  sw $s2, 0($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 44($t0)
+  jalr $t0
+  lw $s2, ($sp)
   addu $sp, $sp, 4
-  move $s2, $s7
-  jal mth_main_Main
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
@@ -171,6 +181,10 @@ mth_main_Main:
   lw $ra, ($sp)
   addu $sp, $sp, 4
   jr $ra
+.globl mth_init_Main
+mth_init_Main:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   lw $t0, 4($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
@@ -180,6 +194,11 @@ mth_main_Main:
   sw $t0, -16($s2)
   subu $sp, $sp, 4
   sw $s2, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 ##############################################################
 # MiniJava/UP library for MIPS/Spim -- version that assumes
 #    one-word boolean on stack

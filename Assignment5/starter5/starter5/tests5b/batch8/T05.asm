@@ -139,9 +139,19 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
+  lw $t0, 0($sp)
+  sw $s2, 0($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 44($t0)
+  jalr $t0
+  lw $s2, ($sp)
   addu $sp, $sp, 4
-  move $s2, $s7
-  jal mth_main_Main
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
@@ -4152,6 +4162,10 @@ if_done_893:
   lw $ra, ($sp)
   addu $sp, $sp, 4
   jr $ra
+.globl mth_fun0_Main
+mth_fun0_Main:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $s6, 2
   li $s7, 1
   jal newObject
@@ -4353,11 +4367,21 @@ if_done_947:
   lw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_get_Ints
+mth_get_Ints:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 24($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -4399,7 +4423,7 @@ skip_970:
   lw $t0, ($sp)
   addu $sp, $sp, 4
   beq $t0, $zero, if_else_988
-  lw $t0, 24($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -4435,7 +4459,7 @@ if_else_985:
   lw $t0, 0($s2)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 28($sp)
+  lw $t0, 16($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -4475,6 +4499,12 @@ if_done_988:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 .globl mth_put_Ints
 mth_put_Ints:
   subu $sp, $sp, 4

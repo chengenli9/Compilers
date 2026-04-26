@@ -454,13 +454,23 @@ strLit_561: # StringLit at 95.17
 main:
   jal vm_init
   li $s6, 1
-  li $s7, 0
+  li $s7, 1
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
+  lw $t0, 0($sp)
+  sw $s2, 0($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 12($t0)
+  jalr $t0
+  lw $s2, ($sp)
   addu $sp, $sp, 4
-  move $s2, $s7
-  jal mth_main_Main
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
@@ -1927,7 +1937,7 @@ if_done_226:
   lw $t0, ($sp)
   addu $sp, $sp, 4
 while_cond_371:
-  lw $t0, 36($sp)
+  lw $t0, 28($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1948,7 +1958,7 @@ while_cond_371:
   lw $t0, 0($s2)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 40($sp)
+  lw $t0, 32($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -1986,7 +1996,7 @@ while_cond_371:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  lw $t0, 36($sp)
+  lw $t0, 28($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -2008,7 +2018,7 @@ while_cond_371:
   j if_done_364
 if_else_364:
 if_done_364:
-  lw $t0, 36($sp)
+  lw $t0, 28($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -2026,7 +2036,7 @@ if_done_364:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 36($sp)
+  sw $t0, 28($sp)
   j while_cond_371
 break_target_371:
   lw $t0, 0($s2)
@@ -2199,7 +2209,7 @@ break_target_407:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 36($sp)
+  lw $t0, 28($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -2256,7 +2266,7 @@ break_target_407:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 36($sp)
+  lw $t0, 28($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -2315,7 +2325,7 @@ while_cond_493:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 36($sp)
+  lw $t0, 28($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -2344,7 +2354,7 @@ while_cond_485:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 44($sp)
+  lw $t0, 36($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -2372,7 +2382,7 @@ while_cond_485:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 52($sp)
+  lw $t0, 44($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -2415,7 +2425,7 @@ while_cond_485:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 56($sp)
+  lw $t0, 48($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -2569,7 +2579,7 @@ break_target_493:
   jal newObject
   la $t0, CLASS_IListS0
   sw $t0, -12($s7)
-  lw $t0, 20($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   li $t0, 34
@@ -2590,13 +2600,13 @@ break_target_493:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 16($sp)
+  sw $t0, 8($sp)
   li $s6, 2
   li $s7, 1
   jal newObject
   la $t0, CLASS_IListS0
   sw $t0, -12($s7)
-  lw $t0, 20($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   li $t0, 22
@@ -2617,13 +2627,13 @@ break_target_493:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 16($sp)
+  sw $t0, 8($sp)
   li $s6, 2
   li $s7, 1
   jal newObject
   la $t0, CLASS_IListS0
   sw $t0, -12($s7)
-  lw $t0, 20($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   li $t0, 0
@@ -2656,13 +2666,13 @@ break_target_493:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 16($sp)
+  sw $t0, 8($sp)
   li $s6, 2
   li $s7, 1
   jal newObject
   la $t0, CLASS_IListS0
   sw $t0, -12($s7)
-  lw $t0, 20($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   li $t0, 78
@@ -2683,13 +2693,13 @@ break_target_493:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 16($sp)
+  sw $t0, 8($sp)
   li $s6, 2
   li $s7, 1
   jal newObject
   la $t0, CLASS_IListS0
   sw $t0, -12($s7)
-  lw $t0, 20($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   li $t0, 2
@@ -2710,13 +2720,13 @@ break_target_493:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 16($sp)
+  sw $t0, 8($sp)
   li $s6, 2
   li $s7, 1
   jal newObject
   la $t0, CLASS_IListS0
   sw $t0, -12($s7)
-  lw $t0, 20($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   li $t0, 9002
@@ -2737,8 +2747,8 @@ break_target_493:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 16($sp)
-  lw $t0, 16($sp)
+  sw $t0, 8($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
 while_cond_565:
@@ -2842,10 +2852,14 @@ while_cond_565:
   addu $sp, $sp, 4
   j while_cond_565
 break_target_565:
-  addu $sp, $sp, 56
+  addu $sp, $sp, 48
   lw $ra, ($sp)
   addu $sp, $sp, 4
   jr $ra
+.globl mth_init_IListS0
+mth_init_IListS0:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   lw $t0, 4($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
@@ -2861,6 +2875,11 @@ break_target_565:
   sw $t0, -16($s2)
   subu $sp, $sp, 4
   sw $s2, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 ##############################################################
 # MiniJava/UP library for MIPS/Spim -- version that assumes
 #    one-word boolean on stack

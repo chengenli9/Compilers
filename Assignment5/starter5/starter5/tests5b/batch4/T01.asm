@@ -189,9 +189,19 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
+  lw $t0, 0($sp)
+  sw $s2, 0($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 44($t0)
+  jalr $t0
+  lw $s2, ($sp)
   addu $sp, $sp, 4
-  move $s2, $s7
-  jal mth_main_Main
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
@@ -622,10 +632,10 @@ mth_main_Main:
   jal divide
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 8($sp)
+  sw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 12($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -656,7 +666,7 @@ mth_main_Main:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  lw $t0, 8($sp)
+  lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -674,10 +684,10 @@ mth_main_Main:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 8($sp)
+  sw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 12($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -708,7 +718,7 @@ mth_main_Main:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  lw $t0, 8($sp)
+  lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -719,10 +729,10 @@ mth_main_Main:
   jal remainder
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 16($sp)
+  sw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 20($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -753,7 +763,7 @@ mth_main_Main:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  lw $t0, 16($sp)
+  lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -771,10 +781,10 @@ mth_main_Main:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 16($sp)
+  sw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 20($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -805,7 +815,7 @@ mth_main_Main:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  addu $sp, $sp, 24
+  addu $sp, $sp, 8
   lw $ra, ($sp)
   addu $sp, $sp, 4
   jr $ra

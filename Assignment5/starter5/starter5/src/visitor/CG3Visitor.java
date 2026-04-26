@@ -112,7 +112,7 @@ public class CG3Visitor extends Visitor
         code.emit("main:");
         code.emit("  jal vm_init");
 
-        fakeMainStmt();
+        n.mainStmt.accept(this);
 
         //exit the program
         code.emit("  li $v0, 10");
@@ -133,6 +133,36 @@ public class CG3Visitor extends Visitor
     public Object visit(ClassDecl n)
     {
         n.decls.accept(this);
+        return null;
+    }
+
+    @Override
+    public Object visit(MethodDeclNonVoid n)
+    {
+        code.emit(".globl mth_" + n.name + "_" + n.classDecl.name);
+        code.emit("mth_" + n.name + "_" + n.classDecl.name + ":");
+
+        // Save return address
+        code.emit("  subu $sp, $sp, 4");
+        code.emit("  sw $ra, ($sp)");
+
+        stack = 0;
+
+        // Generate code for the method body
+        n.stmts.accept(this);
+
+        // Evaluate the return expression and pop its value into $t0
+        n.rtnExp.accept(this);
+        pop(n.rtnType, "$t0");
+
+        // Pop all locals declared during this method
+        popSize(stack);
+
+        // Restore return address and return
+        code.emit("  lw $ra, ($sp)");
+        code.emit("  addu $sp, $sp, 4");
+        code.emit("  jr $ra");
+
         return null;
     }
 
@@ -547,6 +577,8 @@ public class CG3Visitor extends Visitor
         n.left.accept(this);
         n.right.accept(this);
         code.emit("  jal divide");
+        // divide pops 16 bytes (two ints) and pushes 8 (one int): net -8
+        stack -= 8;
         return null;
     }
 
@@ -556,6 +588,8 @@ public class CG3Visitor extends Visitor
         n.left.accept(this);
         n.right.accept(this);
         code.emit("  jal remainder");
+        // remainder pops 16 bytes (two ints) and pushes 8 (one int): net -8
+        stack -= 8;
         return null;
     }
 
@@ -600,8 +634,8 @@ public class CG3Visitor extends Visitor
     {
         n.left.accept(this);
         code.emit("  lw $t0, ($sp)");
-        code.emit("  beq $t0, $zero, skip_" + n.uniqueId);
-        pop(n.left.type, "$t0"); 
+        code.emit("  bne $t0, $zero, skip_" + n.uniqueId);  // if true, short-circuit
+        pop(n.left.type, "$t0");
         n.right.accept(this);
         code.emit("skip_" + n.uniqueId + ":");
         return null;

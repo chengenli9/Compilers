@@ -117,9 +117,19 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
+  lw $t0, 0($sp)
+  sw $s2, 0($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 44($t0)
+  jalr $t0
+  lw $s2, ($sp)
   addu $sp, $sp, 4
-  move $s2, $s7
-  jal mth_main_Main
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
@@ -229,11 +239,11 @@ while_cond_78:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 56($sp)
+  lw $t0, 40($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 32($sp)
+  lw $t0, 24($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -271,7 +281,7 @@ while_cond_78:
   sw $t0, ($sp)
   lw $t0, ($sp)
   addu $sp, $sp, 8
-  sw $t0, 56($sp)
+  sw $t0, 40($sp)
   li $t0, 10
   subu $sp, $sp, 8
   sw $zero, 4($sp)
@@ -309,7 +319,7 @@ while_cond_78:
 skip_64:
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 52($sp)
+  sw $t0, 36($sp)
   li $t0, 10
   subu $sp, $sp, 8
   sw $zero, 4($sp)
@@ -326,7 +336,7 @@ skip_64:
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
-  beq $t0, $zero, skip_74
+  bne $t0, $zero, skip_74
   lw $t0, ($sp)
   addu $sp, $sp, 4
   li $t0, 10
@@ -350,8 +360,8 @@ skip_64:
 skip_74:
   lw $t0, ($sp)
   addu $sp, $sp, 4
-  sw $t0, 48($sp)
-  addu $sp, $sp, 40
+  sw $t0, 32($sp)
+  addu $sp, $sp, 24
   lw $t0, 0($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)

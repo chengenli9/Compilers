@@ -1228,9 +1228,19 @@ main:
   jal newObject
   la $t0, CLASS_Main
   sw $t0, -12($s7)
+  lw $t0, 0($sp)
+  sw $s2, 0($sp)
+  move $s2, $t0
+  beq $s2, $zero, nullPtrException
+  lw $t0, -12($s2)
+  lw $t0, 44($t0)
+  jalr $t0
+  lw $s2, ($sp)
   addu $sp, $sp, 4
-  move $s2, $s7
-  jal mth_main_Main
+  subu $sp, $sp, 4
+  sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
   li $v0, 10
   syscall
 .globl mth_main_Main
@@ -3654,32 +3664,90 @@ if_done_563:
   lw $ra, ($sp)
   addu $sp, $sp, 4
   jr $ra
+.globl mth_put_LinkedList
+mth_put_LinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_remove_LinkedList
+mth_remove_LinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_find_LinkedList
+mth_find_LinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_isEmpty_LinkedList
+mth_isEmpty_LinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 1
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_containsKey_LinkedList
+mth_containsKey_LinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 24($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_popRem_LinkedList
+mth_popRem_LinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_put_EmptyLinkedList
+mth_put_EmptyLinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $s6, 1
   li $s7, 3
   jal newObject
   la $t0, CLASS_NonEmptyLinkedList
   sw $t0, -12($s7)
-  lw $t0, 32($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 40($sp)
+  lw $t0, 16($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   subu $sp, $sp, 4
@@ -3696,9 +3764,18 @@ if_done_563:
   addu $sp, $sp, 4
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_init_NonEmptyLinkedList
+mth_init_NonEmptyLinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 36($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -3709,7 +3786,7 @@ if_done_563:
   sw $t0, 0($t1)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 40($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -3720,7 +3797,7 @@ if_done_563:
   sw $t0, 4($t1)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 44($sp)
+  lw $t0, 16($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -3731,12 +3808,30 @@ if_done_563:
   sw $t0, 8($t1)
   subu $sp, $sp, 4
   sw $s2, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_isEmpty_NonEmptyLinkedList
+mth_isEmpty_NonEmptyLinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_put_NonEmptyLinkedList
+mth_put_NonEmptyLinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 44($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   subu $sp, $sp, 4
@@ -3764,7 +3859,7 @@ if_done_563:
   beq $t0, $zero, if_else_688
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 52($sp)
+  lw $t0, 16($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -3778,10 +3873,10 @@ if_else_688:
   lw $t0, 8($s2)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 48($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 56($sp)
+  lw $t0, 20($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 8($sp)
@@ -3851,9 +3946,19 @@ if_done_688:
   lw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_remove_NonEmptyLinkedList
+mth_remove_NonEmptyLinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 52($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   subu $sp, $sp, 4
@@ -3884,7 +3989,7 @@ if_else_736:
   lw $t0, 8($s2)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 56($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 4($sp)
@@ -3971,13 +4076,32 @@ if_done_736:
   lw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_popRem_NonEmptyLinkedList
+mth_popRem_NonEmptyLinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   lw $t0, 8($s2)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_find_NonEmptyLinkedList
+mth_find_NonEmptyLinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   lw $t0, 4($s2)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 64($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   subu $sp, $sp, 4
@@ -4009,7 +4133,7 @@ if_done_736:
   lw $t0, 8($s2)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 68($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 4($sp)
@@ -4033,7 +4157,17 @@ if_done_763:
   lw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 68($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_containsKey_NonEmptyLinkedList
+mth_containsKey_NonEmptyLinkedList:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   subu $sp, $sp, 4
@@ -4057,13 +4191,13 @@ if_done_763:
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
-  beq $t0, $zero, skip_776
+  bne $t0, $zero, skip_776
   lw $t0, ($sp)
   addu $sp, $sp, 4
   lw $t0, 8($s2)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 72($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 4($sp)
@@ -4079,6 +4213,15 @@ if_done_763:
   subu $sp, $sp, 4
   sw $t0, ($sp)
 skip_776:
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_init2_Hashtable
+mth_init2_Hashtable:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 8
   sw $zero, 4($sp)
@@ -4088,7 +4231,7 @@ skip_776:
   sw $t0, -16($s2)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 84($sp)
+  lw $t0, 16($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -4100,7 +4243,7 @@ skip_776:
   sw $t0, -20($t1)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 76($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -4121,9 +4264,18 @@ skip_776:
   sw $t0, 0($s2)
   subu $sp, $sp, 4
   sw $s2, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_init1_Hashtable
+mth_init1_Hashtable:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 80($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -4143,6 +4295,15 @@ skip_776:
   addu $sp, $sp, 4
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_init_Hashtable
+mth_init_Hashtable:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
   li $t0, 20
@@ -4161,12 +4322,21 @@ skip_776:
   addu $sp, $sp, 4
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_createEmptyArray_Hashtable
+mth_createEmptyArray_Hashtable:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $s6, 1
   li $s7, 0
   jal newObject
   la $t0, CLASS_EmptyLinkedList
   sw $t0, -12($s7)
-  lw $t0, 88($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
@@ -4252,7 +4422,17 @@ break_target_854:
   lw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 96($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_getSlot_Hashtable
+mth_getSlot_Hashtable:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 0($sp)
@@ -4328,6 +4508,12 @@ if_done_880:
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 .globl mth_put_Hashtable
 mth_put_Hashtable:
   subu $sp, $sp, 4
@@ -4749,6 +4935,10 @@ if_done_1002:
   lw $ra, ($sp)
   addu $sp, $sp, 4
   jr $ra
+.globl mth_get_Hashtable
+mth_get_Hashtable:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
   lw $t0, 8($sp)
@@ -4797,12 +4987,21 @@ if_done_1002:
   addu $sp, $sp, 4
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_remove_Hashtable
+mth_remove_Hashtable:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   li $t0, 0
   subu $sp, $sp, 4
   sw $t0, ($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 16($sp)
+  lw $t0, 12($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 4($sp)
@@ -4840,7 +5039,7 @@ if_done_1002:
   lw $t0, 0($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
-  lw $t0, 28($sp)
+  lw $t0, 24($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 4($sp)
@@ -4947,9 +5146,19 @@ if_done_1066:
   lw $t0, 16($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 20
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_containsKey_Hashtable
+mth_containsKey_Hashtable:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   subu $sp, $sp, 4
   sw $s2, ($sp)
-  lw $t0, 36($sp)
+  lw $t0, 8($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, 4($sp)
@@ -4977,6 +5186,11 @@ if_done_1066:
   lw $t0, ($sp)
   xor $t0, $t0, 1
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 .globl mth_clear_Hashtable
 mth_clear_Hashtable:
   subu $sp, $sp, 4
@@ -5008,6 +5222,10 @@ mth_clear_Hashtable:
   lw $ra, ($sp)
   addu $sp, $sp, 4
   jr $ra
+.globl mth_keys_Hashtable
+mth_keys_Hashtable:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   lw $t0, -16($s2)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
@@ -5185,11 +5403,30 @@ break_target_1145:
   lw $t0, 8($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  addu $sp, $sp, 12
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_size_Hashtable
+mth_size_Hashtable:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   lw $t0, -16($s2)
   subu $sp, $sp, 8
   sw $zero, 4($sp)
   sw $t0, ($sp)
-  lw $t0, 28($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 8
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_init_StringContainer
+mth_init_StringContainer:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
+  lw $t0, 4($sp)
   subu $sp, $sp, 4
   sw $t0, ($sp)
   lw $t0, ($sp)
@@ -5197,9 +5434,23 @@ break_target_1145:
   sw $t0, 0($s2)
   subu $sp, $sp, 4
   sw $s2, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
+.globl mth_toString_StringContainer
+mth_toString_StringContainer:
+  subu $sp, $sp, 4
+  sw $ra, ($sp)
   lw $t0, 0($s2)
   subu $sp, $sp, 4
   sw $t0, ($sp)
+  lw $t0, ($sp)
+  addu $sp, $sp, 4
+  lw $ra, ($sp)
+  addu $sp, $sp, 4
+  jr $ra
 ##############################################################
 # MiniJava/UP library for MIPS/Spim -- version that assumes
 #    one-word boolean on stack

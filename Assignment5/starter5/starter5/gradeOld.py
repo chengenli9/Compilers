@@ -36,6 +36,7 @@ from os import pathsep        # for compatability with windows since it uses ; f
 from shutil import rmtree     # remove directory at the end
 import subprocess             # just import subprocess, because the function is called run
                               # and I want my own version.
+import shutil
 
 # IF YOU ARE USING WINDOWS POWERSHELL YOU NEED TO CHANGE THIS TO TRUE!
 # This is because windows powershell doesn't allow you to redirect stdin
@@ -71,8 +72,10 @@ def main():
 
     # scrap directory for running the java tests
     scrap.mkdir(exist_ok=True)
-    (src / lib).copy_into(scrap)
-    (src / runMain).copy_into(scrap)
+    shutil.copy(src / runMain, scrap / runMain)
+    shutil.copy(src / lib, scrap / lib)
+    #(src / lib).copy_into(scrap)
+    #(src / lib).copy_into(scrap)
 
     # get each batch of tests and run them
     for batchDir in sorted(Path(argv[1]).iterdir()):
@@ -159,7 +162,8 @@ def mips(test, dat):
 # Runs java on the program and returns the output.
 def javaRun(test,dat):
     out = ""
-    test.copy_into(scrap)
+    shutil.copy(test, scrap / Path(test.name))
+    #test.copy_into(scrap)
 
     with chdir(scrap):
         # actually compile the java code.
@@ -216,8 +220,8 @@ def printScore(score):
     
     #print end with total score
     print("--------------------------------------------------------------")
-    if has_ec:
-        print(f"\nTotal score: {int(90*pts / total) + ec} / 100\n")
+    if ec != 0:
+        print(f"\nTotal score: {int((90*pts + ec) / total)} / 100\n")
     else:
         print(f"\nTotal score: {int(100*pts / total)} / 100\n")
 

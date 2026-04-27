@@ -8,7 +8,7 @@
   .byte 101 # 'e' # ClassDecl at 0.0
   .byte 99 # 'c' # ClassDecl at 0.0
   .byte 116 # 't' # ClassDecl at 0.0
-12324:CLASS_Object: # ClassDecl at 0.0
+12288:CLASS_Object: # ClassDecl at 0.0
   .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
   .word mth_equals_Object # MethodDeclNonVoid at 0.0
   .word mth_toString_Object # MethodDeclNonVoid at 0.0
@@ -21,7 +21,7 @@
   .byte 105 # 'i' # ClassDecl at 0.0
   .byte 110 # 'n' # ClassDecl at 0.0
   .byte 103 # 'g' # ClassDecl at 0.0
-12344:CLASS_String: # ClassDecl at 0.0
+12308:CLASS_String: # ClassDecl at 0.0
   .word mth_hashCode_String # MethodDeclNonVoid at 0.0
   .word mth_equals_String # MethodDeclNonVoid at 0.0
   .word mth_toString_String # MethodDeclNonVoid at 0.0
@@ -30,13 +30,13 @@
   .word mth_length_String # MethodDeclNonVoid at 0.0
   .word mth_charAt_String # MethodDeclNonVoid at 0.0
   .word mth_compareTo_String # MethodDeclNonVoid at 0.0
-12376:END_CLASS_String: # ClassDecl at 0.0
+12340:END_CLASS_String: # ClassDecl at 0.0
 # ****** class Lib ****** # ClassDecl at 0.0
   .byte 0 # ClassDecl at 0.0
   .byte 204 # 'L' with high bit set # ClassDecl at 0.0
   .byte 105 # 'i' # ClassDecl at 0.0
   .byte 98 # 'b' # ClassDecl at 0.0
-12380:CLASS_Lib: # ClassDecl at 0.0
+12344:CLASS_Lib: # ClassDecl at 0.0
   .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
   .word mth_equals_Object # MethodDeclNonVoid at 0.0
   .word mth_toString_Object # MethodDeclNonVoid at 0.0
@@ -53,7 +53,7 @@
   .byte 97 # 'a' # ClassDecl at 3.7
   .byte 105 # 'i' # ClassDecl at 3.7
   .byte 110 # 'n' # ClassDecl at 3.7
-12428:CLASS_Main: # ClassDecl at 3.7
+12392:CLASS_Main: # ClassDecl at 3.7
   .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
   .word mth_equals_Object # MethodDeclNonVoid at 0.0
   .word mth_toString_Object # MethodDeclNonVoid at 0.0
@@ -66,8 +66,8 @@
   .word mth_intToString_Lib # MethodDeclNonVoid at 0.0
   .word mth_intToChar_Lib # MethodDeclNonVoid at 0.0
   .word mth_main_Main # MethodDeclVoid at 4.15
-12476:END_CLASS_Main: # ClassDecl at 3.7
-12476:END_CLASS_Lib: # ClassDecl at 0.0
+12440:END_CLASS_Main: # ClassDecl at 3.7
+12440:END_CLASS_Lib: # ClassDecl at 0.0
 # ****** class RunMain ****** # ClassDecl at 0.0
   .byte 0 # ClassDecl at 0.0
   .byte 210 # 'R' with high bit set # ClassDecl at 0.0
@@ -77,31 +77,31 @@
   .byte 97 # 'a' # ClassDecl at 0.0
   .byte 105 # 'i' # ClassDecl at 0.0
   .byte 110 # 'n' # ClassDecl at 0.0
-12484:CLASS_RunMain: # ClassDecl at 0.0
+12448:CLASS_RunMain: # ClassDecl at 0.0
   .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
   .word mth_equals_Object # MethodDeclNonVoid at 0.0
   .word mth_toString_Object # MethodDeclNonVoid at 0.0
-12496:END_CLASS_RunMain: # ClassDecl at 0.0
+12460:END_CLASS_RunMain: # ClassDecl at 0.0
   .byte 0 # ArrayType at 6.18
   .byte 219 # '[' with high bit set # ArrayType at 6.18
   .byte 91 # '[' # ArrayType at 6.18
   .byte 73 # 'I' # ArrayType at 6.18
-12500:CLASS_ARRAY_ARRAY_INT: # ArrayType at 6.18
+12464:CLASS_ARRAY_ARRAY_INT: # ArrayType at 6.18
   .word mth_hashCode_Object # ArrayType at 6.18
   .word mth_equals_Object # ArrayType at 6.18
   .word mth_toString_Object # ArrayType at 6.18
-12512:END_CLASS_ARRAY_ARRAY_INT: # ArrayType at 6.18
-12512:dataArrayVTableStart: # IntType at 0.0
+12476:END_CLASS_ARRAY_ARRAY_INT: # ArrayType at 6.18
+12476:dataArrayVTableStart: # IntType at 0.0
   .byte 0 # ArrayType at 5.16
   .byte 0 # ArrayType at 5.16
   .byte 219 # '[' with high bit set # ArrayType at 5.16
   .byte 73 # 'I' # ArrayType at 5.16
-12516:CLASS_ARRAY_INT: # ArrayType at 5.16
+12480:CLASS_ARRAY_INT: # ArrayType at 5.16
   .word mth_hashCode_Object # ArrayType at 5.16
   .word mth_equals_Object # ArrayType at 5.16
   .word mth_toString_Object # ArrayType at 5.16
-12528:END_CLASS_ARRAY_INT: # ArrayType at 5.16
-12528:END_CLASS_Object: # ClassDecl at 0.0
+12492:END_CLASS_ARRAY_INT: # ArrayType at 5.16
+12492:END_CLASS_Object: # ClassDecl at 0.0
   .byte 32 # StringLit at 18.46
   .byte 0 # StringLit at 18.46
   .byte 0 # StringLit at 18.46
@@ -109,7 +109,7 @@
   .word CLASS_String # StringLit at 18.46
   .word 2 # StringLit at 18.46
   .word -1 # StringLit at 18.46
-12544:strLit_98: # StringLit at 18.46
+12508:strLit_98: # StringLit at 18.46
   .byte 32 # StringLit at 19.46
   .byte 0 # StringLit at 19.46
   .byte 0 # StringLit at 19.46
@@ -117,7 +117,7 @@
   .word CLASS_String # StringLit at 19.46
   .word 2 # StringLit at 19.46
   .word -1 # StringLit at 19.46
-12560:strLit_107: # StringLit at 19.46
+12524:strLit_107: # StringLit at 19.46
   .byte 32 # StringLit at 20.49
   .byte 0 # StringLit at 20.49
   .byte 0 # StringLit at 20.49
@@ -125,7 +125,7 @@
   .word CLASS_String # StringLit at 20.49
   .word 2 # StringLit at 20.49
   .word -1 # StringLit at 20.49
-12576:strLit_118: # StringLit at 20.49
+12540:strLit_118: # StringLit at 20.49
   .byte 10 # StringLit at 21.49
   .byte 0 # StringLit at 21.49
   .byte 0 # StringLit at 21.49
@@ -133,7 +133,7 @@
   .word CLASS_String # StringLit at 21.49
   .word 2 # StringLit at 21.49
   .word -1 # StringLit at 21.49
-12592:strLit_129: # StringLit at 21.49
+12556:strLit_129: # StringLit at 21.49
   .byte 32 # StringLit at 22.45
   .byte 0 # StringLit at 22.45
   .byte 0 # StringLit at 22.45
@@ -141,7 +141,7 @@
   .word CLASS_String # StringLit at 22.45
   .word 2 # StringLit at 22.45
   .word -1 # StringLit at 22.45
-12608:strLit_141: # StringLit at 22.45
+12572:strLit_141: # StringLit at 22.45
   .byte 32 # StringLit at 23.45
   .byte 0 # StringLit at 23.45
   .byte 0 # StringLit at 23.45
@@ -149,7 +149,7 @@
   .word CLASS_String # StringLit at 23.45
   .word 2 # StringLit at 23.45
   .word -1 # StringLit at 23.45
-12624:strLit_153: # StringLit at 23.45
+12588:strLit_153: # StringLit at 23.45
   .byte 32 # StringLit at 24.45
   .byte 0 # StringLit at 24.45
   .byte 0 # StringLit at 24.45
@@ -157,7 +157,7 @@
   .word CLASS_String # StringLit at 24.45
   .word 2 # StringLit at 24.45
   .word -1 # StringLit at 24.45
-12640:strLit_165: # StringLit at 24.45
+12604:strLit_165: # StringLit at 24.45
   .byte 32 # StringLit at 25.45
   .byte 0 # StringLit at 25.45
   .byte 0 # StringLit at 25.45
@@ -165,7 +165,7 @@
   .word CLASS_String # StringLit at 25.45
   .word 2 # StringLit at 25.45
   .word -1 # StringLit at 25.45
-12656:strLit_177: # StringLit at 25.45
+12620:strLit_177: # StringLit at 25.45
   .byte 32 # StringLit at 26.45
   .byte 0 # StringLit at 26.45
   .byte 0 # StringLit at 26.45
@@ -173,7 +173,7 @@
   .word CLASS_String # StringLit at 26.45
   .word 2 # StringLit at 26.45
   .word -1 # StringLit at 26.45
-12672:strLit_189: # StringLit at 26.45
+12636:strLit_189: # StringLit at 26.45
   .byte 32 # StringLit at 27.45
   .byte 0 # StringLit at 27.45
   .byte 0 # StringLit at 27.45
@@ -181,7 +181,7 @@
   .word CLASS_String # StringLit at 27.45
   .word 2 # StringLit at 27.45
   .word -1 # StringLit at 27.45
-12688:strLit_201: # StringLit at 27.45
+12652:strLit_201: # StringLit at 27.45
   .byte 32 # StringLit at 28.45
   .byte 0 # StringLit at 28.45
   .byte 0 # StringLit at 28.45
@@ -189,7 +189,7 @@
   .word CLASS_String # StringLit at 28.45
   .word 2 # StringLit at 28.45
   .word -1 # StringLit at 28.45
-12704:strLit_213: # StringLit at 28.45
+12668:strLit_213: # StringLit at 28.45
   .byte 10 # StringLit at 29.45
   .byte 0 # StringLit at 29.45
   .byte 0 # StringLit at 29.45
@@ -197,7 +197,7 @@
   .word CLASS_String # StringLit at 29.45
   .word 2 # StringLit at 29.45
   .word -1 # StringLit at 29.45
-12720:strLit_225: # StringLit at 29.45
+12684:strLit_225: # StringLit at 29.45
   .byte 10 # StringLit at 33.50
   .byte 0 # StringLit at 33.50
   .byte 0 # StringLit at 33.50
@@ -205,7 +205,7 @@
   .word CLASS_String # StringLit at 33.50
   .word 2 # StringLit at 33.50
   .word -1 # StringLit at 33.50
-12736:strLit_271: # StringLit at 33.50
+12700:strLit_271: # StringLit at 33.50
   .byte 32 # StringLit at 37.46
   .byte 0 # StringLit at 37.46
   .byte 0 # StringLit at 37.46
@@ -213,7 +213,7 @@
   .word CLASS_String # StringLit at 37.46
   .word 2 # StringLit at 37.46
   .word -1 # StringLit at 37.46
-12752:strLit_301: # StringLit at 37.46
+12716:strLit_301: # StringLit at 37.46
   .byte 32 # StringLit at 38.46
   .byte 0 # StringLit at 38.46
   .byte 0 # StringLit at 38.46
@@ -221,7 +221,7 @@
   .word CLASS_String # StringLit at 38.46
   .word 2 # StringLit at 38.46
   .word -1 # StringLit at 38.46
-12768:strLit_310: # StringLit at 38.46
+12732:strLit_310: # StringLit at 38.46
   .byte 32 # StringLit at 39.49
   .byte 0 # StringLit at 39.49
   .byte 0 # StringLit at 39.49
@@ -229,7 +229,7 @@
   .word CLASS_String # StringLit at 39.49
   .word 2 # StringLit at 39.49
   .word -1 # StringLit at 39.49
-12784:strLit_321: # StringLit at 39.49
+12748:strLit_321: # StringLit at 39.49
   .byte 10 # StringLit at 40.49
   .byte 0 # StringLit at 40.49
   .byte 0 # StringLit at 40.49
@@ -237,7 +237,7 @@
   .word CLASS_String # StringLit at 40.49
   .word 2 # StringLit at 40.49
   .word -1 # StringLit at 40.49
-12800:strLit_332: # StringLit at 40.49
+12764:strLit_332: # StringLit at 40.49
   .byte 32 # StringLit at 41.45
   .byte 0 # StringLit at 41.45
   .byte 0 # StringLit at 41.45
@@ -245,7 +245,7 @@
   .word CLASS_String # StringLit at 41.45
   .word 2 # StringLit at 41.45
   .word -1 # StringLit at 41.45
-12816:strLit_344: # StringLit at 41.45
+12780:strLit_344: # StringLit at 41.45
   .byte 32 # StringLit at 42.45
   .byte 0 # StringLit at 42.45
   .byte 0 # StringLit at 42.45
@@ -253,7 +253,7 @@
   .word CLASS_String # StringLit at 42.45
   .word 2 # StringLit at 42.45
   .word -1 # StringLit at 42.45
-12832:strLit_356: # StringLit at 42.45
+12796:strLit_356: # StringLit at 42.45
   .byte 32 # StringLit at 43.45
   .byte 0 # StringLit at 43.45
   .byte 0 # StringLit at 43.45
@@ -261,7 +261,7 @@
   .word CLASS_String # StringLit at 43.45
   .word 2 # StringLit at 43.45
   .word -1 # StringLit at 43.45
-12848:strLit_368: # StringLit at 43.45
+12812:strLit_368: # StringLit at 43.45
   .byte 32 # StringLit at 44.45
   .byte 0 # StringLit at 44.45
   .byte 0 # StringLit at 44.45
@@ -269,7 +269,7 @@
   .word CLASS_String # StringLit at 44.45
   .word 2 # StringLit at 44.45
   .word -1 # StringLit at 44.45
-12864:strLit_380: # StringLit at 44.45
+12828:strLit_380: # StringLit at 44.45
   .byte 32 # StringLit at 45.45
   .byte 0 # StringLit at 45.45
   .byte 0 # StringLit at 45.45
@@ -277,7 +277,7 @@
   .word CLASS_String # StringLit at 45.45
   .word 2 # StringLit at 45.45
   .word -1 # StringLit at 45.45
-12880:strLit_392: # StringLit at 45.45
+12844:strLit_392: # StringLit at 45.45
   .byte 32 # StringLit at 46.45
   .byte 0 # StringLit at 46.45
   .byte 0 # StringLit at 46.45
@@ -285,7 +285,7 @@
   .word CLASS_String # StringLit at 46.45
   .word 2 # StringLit at 46.45
   .word -1 # StringLit at 46.45
-12896:strLit_404: # StringLit at 46.45
+12860:strLit_404: # StringLit at 46.45
   .byte 32 # StringLit at 47.45
   .byte 0 # StringLit at 47.45
   .byte 0 # StringLit at 47.45
@@ -293,7 +293,7 @@
   .word CLASS_String # StringLit at 47.45
   .word 2 # StringLit at 47.45
   .word -1 # StringLit at 47.45
-12912:strLit_416: # StringLit at 47.45
+12876:strLit_416: # StringLit at 47.45
   .byte 10 # StringLit at 48.45
   .byte 0 # StringLit at 48.45
   .byte 0 # StringLit at 48.45
@@ -301,7 +301,7 @@
   .word CLASS_String # StringLit at 48.45
   .word 2 # StringLit at 48.45
   .word -1 # StringLit at 48.45
-12928:strLit_428: # StringLit at 48.45
+12892:strLit_428: # StringLit at 48.45
 .text
 .globl main
 0:main:
@@ -377,7 +377,7 @@
 268#  lw $t3, -4($t2)
 272#  bgeu $t1, $t3, arrayIndexOutOfBounds
 273##...sltu $at,$t1,$t3
-277##...beq $at,$zero,12276
+277##...beq $at,$zero,12240
 280#  sll $t1, $t1, 2
 284#  addu $t1, $t1, $t2
 288#  sw $t0, ($t1)
@@ -408,7 +408,7 @@
 388#  lw $t3, -4($t2)
 392#  bgeu $t1, $t3, arrayIndexOutOfBounds
 393##...sltu $at,$t1,$t3
-397##...beq $at,$zero,12276
+397##...beq $at,$zero,12240
 400#  sll $t1, $t1, 2
 404#  addu $t1, $t1, $t2
 408#  sw $t0, ($t1)
@@ -434,7 +434,7 @@
 488#  lw $t3, -4($t0)
 492#  bgeu $t1, $t3, arrayIndexOutOfBounds
 493##...sltu $at,$t1,$t3
-497##...beq $at,$zero,12276
+497##...beq $at,$zero,12240
 500#  sll $t1, $t1, 2
 504#  addu $t1, $t1, $t0
 508#  lw $t0, ($t1)
@@ -450,7 +450,7 @@
 548#  lw $t3, -4($t2)
 552#  bgeu $t1, $t3, arrayIndexOutOfBounds
 553##...sltu $at,$t1,$t3
-557##...beq $at,$zero,12276
+557##...beq $at,$zero,12240
 560#  sll $t1, $t1, 2
 564#  addu $t1, $t1, $t2
 568#  sw $t0, ($t1)
@@ -481,7 +481,7 @@
 668#  lw $t3, -4($t2)
 672#  bgeu $t1, $t3, arrayIndexOutOfBounds
 673##...sltu $at,$t1,$t3
-677##...beq $at,$zero,12276
+677##...beq $at,$zero,12240
 680#  sll $t1, $t1, 2
 684#  addu $t1, $t1, $t2
 688#  sw $t0, ($t1)
@@ -500,7 +500,7 @@
 740#  lw $t3, -4($t0)
 744#  bgeu $t1, $t3, arrayIndexOutOfBounds
 745##...sltu $at,$t1,$t3
-749##...beq $at,$zero,12276
+749##...beq $at,$zero,12240
 752#  sll $t1, $t1, 2
 756#  addu $t1, $t1, $t0
 760#  lw $t0, ($t1)
@@ -524,7 +524,7 @@
 832#  lw $t3, -4($t2)
 836#  bgeu $t1, $t3, arrayIndexOutOfBounds
 837##...sltu $at,$t1,$t3
-841##...beq $at,$zero,12276
+841##...beq $at,$zero,12240
 844#  sll $t1, $t1, 2
 848#  addu $t1, $t1, $t2
 852#  sw $t0, ($t1)
@@ -543,7 +543,7 @@
 904#  lw $t3, -4($t0)
 908#  bgeu $t1, $t3, arrayIndexOutOfBounds
 909##...sltu $at,$t1,$t3
-913##...beq $at,$zero,12276
+913##...beq $at,$zero,12240
 916#  sll $t1, $t1, 2
 920#  addu $t1, $t1, $t0
 924#  lw $t0, ($t1)
@@ -567,7 +567,7 @@
 996#  lw $t3, -4($t2)
 1000#  bgeu $t1, $t3, arrayIndexOutOfBounds
 1001##...sltu $at,$t1,$t3
-1005##...beq $at,$zero,12276
+1005##...beq $at,$zero,12240
 1008#  sll $t1, $t1, 2
 1012#  addu $t1, $t1, $t2
 1016#  sw $t0, ($t1)
@@ -586,7 +586,7 @@
 1068#  lw $t3, -4($t0)
 1072#  bgeu $t1, $t3, arrayIndexOutOfBounds
 1073##...sltu $at,$t1,$t3
-1077##...beq $at,$zero,12276
+1077##...beq $at,$zero,12240
 1080#  sll $t1, $t1, 2
 1084#  addu $t1, $t1, $t0
 1088#  lw $t0, ($t1)
@@ -610,7 +610,7 @@
 1160#  lw $t3, -4($t2)
 1164#  bgeu $t1, $t3, arrayIndexOutOfBounds
 1165##...sltu $at,$t1,$t3
-1169##...beq $at,$zero,12276
+1169##...beq $at,$zero,12240
 1172#  sll $t1, $t1, 2
 1176#  addu $t1, $t1, $t2
 1180#  sw $t0, ($t1)
@@ -629,7 +629,7 @@
 1232#  lw $t3, -4($t0)
 1236#  bgeu $t1, $t3, arrayIndexOutOfBounds
 1237##...sltu $at,$t1,$t3
-1241##...beq $at,$zero,12276
+1241##...beq $at,$zero,12240
 1244#  sll $t1, $t1, 2
 1248#  addu $t1, $t1, $t0
 1252#  lw $t0, ($t1)
@@ -653,7 +653,7 @@
 1324#  lw $t3, -4($t2)
 1328#  bgeu $t1, $t3, arrayIndexOutOfBounds
 1329##...sltu $at,$t1,$t3
-1333##...beq $at,$zero,12276
+1333##...beq $at,$zero,12240
 1336#  sll $t1, $t1, 2
 1340#  addu $t1, $t1, $t2
 1344#  sw $t0, ($t1)
@@ -672,7 +672,7 @@
 1396#  lw $t3, -4($t0)
 1400#  bgeu $t1, $t3, arrayIndexOutOfBounds
 1401##...sltu $at,$t1,$t3
-1405##...beq $at,$zero,12276
+1405##...beq $at,$zero,12240
 1408#  sll $t1, $t1, 2
 1412#  addu $t1, $t1, $t0
 1416#  lw $t0, ($t1)
@@ -696,7 +696,7 @@
 1488#  lw $t3, -4($t2)
 1492#  bgeu $t1, $t3, arrayIndexOutOfBounds
 1493##...sltu $at,$t1,$t3
-1497##...beq $at,$zero,12276
+1497##...beq $at,$zero,12240
 1500#  sll $t1, $t1, 2
 1504#  addu $t1, $t1, $t2
 1508#  sw $t0, ($t1)
@@ -715,7 +715,7 @@
 1560#  lw $t3, -4($t0)
 1564#  bgeu $t1, $t3, arrayIndexOutOfBounds
 1565##...sltu $at,$t1,$t3
-1569##...beq $at,$zero,12276
+1569##...beq $at,$zero,12240
 1572#  sll $t1, $t1, 2
 1576#  addu $t1, $t1, $t0
 1580#  lw $t0, ($t1)
@@ -739,7 +739,7 @@
 1652#  lw $t3, -4($t2)
 1656#  bgeu $t1, $t3, arrayIndexOutOfBounds
 1657##...sltu $at,$t1,$t3
-1661##...beq $at,$zero,12276
+1661##...beq $at,$zero,12240
 1664#  sll $t1, $t1, 2
 1668#  addu $t1, $t1, $t2
 1672#  sw $t0, ($t1)
@@ -758,7 +758,7 @@
 1724#  lw $t3, -4($t0)
 1728#  bgeu $t1, $t3, arrayIndexOutOfBounds
 1729##...sltu $at,$t1,$t3
-1733##...beq $at,$zero,12276
+1733##...beq $at,$zero,12240
 1736#  sll $t1, $t1, 2
 1740#  addu $t1, $t1, $t0
 1744#  lw $t0, ($t1)
@@ -782,7 +782,7 @@
 1816#  lw $t3, -4($t2)
 1820#  bgeu $t1, $t3, arrayIndexOutOfBounds
 1821##...sltu $at,$t1,$t3
-1825##...beq $at,$zero,12276
+1825##...beq $at,$zero,12240
 1828#  sll $t1, $t1, 2
 1832#  addu $t1, $t1, $t2
 1836#  sw $t0, ($t1)
@@ -881,7 +881,7 @@
 2208#  lw $t3, -4($t0)
 2212#  bgeu $t1, $t3, arrayIndexOutOfBounds
 2213##...sltu $at,$t1,$t3
-2217##...beq $at,$zero,12276
+2217##...beq $at,$zero,12240
 2220#  sll $t1, $t1, 2
 2224#  addu $t1, $t1, $t0
 2228#  lw $t0, ($t1)
@@ -938,7 +938,7 @@
 2432#  lw $t3, -4($t0)
 2436#  bgeu $t1, $t3, arrayIndexOutOfBounds
 2437##...sltu $at,$t1,$t3
-2441##...beq $at,$zero,12276
+2441##...beq $at,$zero,12240
 2444#  sll $t1, $t1, 2
 2448#  addu $t1, $t1, $t0
 2452#  lw $t0, ($t1)
@@ -999,7 +999,7 @@
 2672#  lw $t3, -4($t0)
 2676#  bgeu $t1, $t3, arrayIndexOutOfBounds
 2677##...sltu $at,$t1,$t3
-2681##...beq $at,$zero,12276
+2681##...beq $at,$zero,12240
 2684#  sll $t1, $t1, 2
 2688#  addu $t1, $t1, $t0
 2692#  lw $t0, ($t1)
@@ -1013,7 +1013,7 @@
 2724#  lw $t3, -4($t0)
 2728#  bgeu $t1, $t3, arrayIndexOutOfBounds
 2729##...sltu $at,$t1,$t3
-2733##...beq $at,$zero,12276
+2733##...beq $at,$zero,12240
 2736#  sll $t1, $t1, 2
 2740#  addu $t1, $t1, $t0
 2744#  lw $t0, ($t1)
@@ -1068,7 +1068,7 @@
 2940#  lw $t3, -4($t0)
 2944#  bgeu $t1, $t3, arrayIndexOutOfBounds
 2945##...sltu $at,$t1,$t3
-2949##...beq $at,$zero,12276
+2949##...beq $at,$zero,12240
 2952#  sll $t1, $t1, 2
 2956#  addu $t1, $t1, $t0
 2960#  lw $t0, ($t1)
@@ -1082,7 +1082,7 @@
 2992#  lw $t3, -4($t0)
 2996#  bgeu $t1, $t3, arrayIndexOutOfBounds
 2997##...sltu $at,$t1,$t3
-3001##...beq $at,$zero,12276
+3001##...beq $at,$zero,12240
 3004#  sll $t1, $t1, 2
 3008#  addu $t1, $t1, $t0
 3012#  lw $t0, ($t1)
@@ -1137,7 +1137,7 @@
 3208#  lw $t3, -4($t0)
 3212#  bgeu $t1, $t3, arrayIndexOutOfBounds
 3213##...sltu $at,$t1,$t3
-3217##...beq $at,$zero,12276
+3217##...beq $at,$zero,12240
 3220#  sll $t1, $t1, 2
 3224#  addu $t1, $t1, $t0
 3228#  lw $t0, ($t1)
@@ -1151,7 +1151,7 @@
 3260#  lw $t3, -4($t0)
 3264#  bgeu $t1, $t3, arrayIndexOutOfBounds
 3265##...sltu $at,$t1,$t3
-3269##...beq $at,$zero,12276
+3269##...beq $at,$zero,12240
 3272#  sll $t1, $t1, 2
 3276#  addu $t1, $t1, $t0
 3280#  lw $t0, ($t1)
@@ -1206,7 +1206,7 @@
 3476#  lw $t3, -4($t0)
 3480#  bgeu $t1, $t3, arrayIndexOutOfBounds
 3481##...sltu $at,$t1,$t3
-3485##...beq $at,$zero,12276
+3485##...beq $at,$zero,12240
 3488#  sll $t1, $t1, 2
 3492#  addu $t1, $t1, $t0
 3496#  lw $t0, ($t1)
@@ -1220,7 +1220,7 @@
 3528#  lw $t3, -4($t0)
 3532#  bgeu $t1, $t3, arrayIndexOutOfBounds
 3533##...sltu $at,$t1,$t3
-3537##...beq $at,$zero,12276
+3537##...beq $at,$zero,12240
 3540#  sll $t1, $t1, 2
 3544#  addu $t1, $t1, $t0
 3548#  lw $t0, ($t1)
@@ -1275,7 +1275,7 @@
 3744#  lw $t3, -4($t0)
 3748#  bgeu $t1, $t3, arrayIndexOutOfBounds
 3749##...sltu $at,$t1,$t3
-3753##...beq $at,$zero,12276
+3753##...beq $at,$zero,12240
 3756#  sll $t1, $t1, 2
 3760#  addu $t1, $t1, $t0
 3764#  lw $t0, ($t1)
@@ -1289,7 +1289,7 @@
 3796#  lw $t3, -4($t0)
 3800#  bgeu $t1, $t3, arrayIndexOutOfBounds
 3801##...sltu $at,$t1,$t3
-3805##...beq $at,$zero,12276
+3805##...beq $at,$zero,12240
 3808#  sll $t1, $t1, 2
 3812#  addu $t1, $t1, $t0
 3816#  lw $t0, ($t1)
@@ -1344,7 +1344,7 @@
 4012#  lw $t3, -4($t0)
 4016#  bgeu $t1, $t3, arrayIndexOutOfBounds
 4017##...sltu $at,$t1,$t3
-4021##...beq $at,$zero,12276
+4021##...beq $at,$zero,12240
 4024#  sll $t1, $t1, 2
 4028#  addu $t1, $t1, $t0
 4032#  lw $t0, ($t1)
@@ -1358,7 +1358,7 @@
 4064#  lw $t3, -4($t0)
 4068#  bgeu $t1, $t3, arrayIndexOutOfBounds
 4069##...sltu $at,$t1,$t3
-4073##...beq $at,$zero,12276
+4073##...beq $at,$zero,12240
 4076#  sll $t1, $t1, 2
 4080#  addu $t1, $t1, $t0
 4084#  lw $t0, ($t1)
@@ -1413,7 +1413,7 @@
 4280#  lw $t3, -4($t0)
 4284#  bgeu $t1, $t3, arrayIndexOutOfBounds
 4285##...sltu $at,$t1,$t3
-4289##...beq $at,$zero,12276
+4289##...beq $at,$zero,12240
 4292#  sll $t1, $t1, 2
 4296#  addu $t1, $t1, $t0
 4300#  lw $t0, ($t1)
@@ -1427,7 +1427,7 @@
 4332#  lw $t3, -4($t0)
 4336#  bgeu $t1, $t3, arrayIndexOutOfBounds
 4337##...sltu $at,$t1,$t3
-4341##...beq $at,$zero,12276
+4341##...beq $at,$zero,12240
 4344#  sll $t1, $t1, 2
 4348#  addu $t1, $t1, $t0
 4352#  lw $t0, ($t1)
@@ -1482,7 +1482,7 @@
 4548#  lw $t3, -4($t0)
 4552#  bgeu $t1, $t3, arrayIndexOutOfBounds
 4553##...sltu $at,$t1,$t3
-4557##...beq $at,$zero,12276
+4557##...beq $at,$zero,12240
 4560#  sll $t1, $t1, 2
 4564#  addu $t1, $t1, $t0
 4568#  lw $t0, ($t1)
@@ -1496,7 +1496,7 @@
 4600#  lw $t3, -4($t0)
 4604#  bgeu $t1, $t3, arrayIndexOutOfBounds
 4605##...sltu $at,$t1,$t3
-4609##...beq $at,$zero,12276
+4609##...beq $at,$zero,12240
 4612#  sll $t1, $t1, 2
 4616#  addu $t1, $t1, $t0
 4620#  lw $t0, ($t1)
@@ -1547,7 +1547,7 @@
 4800#  lw $t3, -4($t0)
 4804#  bgeu $t1, $t3, arrayIndexOutOfBounds
 4805##...sltu $at,$t1,$t3
-4809##...beq $at,$zero,12276
+4809##...beq $at,$zero,12240
 4812#  sll $t1, $t1, 2
 4816#  addu $t1, $t1, $t0
 4820#  lw $t0, ($t1)
@@ -1568,7 +1568,7 @@
 4880#  lw $t3, -4($t0)
 4884#  bgeu $t1, $t3, arrayIndexOutOfBounds
 4885##...sltu $at,$t1,$t3
-4889##...beq $at,$zero,12276
+4889##...beq $at,$zero,12240
 4892#  sll $t1, $t1, 2
 4896#  addu $t1, $t1, $t0
 4900#  lw $t0, ($t1)
@@ -1611,7 +1611,7 @@
 5044#  lw $t3, -4($t0)
 5048#  bgeu $t1, $t3, arrayIndexOutOfBounds
 5049##...sltu $at,$t1,$t3
-5053##...beq $at,$zero,12276
+5053##...beq $at,$zero,12240
 5056#  sll $t1, $t1, 2
 5060#  addu $t1, $t1, $t0
 5064#  lw $t0, ($t1)
@@ -1632,7 +1632,7 @@
 5124#  lw $t3, -4($t0)
 5128#  bgeu $t1, $t3, arrayIndexOutOfBounds
 5129##...sltu $at,$t1,$t3
-5133##...beq $at,$zero,12276
+5133##...beq $at,$zero,12240
 5136#  sll $t1, $t1, 2
 5140#  addu $t1, $t1, $t0
 5144#  lw $t0, ($t1)
@@ -1678,7 +1678,7 @@
 5300#  lw $t3, -4($t0)
 5304#  bgeu $t1, $t3, arrayIndexOutOfBounds
 5305##...sltu $at,$t1,$t3
-5309##...beq $at,$zero,12276
+5309##...beq $at,$zero,12240
 5312#  sll $t1, $t1, 2
 5316#  addu $t1, $t1, $t0
 5320#  lw $t0, ($t1)
@@ -1699,7 +1699,7 @@
 5380#  lw $t3, -4($t0)
 5384#  bgeu $t1, $t3, arrayIndexOutOfBounds
 5385##...sltu $at,$t1,$t3
-5389##...beq $at,$zero,12276
+5389##...beq $at,$zero,12240
 5392#  sll $t1, $t1, 2
 5396#  addu $t1, $t1, $t0
 5400#  lw $t0, ($t1)
@@ -1742,7 +1742,7 @@
 5544#  lw $t3, -4($t0)
 5548#  bgeu $t1, $t3, arrayIndexOutOfBounds
 5549##...sltu $at,$t1,$t3
-5553##...beq $at,$zero,12276
+5553##...beq $at,$zero,12240
 5556#  sll $t1, $t1, 2
 5560#  addu $t1, $t1, $t0
 5564#  lw $t0, ($t1)
@@ -1763,7 +1763,7 @@
 5624#  lw $t3, -4($t0)
 5628#  bgeu $t1, $t3, arrayIndexOutOfBounds
 5629##...sltu $at,$t1,$t3
-5633##...beq $at,$zero,12276
+5633##...beq $at,$zero,12240
 5636#  sll $t1, $t1, 2
 5640#  addu $t1, $t1, $t0
 5644#  lw $t0, ($t1)
@@ -1835,7 +1835,7 @@
 5904#  lw $t3, -4($t2)
 5908#  bgeu $t1, $t3, arrayIndexOutOfBounds
 5909##...sltu $at,$t1,$t3
-5913##...beq $at,$zero,12276
+5913##...beq $at,$zero,12240
 5916#  sll $t1, $t1, 2
 5920#  addu $t1, $t1, $t2
 5924#  sw $t0, ($t1)
@@ -1854,7 +1854,7 @@
 5976#  lw $t3, -4($t0)
 5980#  bgeu $t1, $t3, arrayIndexOutOfBounds
 5981##...sltu $at,$t1,$t3
-5985##...beq $at,$zero,12276
+5985##...beq $at,$zero,12240
 5988#  sll $t1, $t1, 2
 5992#  addu $t1, $t1, $t0
 5996#  lw $t0, ($t1)
@@ -1878,7 +1878,7 @@
 6068#  lw $t3, -4($t2)
 6072#  bgeu $t1, $t3, arrayIndexOutOfBounds
 6073##...sltu $at,$t1,$t3
-6077##...beq $at,$zero,12276
+6077##...beq $at,$zero,12240
 6080#  sll $t1, $t1, 2
 6084#  addu $t1, $t1, $t2
 6088#  sw $t0, ($t1)
@@ -1897,7 +1897,7 @@
 6140#  lw $t3, -4($t0)
 6144#  bgeu $t1, $t3, arrayIndexOutOfBounds
 6145##...sltu $at,$t1,$t3
-6149##...beq $at,$zero,12276
+6149##...beq $at,$zero,12240
 6152#  sll $t1, $t1, 2
 6156#  addu $t1, $t1, $t0
 6160#  lw $t0, ($t1)
@@ -1921,7 +1921,7 @@
 6232#  lw $t3, -4($t2)
 6236#  bgeu $t1, $t3, arrayIndexOutOfBounds
 6237##...sltu $at,$t1,$t3
-6241##...beq $at,$zero,12276
+6241##...beq $at,$zero,12240
 6244#  sll $t1, $t1, 2
 6248#  addu $t1, $t1, $t2
 6252#  sw $t0, ($t1)
@@ -2020,7 +2020,7 @@
 6624#  lw $t3, -4($t0)
 6628#  bgeu $t1, $t3, arrayIndexOutOfBounds
 6629##...sltu $at,$t1,$t3
-6633##...beq $at,$zero,12276
+6633##...beq $at,$zero,12240
 6636#  sll $t1, $t1, 2
 6640#  addu $t1, $t1, $t0
 6644#  lw $t0, ($t1)
@@ -2077,7 +2077,7 @@
 6848#  lw $t3, -4($t0)
 6852#  bgeu $t1, $t3, arrayIndexOutOfBounds
 6853##...sltu $at,$t1,$t3
-6857##...beq $at,$zero,12276
+6857##...beq $at,$zero,12240
 6860#  sll $t1, $t1, 2
 6864#  addu $t1, $t1, $t0
 6868#  lw $t0, ($t1)
@@ -2138,7 +2138,7 @@
 7088#  lw $t3, -4($t0)
 7092#  bgeu $t1, $t3, arrayIndexOutOfBounds
 7093##...sltu $at,$t1,$t3
-7097##...beq $at,$zero,12276
+7097##...beq $at,$zero,12240
 7100#  sll $t1, $t1, 2
 7104#  addu $t1, $t1, $t0
 7108#  lw $t0, ($t1)
@@ -2152,7 +2152,7 @@
 7140#  lw $t3, -4($t0)
 7144#  bgeu $t1, $t3, arrayIndexOutOfBounds
 7145##...sltu $at,$t1,$t3
-7149##...beq $at,$zero,12276
+7149##...beq $at,$zero,12240
 7152#  sll $t1, $t1, 2
 7156#  addu $t1, $t1, $t0
 7160#  lw $t0, ($t1)
@@ -2207,7 +2207,7 @@
 7356#  lw $t3, -4($t0)
 7360#  bgeu $t1, $t3, arrayIndexOutOfBounds
 7361##...sltu $at,$t1,$t3
-7365##...beq $at,$zero,12276
+7365##...beq $at,$zero,12240
 7368#  sll $t1, $t1, 2
 7372#  addu $t1, $t1, $t0
 7376#  lw $t0, ($t1)
@@ -2221,7 +2221,7 @@
 7408#  lw $t3, -4($t0)
 7412#  bgeu $t1, $t3, arrayIndexOutOfBounds
 7413##...sltu $at,$t1,$t3
-7417##...beq $at,$zero,12276
+7417##...beq $at,$zero,12240
 7420#  sll $t1, $t1, 2
 7424#  addu $t1, $t1, $t0
 7428#  lw $t0, ($t1)
@@ -2276,7 +2276,7 @@
 7624#  lw $t3, -4($t0)
 7628#  bgeu $t1, $t3, arrayIndexOutOfBounds
 7629##...sltu $at,$t1,$t3
-7633##...beq $at,$zero,12276
+7633##...beq $at,$zero,12240
 7636#  sll $t1, $t1, 2
 7640#  addu $t1, $t1, $t0
 7644#  lw $t0, ($t1)
@@ -2290,7 +2290,7 @@
 7676#  lw $t3, -4($t0)
 7680#  bgeu $t1, $t3, arrayIndexOutOfBounds
 7681##...sltu $at,$t1,$t3
-7685##...beq $at,$zero,12276
+7685##...beq $at,$zero,12240
 7688#  sll $t1, $t1, 2
 7692#  addu $t1, $t1, $t0
 7696#  lw $t0, ($t1)
@@ -2345,7 +2345,7 @@
 7892#  lw $t3, -4($t0)
 7896#  bgeu $t1, $t3, arrayIndexOutOfBounds
 7897##...sltu $at,$t1,$t3
-7901##...beq $at,$zero,12276
+7901##...beq $at,$zero,12240
 7904#  sll $t1, $t1, 2
 7908#  addu $t1, $t1, $t0
 7912#  lw $t0, ($t1)
@@ -2359,7 +2359,7 @@
 7944#  lw $t3, -4($t0)
 7948#  bgeu $t1, $t3, arrayIndexOutOfBounds
 7949##...sltu $at,$t1,$t3
-7953##...beq $at,$zero,12276
+7953##...beq $at,$zero,12240
 7956#  sll $t1, $t1, 2
 7960#  addu $t1, $t1, $t0
 7964#  lw $t0, ($t1)
@@ -2414,7 +2414,7 @@
 8160#  lw $t3, -4($t0)
 8164#  bgeu $t1, $t3, arrayIndexOutOfBounds
 8165##...sltu $at,$t1,$t3
-8169##...beq $at,$zero,12276
+8169##...beq $at,$zero,12240
 8172#  sll $t1, $t1, 2
 8176#  addu $t1, $t1, $t0
 8180#  lw $t0, ($t1)
@@ -2428,7 +2428,7 @@
 8212#  lw $t3, -4($t0)
 8216#  bgeu $t1, $t3, arrayIndexOutOfBounds
 8217##...sltu $at,$t1,$t3
-8221##...beq $at,$zero,12276
+8221##...beq $at,$zero,12240
 8224#  sll $t1, $t1, 2
 8228#  addu $t1, $t1, $t0
 8232#  lw $t0, ($t1)
@@ -2483,7 +2483,7 @@
 8428#  lw $t3, -4($t0)
 8432#  bgeu $t1, $t3, arrayIndexOutOfBounds
 8433##...sltu $at,$t1,$t3
-8437##...beq $at,$zero,12276
+8437##...beq $at,$zero,12240
 8440#  sll $t1, $t1, 2
 8444#  addu $t1, $t1, $t0
 8448#  lw $t0, ($t1)
@@ -2497,7 +2497,7 @@
 8480#  lw $t3, -4($t0)
 8484#  bgeu $t1, $t3, arrayIndexOutOfBounds
 8485##...sltu $at,$t1,$t3
-8489##...beq $at,$zero,12276
+8489##...beq $at,$zero,12240
 8492#  sll $t1, $t1, 2
 8496#  addu $t1, $t1, $t0
 8500#  lw $t0, ($t1)
@@ -2552,7 +2552,7 @@
 8696#  lw $t3, -4($t0)
 8700#  bgeu $t1, $t3, arrayIndexOutOfBounds
 8701##...sltu $at,$t1,$t3
-8705##...beq $at,$zero,12276
+8705##...beq $at,$zero,12240
 8708#  sll $t1, $t1, 2
 8712#  addu $t1, $t1, $t0
 8716#  lw $t0, ($t1)
@@ -2566,7 +2566,7 @@
 8748#  lw $t3, -4($t0)
 8752#  bgeu $t1, $t3, arrayIndexOutOfBounds
 8753##...sltu $at,$t1,$t3
-8757##...beq $at,$zero,12276
+8757##...beq $at,$zero,12240
 8760#  sll $t1, $t1, 2
 8764#  addu $t1, $t1, $t0
 8768#  lw $t0, ($t1)
@@ -2621,7 +2621,7 @@
 8964#  lw $t3, -4($t0)
 8968#  bgeu $t1, $t3, arrayIndexOutOfBounds
 8969##...sltu $at,$t1,$t3
-8973##...beq $at,$zero,12276
+8973##...beq $at,$zero,12240
 8976#  sll $t1, $t1, 2
 8980#  addu $t1, $t1, $t0
 8984#  lw $t0, ($t1)
@@ -2635,7 +2635,7 @@
 9016#  lw $t3, -4($t0)
 9020#  bgeu $t1, $t3, arrayIndexOutOfBounds
 9021##...sltu $at,$t1,$t3
-9025##...beq $at,$zero,12276
+9025##...beq $at,$zero,12240
 9028#  sll $t1, $t1, 2
 9032#  addu $t1, $t1, $t0
 9036#  lw $t0, ($t1)
@@ -3205,7 +3205,7 @@
 10008#    subu $t1,$v0,'0' # convert digit to 0-9 value
 10012#    bgeu $t1,$t2,badIntegerFormat # abort if not digit
 10013##...sltu $at,$t1,$t2
-10017##...beq $at,$zero,12300
+10017##...beq $at,$zero,12264
 10020#    move $t3,$t1 #
 
     #### at this point, $t3 contains value of the first digit read,
@@ -3404,13 +3404,13 @@
 10300#    lw $t2,12($sp) # n
 10304#    bgt $zero,$t2,strIndexOutOfBounds
 10305##...slt $at,$t2,$zero
-10309##...bne $at,$zero,12268
+10309##...bne $at,$zero,12232
 10312#    bgt $t2,$t1,strIndexOutOfBounds
 10313##...slt $at,$t1,$t2
-10317##...bne $at,$zero,12268
+10317##...bne $at,$zero,12232
 10320#    bgt $t1,$t0,strIndexOutOfBounds
 10321##...slt $at,$t0,$t1
-10325##...bne $at,$zero,12268
+10325##...bne $at,$zero,12232
 
     # allocate memory
 10328#    subu $s6,$t1,$t2 # # chars in target-string
@@ -3661,7 +3661,7 @@
 10736#    lw $t2,($sp) # index
 10740#    bgeu $t2,$t3,strIndexOutOfBounds
 10741##...sltu $at,$t2,$t3
-10745##...beq $at,$zero,12268
+10745##...beq $at,$zero,12232
 
     # access element
 10748#    lw $t1,-8($t0) # # data words in object
@@ -4017,7 +4017,7 @@
     # if the object-portion size is negative, abort with error
 11252#    blt $s7,$zero arraySizeOutOfBounds
 11253##...slt $at,$s7,$zero
-11257##...bne $at,$zero,12284
+11257##...bne $at,$zero,12248
 
     # mark the fact that we have not yet GC'd for this allocation
 11260#    move $t5,$zero
@@ -4141,20 +4141,20 @@
 11436#    move $t7,$s4
 11440#    la $t6,seg1_start
 11441##...lui $t6,16
-11445##...addiu $t6,$t6,13300
+11445##...addiu $t6,$t6,13256
 11448#    la $s3,seg0_start
 11452#    la $s4,seg0_end
 11453##...lui $s4,16
-11457##...addiu $s4,$s4,13300
+11457##...addiu $s4,$s4,13256
 11460#    sw $zero,cur_seg
 11464#    bne $t0,$zero,skipGc1
 11468#    la $t6,seg0_start
 11472#    la $s3,seg1_start
 11473##...lui $s3,16
-11477##...addiu $s3,$s3,13300
+11477##...addiu $s3,$s3,13256
 11480#    la $s4,seg1_end
 11481##...lui $s4,32
-11485##...addiu $s4,$s4,13300
+11485##...addiu $s4,$s4,13256
 11488#    sw $s5,cur_seg
 11492:  skipGc1:
 11492#    li $t5,0x80000000
@@ -4348,7 +4348,7 @@
 11704#    beq $t1,$zero,gcSkip4
 11708#    la $t0,seg1_start
 11709##...lui $t0,16
-11713##...addiu $t0,$t0,13300
+11713##...addiu $t0,$t0,13256
 
 
 11716:  gcSkip4:
@@ -4617,7 +4617,7 @@
 12040#    la $s3,seg0_start
 12044#    la $s4,seg0_end
 12045##...lui $s4,16
-12049##...addiu $s4,$s4,13300
+12049##...addiu $s4,$s4,13256
     
     # return
 12052#    jr $ra
@@ -4704,10 +4704,10 @@
 12128#    lw $t2,-12($t2) # vtable address
 12132#    bge $t2,$t1,castException
 12133##...slt $at,$t2,$t1
-12137##...beq $at,$zero,12308
+12137##...beq $at,$zero,12272
 12140#    blt $t2,$t0,castException
 12141##...slt $at,$t2,$t0
-12145##...bne $at,$zero,12308
+12145##...bne $at,$zero,12272
     
     # return, leaving object unchanged on stack
 12148:  checkCastReturn:    
@@ -4789,103 +4789,92 @@
 12200#    la $a0,exitString
 12204#    syscall
 
-    # print number of garbage collections
-12208#    li $v0,4 # syscall-code for print-string
-12212#    la $a0,gcCountMsg
-12216#    syscall # print "Number of ..."
-12220#    lw $a0,gcCount # number of GC's
-12224#    li $v0,1 # code for print-int
-12228#    syscall
-12232#    li $v0,4 # syscall-code for print-string
-12236#    la $a0,newlineString
-12240#    syscall # print newline
-
     # terminate execution
-12244#    li $v0,10 #syscall-code for "exit"
-12248#    syscall
+12208#    li $v0,10 #syscall-code for "exit"
+12212#    syscall
 
-12252:outOfHeapMemory:
-12252#    la $a0,heapMemoryMsg
-12256#    j exitError
-12260:divByZeroError:
-12260#    la $a0,divByZeroMsg
-12264#    j exitError
-12268:strIndexOutOfBounds:
-12268#    la $a0,strIndexOutOfBoundsMsg
-12272#    j exitError
-12276:arrayIndexOutOfBounds:
-12276#    la $a0,arrayIndexOutOfBoundsMsg
-12280#    j exitError
-12284:arraySizeOutOfBounds:
-12284#    la $a0,arraySizeOutOfBoundsMsg
-12288#    j exitError
-12292:nullPtrException:
-12292#    la $a0,nullPtrExceptionMsg
-12296#    j exitError
-12300:badIntegerFormat:
-12300#    la $a0,badIntegerFormatMsg
-12304#    j exitError
-12308:castException:
-12308#    la $a0,castExceptionMsg
-12312#    j exitError
+12216:outOfHeapMemory:
+12216#    la $a0,heapMemoryMsg
+12220#    j exitError
+12224:divByZeroError:
+12224#    la $a0,divByZeroMsg
+12228#    j exitError
+12232:strIndexOutOfBounds:
+12232#    la $a0,strIndexOutOfBoundsMsg
+12236#    j exitError
+12240:arrayIndexOutOfBounds:
+12240#    la $a0,arrayIndexOutOfBoundsMsg
+12244#    j exitError
+12248:arraySizeOutOfBounds:
+12248#    la $a0,arraySizeOutOfBoundsMsg
+12252#    j exitError
+12256:nullPtrException:
+12256#    la $a0,nullPtrExceptionMsg
+12260#    j exitError
+12264:badIntegerFormat:
+12264#    la $a0,badIntegerFormatMsg
+12268#    j exitError
+12272:castException:
+12272#    la $a0,castExceptionMsg
+12276#    j exitError
 ############## data section ################
     .data
-12928:hexChars:
+12892:hexChars:
     .ascii "0123456789abcdef"
     .align 2
-12944:cur_seg:
+12908:cur_seg:
     .word 0
 
-12948:lastCharRead:
+12912:lastCharRead:
     .word -2 # -2 => no buffered character
-12952:prevHashConstant:
+12916:prevHashConstant:
     .word 0x2785173c
-12956:gcCount:
+12920:gcCount:
     .word 0
 
-12960:heapMemoryMsg:
+12924:heapMemoryMsg:
     .asciiz "ERROR: out of heap memory\n"
-12987:divByZeroMsg:
+12951:divByZeroMsg:
     .asciiz "ERROR: divide by zero\n"
-13010:strIndexOutOfBoundsMsg:
+12974:strIndexOutOfBoundsMsg:
     .asciiz "ERROR: string index out of bounds\n"
-13045:arrayIndexOutOfBoundsMsg:
+13009:arrayIndexOutOfBoundsMsg:
     .asciiz "ERROR: array index out of bounds\n"
-13079:arraySizeOutOfBoundsMsg:
+13043:arraySizeOutOfBoundsMsg:
     .asciiz "ERROR: array size out of bounds\n"
-13112:nullPtrExceptionMsg:
+13076:nullPtrExceptionMsg:
     .asciiz "ERROR: null-pointer exception\n"
-13143:badIntegerFormatMsg:
+13107:badIntegerFormatMsg:
     .asciiz "ERROR: attempt to read badly formatted integer\n"
-13191:castExceptionMsg:
+13155:castExceptionMsg:
     .asciiz "ERROR: illegal cast\n"
-13212:gcMsg: 
+13176:gcMsg: 
       .asciiz "\nGC!\n"
-13218:gcCountMsg: 
+13182:gcCountMsg: 
       .asciiz "Number of garbage collections: "
 
-13250:nullStr:
+13214:nullStr:
     .asciiz "null"
-13255:trueString:
+13219:trueString:
     .asciiz "true"
-13260:falseString:
+13224:falseString:
     .asciiz "false"
-13266:exitString:
-    .ascii "Program execution completed."
+13230:exitString:
+    .ascii "Program terminated."
     #### "falls through" here
-13294:newlineString:
+13249:newlineString:
     .asciiz "\n"
     
     .align 2
-13296:stack_bottom:
+13252:stack_bottom:
     .word 0
 
 # heapFudge: # temporary fudge amount to exercise GC
 #     .word 0
 
-13300:seg0_start:
+13256:seg0_start:
     .space 0x100000
-1061876:seg0_end:
-1061876:seg1_start:
+1061832:seg0_end:
+1061832:seg1_start:
     .space 0x100000
-2110452:seg1_end:
+2110408:seg1_end:

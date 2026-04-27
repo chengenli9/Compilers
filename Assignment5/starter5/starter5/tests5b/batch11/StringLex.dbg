@@ -8,7 +8,7 @@
   .byte 101 # 'e' # ClassDecl at 0.0
   .byte 99 # 'c' # ClassDecl at 0.0
   .byte 116 # 't' # ClassDecl at 0.0
-19748:CLASS_Object: # ClassDecl at 0.0
+19712:CLASS_Object: # ClassDecl at 0.0
   .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
   .word mth_equals_Object # MethodDeclNonVoid at 0.0
   .word mth_toString_Object # MethodDeclNonVoid at 0.0
@@ -21,7 +21,7 @@
   .byte 105 # 'i' # ClassDecl at 0.0
   .byte 110 # 'n' # ClassDecl at 0.0
   .byte 103 # 'g' # ClassDecl at 0.0
-19768:CLASS_String: # ClassDecl at 0.0
+19732:CLASS_String: # ClassDecl at 0.0
   .word mth_hashCode_String # MethodDeclNonVoid at 0.0
   .word mth_equals_String # MethodDeclNonVoid at 0.0
   .word mth_toString_String # MethodDeclNonVoid at 0.0
@@ -30,13 +30,13 @@
   .word mth_length_String # MethodDeclNonVoid at 0.0
   .word mth_charAt_String # MethodDeclNonVoid at 0.0
   .word mth_compareTo_String # MethodDeclNonVoid at 0.0
-19800:END_CLASS_String: # ClassDecl at 0.0
+19764:END_CLASS_String: # ClassDecl at 0.0
 # ****** class Lib ****** # ClassDecl at 0.0
   .byte 0 # ClassDecl at 0.0
   .byte 204 # 'L' with high bit set # ClassDecl at 0.0
   .byte 105 # 'i' # ClassDecl at 0.0
   .byte 98 # 'b' # ClassDecl at 0.0
-19804:CLASS_Lib: # ClassDecl at 0.0
+19768:CLASS_Lib: # ClassDecl at 0.0
   .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
   .word mth_equals_Object # MethodDeclNonVoid at 0.0
   .word mth_toString_Object # MethodDeclNonVoid at 0.0
@@ -48,7 +48,7 @@
   .word mth_printInt_Lib # MethodDeclVoid at 0.0
   .word mth_intToString_Lib # MethodDeclNonVoid at 0.0
   .word mth_intToChar_Lib # MethodDeclNonVoid at 0.0
-19848:END_CLASS_Lib: # ClassDecl at 0.0
+19812:END_CLASS_Lib: # ClassDecl at 0.0
 # ****** class RunMain ****** # ClassDecl at 0.0
   .byte 0 # ClassDecl at 0.0
   .byte 210 # 'R' with high bit set # ClassDecl at 0.0
@@ -58,24 +58,24 @@
   .byte 97 # 'a' # ClassDecl at 0.0
   .byte 105 # 'i' # ClassDecl at 0.0
   .byte 110 # 'n' # ClassDecl at 0.0
-19856:CLASS_RunMain: # ClassDecl at 0.0
+19820:CLASS_RunMain: # ClassDecl at 0.0
   .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
   .word mth_equals_Object # MethodDeclNonVoid at 0.0
   .word mth_toString_Object # MethodDeclNonVoid at 0.0
-19868:END_CLASS_RunMain: # ClassDecl at 0.0
+19832:END_CLASS_RunMain: # ClassDecl at 0.0
 # ****** class Main ****** # ClassDecl at 3.7
   .byte 205 # 'M' with high bit set # ClassDecl at 3.7
   .byte 97 # 'a' # ClassDecl at 3.7
   .byte 105 # 'i' # ClassDecl at 3.7
   .byte 110 # 'n' # ClassDecl at 3.7
-19872:CLASS_Main: # ClassDecl at 3.7
+19836:CLASS_Main: # ClassDecl at 3.7
   .word mth_hashCode_Object # MethodDeclNonVoid at 0.0
   .word mth_equals_Object # MethodDeclNonVoid at 0.0
   .word mth_toString_Object # MethodDeclNonVoid at 0.0
   .word mth_main_Main # MethodDeclVoid at 4.14
-19888:END_CLASS_Main: # ClassDecl at 3.7
-19888:dataArrayVTableStart: # IntType at 0.0
-19888:END_CLASS_Object: # ClassDecl at 0.0
+19852:END_CLASS_Main: # ClassDecl at 3.7
+19852:dataArrayVTableStart: # IntType at 0.0
+19852:END_CLASS_Object: # ClassDecl at 0.0
   .byte 97 # StringLit at 6.16
   .byte 98 # StringLit at 6.16
   .byte 99 # StringLit at 6.16
@@ -107,7 +107,7 @@
   .word CLASS_String # StringLit at 6.16
   .word 8 # StringLit at 6.16
   .word -26 # StringLit at 6.16
-19928:strLit_6: # StringLit at 6.16
+19892:strLit_6: # StringLit at 6.16
   .byte 65 # StringLit at 7.16
   .byte 66 # StringLit at 7.16
   .byte 67 # StringLit at 7.16
@@ -139,7 +139,7 @@
   .word CLASS_String # StringLit at 7.16
   .word 8 # StringLit at 7.16
   .word -26 # StringLit at 7.16
-19968:strLit_10: # StringLit at 7.16
+19932:strLit_10: # StringLit at 7.16
   .byte 49 # StringLit at 8.16
   .byte 50 # StringLit at 8.16
   .byte 51 # StringLit at 8.16
@@ -155,7 +155,7 @@
   .word CLASS_String # StringLit at 8.16
   .word 4 # StringLit at 8.16
   .word -10 # StringLit at 8.16
-19992:strLit_14: # StringLit at 8.16
+19956:strLit_14: # StringLit at 8.16
   .byte 96 # StringLit at 9.16
   .byte 126 # StringLit at 9.16
   .byte 33 # StringLit at 9.16
@@ -191,7 +191,7 @@
   .word CLASS_String # StringLit at 9.16
   .word 9 # StringLit at 9.16
   .word -30 # StringLit at 9.16
-20036:strLit_18: # StringLit at 9.16
+20000:strLit_18: # StringLit at 9.16
   .byte 10 # StringLit at 10.16
   .byte 9 # StringLit at 10.16
   .byte 92 # StringLit at 10.16
@@ -203,7 +203,7 @@
   .word CLASS_String # StringLit at 10.16
   .word 3 # StringLit at 10.16
   .word -6 # StringLit at 10.16
-20056:strLit_22: # StringLit at 10.16
+20020:strLit_22: # StringLit at 10.16
   .byte 10 # StringLit at 11.35
   .byte 0 # StringLit at 11.35
   .byte 0 # StringLit at 11.35
@@ -211,7 +211,7 @@
   .word CLASS_String # StringLit at 11.35
   .word 2 # StringLit at 11.35
   .word -1 # StringLit at 11.35
-20072:strLit_30: # StringLit at 11.35
+20036:strLit_30: # StringLit at 11.35
   .byte 10 # StringLit at 12.35
   .byte 0 # StringLit at 12.35
   .byte 0 # StringLit at 12.35
@@ -219,7 +219,7 @@
   .word CLASS_String # StringLit at 12.35
   .word 2 # StringLit at 12.35
   .word -1 # StringLit at 12.35
-20088:strLit_38: # StringLit at 12.35
+20052:strLit_38: # StringLit at 12.35
   .byte 10 # StringLit at 13.35
   .byte 0 # StringLit at 13.35
   .byte 0 # StringLit at 13.35
@@ -227,7 +227,7 @@
   .word CLASS_String # StringLit at 13.35
   .word 2 # StringLit at 13.35
   .word -1 # StringLit at 13.35
-20104:strLit_46: # StringLit at 13.35
+20068:strLit_46: # StringLit at 13.35
   .byte 10 # StringLit at 14.35
   .byte 0 # StringLit at 14.35
   .byte 0 # StringLit at 14.35
@@ -235,7 +235,7 @@
   .word CLASS_String # StringLit at 14.35
   .word 2 # StringLit at 14.35
   .word -1 # StringLit at 14.35
-20120:strLit_54: # StringLit at 14.35
+20084:strLit_54: # StringLit at 14.35
   .byte 10 # StringLit at 15.35
   .byte 0 # StringLit at 15.35
   .byte 0 # StringLit at 15.35
@@ -243,7 +243,7 @@
   .word CLASS_String # StringLit at 15.35
   .word 2 # StringLit at 15.35
   .word -1 # StringLit at 15.35
-20136:strLit_62: # StringLit at 15.35
+20100:strLit_62: # StringLit at 15.35
   .byte 10 # StringLit at 16.35
   .byte 0 # StringLit at 16.35
   .byte 0 # StringLit at 16.35
@@ -251,7 +251,7 @@
   .word CLASS_String # StringLit at 16.35
   .word 2 # StringLit at 16.35
   .word -1 # StringLit at 16.35
-20152:strLit_70: # StringLit at 16.35
+20116:strLit_70: # StringLit at 16.35
   .byte 10 # StringLit at 17.35
   .byte 0 # StringLit at 17.35
   .byte 0 # StringLit at 17.35
@@ -259,7 +259,7 @@
   .word CLASS_String # StringLit at 17.35
   .word 2 # StringLit at 17.35
   .word -1 # StringLit at 17.35
-20168:strLit_78: # StringLit at 17.35
+20132:strLit_78: # StringLit at 17.35
   .byte 10 # StringLit at 18.35
   .byte 0 # StringLit at 18.35
   .byte 0 # StringLit at 18.35
@@ -267,7 +267,7 @@
   .word CLASS_String # StringLit at 18.35
   .word 2 # StringLit at 18.35
   .word -1 # StringLit at 18.35
-20184:strLit_86: # StringLit at 18.35
+20148:strLit_86: # StringLit at 18.35
   .byte 10 # StringLit at 19.35
   .byte 0 # StringLit at 19.35
   .byte 0 # StringLit at 19.35
@@ -275,7 +275,7 @@
   .word CLASS_String # StringLit at 19.35
   .word 2 # StringLit at 19.35
   .word -1 # StringLit at 19.35
-20200:strLit_94: # StringLit at 19.35
+20164:strLit_94: # StringLit at 19.35
   .byte 10 # StringLit at 20.35
   .byte 0 # StringLit at 20.35
   .byte 0 # StringLit at 20.35
@@ -283,7 +283,7 @@
   .word CLASS_String # StringLit at 20.35
   .word 2 # StringLit at 20.35
   .word -1 # StringLit at 20.35
-20216:strLit_102: # StringLit at 20.35
+20180:strLit_102: # StringLit at 20.35
   .byte 10 # StringLit at 21.35
   .byte 0 # StringLit at 21.35
   .byte 0 # StringLit at 21.35
@@ -291,7 +291,7 @@
   .word CLASS_String # StringLit at 21.35
   .word 2 # StringLit at 21.35
   .word -1 # StringLit at 21.35
-20232:strLit_110: # StringLit at 21.35
+20196:strLit_110: # StringLit at 21.35
   .byte 10 # StringLit at 22.35
   .byte 0 # StringLit at 22.35
   .byte 0 # StringLit at 22.35
@@ -299,7 +299,7 @@
   .word CLASS_String # StringLit at 22.35
   .word 2 # StringLit at 22.35
   .word -1 # StringLit at 22.35
-20248:strLit_118: # StringLit at 22.35
+20212:strLit_118: # StringLit at 22.35
   .byte 10 # StringLit at 23.35
   .byte 0 # StringLit at 23.35
   .byte 0 # StringLit at 23.35
@@ -307,7 +307,7 @@
   .word CLASS_String # StringLit at 23.35
   .word 2 # StringLit at 23.35
   .word -1 # StringLit at 23.35
-20264:strLit_126: # StringLit at 23.35
+20228:strLit_126: # StringLit at 23.35
   .byte 10 # StringLit at 24.35
   .byte 0 # StringLit at 24.35
   .byte 0 # StringLit at 24.35
@@ -315,7 +315,7 @@
   .word CLASS_String # StringLit at 24.35
   .word 2 # StringLit at 24.35
   .word -1 # StringLit at 24.35
-20280:strLit_134: # StringLit at 24.35
+20244:strLit_134: # StringLit at 24.35
   .byte 10 # StringLit at 25.35
   .byte 0 # StringLit at 25.35
   .byte 0 # StringLit at 25.35
@@ -323,7 +323,7 @@
   .word CLASS_String # StringLit at 25.35
   .word 2 # StringLit at 25.35
   .word -1 # StringLit at 25.35
-20296:strLit_142: # StringLit at 25.35
+20260:strLit_142: # StringLit at 25.35
   .byte 10 # StringLit at 26.35
   .byte 0 # StringLit at 26.35
   .byte 0 # StringLit at 26.35
@@ -331,7 +331,7 @@
   .word CLASS_String # StringLit at 26.35
   .word 2 # StringLit at 26.35
   .word -1 # StringLit at 26.35
-20312:strLit_150: # StringLit at 26.35
+20276:strLit_150: # StringLit at 26.35
   .byte 10 # StringLit at 27.35
   .byte 0 # StringLit at 27.35
   .byte 0 # StringLit at 27.35
@@ -339,7 +339,7 @@
   .word CLASS_String # StringLit at 27.35
   .word 2 # StringLit at 27.35
   .word -1 # StringLit at 27.35
-20328:strLit_158: # StringLit at 27.35
+20292:strLit_158: # StringLit at 27.35
   .byte 10 # StringLit at 28.35
   .byte 0 # StringLit at 28.35
   .byte 0 # StringLit at 28.35
@@ -347,7 +347,7 @@
   .word CLASS_String # StringLit at 28.35
   .word 2 # StringLit at 28.35
   .word -1 # StringLit at 28.35
-20344:strLit_166: # StringLit at 28.35
+20308:strLit_166: # StringLit at 28.35
   .byte 10 # StringLit at 29.35
   .byte 0 # StringLit at 29.35
   .byte 0 # StringLit at 29.35
@@ -355,7 +355,7 @@
   .word CLASS_String # StringLit at 29.35
   .word 2 # StringLit at 29.35
   .word -1 # StringLit at 29.35
-20360:strLit_174: # StringLit at 29.35
+20324:strLit_174: # StringLit at 29.35
   .byte 10 # StringLit at 30.35
   .byte 0 # StringLit at 30.35
   .byte 0 # StringLit at 30.35
@@ -363,7 +363,7 @@
   .word CLASS_String # StringLit at 30.35
   .word 2 # StringLit at 30.35
   .word -1 # StringLit at 30.35
-20376:strLit_182: # StringLit at 30.35
+20340:strLit_182: # StringLit at 30.35
   .byte 10 # StringLit at 31.35
   .byte 0 # StringLit at 31.35
   .byte 0 # StringLit at 31.35
@@ -371,7 +371,7 @@
   .word CLASS_String # StringLit at 31.35
   .word 2 # StringLit at 31.35
   .word -1 # StringLit at 31.35
-20392:strLit_190: # StringLit at 31.35
+20356:strLit_190: # StringLit at 31.35
   .byte 10 # StringLit at 32.35
   .byte 0 # StringLit at 32.35
   .byte 0 # StringLit at 32.35
@@ -379,7 +379,7 @@
   .word CLASS_String # StringLit at 32.35
   .word 2 # StringLit at 32.35
   .word -1 # StringLit at 32.35
-20408:strLit_198: # StringLit at 32.35
+20372:strLit_198: # StringLit at 32.35
   .byte 10 # StringLit at 33.35
   .byte 0 # StringLit at 33.35
   .byte 0 # StringLit at 33.35
@@ -387,7 +387,7 @@
   .word CLASS_String # StringLit at 33.35
   .word 2 # StringLit at 33.35
   .word -1 # StringLit at 33.35
-20424:strLit_206: # StringLit at 33.35
+20388:strLit_206: # StringLit at 33.35
   .byte 10 # StringLit at 34.35
   .byte 0 # StringLit at 34.35
   .byte 0 # StringLit at 34.35
@@ -395,7 +395,7 @@
   .word CLASS_String # StringLit at 34.35
   .word 2 # StringLit at 34.35
   .word -1 # StringLit at 34.35
-20440:strLit_214: # StringLit at 34.35
+20404:strLit_214: # StringLit at 34.35
   .byte 10 # StringLit at 35.35
   .byte 0 # StringLit at 35.35
   .byte 0 # StringLit at 35.35
@@ -403,7 +403,7 @@
   .word CLASS_String # StringLit at 35.35
   .word 2 # StringLit at 35.35
   .word -1 # StringLit at 35.35
-20456:strLit_222: # StringLit at 35.35
+20420:strLit_222: # StringLit at 35.35
   .byte 10 # StringLit at 36.35
   .byte 0 # StringLit at 36.35
   .byte 0 # StringLit at 36.35
@@ -411,7 +411,7 @@
   .word CLASS_String # StringLit at 36.35
   .word 2 # StringLit at 36.35
   .word -1 # StringLit at 36.35
-20472:strLit_230: # StringLit at 36.35
+20436:strLit_230: # StringLit at 36.35
   .byte 10 # StringLit at 37.35
   .byte 0 # StringLit at 37.35
   .byte 0 # StringLit at 37.35
@@ -419,7 +419,7 @@
   .word CLASS_String # StringLit at 37.35
   .word 2 # StringLit at 37.35
   .word -1 # StringLit at 37.35
-20488:strLit_238: # StringLit at 37.35
+20452:strLit_238: # StringLit at 37.35
   .byte 10 # StringLit at 38.35
   .byte 0 # StringLit at 38.35
   .byte 0 # StringLit at 38.35
@@ -427,7 +427,7 @@
   .word CLASS_String # StringLit at 38.35
   .word 2 # StringLit at 38.35
   .word -1 # StringLit at 38.35
-20504:strLit_246: # StringLit at 38.35
+20468:strLit_246: # StringLit at 38.35
   .byte 10 # StringLit at 39.35
   .byte 0 # StringLit at 39.35
   .byte 0 # StringLit at 39.35
@@ -435,7 +435,7 @@
   .word CLASS_String # StringLit at 39.35
   .word 2 # StringLit at 39.35
   .word -1 # StringLit at 39.35
-20520:strLit_254: # StringLit at 39.35
+20484:strLit_254: # StringLit at 39.35
   .byte 10 # StringLit at 40.35
   .byte 0 # StringLit at 40.35
   .byte 0 # StringLit at 40.35
@@ -443,7 +443,7 @@
   .word CLASS_String # StringLit at 40.35
   .word 2 # StringLit at 40.35
   .word -1 # StringLit at 40.35
-20536:strLit_262: # StringLit at 40.35
+20500:strLit_262: # StringLit at 40.35
   .byte 10 # StringLit at 41.35
   .byte 0 # StringLit at 41.35
   .byte 0 # StringLit at 41.35
@@ -451,7 +451,7 @@
   .word CLASS_String # StringLit at 41.35
   .word 2 # StringLit at 41.35
   .word -1 # StringLit at 41.35
-20552:strLit_270: # StringLit at 41.35
+20516:strLit_270: # StringLit at 41.35
   .byte 10 # StringLit at 42.35
   .byte 0 # StringLit at 42.35
   .byte 0 # StringLit at 42.35
@@ -459,7 +459,7 @@
   .word CLASS_String # StringLit at 42.35
   .word 2 # StringLit at 42.35
   .word -1 # StringLit at 42.35
-20568:strLit_278: # StringLit at 42.35
+20532:strLit_278: # StringLit at 42.35
   .byte 10 # StringLit at 43.35
   .byte 0 # StringLit at 43.35
   .byte 0 # StringLit at 43.35
@@ -467,7 +467,7 @@
   .word CLASS_String # StringLit at 43.35
   .word 2 # StringLit at 43.35
   .word -1 # StringLit at 43.35
-20584:strLit_286: # StringLit at 43.35
+20548:strLit_286: # StringLit at 43.35
   .byte 10 # StringLit at 44.35
   .byte 0 # StringLit at 44.35
   .byte 0 # StringLit at 44.35
@@ -475,7 +475,7 @@
   .word CLASS_String # StringLit at 44.35
   .word 2 # StringLit at 44.35
   .word -1 # StringLit at 44.35
-20600:strLit_294: # StringLit at 44.35
+20564:strLit_294: # StringLit at 44.35
   .byte 10 # StringLit at 45.35
   .byte 0 # StringLit at 45.35
   .byte 0 # StringLit at 45.35
@@ -483,7 +483,7 @@
   .word CLASS_String # StringLit at 45.35
   .word 2 # StringLit at 45.35
   .word -1 # StringLit at 45.35
-20616:strLit_302: # StringLit at 45.35
+20580:strLit_302: # StringLit at 45.35
   .byte 10 # StringLit at 46.35
   .byte 0 # StringLit at 46.35
   .byte 0 # StringLit at 46.35
@@ -491,7 +491,7 @@
   .word CLASS_String # StringLit at 46.35
   .word 2 # StringLit at 46.35
   .word -1 # StringLit at 46.35
-20632:strLit_310: # StringLit at 46.35
+20596:strLit_310: # StringLit at 46.35
   .byte 10 # StringLit at 47.35
   .byte 0 # StringLit at 47.35
   .byte 0 # StringLit at 47.35
@@ -499,7 +499,7 @@
   .word CLASS_String # StringLit at 47.35
   .word 2 # StringLit at 47.35
   .word -1 # StringLit at 47.35
-20648:strLit_318: # StringLit at 47.35
+20612:strLit_318: # StringLit at 47.35
   .byte 10 # StringLit at 48.35
   .byte 0 # StringLit at 48.35
   .byte 0 # StringLit at 48.35
@@ -507,7 +507,7 @@
   .word CLASS_String # StringLit at 48.35
   .word 2 # StringLit at 48.35
   .word -1 # StringLit at 48.35
-20664:strLit_326: # StringLit at 48.35
+20628:strLit_326: # StringLit at 48.35
   .byte 10 # StringLit at 49.35
   .byte 0 # StringLit at 49.35
   .byte 0 # StringLit at 49.35
@@ -515,7 +515,7 @@
   .word CLASS_String # StringLit at 49.35
   .word 2 # StringLit at 49.35
   .word -1 # StringLit at 49.35
-20680:strLit_334: # StringLit at 49.35
+20644:strLit_334: # StringLit at 49.35
   .byte 10 # StringLit at 50.35
   .byte 0 # StringLit at 50.35
   .byte 0 # StringLit at 50.35
@@ -523,7 +523,7 @@
   .word CLASS_String # StringLit at 50.35
   .word 2 # StringLit at 50.35
   .word -1 # StringLit at 50.35
-20696:strLit_342: # StringLit at 50.35
+20660:strLit_342: # StringLit at 50.35
   .byte 10 # StringLit at 51.35
   .byte 0 # StringLit at 51.35
   .byte 0 # StringLit at 51.35
@@ -531,7 +531,7 @@
   .word CLASS_String # StringLit at 51.35
   .word 2 # StringLit at 51.35
   .word -1 # StringLit at 51.35
-20712:strLit_350: # StringLit at 51.35
+20676:strLit_350: # StringLit at 51.35
   .byte 10 # StringLit at 52.35
   .byte 0 # StringLit at 52.35
   .byte 0 # StringLit at 52.35
@@ -539,7 +539,7 @@
   .word CLASS_String # StringLit at 52.35
   .word 2 # StringLit at 52.35
   .word -1 # StringLit at 52.35
-20728:strLit_358: # StringLit at 52.35
+20692:strLit_358: # StringLit at 52.35
   .byte 10 # StringLit at 53.35
   .byte 0 # StringLit at 53.35
   .byte 0 # StringLit at 53.35
@@ -547,7 +547,7 @@
   .word CLASS_String # StringLit at 53.35
   .word 2 # StringLit at 53.35
   .word -1 # StringLit at 53.35
-20744:strLit_366: # StringLit at 53.35
+20708:strLit_366: # StringLit at 53.35
   .byte 10 # StringLit at 54.35
   .byte 0 # StringLit at 54.35
   .byte 0 # StringLit at 54.35
@@ -555,7 +555,7 @@
   .word CLASS_String # StringLit at 54.35
   .word 2 # StringLit at 54.35
   .word -1 # StringLit at 54.35
-20760:strLit_374: # StringLit at 54.35
+20724:strLit_374: # StringLit at 54.35
   .byte 10 # StringLit at 55.35
   .byte 0 # StringLit at 55.35
   .byte 0 # StringLit at 55.35
@@ -563,7 +563,7 @@
   .word CLASS_String # StringLit at 55.35
   .word 2 # StringLit at 55.35
   .word -1 # StringLit at 55.35
-20776:strLit_382: # StringLit at 55.35
+20740:strLit_382: # StringLit at 55.35
   .byte 10 # StringLit at 56.35
   .byte 0 # StringLit at 56.35
   .byte 0 # StringLit at 56.35
@@ -571,7 +571,7 @@
   .word CLASS_String # StringLit at 56.35
   .word 2 # StringLit at 56.35
   .word -1 # StringLit at 56.35
-20792:strLit_390: # StringLit at 56.35
+20756:strLit_390: # StringLit at 56.35
   .byte 10 # StringLit at 57.35
   .byte 0 # StringLit at 57.35
   .byte 0 # StringLit at 57.35
@@ -579,7 +579,7 @@
   .word CLASS_String # StringLit at 57.35
   .word 2 # StringLit at 57.35
   .word -1 # StringLit at 57.35
-20808:strLit_398: # StringLit at 57.35
+20772:strLit_398: # StringLit at 57.35
   .byte 10 # StringLit at 58.35
   .byte 0 # StringLit at 58.35
   .byte 0 # StringLit at 58.35
@@ -587,7 +587,7 @@
   .word CLASS_String # StringLit at 58.35
   .word 2 # StringLit at 58.35
   .word -1 # StringLit at 58.35
-20824:strLit_406: # StringLit at 58.35
+20788:strLit_406: # StringLit at 58.35
   .byte 10 # StringLit at 59.35
   .byte 0 # StringLit at 59.35
   .byte 0 # StringLit at 59.35
@@ -595,7 +595,7 @@
   .word CLASS_String # StringLit at 59.35
   .word 2 # StringLit at 59.35
   .word -1 # StringLit at 59.35
-20840:strLit_414: # StringLit at 59.35
+20804:strLit_414: # StringLit at 59.35
   .byte 10 # StringLit at 60.35
   .byte 0 # StringLit at 60.35
   .byte 0 # StringLit at 60.35
@@ -603,7 +603,7 @@
   .word CLASS_String # StringLit at 60.35
   .word 2 # StringLit at 60.35
   .word -1 # StringLit at 60.35
-20856:strLit_422: # StringLit at 60.35
+20820:strLit_422: # StringLit at 60.35
   .byte 10 # StringLit at 61.35
   .byte 0 # StringLit at 61.35
   .byte 0 # StringLit at 61.35
@@ -611,7 +611,7 @@
   .word CLASS_String # StringLit at 61.35
   .word 2 # StringLit at 61.35
   .word -1 # StringLit at 61.35
-20872:strLit_430: # StringLit at 61.35
+20836:strLit_430: # StringLit at 61.35
   .byte 10 # StringLit at 62.35
   .byte 0 # StringLit at 62.35
   .byte 0 # StringLit at 62.35
@@ -619,7 +619,7 @@
   .word CLASS_String # StringLit at 62.35
   .word 2 # StringLit at 62.35
   .word -1 # StringLit at 62.35
-20888:strLit_438: # StringLit at 62.35
+20852:strLit_438: # StringLit at 62.35
   .byte 10 # StringLit at 63.35
   .byte 0 # StringLit at 63.35
   .byte 0 # StringLit at 63.35
@@ -627,7 +627,7 @@
   .word CLASS_String # StringLit at 63.35
   .word 2 # StringLit at 63.35
   .word -1 # StringLit at 63.35
-20904:strLit_446: # StringLit at 63.35
+20868:strLit_446: # StringLit at 63.35
   .byte 10 # StringLit at 64.35
   .byte 0 # StringLit at 64.35
   .byte 0 # StringLit at 64.35
@@ -635,7 +635,7 @@
   .word CLASS_String # StringLit at 64.35
   .word 2 # StringLit at 64.35
   .word -1 # StringLit at 64.35
-20920:strLit_454: # StringLit at 64.35
+20884:strLit_454: # StringLit at 64.35
   .byte 10 # StringLit at 65.35
   .byte 0 # StringLit at 65.35
   .byte 0 # StringLit at 65.35
@@ -643,7 +643,7 @@
   .word CLASS_String # StringLit at 65.35
   .word 2 # StringLit at 65.35
   .word -1 # StringLit at 65.35
-20936:strLit_462: # StringLit at 65.35
+20900:strLit_462: # StringLit at 65.35
   .byte 10 # StringLit at 66.35
   .byte 0 # StringLit at 66.35
   .byte 0 # StringLit at 66.35
@@ -651,7 +651,7 @@
   .word CLASS_String # StringLit at 66.35
   .word 2 # StringLit at 66.35
   .word -1 # StringLit at 66.35
-20952:strLit_470: # StringLit at 66.35
+20916:strLit_470: # StringLit at 66.35
   .byte 10 # StringLit at 67.35
   .byte 0 # StringLit at 67.35
   .byte 0 # StringLit at 67.35
@@ -659,7 +659,7 @@
   .word CLASS_String # StringLit at 67.35
   .word 2 # StringLit at 67.35
   .word -1 # StringLit at 67.35
-20968:strLit_478: # StringLit at 67.35
+20932:strLit_478: # StringLit at 67.35
   .byte 10 # StringLit at 68.35
   .byte 0 # StringLit at 68.35
   .byte 0 # StringLit at 68.35
@@ -667,7 +667,7 @@
   .word CLASS_String # StringLit at 68.35
   .word 2 # StringLit at 68.35
   .word -1 # StringLit at 68.35
-20984:strLit_486: # StringLit at 68.35
+20948:strLit_486: # StringLit at 68.35
   .byte 10 # StringLit at 69.35
   .byte 0 # StringLit at 69.35
   .byte 0 # StringLit at 69.35
@@ -675,7 +675,7 @@
   .word CLASS_String # StringLit at 69.35
   .word 2 # StringLit at 69.35
   .word -1 # StringLit at 69.35
-21000:strLit_494: # StringLit at 69.35
+20964:strLit_494: # StringLit at 69.35
   .byte 10 # StringLit at 70.35
   .byte 0 # StringLit at 70.35
   .byte 0 # StringLit at 70.35
@@ -683,7 +683,7 @@
   .word CLASS_String # StringLit at 70.35
   .word 2 # StringLit at 70.35
   .word -1 # StringLit at 70.35
-21016:strLit_502: # StringLit at 70.35
+20980:strLit_502: # StringLit at 70.35
   .byte 10 # StringLit at 71.35
   .byte 0 # StringLit at 71.35
   .byte 0 # StringLit at 71.35
@@ -691,7 +691,7 @@
   .word CLASS_String # StringLit at 71.35
   .word 2 # StringLit at 71.35
   .word -1 # StringLit at 71.35
-21032:strLit_510: # StringLit at 71.35
+20996:strLit_510: # StringLit at 71.35
   .byte 10 # StringLit at 72.35
   .byte 0 # StringLit at 72.35
   .byte 0 # StringLit at 72.35
@@ -699,7 +699,7 @@
   .word CLASS_String # StringLit at 72.35
   .word 2 # StringLit at 72.35
   .word -1 # StringLit at 72.35
-21048:strLit_518: # StringLit at 72.35
+21012:strLit_518: # StringLit at 72.35
   .byte 10 # StringLit at 73.35
   .byte 0 # StringLit at 73.35
   .byte 0 # StringLit at 73.35
@@ -707,7 +707,7 @@
   .word CLASS_String # StringLit at 73.35
   .word 2 # StringLit at 73.35
   .word -1 # StringLit at 73.35
-21064:strLit_526: # StringLit at 73.35
+21028:strLit_526: # StringLit at 73.35
   .byte 10 # StringLit at 74.35
   .byte 0 # StringLit at 74.35
   .byte 0 # StringLit at 74.35
@@ -715,7 +715,7 @@
   .word CLASS_String # StringLit at 74.35
   .word 2 # StringLit at 74.35
   .word -1 # StringLit at 74.35
-21080:strLit_534: # StringLit at 74.35
+21044:strLit_534: # StringLit at 74.35
   .byte 10 # StringLit at 75.35
   .byte 0 # StringLit at 75.35
   .byte 0 # StringLit at 75.35
@@ -723,7 +723,7 @@
   .word CLASS_String # StringLit at 75.35
   .word 2 # StringLit at 75.35
   .word -1 # StringLit at 75.35
-21096:strLit_542: # StringLit at 75.35
+21060:strLit_542: # StringLit at 75.35
   .byte 10 # StringLit at 76.35
   .byte 0 # StringLit at 76.35
   .byte 0 # StringLit at 76.35
@@ -731,7 +731,7 @@
   .word CLASS_String # StringLit at 76.35
   .word 2 # StringLit at 76.35
   .word -1 # StringLit at 76.35
-21112:strLit_550: # StringLit at 76.35
+21076:strLit_550: # StringLit at 76.35
   .byte 10 # StringLit at 77.35
   .byte 0 # StringLit at 77.35
   .byte 0 # StringLit at 77.35
@@ -739,7 +739,7 @@
   .word CLASS_String # StringLit at 77.35
   .word 2 # StringLit at 77.35
   .word -1 # StringLit at 77.35
-21128:strLit_558: # StringLit at 77.35
+21092:strLit_558: # StringLit at 77.35
   .byte 10 # StringLit at 78.35
   .byte 0 # StringLit at 78.35
   .byte 0 # StringLit at 78.35
@@ -747,7 +747,7 @@
   .word CLASS_String # StringLit at 78.35
   .word 2 # StringLit at 78.35
   .word -1 # StringLit at 78.35
-21144:strLit_566: # StringLit at 78.35
+21108:strLit_566: # StringLit at 78.35
   .byte 10 # StringLit at 79.35
   .byte 0 # StringLit at 79.35
   .byte 0 # StringLit at 79.35
@@ -755,7 +755,7 @@
   .word CLASS_String # StringLit at 79.35
   .word 2 # StringLit at 79.35
   .word -1 # StringLit at 79.35
-21160:strLit_574: # StringLit at 79.35
+21124:strLit_574: # StringLit at 79.35
   .byte 10 # StringLit at 80.35
   .byte 0 # StringLit at 80.35
   .byte 0 # StringLit at 80.35
@@ -763,7 +763,7 @@
   .word CLASS_String # StringLit at 80.35
   .word 2 # StringLit at 80.35
   .word -1 # StringLit at 80.35
-21176:strLit_582: # StringLit at 80.35
+21140:strLit_582: # StringLit at 80.35
   .byte 10 # StringLit at 81.35
   .byte 0 # StringLit at 81.35
   .byte 0 # StringLit at 81.35
@@ -771,7 +771,7 @@
   .word CLASS_String # StringLit at 81.35
   .word 2 # StringLit at 81.35
   .word -1 # StringLit at 81.35
-21192:strLit_590: # StringLit at 81.35
+21156:strLit_590: # StringLit at 81.35
   .byte 10 # StringLit at 82.35
   .byte 0 # StringLit at 82.35
   .byte 0 # StringLit at 82.35
@@ -779,7 +779,7 @@
   .word CLASS_String # StringLit at 82.35
   .word 2 # StringLit at 82.35
   .word -1 # StringLit at 82.35
-21208:strLit_598: # StringLit at 82.35
+21172:strLit_598: # StringLit at 82.35
   .byte 10 # StringLit at 83.35
   .byte 0 # StringLit at 83.35
   .byte 0 # StringLit at 83.35
@@ -787,7 +787,7 @@
   .word CLASS_String # StringLit at 83.35
   .word 2 # StringLit at 83.35
   .word -1 # StringLit at 83.35
-21224:strLit_606: # StringLit at 83.35
+21188:strLit_606: # StringLit at 83.35
   .byte 10 # StringLit at 84.35
   .byte 0 # StringLit at 84.35
   .byte 0 # StringLit at 84.35
@@ -795,7 +795,7 @@
   .word CLASS_String # StringLit at 84.35
   .word 2 # StringLit at 84.35
   .word -1 # StringLit at 84.35
-21240:strLit_614: # StringLit at 84.35
+21204:strLit_614: # StringLit at 84.35
   .byte 10 # StringLit at 85.35
   .byte 0 # StringLit at 85.35
   .byte 0 # StringLit at 85.35
@@ -803,7 +803,7 @@
   .word CLASS_String # StringLit at 85.35
   .word 2 # StringLit at 85.35
   .word -1 # StringLit at 85.35
-21256:strLit_622: # StringLit at 85.35
+21220:strLit_622: # StringLit at 85.35
   .byte 10 # StringLit at 86.35
   .byte 0 # StringLit at 86.35
   .byte 0 # StringLit at 86.35
@@ -811,7 +811,7 @@
   .word CLASS_String # StringLit at 86.35
   .word 2 # StringLit at 86.35
   .word -1 # StringLit at 86.35
-21272:strLit_630: # StringLit at 86.35
+21236:strLit_630: # StringLit at 86.35
   .byte 10 # StringLit at 87.35
   .byte 0 # StringLit at 87.35
   .byte 0 # StringLit at 87.35
@@ -819,7 +819,7 @@
   .word CLASS_String # StringLit at 87.35
   .word 2 # StringLit at 87.35
   .word -1 # StringLit at 87.35
-21288:strLit_638: # StringLit at 87.35
+21252:strLit_638: # StringLit at 87.35
   .byte 10 # StringLit at 88.35
   .byte 0 # StringLit at 88.35
   .byte 0 # StringLit at 88.35
@@ -827,7 +827,7 @@
   .word CLASS_String # StringLit at 88.35
   .word 2 # StringLit at 88.35
   .word -1 # StringLit at 88.35
-21304:strLit_646: # StringLit at 88.35
+21268:strLit_646: # StringLit at 88.35
   .byte 10 # StringLit at 89.35
   .byte 0 # StringLit at 89.35
   .byte 0 # StringLit at 89.35
@@ -835,7 +835,7 @@
   .word CLASS_String # StringLit at 89.35
   .word 2 # StringLit at 89.35
   .word -1 # StringLit at 89.35
-21320:strLit_654: # StringLit at 89.35
+21284:strLit_654: # StringLit at 89.35
   .byte 10 # StringLit at 90.35
   .byte 0 # StringLit at 90.35
   .byte 0 # StringLit at 90.35
@@ -843,7 +843,7 @@
   .word CLASS_String # StringLit at 90.35
   .word 2 # StringLit at 90.35
   .word -1 # StringLit at 90.35
-21336:strLit_662: # StringLit at 90.35
+21300:strLit_662: # StringLit at 90.35
   .byte 10 # StringLit at 91.35
   .byte 0 # StringLit at 91.35
   .byte 0 # StringLit at 91.35
@@ -851,7 +851,7 @@
   .word CLASS_String # StringLit at 91.35
   .word 2 # StringLit at 91.35
   .word -1 # StringLit at 91.35
-21352:strLit_670: # StringLit at 91.35
+21316:strLit_670: # StringLit at 91.35
   .byte 10 # StringLit at 92.35
   .byte 0 # StringLit at 92.35
   .byte 0 # StringLit at 92.35
@@ -859,7 +859,7 @@
   .word CLASS_String # StringLit at 92.35
   .word 2 # StringLit at 92.35
   .word -1 # StringLit at 92.35
-21368:strLit_678: # StringLit at 92.35
+21332:strLit_678: # StringLit at 92.35
   .byte 10 # StringLit at 93.35
   .byte 0 # StringLit at 93.35
   .byte 0 # StringLit at 93.35
@@ -867,7 +867,7 @@
   .word CLASS_String # StringLit at 93.35
   .word 2 # StringLit at 93.35
   .word -1 # StringLit at 93.35
-21384:strLit_686: # StringLit at 93.35
+21348:strLit_686: # StringLit at 93.35
   .byte 10 # StringLit at 94.35
   .byte 0 # StringLit at 94.35
   .byte 0 # StringLit at 94.35
@@ -875,7 +875,7 @@
   .word CLASS_String # StringLit at 94.35
   .word 2 # StringLit at 94.35
   .word -1 # StringLit at 94.35
-21400:strLit_694: # StringLit at 94.35
+21364:strLit_694: # StringLit at 94.35
   .byte 10 # StringLit at 95.35
   .byte 0 # StringLit at 95.35
   .byte 0 # StringLit at 95.35
@@ -883,7 +883,7 @@
   .word CLASS_String # StringLit at 95.35
   .word 2 # StringLit at 95.35
   .word -1 # StringLit at 95.35
-21416:strLit_702: # StringLit at 95.35
+21380:strLit_702: # StringLit at 95.35
   .byte 10 # StringLit at 96.35
   .byte 0 # StringLit at 96.35
   .byte 0 # StringLit at 96.35
@@ -891,7 +891,7 @@
   .word CLASS_String # StringLit at 96.35
   .word 2 # StringLit at 96.35
   .word -1 # StringLit at 96.35
-21432:strLit_710: # StringLit at 96.35
+21396:strLit_710: # StringLit at 96.35
   .byte 10 # StringLit at 97.35
   .byte 0 # StringLit at 97.35
   .byte 0 # StringLit at 97.35
@@ -899,7 +899,7 @@
   .word CLASS_String # StringLit at 97.35
   .word 2 # StringLit at 97.35
   .word -1 # StringLit at 97.35
-21448:strLit_718: # StringLit at 97.35
+21412:strLit_718: # StringLit at 97.35
   .byte 10 # StringLit at 98.35
   .byte 0 # StringLit at 98.35
   .byte 0 # StringLit at 98.35
@@ -907,7 +907,7 @@
   .word CLASS_String # StringLit at 98.35
   .word 2 # StringLit at 98.35
   .word -1 # StringLit at 98.35
-21464:strLit_726: # StringLit at 98.35
+21428:strLit_726: # StringLit at 98.35
   .byte 10 # StringLit at 99.35
   .byte 0 # StringLit at 99.35
   .byte 0 # StringLit at 99.35
@@ -915,7 +915,7 @@
   .word CLASS_String # StringLit at 99.35
   .word 2 # StringLit at 99.35
   .word -1 # StringLit at 99.35
-21480:strLit_734: # StringLit at 99.35
+21444:strLit_734: # StringLit at 99.35
   .byte 10 # StringLit at 100.35
   .byte 0 # StringLit at 100.35
   .byte 0 # StringLit at 100.35
@@ -923,7 +923,7 @@
   .word CLASS_String # StringLit at 100.35
   .word 2 # StringLit at 100.35
   .word -1 # StringLit at 100.35
-21496:strLit_742: # StringLit at 100.35
+21460:strLit_742: # StringLit at 100.35
   .byte 10 # StringLit at 101.35
   .byte 0 # StringLit at 101.35
   .byte 0 # StringLit at 101.35
@@ -931,7 +931,7 @@
   .word CLASS_String # StringLit at 101.35
   .word 2 # StringLit at 101.35
   .word -1 # StringLit at 101.35
-21512:strLit_750: # StringLit at 101.35
+21476:strLit_750: # StringLit at 101.35
   .byte 10 # StringLit at 102.35
   .byte 0 # StringLit at 102.35
   .byte 0 # StringLit at 102.35
@@ -939,7 +939,7 @@
   .word CLASS_String # StringLit at 102.35
   .word 2 # StringLit at 102.35
   .word -1 # StringLit at 102.35
-21528:strLit_758: # StringLit at 102.35
+21492:strLit_758: # StringLit at 102.35
   .byte 10 # StringLit at 103.36
   .byte 0 # StringLit at 103.36
   .byte 0 # StringLit at 103.36
@@ -947,7 +947,7 @@
   .word CLASS_String # StringLit at 103.36
   .word 2 # StringLit at 103.36
   .word -1 # StringLit at 103.36
-21544:strLit_766: # StringLit at 103.36
+21508:strLit_766: # StringLit at 103.36
   .byte 10 # StringLit at 104.36
   .byte 0 # StringLit at 104.36
   .byte 0 # StringLit at 104.36
@@ -955,7 +955,7 @@
   .word CLASS_String # StringLit at 104.36
   .word 2 # StringLit at 104.36
   .word -1 # StringLit at 104.36
-21560:strLit_774: # StringLit at 104.36
+21524:strLit_774: # StringLit at 104.36
   .byte 10 # StringLit at 105.36
   .byte 0 # StringLit at 105.36
   .byte 0 # StringLit at 105.36
@@ -963,7 +963,7 @@
   .word CLASS_String # StringLit at 105.36
   .word 2 # StringLit at 105.36
   .word -1 # StringLit at 105.36
-21576:strLit_782: # StringLit at 105.36
+21540:strLit_782: # StringLit at 105.36
   .byte 10 # StringLit at 106.36
   .byte 0 # StringLit at 106.36
   .byte 0 # StringLit at 106.36
@@ -971,7 +971,7 @@
   .word CLASS_String # StringLit at 106.36
   .word 2 # StringLit at 106.36
   .word -1 # StringLit at 106.36
-21592:strLit_790: # StringLit at 106.36
+21556:strLit_790: # StringLit at 106.36
   .byte 10 # StringLit at 107.36
   .byte 0 # StringLit at 107.36
   .byte 0 # StringLit at 107.36
@@ -979,7 +979,7 @@
   .word CLASS_String # StringLit at 107.36
   .word 2 # StringLit at 107.36
   .word -1 # StringLit at 107.36
-21608:strLit_798: # StringLit at 107.36
+21572:strLit_798: # StringLit at 107.36
   .byte 10 # StringLit at 108.35
   .byte 0 # StringLit at 108.35
   .byte 0 # StringLit at 108.35
@@ -987,7 +987,7 @@
   .word CLASS_String # StringLit at 108.35
   .word 2 # StringLit at 108.35
   .word -1 # StringLit at 108.35
-21624:strLit_806: # StringLit at 108.35
+21588:strLit_806: # StringLit at 108.35
 .text
 .globl main
 0:main:
@@ -5675,7 +5675,7 @@
 17432#    subu $t1,$v0,'0' # convert digit to 0-9 value
 17436#    bgeu $t1,$t2,badIntegerFormat # abort if not digit
 17437##...sltu $at,$t1,$t2
-17441##...beq $at,$zero,19724
+17441##...beq $at,$zero,19688
 17444#    move $t3,$t1 #
 
     #### at this point, $t3 contains value of the first digit read,
@@ -5874,13 +5874,13 @@
 17724#    lw $t2,12($sp) # n
 17728#    bgt $zero,$t2,strIndexOutOfBounds
 17729##...slt $at,$t2,$zero
-17733##...bne $at,$zero,19692
+17733##...bne $at,$zero,19656
 17736#    bgt $t2,$t1,strIndexOutOfBounds
 17737##...slt $at,$t1,$t2
-17741##...bne $at,$zero,19692
+17741##...bne $at,$zero,19656
 17744#    bgt $t1,$t0,strIndexOutOfBounds
 17745##...slt $at,$t0,$t1
-17749##...bne $at,$zero,19692
+17749##...bne $at,$zero,19656
 
     # allocate memory
 17752#    subu $s6,$t1,$t2 # # chars in target-string
@@ -6131,7 +6131,7 @@
 18160#    lw $t2,($sp) # index
 18164#    bgeu $t2,$t3,strIndexOutOfBounds
 18165##...sltu $at,$t2,$t3
-18169##...beq $at,$zero,19692
+18169##...beq $at,$zero,19656
 
     # access element
 18172#    lw $t1,-8($t0) # # data words in object
@@ -6487,7 +6487,7 @@
     # if the object-portion size is negative, abort with error
 18676#    blt $s7,$zero arraySizeOutOfBounds
 18677##...slt $at,$s7,$zero
-18681##...bne $at,$zero,19708
+18681##...bne $at,$zero,19672
 
     # mark the fact that we have not yet GC'd for this allocation
 18684#    move $t5,$zero
@@ -6611,20 +6611,20 @@
 18860#    move $t7,$s4
 18864#    la $t6,seg1_start
 18865##...lui $t6,16
-18869##...addiu $t6,$t6,21996
+18869##...addiu $t6,$t6,21952
 18872#    la $s3,seg0_start
 18876#    la $s4,seg0_end
 18877##...lui $s4,16
-18881##...addiu $s4,$s4,21996
+18881##...addiu $s4,$s4,21952
 18884#    sw $zero,cur_seg
 18888#    bne $t0,$zero,skipGc1
 18892#    la $t6,seg0_start
 18896#    la $s3,seg1_start
 18897##...lui $s3,16
-18901##...addiu $s3,$s3,21996
+18901##...addiu $s3,$s3,21952
 18904#    la $s4,seg1_end
 18905##...lui $s4,32
-18909##...addiu $s4,$s4,21996
+18909##...addiu $s4,$s4,21952
 18912#    sw $s5,cur_seg
 18916:  skipGc1:
 18916#    li $t5,0x80000000
@@ -6818,7 +6818,7 @@
 19128#    beq $t1,$zero,gcSkip4
 19132#    la $t0,seg1_start
 19133##...lui $t0,16
-19137##...addiu $t0,$t0,21996
+19137##...addiu $t0,$t0,21952
 
 
 19140:  gcSkip4:
@@ -7087,7 +7087,7 @@
 19464#    la $s3,seg0_start
 19468#    la $s4,seg0_end
 19469##...lui $s4,16
-19473##...addiu $s4,$s4,21996
+19473##...addiu $s4,$s4,21952
     
     # return
 19476#    jr $ra
@@ -7174,10 +7174,10 @@
 19552#    lw $t2,-12($t2) # vtable address
 19556#    bge $t2,$t1,castException
 19557##...slt $at,$t2,$t1
-19561##...beq $at,$zero,19732
+19561##...beq $at,$zero,19696
 19564#    blt $t2,$t0,castException
 19565##...slt $at,$t2,$t0
-19569##...bne $at,$zero,19732
+19569##...bne $at,$zero,19696
     
     # return, leaving object unchanged on stack
 19572:  checkCastReturn:    
@@ -7259,103 +7259,92 @@
 19624#    la $a0,exitString
 19628#    syscall
 
-    # print number of garbage collections
-19632#    li $v0,4 # syscall-code for print-string
-19636#    la $a0,gcCountMsg
-19640#    syscall # print "Number of ..."
-19644#    lw $a0,gcCount # number of GC's
-19648#    li $v0,1 # code for print-int
-19652#    syscall
-19656#    li $v0,4 # syscall-code for print-string
-19660#    la $a0,newlineString
-19664#    syscall # print newline
-
     # terminate execution
-19668#    li $v0,10 #syscall-code for "exit"
-19672#    syscall
+19632#    li $v0,10 #syscall-code for "exit"
+19636#    syscall
 
-19676:outOfHeapMemory:
-19676#    la $a0,heapMemoryMsg
-19680#    j exitError
-19684:divByZeroError:
-19684#    la $a0,divByZeroMsg
-19688#    j exitError
-19692:strIndexOutOfBounds:
-19692#    la $a0,strIndexOutOfBoundsMsg
-19696#    j exitError
-19700:arrayIndexOutOfBounds:
-19700#    la $a0,arrayIndexOutOfBoundsMsg
-19704#    j exitError
-19708:arraySizeOutOfBounds:
-19708#    la $a0,arraySizeOutOfBoundsMsg
-19712#    j exitError
-19716:nullPtrException:
-19716#    la $a0,nullPtrExceptionMsg
-19720#    j exitError
-19724:badIntegerFormat:
-19724#    la $a0,badIntegerFormatMsg
-19728#    j exitError
-19732:castException:
-19732#    la $a0,castExceptionMsg
-19736#    j exitError
+19640:outOfHeapMemory:
+19640#    la $a0,heapMemoryMsg
+19644#    j exitError
+19648:divByZeroError:
+19648#    la $a0,divByZeroMsg
+19652#    j exitError
+19656:strIndexOutOfBounds:
+19656#    la $a0,strIndexOutOfBoundsMsg
+19660#    j exitError
+19664:arrayIndexOutOfBounds:
+19664#    la $a0,arrayIndexOutOfBoundsMsg
+19668#    j exitError
+19672:arraySizeOutOfBounds:
+19672#    la $a0,arraySizeOutOfBoundsMsg
+19676#    j exitError
+19680:nullPtrException:
+19680#    la $a0,nullPtrExceptionMsg
+19684#    j exitError
+19688:badIntegerFormat:
+19688#    la $a0,badIntegerFormatMsg
+19692#    j exitError
+19696:castException:
+19696#    la $a0,castExceptionMsg
+19700#    j exitError
 ############## data section ################
     .data
-21624:hexChars:
+21588:hexChars:
     .ascii "0123456789abcdef"
     .align 2
-21640:cur_seg:
+21604:cur_seg:
     .word 0
 
-21644:lastCharRead:
+21608:lastCharRead:
     .word -2 # -2 => no buffered character
-21648:prevHashConstant:
+21612:prevHashConstant:
     .word 0x2785173c
-21652:gcCount:
+21616:gcCount:
     .word 0
 
-21656:heapMemoryMsg:
+21620:heapMemoryMsg:
     .asciiz "ERROR: out of heap memory\n"
-21683:divByZeroMsg:
+21647:divByZeroMsg:
     .asciiz "ERROR: divide by zero\n"
-21706:strIndexOutOfBoundsMsg:
+21670:strIndexOutOfBoundsMsg:
     .asciiz "ERROR: string index out of bounds\n"
-21741:arrayIndexOutOfBoundsMsg:
+21705:arrayIndexOutOfBoundsMsg:
     .asciiz "ERROR: array index out of bounds\n"
-21775:arraySizeOutOfBoundsMsg:
+21739:arraySizeOutOfBoundsMsg:
     .asciiz "ERROR: array size out of bounds\n"
-21808:nullPtrExceptionMsg:
+21772:nullPtrExceptionMsg:
     .asciiz "ERROR: null-pointer exception\n"
-21839:badIntegerFormatMsg:
+21803:badIntegerFormatMsg:
     .asciiz "ERROR: attempt to read badly formatted integer\n"
-21887:castExceptionMsg:
+21851:castExceptionMsg:
     .asciiz "ERROR: illegal cast\n"
-21908:gcMsg: 
+21872:gcMsg: 
       .asciiz "\nGC!\n"
-21914:gcCountMsg: 
+21878:gcCountMsg: 
       .asciiz "Number of garbage collections: "
 
-21946:nullStr:
+21910:nullStr:
     .asciiz "null"
-21951:trueString:
+21915:trueString:
     .asciiz "true"
-21956:falseString:
+21920:falseString:
     .asciiz "false"
-21962:exitString:
-    .ascii "Program execution completed."
+21926:exitString:
+    .ascii "Program terminated."
     #### "falls through" here
-21990:newlineString:
+21945:newlineString:
     .asciiz "\n"
     
     .align 2
-21992:stack_bottom:
+21948:stack_bottom:
     .word 0
 
 # heapFudge: # temporary fudge amount to exercise GC
 #     .word 0
 
-21996:seg0_start:
+21952:seg0_start:
     .space 0x100000
-1070572:seg0_end:
-1070572:seg1_start:
+1070528:seg0_end:
+1070528:seg1_start:
     .space 0x100000
-2119148:seg1_end:
+2119104:seg1_end:
